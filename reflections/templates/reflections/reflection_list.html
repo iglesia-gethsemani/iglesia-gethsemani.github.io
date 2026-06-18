@@ -1,24 +1,6 @@
 {% extends "core/base.html" %}
-{% url 'reflections:reflection_list' %}
-{% block title %}Reflexiones semanales{% endblock %}
-
+{% block title %}Reflexiones | Iglesia Presbiteriana Reformada Gethsemaní{% endblock %}
 {% block content %}
-<section class="page-section">
-    <h2>Reflexiones semanales</h2>
-
-    {% for reflection in reflections %}
-        <article style="margin-bottom: 2rem;">
-            <h3>
-                <a href="{% url 'reflections:reflection_detail' reflection.slug %}">
-                    {{ reflection.title }}
-                </a>
-            </h3>
-            <p style="font-size: 0.9rem; color: #6b7280;">
-                {{ reflection.published_date }}
-            </p>
-        </article>
-    {% empty %}
-        <p>No hay reflexiones publicadas todavía.</p>
-    {% endfor %}
-</section>
+<header class="page-hero"><div><p class="eyebrow">Para tu semana</p><h1>Reflexiones<br><em>desde la Palabra.</em></h1></div><p>Lecturas breves para detenernos, meditar en las Escrituras y orientar el corazón hacia Cristo.</p></header>
+<section class="section listing-section"><div class="list-header"><p>Reflexiones publicadas</p><span>{{ reflections|length|stringformat:"02d" }}</span></div><div class="article-list">{% for reflection in reflections %}<article class="article-row"><time datetime="{{ reflection.published_date|date:'Y-m-d' }}"><span>{{ reflection.published_date|date:"d" }}</span>{{ reflection.published_date|date:"M Y" }}</time><div><p class="article-kicker">Reflexión semanal</p><h2><a href="{% url 'reflections:reflection_detail' reflection.slug %}">{{ reflection.title }}</a></h2>{% if reflection.scripture %}<p>{{ reflection.scripture|truncatewords:18 }}</p>{% endif %}</div><a class="round-link" href="{% url 'reflections:reflection_detail' reflection.slug %}" aria-label="Leer {{ reflection.title }}">→</a></article>{% empty %}<div class="empty-panel"><h2>Próximamente</h2><p>Aún no hay reflexiones publicadas. Vuelve pronto.</p></div>{% endfor %}</div></section>
 {% endblock %}

@@ -1,32 +1,13 @@
-{% extends "core/base.html" %}
-
-{% block title %}
-Inicio | Iglesia Presbiteriana Reformada Gethsemaní
-{% endblock %}
-
+{% extends "core/base.html" %}{% load static %}
+{% block title %}Iglesia Presbiteriana Reformada Gethsemaní | Coyoacán{% endblock %}
 {% block content %}
-    <h2>Bienvenidos</h2>
-    <p>
-        Somos una iglesia presbiteriana reformada comprometida con la predicación fiel
-        de la Palabra de Dios, la adoración reverente y la vida en comunidad.
-    </p>
-
-    <section class="page-content">
-    <h2>Reflexión semanal</h2>
-
-    {% if reflection %}
-        <h3>{{ reflection.title }}</h3>
-        <p><em>{{ reflection.created }}</em></p>
-
-        <p>
-            {{ reflection.content|truncatewords:40 }}
-        </p>
-
-        <a href="{% url 'reflections:reflection_detail' reflection.slug %}">
-            Read full reflection →
-        </a>
-    {% else %}
-        <p>No hay reflexiones aún.</p>
-    {% endif %}
+<section class="home-hero">
+    <div class="home-hero-copy"><p class="overline">Una iglesia reformada en Coyoacán</p><h1>El evangelio<br>para <span>toda la vida.</span></h1><p class="hero-summary">Existimos para glorificar a Dios mediante la adoración, la predicación fiel de las Escrituras y una comunidad formada por la gracia de Jesucristo.</p><div class="hero-buttons"><a class="button button-white" href="{% url 'core:contact' %}">Planea tu visita <b>→</b></a><a class="button button-ghost" href="{% url 'sermons:sermon_list' %}">Ver sermones</a></div><div class="hero-stats"><div><strong>10:30</strong><span>Estudios bíblicos</span></div><div><strong>12:00</strong><span>Culto de adoración</span></div><div><strong>18:00</strong><span>Culto familiar</span></div></div></div>
+    <figure class="home-hero-image"><img src="{% static 'core/images/templo-gethsemani.jpg' %}" alt="Templo de la Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán"><figcaption>Foto: YessMendez · CC BY-SA 4.0</figcaption><div class="image-badge"><span>Templo</span><strong>histórico</strong><small>en Coyoacán</small></div></figure>
 </section>
+<section class="intro-band"><p>Una comunidad histórica con un mensaje que no cambia.</p><div><span>Confesional</span><span>Presbiteriana</span><span>Reformada</span></div></section>
+<section class="content-section welcome-grid"><div><p class="overline blue">Bienvenidos</p><h2>Verdad profunda.<br>Gracia abundante.<br>Comunidad real.</h2></div><div><p class="large-copy">Creemos que la iglesia debe ser más que un evento dominical. Es una familia que aprende, adora, sirve y da testimonio de Cristo en medio de la ciudad.</p><a class="arrow-link" href="{% url 'core:nosotros' %}">Conoce nuestra historia <span>↗</span></a></div></section>
+<section class="belief-preview"><div class="belief-preview-head"><p class="overline">El corazón de nuestra fe</p><h2>La Reforma en cinco afirmaciones.</h2><a class="button button-blue" href="{% url 'core:beliefs' %}">Explorar lo que creemos</a></div><div class="solas-mini"><article><span>01</span><h3>Sola Scriptura</h3><p>Solo la Escritura</p></article><article><span>02</span><h3>Sola Gratia</h3><p>Solo por gracia</p></article><article><span>03</span><h3>Sola Fide</h3><p>Solo por la fe</p></article><article><span>04</span><h3>Solus Christus</h3><p>Solo Cristo</p></article><article><span>05</span><h3>Soli Deo Gloria</h3><p>Solo a Dios la gloria</p></article></div></section>
+<section class="media-section"><div><p class="overline blue">Crece en la Palabra</p><h2>Sermones, reflexiones<br>y recursos para ti.</h2></div><div class="media-cards"><a href="{% url 'sermons:sermon_list' %}"><span>▶</span><div><small>Escucha</small><strong>Sermones recientes</strong></div><b>→</b></a><a href="{% url 'reflections:reflection_list' %}"><span>✦</span><div><small>Lee</small><strong>Reflexiones bíblicas</strong></div><b>→</b></a><a href="{% url 'core:resources' %}"><span>＋</span><div><small>Explora</small><strong>Biblioteca de recursos</strong></div><b>→</b></a></div></section>
+<section class="visit-banner"><div><p class="overline">Este domingo</p><h2>Hay un lugar<br>para ti.</h2><p>Cuauhtémoc 117, esquina con Allende<br>Colonia Del Carmen, Coyoacán</p></div><a class="button button-white" href="{% url 'core:contact' %}">Cómo llegar <b>→</b></a></section>
 {% endblock %}

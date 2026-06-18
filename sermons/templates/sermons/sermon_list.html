@@ -1,39 +1,6 @@
 {% extends "core/base.html" %}
-{% url 'sermons:sermon_list' %}
-{% block title %}Sermones{% endblock %}
-
+{% block title %}Sermones | Iglesia Presbiteriana Reformada Gethsemaní{% endblock %}
 {% block content %}
-<section class="page-section">
-    <h2>Sermones</h2>
-
-    {% for sermon in sermons %}
-        <article style="margin-bottom: 3rem;">
-            <h3>{{ sermon.title }}</h3>
-
-            {% if sermon.preacher %}
-                <p><strong>Predicador:</strong> {{ sermon.preacher }}</p>
-            {% endif %}
-
-            <p style="font-size: 0.9rem; color: #6b7280;">
-                {{ sermon.date }}
-            </p>
-
-            <div style="margin-top: 1rem;">
-                <iframe
-  width="100%"
-  height="420"
-  src="https://www.youtube-nocookie.com/embed/{{ sermon.youtube_id }}"
-  title="{{ sermon.title }}"
-  frameborder="0"
-  loading="lazy"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>
-            </div>
-        </article>
-    {% empty %}
-        <p>No hay sermones disponibles.</p>
-    {% endfor %}
-</section>
+<header class="page-hero"><div><p class="eyebrow">Predicación expositiva</p><h1>Escucha<br><em>la Palabra.</em></h1></div><p>Mensajes recientes de nuestra congregación para conocer a Dios, comprender las Escrituras y vivir el evangelio.</p></header>
+<section class="section sermons-section"><div class="list-header"><p>Mensajes recientes</p><span>{{ sermons|length|stringformat:"02d" }}</span></div><div class="sermons-grid">{% for sermon in sermons %}<article class="sermon-card"><div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/{{ sermon.youtube_id }}" title="{{ sermon.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="sermon-copy"><p class="article-kicker">{{ sermon.date|date:"j M Y" }}</p><h2>{{ sermon.title }}</h2>{% if sermon.preacher %}<p>{{ sermon.preacher }}</p>{% endif %}</div></article>{% empty %}<div class="empty-panel"><h2>Próximamente</h2><p>Los sermones aparecerán aquí cuando estén disponibles.</p></div>{% endfor %}</div></section>
 {% endblock %}

@@ -1,37 +1,9 @@
 {% extends "core/base.html" %}
-{% url 'reflections:reflection_detail' reflection.slug %}
-{% block title %}{{ reflection.title }}{% endblock %}
-
+{% block title %}{{ reflection.title }} | Gethsemaní{% endblock %}
 {% block content %}
-<article class="page-section">
-    <h2>{{ reflection.title }}</h2>
-
-    <div class="reflection-scripture">
-        {{ reflection.scripture|linebreaks }}
-    </div>
-
-    <p style="font-size: 0.9rem; color: #6b7280;">
-        {{ reflection.published_date }}
-    </p>
-
-    <div style="margin-top: 2rem;">
-        {{ reflection.content|linebreaks }}
-    </div>
-
-    {{ reflection.content|linebreaks }}
-
-    <div class="reflection-nav">
-        {% if previous_reflection %}
-            <a href="{% url 'reflections:reflection_detail' previous_reflection.slug %}">
-                ← Previous
-            </a>
-        {% endif %}
-
-        {% if next_reflection %}
-            <a href="{% url 'reflections:reflection_detail' next_reflection.slug %}">
-                Next →
-            </a>
-        {% endif %}
-    </div>
+<article class="reflection-page">
+    <header class="article-hero"><a class="back-link" href="{% url 'reflections:reflection_list' %}">← Todas las reflexiones</a><p class="eyebrow">Reflexión semanal</p><h1>{{ reflection.title }}</h1><time datetime="{{ reflection.published_date|date:'Y-m-d' }}">{{ reflection.published_date|date:"j \d\e F \d\e Y" }}</time></header>
+    <div class="article-body">{% if reflection.scripture %}<blockquote>{{ reflection.scripture|linebreaksbr }}</blockquote>{% endif %}<div class="prose-body">{{ reflection.content|linebreaks }}</div></div>
+    <nav class="reflection-nav" aria-label="Otras reflexiones">{% if previous_reflection %}<a href="{% url 'reflections:reflection_detail' previous_reflection.slug %}"><small>← Anterior</small><strong>{{ previous_reflection.title }}</strong></a>{% else %}<span></span>{% endif %}{% if next_reflection %}<a class="next" href="{% url 'reflections:reflection_detail' next_reflection.slug %}"><small>Siguiente →</small><strong>{{ next_reflection.title }}</strong></a>{% endif %}</nav>
 </article>
 {% endblock %}
