@@ -9,9 +9,11 @@ publica reflexiones y sermones, y ofrece información para visitantes.
 - Página de inicio responsiva con horarios y reflexión destacada.
 - Sección institucional y presentación del consistorio.
 - Página doctrinal con las cinco solas de la Reforma.
+- Credo de los Apóstoles y guía del Catecismo de Heidelberg.
 - Publicación de reflexiones con navegación entre artículos.
-- Catálogo de sermones mediante videos de YouTube.
+- Conexión embebida con el canal oficial de YouTube y catálogo de sermones.
 - Biblioteca administrable de recursos reformados.
+- Animaciones discretas con soporte para preferencias de movimiento reducido.
 - Información de contacto y mapa de ubicación.
 - Panel de administración para gestionar el contenido.
 - Diseño adaptable para escritorio, tabletas y teléfonos.
