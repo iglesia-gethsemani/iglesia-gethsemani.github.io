@@ -1,0 +1,140 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { pathFor } from '@/utils/paths';
+import { getYouTubeThumbnail } from '@/utils/youtube';
+
+const base = import.meta.env.BASE_URL;
+const featuredVideoUrl = 'https://www.youtube.com/watch?v=EI1yJ6ESY30';
+const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
+---
+
+<PageLayout
+  title="Iglesia Presbiteriana Reformada Gethsemaní | Coyoacán"
+  description="Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán. Una iglesia confesional centrada en Cristo, la Palabra y la comunidad."
+  canonicalPath="/"
+>
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <p class="overline">Una iglesia reformada en Coyoacán</p>
+      <h1>El evangelio<br />para <span>toda la vida.</span></h1>
+      <p class="hero-summary">
+        Existimos para glorificar a Dios mediante la adoración, la predicación fiel de las Escrituras y una
+        comunidad formada por la gracia de Jesucristo.
+      </p>
+      <div class="hero-buttons">
+        <a class="button button-white" href={pathFor('/contacto/')}>Planea tu visita <b>→</b></a>
+        <a class="button button-ghost" href={pathFor('/sermones/')}>Ver sermones</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>10:30</strong><span>Estudios bíblicos</span></div>
+        <div><strong>12:00</strong><span>Culto de adoración</span></div>
+        <div><strong>18:00</strong><span>Culto familiar</span></div>
+      </div>
+    </div>
+    <figure class="home-hero-image">
+      <img
+        src={`${base}images/templo-gethsemani.jpg`}
+        alt="Templo de la Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán"
+        width="1200"
+        height="900"
+      />
+      <figcaption>Foto: YessMendez · CC BY-SA 4.0</figcaption>
+    </figure>
+  </section>
+
+  <section class="intro-band">
+    <p>Una comunidad histórica con un mensaje que no cambia.</p>
+    <div>
+      <span>Confesional</span>
+      <span>Presbiteriana</span>
+      <span>Reformada</span>
+    </div>
+  </section>
+
+  <section class="content-section welcome-grid">
+    <div>
+      <p class="overline blue">Bienvenidos</p>
+      <h2>Verdad profunda.<br />Gracia abundante.<br />Comunidad real.</h2>
+    </div>
+    <div>
+      <p class="large-copy">
+        Creemos que la iglesia debe ser más que un evento dominical. Es una familia que aprende, adora, sirve y da
+        testimonio de Cristo en medio de la ciudad.
+      </p>
+      <a class="arrow-link" href={pathFor('/nosotros/')}>Conoce nuestra historia <span>↗</span></a>
+    </div>
+  </section>
+
+  <section class="belief-preview">
+    <div class="belief-preview-head">
+      <div>
+        <p class="overline">El corazón de nuestra fe</p>
+        <h2>Una fe bíblica, histórica y reformada.</h2>
+      </div>
+      <a class="button button-blue" href={pathFor('/lo-que-creemos/')}>Explorar lo que creemos</a>
+    </div>
+    <div class="belief-statement">
+      <p>
+        Confesamos al Dios trino, descansamos únicamente en la obra de Jesucristo y recibimos las Escrituras como
+        nuestra autoridad suprema.
+      </p>
+      <span>Las cinco solas se explican completas en nuestra página doctrinal.</span>
+    </div>
+  </section>
+
+  <section class="media-section">
+    <div>
+      <p class="overline blue">Crece en la Palabra</p>
+      <h2>Sermones, reflexiones<br />y recursos para ti.</h2>
+    </div>
+    <div class="media-cards">
+      <a href={pathFor('/sermones/')}>
+        <span>▶</span>
+        <div><small>Escucha</small><strong>Sermones recientes</strong></div>
+        <b>→</b>
+      </a>
+      <a href={pathFor('/reflexiones/')}>
+        <span>✦</span>
+        <div><small>Lee</small><strong>Reflexiones bíblicas</strong></div>
+        <b>→</b>
+      </a>
+      <a href={pathFor('/recursos/')}>
+        <span>＋</span>
+        <div><small>Explora</small><strong>Biblioteca de recursos</strong></div>
+        <b>→</b>
+      </a>
+    </div>
+  </section>
+
+  <section class="channel-section">
+    <div class="channel-copy">
+      <p class="overline">Canal oficial</p>
+      <h2>Predicación para escuchar durante la semana.</h2>
+      <p>Encuentra sermones, cultos y conferencias publicados por nuestra congregación.</p>
+      <a class="button button-white" href={pathFor('/sermones/')}>Ver todos los videos <b>→</b></a>
+    </div>
+    <a
+      class="channel-feature"
+      href="https://www.youtube.com/watch?v=EI1yJ6ESY30"
+      target="_blank"
+      rel="noopener"
+    >
+      <img src={featuredThumbnail} alt="Entre el cuidado y el abandono, sermón sobre 1 Pedro 5" />
+      <span class="play-icon">▶</span>
+      <div>
+        <small>Sermón reciente</small>
+        <strong>Entre el cuidado y el abandono</strong>
+        <p>1 Pedro 5:1–4 · Ps. Antonio Rodríguez</p>
+      </div>
+    </a>
+  </section>
+
+  <section class="visit-banner">
+    <div>
+      <p class="overline">Este domingo</p>
+      <h2>Hay un lugar<br />para ti.</h2>
+      <p>Cuauhtémoc 117, esquina con Allende<br />Colonia Del Carmen, Coyoacán</p>
+    </div>
+    <a class="button button-white" href={pathFor('/contacto/')}>Cómo llegar <b>→</b></a>
+  </section>
+</PageLayout>

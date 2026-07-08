@@ -1,0 +1,100 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+import { pathFor } from '@/utils/paths';
+
+const allResources = await getCollection('resources');
+const resources = allResources
+  .filter((resource) => resource.data.published)
+  .sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+    return (a.data.order ?? 99) - (b.data.order ?? 99);
+  });
+
+const typeLabels: Record<string, string> = {
+  article: 'Artículo',
+  book: 'Libro',
+  video: 'Video',
+  audio: 'Audio',
+  document: 'Documento',
+};
+---
+
+<PageLayout
+  title="Recursos"
+  description="Biblioteca de recursos bíblicos y reformados de la Iglesia Presbiteriana Reformada Gethsemaní."
+  canonicalPath="/recursos/"
+>
+  <header class="subpage-hero resource-hero">
+    <p class="overline">Biblioteca Gethsemaní</p>
+    <h1>Recursos para<br /><span>crecer en la fe.</span></h1>
+    <p>Material bíblico y reformado para estudiar, compartir y profundizar en el conocimiento de Dios.</p>
+  </header>
+
+  <section class="content-section resource-section">
+    <div class="resource-heading">
+      <div>
+        <p class="overline blue">Selección recomendada</p>
+        <h2>Comienza por aquí</h2>
+      </div>
+      <p>Confesiones, catecismos y herramientas para comprender mejor la fe reformada.</p>
+    </div>
+
+    <div class="starter-resources">
+      <a href="https://www.biblegateway.com/?language=es" target="_blank" rel="noopener">
+        <span>Escrituras</span>
+        <h3>Biblia en línea</h3>
+        <p>Consulta y compara traducciones de la Palabra de Dios.</p>
+        <b>Visitar ↗</b>
+      </a>
+      <a
+        href="https://www.crcna.org/welcome/beliefs/confessions/heidelberg-catechism?language=es"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Catecismo</span>
+        <h3>Catecismo de Heidelberg</h3>
+        <p>Manual reformado de enseñanza cristiana en preguntas y respuestas.</p>
+        <b>Consultar ↗</b>
+      </a>
+      <a href={pathFor('/reflexiones/')}>
+        <span>Gethsemaní</span>
+        <h3>Reflexiones semanales</h3>
+        <p>Lecturas breves preparadas para acompañar tu semana.</p>
+        <b>Leer →</b>
+      </a>
+    </div>
+
+    {
+      resources.length > 0 && (
+        <div class="resource-dynamic">
+          <div class="section-title-row">
+            <h2>Más recursos</h2>
+            <span>{String(resources.length).padStart(2, '0')}</span>
+          </div>
+          <div class="resource-list">
+            {resources.map((resource) => (
+              <a href={resource.data.url} target="_blank" rel="noopener">
+                <span class="resource-type">{typeLabels[resource.data.resourceType] ?? 'Recurso'}</span>
+                <div>
+                  <h3>{resource.data.title}</h3>
+                  <p>{resource.data.description}</p>
+                  {resource.data.author && <small>{resource.data.author}</small>}
+                </div>
+                <b>↗</b>
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <div class="resource-note">
+      <span>¿Buscas algo en particular?</span>
+      <p>
+        Los recursos se actualizan editando archivos Markdown en <code>src/content/resources/</code>. Aquí se pueden
+        compartir estudios, videos, libros, audios y documentos recomendados por la iglesia.
+      </p>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,59 @@
+---
+import { pathFor } from '@/utils/paths';
+
+interface NavItem {
+  href: string;
+  label: string;
+  match: string;
+}
+
+const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+
+const navItems: NavItem[] = [
+  { href: pathFor('/'), label: 'Inicio', match: '/' },
+  { href: pathFor('/nosotros/'), label: 'Nosotros', match: '/nosotros' },
+  { href: pathFor('/lo-que-creemos/'), label: 'Lo que creemos', match: '/lo-que-creemos' },
+  { href: pathFor('/sermones/'), label: 'Sermones', match: '/sermones' },
+  { href: pathFor('/recursos/'), label: 'Recursos', match: '/recursos' },
+];
+
+function isCurrent(match: string): boolean {
+  const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  const normalizedPath = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+  if (match === '/') {
+    return normalizedPath === normalizedBase || normalizedPath === `${normalizedBase}/` || normalizedPath === '';
+  }
+
+  return normalizedPath.startsWith(`${normalizedBase}${match}`);
+}
+---
+
+<header class="site-header">
+  <div class="header-container">
+    <a class="site-branding" href={pathFor('/')} aria-label="Gethsemaní, inicio">
+      <span class="brand-symbol" aria-hidden="true"><span></span></span>
+      <span class="brand-copy">
+        <strong>Gethsemaní</strong>
+        <small>Presbiteriana Reformada · Coyoacán</small>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+      <span class="sr-only">Abrir menú</span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-navigation" aria-label="Navegación principal">
+      {
+        navItems.map((item) => (
+          <a href={item.href} aria-current={isCurrent(item.match) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+      <a class="nav-cta" href={pathFor('/contacto/')}>Visítanos</a>
+    </nav>
+  </div>
+</header>

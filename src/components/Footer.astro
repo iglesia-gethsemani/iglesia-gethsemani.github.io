@@ -1,0 +1,33 @@
+---
+import { pathFor } from '@/utils/paths';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-identity">
+      <div class="brand-symbol brand-symbol-light"><span></span></div>
+      <div>
+        <strong>Gethsemaní</strong>
+        <p>Iglesia Presbiteriana Reformada<br />en el corazón de Coyoacán.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <strong>Explora</strong>
+      <a href={pathFor('/lo-que-creemos/')}>Lo que creemos</a>
+      <a href={pathFor('/sermones/')}>Sermones</a>
+      <a href={pathFor('/recursos/')}>Recursos</a>
+    </div>
+    <div class="footer-links">
+      <strong>Visítanos</strong>
+      <span>Cuauhtémoc 117, Col. Del Carmen<br />Coyoacán, CDMX 04100</span>
+      <a href="tel:+525555543467">55 5554 3467</a>
+      <a href="https://www.youtube.com/@i.p.r.m.gethsemani" target="_blank" rel="noopener">YouTube ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {year} Iglesia Presbiteriana Reformada Gethsemaní</span>
+    <span>Soli Deo Gloria</span>
+  </div>
+</footer>

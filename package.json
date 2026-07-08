@@ -1,0 +1,19 @@
+{
+  "name": "gethsemani-oficial",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Sitio estático de la Iglesia Presbiteriana Reformada Gethsemaní",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.3.1",
+    "astro": "^5.7.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

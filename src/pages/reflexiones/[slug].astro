@@ -1,0 +1,73 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { pathFor } from '@/utils/paths';
+
+export async function getStaticPaths() {
+  const reflections = await getCollection('reflections', ({ data }) => data.published);
+  const sorted = reflections.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+  return sorted.map((reflection, index) => ({
+    params: { slug: reflection.id },
+    props: {
+      reflection,
+      previous: index > 0 ? sorted[index - 1] : null,
+      next: index < sorted.length - 1 ? sorted[index + 1] : null,
+    },
+  }));
+}
+
+const { reflection, previous, next } = Astro.props;
+const { Content } = await render(reflection);
+
+const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<PageLayout
+  title={reflection.data.title}
+  description={reflection.data.description ?? reflection.data.passage ?? reflection.data.title}
+  canonicalPath={`/reflexiones/${reflection.id}/`}
+>
+  <article class="reflection-page">
+    <header class="article-hero">
+      <a class="back-link" href={pathFor('/reflexiones/')}>← Todas las reflexiones</a>
+      <p class="eyebrow">Reflexión semanal</p>
+      <h1>{reflection.data.title}</h1>
+      <time datetime={reflection.data.date.toISOString().slice(0, 10)}>
+        {dateFormatter.format(reflection.data.date)}
+      </time>
+    </header>
+
+    <div class="article-body">
+      {reflection.data.passage && <blockquote>{reflection.data.passage}</blockquote>}
+      <div class="prose-body">
+        <Content />
+      </div>
+    </div>
+
+    <nav class="reflection-nav" aria-label="Otras reflexiones">
+      {
+        previous ? (
+          <a href={pathFor(`/reflexiones/${previous.id}/`)}>
+            <small>← Anterior</small>
+            <strong>{previous.data.title}</strong>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next ? (
+          <a class="next" href={pathFor(`/reflexiones/${next.id}/`)}>
+            <small>Siguiente →</small>
+            <strong>{next.data.title}</strong>
+          </a>
+        ) : null
+      }
+    </nav>
+  </article>
+</PageLayout>

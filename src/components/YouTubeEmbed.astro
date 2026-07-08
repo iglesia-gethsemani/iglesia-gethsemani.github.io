@@ -1,0 +1,21 @@
+---
+import { getYouTubeEmbedUrl } from '@/utils/youtube';
+
+interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const embedUrl = getYouTubeEmbedUrl(url);
+---
+
+<div class="video-wrap">
+  <iframe
+    src={embedUrl}
+    title={title}
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
+</div>
