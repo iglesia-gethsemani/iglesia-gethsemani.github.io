@@ -1,0 +1,70 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+import { pathFor } from '@/utils/paths';
+
+const allReflections = await getCollection('reflections');
+const reflections = allReflections
+  .filter((reflection) => reflection.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+});
+---
+
+<PageLayout
+  title="Reflexiones"
+  description="Reflexiones bíblicas semanales de la Iglesia Presbiteriana Reformada Gethsemaní."
+  canonicalPath="/reflexiones/"
+>
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Para tu semana</p>
+      <h1>Reflexiones<br /><em>desde la Palabra.</em></h1>
+    </div>
+    <p>Lecturas breves para detenernos, meditar en las Escrituras y orientar el corazón hacia Cristo.</p>
+  </header>
+
+  <section class="section listing-section">
+    <div class="list-header">
+      <p>Reflexiones publicadas</p>
+      <span>{String(reflections.length).padStart(2, '0')}</span>
+    </div>
+    <div class="article-list">
+      {
+        reflections.length > 0 ? (
+          reflections.map((reflection) => (
+            <article class="article-row">
+              <time datetime={reflection.data.date.toISOString().slice(0, 10)}>
+                <span>{reflection.data.date.getDate()}</span>
+                {dateFormatter.format(reflection.data.date)}
+              </time>
+              <div>
+                <p class="article-kicker">Reflexión semanal</p>
+                <h2>
+                  <a href={pathFor(`/reflexiones/${reflection.id}/`)}>{reflection.data.title}</a>
+                </h2>
+                {reflection.data.passage && <p>{reflection.data.passage}</p>}
+              </div>
+              <a
+                class="round-link"
+                href={pathFor(`/reflexiones/${reflection.id}/`)}
+                aria-label={`Leer ${reflection.data.title}`}
+              >
+                →
+              </a>
+            </article>
+          ))
+        ) : (
+          <div class="empty-panel">
+            <h2>Próximamente</h2>
+            <p>Aún no hay reflexiones publicadas. Vuelve pronto.</p>
+          </div>
+        )
+      }
+    </div>
+  </section>
+</PageLayout>

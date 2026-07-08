@@ -1,0 +1,81 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import YouTubeEmbed from '@/components/YouTubeEmbed.astro';
+import { getCollection } from 'astro:content';
+
+const allSermons = await getCollection('sermons');
+const sermons = allSermons
+  .filter((sermon) => sermon.data.published)
+  .sort((a, b) => {
+    if (a.data.order !== undefined && b.data.order !== undefined) {
+      return a.data.order - b.data.order;
+    }
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
+
+const categoryLabels: Record<string, string> = {
+  sermon: 'Sermón',
+  worship: 'Culto de adoración',
+  conference: 'Conferencia',
+  'full-service': 'Culto completo',
+  sacrament: 'Culto y sacramento',
+};
+
+const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<PageLayout
+  title="Sermones"
+  description="Sermones, cultos y conferencias de la Iglesia Presbiteriana Reformada Gethsemaní en YouTube."
+  canonicalPath="/sermones/"
+>
+  <header class="page-hero">
+    <div>
+      <p class="overline">Predicación expositiva</p>
+      <h1>Escucha<br /><em>la Palabra.</em></h1>
+    </div>
+    <p>
+      Mensajes recientes de nuestra congregación para conocer a Dios, comprender las Escrituras y vivir el evangelio.
+    </p>
+  </header>
+
+  <section class="youtube-library">
+    <div class="youtube-library-head">
+      <div>
+        <p class="overline">Canal oficial de YouTube</p>
+        <h2>Cultos y sermones</h2>
+      </div>
+      <div>
+        <p>Una selección del contenido publicado por la Iglesia Presbiteriana Reformada Gethsemaní.</p>
+        <a
+          class="button button-white"
+          href="https://www.youtube.com/@i.p.r.m.gethsemani"
+          target="_blank"
+          rel="noopener"
+        >
+          Abrir el canal <b>↗</b>
+        </a>
+      </div>
+    </div>
+
+    <div class="youtube-video-grid">
+      {
+        sermons.map((sermon) => (
+          <article>
+            <YouTubeEmbed url={sermon.data.youtubeUrl} title={sermon.data.title} />
+            <p>{categoryLabels[sermon.data.category] ?? 'Sermón'}</p>
+            <h3>{sermon.data.title}</h3>
+            <span>
+              {sermon.data.passage && `${sermon.data.passage} · `}
+              {sermon.data.preacher ?? dateFormatter.format(sermon.data.date)}
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</PageLayout>

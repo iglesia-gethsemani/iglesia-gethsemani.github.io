@@ -1,0 +1,65 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title = 'Iglesia Presbiteriana Reformada Gethsemaní',
+  description = 'Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán. Una iglesia confesional centrada en Cristo y en su Palabra.',
+  image = '/images/templo-gethsemani.jpg',
+  canonicalPath = '/',
+} = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://iglesia-gethsemani.github.io';
+const base = import.meta.env.BASE_URL;
+const pageTitle = title.includes('Gethsemaní') ? title : `${title} | Iglesia Presbiteriana Reformada Gethsemaní`;
+const canonicalUrl = new URL(canonicalPath.replace(/^\//, ''), `${site}${base}`).href;
+const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, ''), `${site}${base}`).href;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Iglesia Presbiteriana Reformada Gethsemaní" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href={`${base}styles/global.css`} />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <div class="topbar">
+      <div>Cuauhtémoc 117 · Coyoacán, CDMX</div>
+      <div>Domingos desde las 10:30 h</div>
+    </div>
+    <slot name="header" />
+    <main id="contenido">
+      <slot />
+    </main>
+    <slot name="footer" />
+    <script src={`${base}scripts/site.js`} defer></script>
+  </body>
+</html>
