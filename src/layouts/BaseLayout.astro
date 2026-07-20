@@ -60,6 +60,6 @@ const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, 
       <slot />
     </main>
     <slot name="footer" />
-    <script src={`${base}scripts/site.js`} defer></script>
+    <script is:inline src={`${base}scripts/site.js`} defer></script>
   </body>
 </html>
