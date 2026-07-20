@@ -576,8 +576,54 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
     .church-hymn { padding: 70px 24px; grid-template-columns: 1fr; gap: 38px; }.church-hymn-heading { position: static; }.church-hymn-sheet { padding: 32px 24px 38px; }.church-hymn-chorus p { font-size: 21px; }.church-hymn-verses article { grid-template-columns: 32px minmax(0,1fr); gap: 12px; }.church-hymn-verses p { font-size: 17px; }
     .subpage-hero,.page-hero { min-height: 500px; padding: 70px 24px 50px; gap: 35px; align-content: end; }.page-hero-split { padding-left: 0; padding-right: 0; }.page-hero-split > div { padding: 48px 24px; }.page-hero-media { min-height: 280px; width: 100%; }.page-hero-media img { min-height: 280px; width: 100%; max-width: 100%; }.subpage-hero h1,.page-hero h1 { font-size: 54px; }.doctrine-intro { gap: 40px; }.doctrine-grid { grid-template-columns: 1fr; }.doctrine-grid article { min-height: auto; }.five-solas { padding: 78px 24px; gap: 45px; }.five-solas-head,.creed-heading { position: static; }.solas-list-icons article { grid-template-columns: 44px 1fr; }.solas-list-icons .sola-index { display: none; }.creed-section,.heidelberg-section { padding: 78px 24px; gap: 45px; }.creed-parts article { padding: 26px 22px; grid-template-columns: 38px 1fr; gap: 14px; }.creed-parts p { font-size: 16px; }.confession-callout,.doctrine-cta { margin: 60px 16px; padding: 42px 25px; align-items: flex-start; flex-direction: column; }
     .document-hero { padding: 65px 24px; }.document-back { margin-bottom: 42px; }.document-hero h1 { font-size: 46px; }.document-reading-layout { padding: 55px 24px 25px; grid-template-columns: 1fr; gap: 45px; }.document-index { position: static; max-height: none; }.doctrine-document { font-size: 17px; }.doctrine-document h2 { margin-top: 65px; font-size: 30px; }.doctrine-document h3 { font-size: 21px; }.document-pagination { margin-bottom: 70px; grid-template-columns: 1fr; }.document-pagination .next { text-align: left; }
-    .resource-heading { align-items: flex-start; flex-direction: column; }.starter-resources,.values-grid,.pillars-grid,.elders-grid,.societies-grid,.sermons-grid,.confessional-heading,.confessional-texts,.doctrine-resource-grid,.featured-book-resource { grid-template-columns: 1fr; }.featured-book-resource { padding: 34px 26px; gap: 34px; }.featured-book-resource figure { max-width: 240px; justify-self: start; }.confessional-resources,.doctrine-library { margin-top: 78px; padding-top: 70px; }.confessional-heading { gap: 25px; }.confessional-texts,.doctrine-resource-grid { margin-top: 38px; }.confessional-document header { padding: 25px 24px 22px; }.confessional-copy { padding: 28px 24px 32px; }.confessional-copy p { font-size: 16px; }.resource-list>a { grid-template-columns: 80px 1fr 20px; gap: 15px; }.resource-note { grid-template-columns: 44px 1fr; }.contact-layout { padding: 70px 24px; gap: 45px; }.map-wrap { min-height: 390px; }.article-row { grid-template-columns: 60px 1fr; gap: 18px; }.article-row .round-link { display: none; }.article-hero { text-align: left; }.article-hero h1 { font-size: 48px; }.footer-main { grid-template-columns: 1fr; gap: 35px; }.footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
+    .resource-heading { align-items: flex-start; flex-direction: column; }.starter-resources,.sermons-grid,.confessional-heading,.confessional-texts,.doctrine-resource-grid,.featured-book-resource { grid-template-columns: 1fr; }.values-grid,.pillars-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }.elders-grid { grid-template-columns: 1fr 1fr; gap: 14px; }.societies-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }.featured-book-resource { padding: 34px 26px; gap: 34px; }.featured-book-resource figure { max-width: 240px; justify-self: start; }.confessional-resources,.doctrine-library { margin-top: 78px; padding-top: 70px; }.confessional-heading { gap: 25px; }.confessional-texts,.doctrine-resource-grid { margin-top: 38px; }.confessional-document header { padding: 25px 24px 22px; }.confessional-copy { padding: 28px 24px 32px; }.confessional-copy p { font-size: 16px; }.resource-list>a { grid-template-columns: 80px 1fr 20px; gap: 15px; }.resource-note { grid-template-columns: 44px 1fr; }.contact-layout { padding: 70px 24px; gap: 45px; }.map-wrap { min-height: 390px; }.article-row { grid-template-columns: 60px 1fr; gap: 18px; }.article-row .round-link { display: none; }.article-hero { text-align: left; }.article-hero h1 { font-size: 48px; }.footer-main { grid-template-columns: 1fr; gap: 35px; }.footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
     .home-hero-copy { padding-top: 56px; padding-bottom: 46px; }.home-hero-image { min-height: 430px; }.subpage-hero,.page-hero { min-height: auto; padding-top: 52px; padding-bottom: 52px; }.page-hero-split { padding-top: 0; padding-bottom: 0; }.channel-section,.youtube-library { padding: 26px; }.visit-banner { padding: 42px 28px; }.belief-pillars,.belief-pillars--five { grid-template-columns: 1fr; }
+    /* Compact mobile cards: consistorio, sociedades, pilares, doctrina */
+    .story-grid h2, .section-heading h2, .contact-info h2 { font-size: 32px; }
+    .content-section h2, .belief-preview h2, .media-section h2, .visit-banner h2, .visit-cta-copy h2,
+    .history-intro h2, .creed-heading h2, .five-solas-head h2 { font-size: 32px; }
+    .subpage-hero h1, .page-hero h1 { font-size: 40px; }
+    .section-lede, .section-heading .section-lede { font-size: 14px; }
+    .values-section, .pillars-section { padding: 56px 20px; }
+    .values-grid article, .pillar-card { padding: 22px 18px; }
+    .values-grid h3, .pillar-card h3 { margin: 12px 0 6px; font-size: 18px; }
+    .values-grid p, .pillar-card p { font-size: 12px; }
+    .values-grid .icon-badge, .pillar-card .icon-badge { width: 36px; height: 36px; }
+    .values-grid .icon-badge .icon, .pillar-card .icon-badge .icon { width: 16px; height: 16px; }
+    .doctrine-cta { margin-top: 28px; padding: 24px 20px; }
+    .doctrine-cta h3 { font-size: 20px; }
+    .doctrine-cta p { font-size: 13px; }
+    .elder-photo--placeholder { min-height: 0; }
+    .elder-avatar { width: 48px; height: 48px; }
+    .elder-avatar .icon { width: 22px; height: 22px; }
+    .elder-card h3 { margin: 10px 0 4px; font-size: 15px; }
+    .elder-card p { font-size: 9px; letter-spacing: .03em; line-height: 1.35; }
+    .societies-block { margin-top: 56px; padding-top: 42px; }
+    .society-card { padding: 18px; gap: 14px; grid-template-columns: 36px 1fr; }
+    .society-card:has(.society-logo) { grid-template-columns: 52px 1fr; }
+    .society-logo { width: 52px; height: 52px; padding: 6px; }
+    .society-card > .icon-badge { width: 36px; height: 36px; }
+    .society-card > .icon-badge .icon { width: 16px; height: 16px; }
+    .society-card h3 { font-size: 17px; }
+    .society-subtitle { font-size: 13px; }
+    .society-roles { margin-top: 12px; gap: 8px; }
+    .society-roles li { padding-top: 8px; }
+    .society-roles strong { font-size: 13px; }
+    .doctrine-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .doctrine-grid.icon-grid article { padding: 16px 14px; }
+    .doctrine-grid h3 { margin: 12px 0 6px; font-size: 16px; }
+    .doctrine-grid p { font-size: 12px; }
+    .doctrine-grid .icon-badge { width: 36px; height: 36px; }
+    .doctrine-grid .icon-badge .icon { width: 16px; height: 16px; }
+    .solas-list-icons article { grid-template-columns: 36px 1fr; gap: 12px; padding: 16px 0; }
+    .solas-list-icons .icon-badge { width: 36px; height: 36px; }
+    .solas-list-icons .icon-badge .icon { width: 16px; height: 16px; }
+    .solas-list h3 { font-size: 22px; }
+    .solas-list p { font-size: 13px; }
+    .creed-parts article { padding: 18px 16px; }
+    .creed-parts .icon-badge { width: 36px; height: 36px; }
+    .contact-item { padding: 16px 0; gap: 12px; grid-template-columns: 36px 1fr; }
+    .contact-item .icon-badge { width: 36px; height: 36px; }
     .annual-reader-section { padding: 58px 16px 75px; }.annual-reader-intro { grid-template-columns: 1fr; gap: 24px; }.annual-reader { padding: 16px; }.annual-book-stage { grid-template-columns: 38px minmax(0,1fr) 38px; gap: 8px; }.annual-edge-control { width: 38px; height: 58px; }.annual-controls { flex-wrap: wrap; }.annual-controls button { padding: 0 11px; }
 }
 

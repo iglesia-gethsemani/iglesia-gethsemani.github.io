@@ -4,8 +4,10 @@ interface Props {
     | 'book'
     | 'cross'
     | 'grace'
+    | 'gift'
     | 'faith'
     | 'glory'
+    | 'crown'
     | 'church'
     | 'people'
     | 'person'
@@ -21,6 +23,7 @@ interface Props {
     | 'trinity'
     | 'scripture'
     | 'christ'
+    | 'ichthus'
     | 'salvation'
     | 'music'
     | 'mail'
@@ -31,12 +34,14 @@ interface Props {
 
 const { name, class: className = '' } = Astro.props;
 
-const paths: Record<Props['name'], string> = {
+const paths: Record<Props['name'], string | string[]> = {
   book: 'M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z',
   cross: 'M12 2v20 M5 9h14',
   grace: 'M12 3v18 M7 8c0-2.5 2.2-4.5 5-4.5s5 2 5 4.5-2.2 4.5-5 4.5S7 13 7 10.5 M7 14c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5',
+  gift: 'M20 12v10H4V12 M2 7h20v5H2z M12 22V7 M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z',
   faith: 'M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z',
   glory: 'M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.8 5.7 21l2.3-7.2-6-4.4h7.6z',
+  crown: 'M2 8l3.5 4L9 6l3 5 3-5 3.5 6L22 8v11H2V8z M5 19h14',
   church: 'M3 21h18 M5 21V10l7-5 7 5v11 M9 21v-6h6v6',
   people:
     'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75',
@@ -53,12 +58,16 @@ const paths: Record<Props['name'], string> = {
   trinity: 'M12 3l8 14H4z M12 9v8 M9 17h6',
   scripture: 'M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z M10 7h6 M10 11h6',
   christ: 'M12 2v20 M5 9h14 M8 15h8',
+  // Classic ΙΧΘΥΣ / IXOYE: vesica body + forked tail
+  ichthus: ['M2.5 12Q11 3 18.5 12', 'M2.5 12Q11 21 18.5 12', 'M18.5 12L23 6.5', 'M18.5 12L23 17.5'],
   salvation: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
   music: 'M9 18V5l12-2v13 M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0z M21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z',
   mail: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6',
   arrow: 'M5 12h14 M13 6l6 6-6 6',
   facebook: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
 };
+
+const iconPaths = Array.isArray(paths[name]) ? paths[name] : [paths[name]];
 ---
 
 <svg
@@ -71,5 +80,5 @@ const paths: Record<Props['name'], string> = {
   stroke-linejoin="round"
   aria-hidden="true"
 >
-  <path d={paths[name]}></path>
+  {iconPaths.map((d) => <path d={d} />)}
 </svg>
