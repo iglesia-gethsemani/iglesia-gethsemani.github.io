@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  accessibleTitle: string;
+  pageDirectory: string;
+  totalPages: number;
+  pageWidth: number;
+  pageHeight: number;
+}
+
+const { title, accessibleTitle, pageDirectory, totalPages, pageWidth, pageHeight } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const normalizedDirectory = pageDirectory.replace(/^\//, '').replace(/\/?$/, '/');
+const pagePrefix = `${base}${normalizedDirectory}page-`;
+---
+
+<div
+  class="annual-reader"
+  data-book-reader
+  data-page-prefix={pagePrefix}
+  data-total-pages={totalPages}
+  data-document-title={accessibleTitle}
+>
+  <div class="annual-reader-bar">
+    <strong>{title}</strong>
+    <span data-page-status aria-live="polite">Página 1 de {totalPages}</span>
+  </div>
+
+  <div class="annual-book-stage">
+    <button class="annual-edge-control" type="button" data-action="prev" aria-label="Páginas anteriores">←</button>
+    <div class="annual-book is-cover" data-book tabindex="0" aria-label={`Lector de ${accessibleTitle}`}>
+      <figure class="annual-page" data-page-one>
+        <img
+          src={`${pagePrefix}01.png`}
+          alt={`Portada de ${accessibleTitle}`}
+          width={pageWidth}
+          height={pageHeight}
+        />
+      </figure>
+      <figure class="annual-page" data-page-two hidden>
+        <img
+          src={`${pagePrefix}02.png`}
+          alt={`Página 2 de ${accessibleTitle}`}
+          width={pageWidth}
+          height={pageHeight}
+        />
+      </figure>
+    </div>
+    <button class="annual-edge-control" type="button" data-action="next" aria-label="Páginas siguientes">→</button>
+  </div>
+
+  <div class="annual-controls" aria-label={`Controles de ${accessibleTitle}`}>
+    <button type="button" data-action="first">Primera</button>
+    <button type="button" data-action="prev">Anterior</button>
+    <label>
+      <span>Página</span>
+      <input type="number" min="1" max={totalPages} value="1" inputmode="numeric" data-page-input />
+    </label>
+    <button type="button" data-action="next">Siguiente</button>
+    <button type="button" data-action="last">Última</button>
+  </div>
+</div>
+
+<script is:inline src={`${base}scripts/book-viewer.js`} defer></script>

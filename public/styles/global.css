@@ -306,6 +306,19 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .history-quote { margin: 20px 0 0; padding: 36px 40px; background: #f7f4ee; border-left: 4px solid var(--brick); max-width: 100%; }
 .history-quote p { margin: 0; color: var(--navy); font: italic 600 20px/1.55 var(--serif); max-width: 820px; overflow-wrap: break-word; }
 .history-quote cite { display: block; margin-top: 16px; color: var(--brick); font: 800 11px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; font-style: normal; }
+.church-hymn { padding: 90px max(24px,calc((100vw - 1280px) / 2)); display: grid; grid-template-columns: .68fr 1.32fr; gap: 8%; align-items: start; background: #f3f0e9; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.church-hymn-heading { position: sticky; top: 115px; }
+.church-hymn-heading>.icon-badge { margin-bottom: 24px; background: var(--brick); }
+.church-hymn-heading h2 { margin: 0; color: var(--ink); font: 600 clamp(42px,4.5vw,64px)/1.08 var(--serif); }
+.church-hymn-heading>p:not(.eyebrow) { max-width: 420px; margin: 24px 0; color: var(--muted); }
+.church-hymn-sheet { padding: 42px 46px 48px; background: white; border: 1px solid var(--line); border-top: 4px solid var(--brick); box-shadow: 0 18px 42px rgba(37,42,39,.08); }
+.church-hymn-chorus { padding-bottom: 34px; border-bottom: 1px solid var(--line); }
+.church-hymn-sheet h3 { margin: 0 0 14px; color: var(--brick); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.church-hymn-chorus p { margin: 0; color: var(--ink); font: italic 600 24px/1.65 var(--serif); }
+.church-hymn-verses { margin-top: 34px; display: grid; gap: 36px; }
+.church-hymn-verses article { display: grid; grid-template-columns: 42px minmax(0,1fr); gap: 18px; }
+.church-hymn-verses article>span { color: var(--brick); font: italic 600 18px var(--serif); }
+.church-hymn-verses p { margin: 0; color: #474d49; font: 500 18px/1.72 var(--serif); }
 .story-grid h2, .section-heading h2, .contact-info h2 { color: var(--navy); font: 600 48px/1.1 var(--serif); letter-spacing: 0; }
 .prose { color: var(--muted); }
 .prose .lead { color: var(--navy); font: 600 24px/1.55 var(--serif); }
@@ -467,6 +480,13 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .starter-resources { grid-template-columns: repeat(3,1fr); gap: 16px; }
 .starter-resources a { min-height: 250px; padding: 26px; background: white; border-radius: 0; }
 .starter-resources h3 { margin: 8px 0 10px; }
+.featured-book-resource { margin-top: 72px; padding: 48px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 8%; align-items: center; background: #f3f0e9; border: 1px solid var(--line); }
+.featured-book-copy>.icon-badge { margin-bottom: 22px; background: var(--brick); }
+.featured-book-copy h2 { max-width: 650px; margin: 0; color: var(--ink); font: 600 clamp(38px,4vw,58px)/1.08 var(--serif); }
+.featured-book-copy>p:not(.overline) { max-width: 650px; margin: 22px 0 28px; color: var(--muted); }
+.featured-book-resource figure { max-width: 270px; margin: 0; justify-self: end; box-shadow: 0 18px 34px rgba(37,42,39,.16); }
+.featured-book-resource img { width: 100%; height: auto; }
+.resource-reader-back { margin-top: 36px; margin-bottom: 0; }
 .confessional-resources,.doctrine-library { margin-top: 82px; padding-top: 74px; }
 .confessional-document,.doctrine-resource-grid a { border-radius: 0; box-shadow: none; }
 .confessional-document header { color: var(--ink); background: #ede8df; border-bottom: 1px solid var(--line); border-top: 3px solid var(--brick); }
@@ -495,9 +515,39 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .youtube-video-grid .video-wrap { border-color: var(--line); box-shadow: 0 12px 28px rgba(37,42,39,.12); }
 .site-footer { background: #252b28; border-color: rgba(255,255,255,.12); }
 
+/* Annual book reader */
+.annual-reader-section { max-width: 1320px; margin: auto; padding: 76px 24px 100px; }
+.annual-reader-intro { margin-bottom: 42px; display: grid; grid-template-columns: 1.1fr .7fr; gap: 10%; align-items: end; }
+.annual-reader-intro h2 { max-width: 700px; margin: 0; color: var(--ink); font: 600 clamp(40px,4.2vw,62px)/1.08 var(--serif); }
+.annual-reader-intro>div:last-child>p { color: var(--muted); }
+.annual-download { display: inline-flex; color: var(--brick); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
+.annual-reader { padding: 24px; background: #e8e3da; border: 1px solid #d2cbc0; box-shadow: 0 20px 55px rgba(37,42,39,.12); }
+.annual-reader-bar { margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #565a56; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+.annual-reader-bar strong { color: var(--ink); font-family: var(--serif); font-size: 15px; letter-spacing: .02em; text-transform: none; }
+.annual-book-stage { display: grid; grid-template-columns: 48px minmax(0,1fr) 48px; gap: 16px; align-items: center; }
+.annual-edge-control { width: 48px; height: 68px; color: white; background: var(--brick); border: 0; cursor: pointer; font-size: 24px; transition: transform .2s,background .2s; }
+.annual-edge-control:hover:not(:disabled) { background: #742f24; transform: translateY(-2px); }
+.annual-edge-control:disabled { opacity: .28; cursor: not-allowed; }
+.annual-book { max-width: 980px; margin: auto; display: flex; justify-content: center; touch-action: pan-y; outline: 0; filter: drop-shadow(0 18px 26px rgba(37,42,39,.24)); transform-origin: center; }
+.annual-book:focus-visible { outline: 3px solid rgba(148,61,46,.45); outline-offset: 5px; }
+.annual-page { min-width: 0; width: 50%; position: relative; margin: 0; aspect-ratio: 595.56/841.68; overflow: hidden; background: white; }
+.annual-page:first-child:not(:only-child) { border-right: 1px solid #c9c2b7; }
+.annual-page img { width: 100%; height: 100%; object-fit: contain; background: white; }
+.annual-book.is-cover { max-width: 490px; }
+.annual-book.is-cover .annual-page { width: 100%; }
+.annual-book.is-cover .annual-page:first-child { border-right: 0; }
+.annual-controls { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 9px; }
+.annual-controls button,.annual-controls input { min-height: 40px; color: var(--ink); background: white; border: 1px solid #c6bfb4; font: 700 10px var(--sans); text-transform: uppercase; }
+.annual-controls button { padding: 0 15px; cursor: pointer; }
+.annual-controls button:hover:not(:disabled) { color: white; background: var(--brick); border-color: var(--brick); }
+.annual-controls button:disabled { opacity: .35; cursor: not-allowed; }
+.annual-controls label { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.annual-controls input { width: 64px; padding: 0 8px; text-align: center; }
+
 @media (max-width: 1100px) and (min-width: 901px) {
   .starter-resources,.doctrine-resource-grid { grid-template-columns: repeat(2, 1fr); }
   .belief-pillars--five { grid-template-columns: repeat(3, 1fr); }
+  .site-nav { gap: 16px; }.site-nav a { font-size: 10px; }.brand-copy small { display: none; }
 }
 
 @media (max-width: 900px) {
@@ -523,10 +573,16 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
     .site-nav .nav-meta p { margin: 0; }
     .home-hero { grid-template-columns: 1fr; }.home-hero-copy { padding: 70px 24px 55px; }.home-hero h1 { font-size: clamp(52px, 15vw, 70px); }.hero-buttons { align-items: stretch; flex-direction: column; }.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; overflow: visible; }.hero-stats div { min-width: 0; }.home-hero-image { min-height: 510px; }.intro-band { padding: 22px 24px; align-items: flex-start; flex-direction: column; gap: 18px; }.intro-band div { gap: 15px; flex-wrap: wrap; }
     .content-section { padding: 78px 24px; }.welcome-grid,.media-section,.doctrine-intro,.five-solas,.subpage-hero,.page-hero,.contact-layout,.story-grid,.channel-section,.creed-section,.heidelberg-section,.visit-cta { grid-template-columns: 1fr; } .history-intro,.history-item { grid-template-columns: 1fr; } .history-item { padding: 0 0 36px 24px; gap: 8px; } .history-year { font-size: 12px; } .history-item h3 { font-size: 22px; } .history-hero-photo { justify-self: stretch; max-width: 100%; } .history-inline-photo--wide,.history-inline-photo,.history-inline-photo--tall { max-width: 100%; } .history-quote { padding: 28px 22px; } .home-hero,.home-hero-copy,.home-hero-image,.belief-preview,.channel-section,.visit-cta,.page-hero,.subpage-hero { max-width: 100%; min-width: 0; } .hero-stats { max-width: 100%; } .page-hero h1,.subpage-hero h1,.home-hero h1 { overflow-wrap: anywhere; } .welcome-grid,.media-section { gap: 40px; }.content-section h2,.belief-preview h2,.media-section h2,.visit-banner h2,.visit-cta-copy h2 { font-size: 43px; }.belief-preview { padding: 78px 24px; }.belief-preview-head { align-items: flex-start; flex-direction: column; }.belief-pillars,.belief-pillars--five { grid-template-columns: 1fr 1fr; }.media-section { padding: 78px 24px; }.channel-section { margin: 0; padding: 48px 24px; gap: 35px; }.youtube-library { margin: 0 16px 70px; padding: 28px; gap: 35px; }.youtube-library-head,.youtube-latest-grid,.youtube-archive-head,.youtube-video-grid { grid-template-columns: 1fr; }.youtube-latest-grid { margin-bottom: 48px; padding-bottom: 48px; }.youtube-short-content { grid-template-columns: minmax(120px, 180px) 1fr; }.youtube-video-grid { gap: 38px; }.visit-banner { margin: 0 16px 70px; padding: 50px 28px; align-items: flex-start; flex-direction: column; gap: 35px; border-radius: 4px; }.visit-cta-media img { min-height: 280px; }.visit-cta-copy { padding: 48px 24px 56px; }
+    .church-hymn { padding: 70px 24px; grid-template-columns: 1fr; gap: 38px; }.church-hymn-heading { position: static; }.church-hymn-sheet { padding: 32px 24px 38px; }.church-hymn-chorus p { font-size: 21px; }.church-hymn-verses article { grid-template-columns: 32px minmax(0,1fr); gap: 12px; }.church-hymn-verses p { font-size: 17px; }
     .subpage-hero,.page-hero { min-height: 500px; padding: 70px 24px 50px; gap: 35px; align-content: end; }.page-hero-split { padding-left: 0; padding-right: 0; }.page-hero-split > div { padding: 48px 24px; }.page-hero-media { min-height: 280px; width: 100%; }.page-hero-media img { min-height: 280px; width: 100%; max-width: 100%; }.subpage-hero h1,.page-hero h1 { font-size: 54px; }.doctrine-intro { gap: 40px; }.doctrine-grid { grid-template-columns: 1fr; }.doctrine-grid article { min-height: auto; }.five-solas { padding: 78px 24px; gap: 45px; }.five-solas-head,.creed-heading { position: static; }.solas-list-icons article { grid-template-columns: 44px 1fr; }.solas-list-icons .sola-index { display: none; }.creed-section,.heidelberg-section { padding: 78px 24px; gap: 45px; }.creed-parts article { padding: 26px 22px; grid-template-columns: 38px 1fr; gap: 14px; }.creed-parts p { font-size: 16px; }.confession-callout,.doctrine-cta { margin: 60px 16px; padding: 42px 25px; align-items: flex-start; flex-direction: column; }
     .document-hero { padding: 65px 24px; }.document-back { margin-bottom: 42px; }.document-hero h1 { font-size: 46px; }.document-reading-layout { padding: 55px 24px 25px; grid-template-columns: 1fr; gap: 45px; }.document-index { position: static; max-height: none; }.doctrine-document { font-size: 17px; }.doctrine-document h2 { margin-top: 65px; font-size: 30px; }.doctrine-document h3 { font-size: 21px; }.document-pagination { margin-bottom: 70px; grid-template-columns: 1fr; }.document-pagination .next { text-align: left; }
-    .resource-heading { align-items: flex-start; flex-direction: column; }.starter-resources,.values-grid,.pillars-grid,.elders-grid,.societies-grid,.sermons-grid,.confessional-heading,.confessional-texts,.doctrine-resource-grid { grid-template-columns: 1fr; }.confessional-resources,.doctrine-library { margin-top: 78px; padding-top: 70px; }.confessional-heading { gap: 25px; }.confessional-texts,.doctrine-resource-grid { margin-top: 38px; }.confessional-document header { padding: 25px 24px 22px; }.confessional-copy { padding: 28px 24px 32px; }.confessional-copy p { font-size: 16px; }.resource-list>a { grid-template-columns: 80px 1fr 20px; gap: 15px; }.resource-note { grid-template-columns: 44px 1fr; }.contact-layout { padding: 70px 24px; gap: 45px; }.map-wrap { min-height: 390px; }.article-row { grid-template-columns: 60px 1fr; gap: 18px; }.article-row .round-link { display: none; }.article-hero { text-align: left; }.article-hero h1 { font-size: 48px; }.footer-main { grid-template-columns: 1fr; gap: 35px; }.footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
+    .resource-heading { align-items: flex-start; flex-direction: column; }.starter-resources,.values-grid,.pillars-grid,.elders-grid,.societies-grid,.sermons-grid,.confessional-heading,.confessional-texts,.doctrine-resource-grid,.featured-book-resource { grid-template-columns: 1fr; }.featured-book-resource { padding: 34px 26px; gap: 34px; }.featured-book-resource figure { max-width: 240px; justify-self: start; }.confessional-resources,.doctrine-library { margin-top: 78px; padding-top: 70px; }.confessional-heading { gap: 25px; }.confessional-texts,.doctrine-resource-grid { margin-top: 38px; }.confessional-document header { padding: 25px 24px 22px; }.confessional-copy { padding: 28px 24px 32px; }.confessional-copy p { font-size: 16px; }.resource-list>a { grid-template-columns: 80px 1fr 20px; gap: 15px; }.resource-note { grid-template-columns: 44px 1fr; }.contact-layout { padding: 70px 24px; gap: 45px; }.map-wrap { min-height: 390px; }.article-row { grid-template-columns: 60px 1fr; gap: 18px; }.article-row .round-link { display: none; }.article-hero { text-align: left; }.article-hero h1 { font-size: 48px; }.footer-main { grid-template-columns: 1fr; gap: 35px; }.footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
     .home-hero-copy { padding-top: 56px; padding-bottom: 46px; }.home-hero-image { min-height: 430px; }.subpage-hero,.page-hero { min-height: auto; padding-top: 52px; padding-bottom: 52px; }.page-hero-split { padding-top: 0; padding-bottom: 0; }.channel-section,.youtube-library { padding: 26px; }.visit-banner { padding: 42px 28px; }.belief-pillars,.belief-pillars--five { grid-template-columns: 1fr; }
+    .annual-reader-section { padding: 58px 16px 75px; }.annual-reader-intro { grid-template-columns: 1fr; gap: 24px; }.annual-reader { padding: 16px; }.annual-book-stage { grid-template-columns: 38px minmax(0,1fr) 38px; gap: 8px; }.annual-edge-control { width: 38px; height: 58px; }.annual-controls { flex-wrap: wrap; }.annual-controls button { padding: 0 11px; }
+}
+
+@media (max-width: 760px) {
+    .annual-reader-bar { align-items: flex-start; flex-direction: column; gap: 4px; }.annual-book-stage { position: relative; display: block; }.annual-book { max-width: min(100%,520px); }.annual-page { width: 100%; }.annual-edge-control { position: absolute; z-index: 2; top: 50%; transform: translateY(-50%); opacity: .92; }.annual-edge-control:hover:not(:disabled) { transform: translateY(-50%); }.annual-edge-control:first-child { left: 6px; }.annual-edge-control:last-child { right: 6px; }.annual-controls button[data-action="first"],.annual-controls button[data-action="last"] { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; }.reveal { opacity: 1; transform: none; } }

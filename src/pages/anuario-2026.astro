@@ -1,0 +1,43 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import BookViewer from '@/components/BookViewer.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<PageLayout
+  title="Anuario 2026"
+  description="Plan de trabajo, calendario y temas importantes de la Iglesia Presbiteriana Reformada Gethsemaní para 2026."
+  image="/images/anuario-2026/page-01.png"
+  canonicalPath="/anuario-2026/"
+>
+  <header class="subpage-hero annual-hero">
+    <div>
+      <p class="overline">Vida de la iglesia</p>
+      <h1>Anuario<br /><span>2026.</span></h1>
+    </div>
+    <p>Consulta el plan de trabajo, las fechas importantes y los temas que acompañarán la vida de nuestra congregación durante el año.</p>
+  </header>
+
+  <section class="annual-reader-section">
+    <div class="annual-reader-intro">
+      <div>
+        <p class="overline blue">Año de amor, comunión y compromiso firme</p>
+        <h2>Hojea nuestro plan de trabajo.</h2>
+      </div>
+      <div>
+        <p>Usa las flechas, desliza sobre las páginas o escribe un número para avanzar directamente.</p>
+        <a class="annual-download" href={`${base}docs/anuario-2026.pdf`} download>Descargar el anuario en PDF ↓</a>
+      </div>
+    </div>
+
+    <BookViewer
+      title="Anuario Gethsemaní 2026"
+      accessibleTitle="Anuario 2026"
+      pageDirectory="/images/anuario-2026/"
+      totalPages={29}
+      pageWidth={910}
+      pageHeight={1286}
+    />
+  </section>
+</PageLayout>
