@@ -2,18 +2,19 @@
  * Extrae el ID de un video de YouTube desde distintos formatos de URL.
  */
 export function getYouTubeId(url: string): string {
-  if (url.includes('youtu.be/')) {
-    return url.split('youtu.be/')[1]?.split('?')[0] ?? '';
-  }
-
-  if (url.includes('youtube.com/embed/')) {
-    return url.split('embed/')[1]?.split('?')[0] ?? '';
-  }
-
   try {
     const parsed = new URL(url);
-    const videoId = parsed.searchParams.get('v');
-    return videoId ?? '';
+    const pathParts = parsed.pathname.split('/').filter(Boolean);
+
+    if (parsed.hostname === 'youtu.be') {
+      return pathParts[0] ?? '';
+    }
+
+    if (['embed', 'shorts', 'live'].includes(pathParts[0] ?? '')) {
+      return pathParts[1] ?? '';
+    }
+
+    return parsed.searchParams.get('v') ?? '';
   } catch {
     return '';
   }

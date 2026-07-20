@@ -24,27 +24,24 @@ const sermons = defineCollection({
     preacher: z.string().optional(),
     youtubeUrl: z.string().url(),
     category: z
-      .enum(['sermon', 'worship', 'conference', 'full-service', 'sacrament'])
+      .enum(['sermon', 'study', 'worship', 'conference', 'full-service', 'sacrament'])
       .default('sermon'),
     published: z.boolean().default(true),
     order: z.number().optional(),
   }),
 });
 
-const resources = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/resources' }),
+const doctrine = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/doctrine' }),
   schema: z.object({
     title: z.string(),
+    shortTitle: z.string(),
     description: z.string(),
-    author: z.string().optional(),
-    resourceType: z
-      .enum(['article', 'book', 'video', 'audio', 'document'])
-      .default('article'),
-    url: z.string().url(),
+    kind: z.enum(['Catecismo', 'Confesión de fe', 'Cánones']),
+    tradition: z.string(),
+    order: z.number(),
     published: z.boolean().default(true),
-    featured: z.boolean().default(false),
-    order: z.number().optional(),
   }),
 });
 
-export const collections = { reflections, sermons, resources };
+export const collections = { reflections, sermons, doctrine };

@@ -1,5 +1,6 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/Icon.astro';
 ---
 
 <PageLayout
@@ -7,7 +8,7 @@ import PageLayout from '@/layouts/PageLayout.astro';
   description="Horarios, dirección, teléfono y mapa de la Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán."
   canonicalPath="/contacto/"
 >
-  <header class="page-hero contact-hero">
+  <header class="page-hero">
     <div>
       <p class="eyebrow">Visítanos</p>
       <h1>Nos dará gusto<br /><em>recibirte.</em></h1>
@@ -19,33 +20,58 @@ import PageLayout from '@/layouts/PageLayout.astro';
     <div class="contact-info">
       <p class="eyebrow">Información</p>
       <h2>Planea tu visita</h2>
+
       <div class="contact-item">
-        <span>01</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="clock" /></span>
         <div>
           <small>Reuniones del domingo</small>
-          <strong>
-            Estudios bíblicos · 10:30 h<br />
-            Culto de adoración · 12:00 h<br />
-            Reuniones por edades · 16:30 h<br />
-            Culto familiar · 18:00 h
-          </strong>
+          <ul class="schedule-list">
+            <li><strong>10:30</strong> Estudios bíblicos</li>
+            <li><strong>12:00</strong> Culto de adoración</li>
+            <li><strong>14:00</strong> Reunión de jóvenes</li>
+            <li><strong>18:00</strong> Culto familiar</li>
+          </ul>
         </div>
       </div>
+
       <div class="contact-item">
-        <span>02</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="book" /></span>
+        <div>
+          <small>Reuniones en la semana</small>
+          <ul class="schedule-list">
+            <li><strong>Miércoles 17:00</strong> Reunión femenil</li>
+            <li><strong>Jueves 17:00</strong> Culto de oración y estudios bíblicos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <span class="icon-badge" aria-hidden="true"><Icon name="map" /></span>
         <div>
           <small>Dirección</small>
           <strong>Cuauhtémoc 117, Col. Del Carmen<br />Coyoacán, Ciudad de México</strong>
         </div>
       </div>
+
       <div class="contact-item">
-        <span>03</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="phone" /></span>
         <div>
           <small>Teléfono</small>
           <a href="tel:+525555543467">+52 55 5554 3467</a>
         </div>
       </div>
+
+      <div class="contact-item">
+        <span class="icon-badge" aria-hidden="true"><Icon name="facebook" /></span>
+        <div>
+          <small>Facebook</small>
+          <a href="https://www.facebook.com/iprm.gethsemani" target="_blank" rel="noopener">
+            Presbiteriana Gethsemani Coyoacan
+          </a>
+        </div>
+      </div>
     </div>
+
     <div class="map-wrap">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7528.813031537695!2d-99.16599869728086!3d19.35154295391109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ffc49a412c49%3A0x577057d773ed4afc!2sIglesia%20Presbiteriana%20Reformada%20Getseman%C3%AD!5e0!3m2!1ses-419!2smx!4v1769192914164!5m2!1ses-419!2smx"

@@ -1,31 +1,9 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
 import YouTubeEmbed from '@/components/YouTubeEmbed.astro';
-import { getCollection } from 'astro:content';
+import { latestLiveVideo, latestShortVideo, regularVideos } from '@/data/youtube';
 
-const allSermons = await getCollection('sermons');
-const sermons = allSermons
-  .filter((sermon) => sermon.data.published)
-  .sort((a, b) => {
-    if (a.data.order !== undefined && b.data.order !== undefined) {
-      return a.data.order - b.data.order;
-    }
-    return b.data.date.getTime() - a.data.date.getTime();
-  });
-
-const categoryLabels: Record<string, string> = {
-  sermon: 'Sermón',
-  worship: 'Culto de adoración',
-  conference: 'Conferencia',
-  'full-service': 'Culto completo',
-  sacrament: 'Culto y sacramento',
-};
-
-const dateFormatter = new Intl.DateTimeFormat('es-MX', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
+const visibleRegularVideos = regularVideos.slice(0, 10);
 ---
 
 <PageLayout
@@ -62,17 +40,52 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
       </div>
     </div>
 
+    <div class="youtube-latest-grid">
+      <article class="youtube-latest-card">
+        <div class="youtube-card-head">
+          <p class="overline">{latestLiveVideo.label}</p>
+          <a href="https://www.youtube.com/@i.p.r.m.gethsemani/streams" target="_blank" rel="noopener">
+            Ver transmisiones ↗
+          </a>
+        </div>
+        <YouTubeEmbed url={latestLiveVideo.url} title={latestLiveVideo.title} />
+        <h3>{latestLiveVideo.title}</h3>
+        <span>{latestLiveVideo.detail}</span>
+      </article>
+
+      <article class="youtube-latest-card youtube-short-card">
+        <div class="youtube-card-head">
+          <p class="overline">{latestShortVideo.label}</p>
+          <a href="https://www.youtube.com/@i.p.r.m.gethsemani/shorts" target="_blank" rel="noopener">
+            Ver Shorts ↗
+          </a>
+        </div>
+        <div class="youtube-short-content">
+          <YouTubeEmbed url={latestShortVideo.url} title={latestShortVideo.title} variant="short" />
+          <div>
+            <h3>{latestShortVideo.title}</h3>
+            <p>Contenido breve publicado en el canal oficial de la iglesia.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="youtube-archive-head">
+      <div>
+        <p class="overline">Publicaciones recientes</p>
+        <h2>Los últimos 10 videos</h2>
+      </div>
+      <p>Estudios bíblicos, sermones, música y programas publicados recientemente en el canal.</p>
+    </div>
+
     <div class="youtube-video-grid">
       {
-        sermons.map((sermon) => (
+        visibleRegularVideos.map((video) => (
           <article>
-            <YouTubeEmbed url={sermon.data.youtubeUrl} title={sermon.data.title} />
-            <p>{categoryLabels[sermon.data.category] ?? 'Sermón'}</p>
-            <h3>{sermon.data.title}</h3>
-            <span>
-              {sermon.data.passage && `${sermon.data.passage} · `}
-              {sermon.data.preacher ?? dateFormatter.format(sermon.data.date)}
-            </span>
+            <YouTubeEmbed url={video.url} title={video.title} />
+            <p>{video.label}</p>
+            <h3>{video.title}</h3>
+            {video.detail && <span>{video.detail}</span>}
           </article>
         ))
       }

@@ -1,10 +1,11 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/Icon.astro';
 import { pathFor } from '@/utils/paths';
 import { getYouTubeThumbnail } from '@/utils/youtube';
 
 const base = import.meta.env.BASE_URL;
-const featuredVideoUrl = 'https://www.youtube.com/watch?v=EI1yJ6ESY30';
+const featuredVideoUrl = 'https://www.youtube.com/watch?v=O1HHTV9ncFs';
 const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
 ---
 
@@ -15,14 +16,14 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
 >
   <section class="home-hero">
     <div class="home-hero-copy">
-      <p class="overline">Iglesia Presbiteriana Reformada </p>
-      <h1>Gethsemaní<br /></h1>
+      <p class="overline">Iglesia Presbiteriana Reformada</p>
+      <h1>Gethsemaní</h1>
       <p class="hero-summary">
         Existimos para glorificar a Dios mediante la adoración, la predicación fiel de las Escrituras y una
         comunidad formada por la gracia de Jesucristo.
       </p>
       <div class="hero-buttons">
-        <a class="button button-white" href={pathFor('/contacto/')}>Planea tu visita <b>→</b></a>
+        <a class="button button-white" href={pathFor('/contacto/')}>Planea tu visita <Icon name="arrow" /></a>
         <a class="button button-ghost" href={pathFor('/sermones/')}>Ver sermones</a>
       </div>
       <div class="hero-stats">
@@ -34,15 +35,10 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
     <figure class="home-hero-image">
       <img
         src={`${base}images/templo-gethsemani.jpg`}
-        alt="Identidad visual de la Iglesia Presbiteriana Reformada Gethsemaní"
+        alt="Templo de la Iglesia Presbiteriana Reformada Gethsemaní"
         width="1024"
         height="1024"
       />
-      <div class="image-badge" aria-hidden="true">
-        <span>Desde</span>
-        <strong>Coyoacán</strong>
-        <small>CDMX</small>
-      </div>
     </figure>
   </section>
 
@@ -65,7 +61,7 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
         Creemos que la iglesia debe ser más que un evento dominical. Es una familia que aprende, adora, sirve y da
         testimonio de Cristo en medio de la ciudad.
       </p>
-      <a class="arrow-link" href={pathFor('/nosotros/')}>Conoce nuestra historia <span>↗</span></a>
+      <a class="arrow-link" href={pathFor('/nosotros/')}>Conoce nuestra historia <Icon name="arrow" /></a>
     </div>
   </section>
 
@@ -75,14 +71,36 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
         <p class="overline">El corazón de nuestra fe</p>
         <h2>Una fe bíblica, histórica y reformada.</h2>
       </div>
-      <a class="button button-blue" href={pathFor('/lo-que-creemos/')}>Explorar lo que creemos</a>
+      <a class="button button-blue" href={pathFor('/lo-que-creemos/')}>
+        Explorar lo que creemos <Icon name="arrow" />
+      </a>
     </div>
-    <div class="belief-statement">
-      <p>
-        Confesamos al Dios trino, descansamos únicamente en la obra de Jesucristo y recibimos las Escrituras como
-        nuestra autoridad suprema.
-      </p>
-      <span>Las cinco solas se explican completas en nuestra página doctrinal.</span>
+    <div class="belief-pillars belief-pillars--five">
+      <article>
+        <span class="icon-badge" aria-hidden="true"><Icon name="scripture" /></span>
+        <h3>Sola Scriptura</h3>
+        <p>Solo la Escritura</p>
+      </article>
+      <article>
+        <span class="icon-badge" aria-hidden="true"><Icon name="grace" /></span>
+        <h3>Sola Gratia</h3>
+        <p>Solo por gracia</p>
+      </article>
+      <article>
+        <span class="icon-badge" aria-hidden="true"><Icon name="faith" /></span>
+        <h3>Sola Fide</h3>
+        <p>Solo por la fe</p>
+      </article>
+      <article>
+        <span class="icon-badge" aria-hidden="true"><Icon name="christ" /></span>
+        <h3>Solus Christus</h3>
+        <p>Solo Cristo</p>
+      </article>
+      <article>
+        <span class="icon-badge" aria-hidden="true"><Icon name="glory" /></span>
+        <h3>Soli Deo Gloria</h3>
+        <p>Solo a Dios la gloria</p>
+      </article>
     </div>
   </section>
 
@@ -93,19 +111,19 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
     </div>
     <div class="media-cards">
       <a href={pathFor('/sermones/')}>
-        <span>▶</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="play" /></span>
         <div><small>Escucha</small><strong>Sermones recientes</strong></div>
-        <b>→</b>
+        <b aria-hidden="true">→</b>
       </a>
       <a href={pathFor('/reflexiones/')}>
-        <span>✦</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="spark" /></span>
         <div><small>Lee</small><strong>Reflexiones bíblicas</strong></div>
-        <b>→</b>
+        <b aria-hidden="true">→</b>
       </a>
       <a href={pathFor('/recursos/')}>
-        <span>＋</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="scroll" /></span>
         <div><small>Explora</small><strong>Biblioteca de recursos</strong></div>
-        <b>→</b>
+        <b aria-hidden="true">→</b>
       </a>
     </div>
   </section>
@@ -114,31 +132,52 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
     <div class="channel-copy">
       <p class="overline">Canal oficial</p>
       <h2>Predicación para escuchar durante la semana.</h2>
-      <p>Encuentra sermones, cultos y conferencias publicados por nuestra congregación.</p>
-      <a class="button button-white" href={pathFor('/sermones/')}>Ver todos los videos <b>→</b></a>
+      <p>Sermones, cultos y conferencias publicados por nuestra congregación.</p>
+      <a class="button button-white" href={pathFor('/sermones/')}>
+        Ver todos los videos <Icon name="arrow" />
+      </a>
     </div>
-    <a
-      class="channel-feature"
-      href="https://www.youtube.com/watch?v=EI1yJ6ESY30"
-      target="_blank"
-      rel="noopener"
-    >
-      <img src={featuredThumbnail} alt="Entre el cuidado y el abandono, sermón sobre 1 Pedro 5" />
-      <span class="play-icon">▶</span>
+    <a class="channel-feature" href={featuredVideoUrl} target="_blank" rel="noopener">
+      <img src={featuredThumbnail} alt="La murmuración, estudio bíblico del 19 de julio de 2026" />
+      <span class="play-icon" aria-hidden="true"><Icon name="play" /></span>
       <div>
-        <small>Sermón reciente</small>
-        <strong>Entre el cuidado y el abandono</strong>
-        <p>1 Pedro 5:1–4 · Ps. Antonio Rodríguez</p>
+        <small>Estudio bíblico reciente</small>
+        <strong>La murmuración</strong>
+        <p>19 de julio de 2026 · 18:00 horas</p>
       </div>
     </a>
   </section>
 
-  <section class="visit-banner">
-    <div>
-      <p class="overline">Este domingo</p>
-      <h2>Hay un lugar<br />para ti.</h2>
-      <p>Cuauhtémoc 117, esquina con Allende<br />Colonia Del Carmen, Coyoacán</p>
+  <section class="visit-cta">
+    <div class="visit-cta-media" aria-hidden="true">
+      <img
+        src={`${base}images/templo-gethsemani.jpg`}
+        alt=""
+        width="1024"
+        height="768"
+        loading="lazy"
+      />
     </div>
-    <a class="button button-white" href={pathFor('/contacto/')}>Cómo llegar <b>→</b></a>
+    <div class="visit-cta-copy">
+      <p class="overline">Este domingo</p>
+      <h2>Hay un lugar para ti.</h2>
+      <p>
+        Únete a nuestra familia en adoración. Te esperamos en Cuauhtémoc 117, esquina con Allende, Colonia Del Carmen,
+        Coyoacán.
+      </p>
+      <ul class="visit-cta-times">
+        <li><strong>10:30</strong><span>Estudios bíblicos</span></li>
+        <li><strong>12:00</strong><span>Culto de adoración</span></li>
+        <li><strong>18:00</strong><span>Culto familiar</span></li>
+      </ul>
+      <div class="visit-cta-actions">
+        <a class="button button-white" href={pathFor('/contacto/')}>
+          Cómo llegar <Icon name="map" />
+        </a>
+        <a class="button button-ghost" href="tel:+525555543467">
+          Llamar <Icon name="phone" />
+        </a>
+      </div>
+    </div>
   </section>
 </PageLayout>

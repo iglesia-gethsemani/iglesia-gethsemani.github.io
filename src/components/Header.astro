@@ -33,10 +33,17 @@ function isCurrent(match: string): boolean {
 <header class="site-header">
   <div class="header-container">
     <a class="site-branding" href={pathFor('/')} aria-label="Gethsemaní, inicio">
-      <span class="brand-symbol" aria-hidden="true"><span></span></span>
+      <img
+        class="brand-logo"
+        src={`${base}images/logo-gethsemani.png`}
+        alt=""
+        width="712"
+        height="760"
+        aria-hidden="true"
+      />
       <span class="brand-copy">
         <strong>Gethsemaní</strong>
-        <small>Presbiteriana Reformada · Coyoacán</small>
+        <small>Iglesia Presbiteriana Reformada · Coyoacán</small>
       </span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">

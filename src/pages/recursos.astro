@@ -1,23 +1,60 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/Icon.astro';
 import { getCollection } from 'astro:content';
 import { pathFor } from '@/utils/paths';
 
-const allResources = await getCollection('resources');
-const resources = allResources
-  .filter((resource) => resource.data.published)
-  .sort((a, b) => {
-    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
-    return (a.data.order ?? 99) - (b.data.order ?? 99);
-  });
+const doctrine = (await getCollection('doctrine'))
+  .filter((document) => document.data.published)
+  .sort((a, b) => a.data.order - b.data.order);
 
-const typeLabels: Record<string, string> = {
-  article: 'Artículo',
-  book: 'Libro',
-  video: 'Video',
-  audio: 'Audio',
-  document: 'Documento',
-};
+const starters = [
+  {
+    href: 'https://www.biblegateway.com/?language=es',
+    external: true,
+    icon: 'scripture' as const,
+    tag: 'Escrituras',
+    title: 'Biblia en línea',
+    text: 'Consulta y compara traducciones de la Palabra de Dios.',
+    cta: 'Visitar ↗',
+  },
+  {
+    href: 'https://himnariop.web.app/#',
+    external: true,
+    icon: 'music' as const,
+    tag: 'Adoración',
+    title: 'Himnario Presbiteriano',
+    text: 'Himnos para la adoración congregacional y familiar.',
+    cta: 'Abrir himnario ↗',
+  },
+  {
+    href: pathFor('/recursos/catecismo-de-heidelberg/'),
+    external: false,
+    icon: 'scroll' as const,
+    tag: 'Catecismo',
+    title: 'Catecismo de Heidelberg',
+    text: 'Manual reformado de enseñanza en preguntas y respuestas.',
+    cta: 'Leer →',
+  },
+  {
+    href: '#credos-historicos',
+    external: false,
+    icon: 'church' as const,
+    tag: 'Fe histórica',
+    title: 'Credos de la Iglesia',
+    text: 'Lee el Credo Apostólico y el Credo Niceno.',
+    cta: 'Consultar ↓',
+  },
+  {
+    href: pathFor('/reflexiones/'),
+    external: false,
+    icon: 'spark' as const,
+    tag: 'Gethsemaní',
+    title: 'Reflexiones semanales',
+    text: 'Lecturas breves para acompañar tu semana.',
+    cta: 'Leer →',
+  },
+];
 ---
 
 <PageLayout
@@ -26,75 +63,124 @@ const typeLabels: Record<string, string> = {
   canonicalPath="/recursos/"
 >
   <header class="subpage-hero resource-hero">
-    <p class="overline">Biblioteca Gethsemaní</p>
-    <h1>Recursos para<br /><span>crecer en la fe.</span></h1>
+    <div>
+      <p class="overline">Biblioteca Gethsemaní</p>
+      <h1>Recursos para<br /><span>crecer en la fe.</span></h1>
+    </div>
     <p>Material bíblico y reformado para estudiar, compartir y profundizar en el conocimiento de Dios.</p>
   </header>
 
-  <section class="content-section resource-section">
-    <div class="resource-heading">
-      <div>
-        <p class="overline blue">Selección recomendada</p>
-        <h2>Comienza por aquí</h2>
-      </div>
-      <p>Confesiones, catecismos y herramientas para comprender mejor la fe reformada.</p>
-    </div>
-
     <div class="starter-resources">
-      <a href="https://www.biblegateway.com/?language=es" target="_blank" rel="noopener">
-        <span>Escrituras</span>
-        <h3>Biblia en línea</h3>
-        <p>Consulta y compara traducciones de la Palabra de Dios.</p>
-        <b>Visitar ↗</b>
-      </a>
-      <a
-        href="https://www.crcna.org/welcome/beliefs/confessions/heidelberg-catechism?language=es"
-        target="_blank"
-        rel="noopener"
-      >
-        <span>Catecismo</span>
-        <h3>Catecismo de Heidelberg</h3>
-        <p>Manual reformado de enseñanza cristiana en preguntas y respuestas.</p>
-        <b>Consultar ↗</b>
-      </a>
-      <a href={pathFor('/reflexiones/')}>
-        <span>Gethsemaní</span>
-        <h3>Reflexiones semanales</h3>
-        <p>Lecturas breves preparadas para acompañar tu semana.</p>
-        <b>Leer →</b>
-      </a>
+      {
+        starters.map((item) => (
+          <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener' : undefined}>
+            <span class="icon-badge" aria-hidden="true">
+              <Icon name={item.icon} />
+            </span>
+            <span class="resource-type">{item.tag}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <b>{item.cta}</b>
+          </a>
+        ))
+      }
     </div>
 
-    {
-      resources.length > 0 && (
-        <div class="resource-dynamic">
-          <div class="section-title-row">
-            <h2>Más recursos</h2>
-            <span>{String(resources.length).padStart(2, '0')}</span>
-          </div>
-          <div class="resource-list">
-            {resources.map((resource) => (
-              <a href={resource.data.url} target="_blank" rel="noopener">
-                <span class="resource-type">{typeLabels[resource.data.resourceType] ?? 'Recurso'}</span>
-                <div>
-                  <h3>{resource.data.title}</h3>
-                  <p>{resource.data.description}</p>
-                  {resource.data.author && <small>{resource.data.author}</small>}
-                </div>
-                <b>↗</b>
-              </a>
-            ))}
-          </div>
+    <section class="confessional-resources" id="credos-historicos" aria-labelledby="credos-title">
+      <div class="confessional-heading">
+        <div>
+          <p class="overline blue">La fe que confesamos</p>
+          <h2 id="credos-title">Credos históricos</h2>
         </div>
-      )
-    }
+        <p>
+          Formulaciones históricas que resumen la fe cristiana compartida por la Iglesia a través de los siglos.
+        </p>
+      </div>
+
+      <div class="confessional-texts">
+        <article class="confessional-document" id="credo-apostolico">
+          <header>
+            <span class="icon-badge icon-badge--on-tint" aria-hidden="true"><Icon name="trinity" /></span>
+            <div>
+              <span>Credo ecuménico</span>
+              <h3>El Credo Apostólico</h3>
+            </div>
+          </header>
+          <div class="confessional-copy">
+            <p>
+              Creo en Dios Padre Todopoderoso,<br />
+              Creador del cielo y de la tierra;
+            </p>
+            <p>
+              Y en Jesucristo, Su Hijo unigénito, Señor nuestro;<br />
+              Que fue concebido por el Espíritu Santo,<br />
+              Nació de la virgen María;<br />
+              Padeció bajo Poncio Pilato,<br />
+              Fue crucificado, muerto y sepultado;<br />
+              Descendió a los infiernos.
+            </p>
+            <p>Al tercer día resucitó de entre los muertos;<br />Ascendió a los cielos;<br />Y está sentado a la diestra de Dios Padre Todopoderoso;</p>
+            <p>Desde allí ha de venir a juzgar a vivos y muertos.</p>
+            <p>Creo en el Espíritu Santo;<br />La Santa Iglesia católica*;<br />La comunión de los santos;<br />El perdón de los pecados;<br />La resurrección del cuerpo;<br />Y la vida eterna. Amén.</p>
+            <p class="confessional-footnote">*La palabra «católica» hace referencia a la Iglesia universal.</p>
+          </div>
+        </article>
+
+        <article class="confessional-document" id="credo-niceno">
+          <header>
+            <span class="icon-badge icon-badge--on-tint" aria-hidden="true"><Icon name="church" /></span>
+            <div>
+              <span>Credo ecuménico</span>
+              <h3>El Credo Niceno</h3>
+            </div>
+          </header>
+          <div class="confessional-copy">
+            <p>Creemos en un solo Dios, Padre todopoderoso, Creador del cielo y de la tierra, de todo lo visible e invisible.</p>
+            <p>Creemos en un solo Señor Jesucristo, el unigénito Hijo de Dios, engendrado del Padre antes de todos los siglos; Dios de Dios, Luz de Luz, verdadero Dios de Dios verdadero; engendrado, no creado, de la misma naturaleza del Padre, y por quien todo fue hecho; quien, por nosotros los hombres y por nuestra salvación, bajó del cielo, y por el Espíritu Santo fue encarnado de María, la virgen, y fue hecho hombre; y por nosotros fue crucificado en tiempos de Poncio Pilato; padeció y fue sepultado, y resucitó al tercer día, conforme a las Escrituras, y ascendió al cielo, y está sentado a la diestra del Padre; y de nuevo vendrá con gloria para juzgar a vivos y muertos, y su reino no tendrá fin.</p>
+            <p>Creemos en el Espíritu Santo, Señor y dador de vida, que procede del Padre y del Hijo, quien junto con el Padre y el Hijo es adorado y glorificado, y quien habló por los profetas. Creemos en la Iglesia, que es una, santa, católica* y apostólica. Reconocemos un solo bautismo para la remisión de los pecados; y esperamos la resurrección de los muertos y la vida del mundo por venir. Amén.</p>
+            <p class="confessional-footnote">*La palabra «católica» hace referencia a la Iglesia universal.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="doctrine-library" aria-labelledby="doctrine-library-title">
+      <div class="confessional-heading">
+        <div>
+          <p class="overline blue">Biblioteca confesional</p>
+          <h2 id="doctrine-library-title">Confesiones y catecismos</h2>
+        </div>
+        <p>
+          Documentos completos con índice para facilitar la lectura por capítulos, secciones o preguntas.
+        </p>
+      </div>
+
+      <div class="doctrine-resource-grid">
+        {
+          doctrine.map((document) => (
+            <a href={pathFor(`/recursos/${document.id}/`)}>
+              <span class="icon-badge" aria-hidden="true">
+                <Icon name="scroll" />
+              </span>
+              <small>{document.data.kind}</small>
+              <h3>{document.data.shortTitle}</h3>
+              <p>{document.data.description}</p>
+              <b>Leer documento →</b>
+            </a>
+          ))
+        }
+      </div>
+    </section>
 
     <div class="resource-note">
-      <span>¿Buscas algo en particular?</span>
-      <p>
-        Los recursos se actualizan editando archivos Markdown en <code>src/content/resources/</code>. Aquí se pueden
-        compartir estudios, videos, libros, audios y documentos recomendados por la iglesia.
-      </p>
+      <span class="icon-badge" aria-hidden="true"><Icon name="mail" /></span>
+      <div>
+        <strong>¿Buscas algo en particular?</strong>
+        <p>
+          Escríbenos a <a href="mailto:gethsemanicoyoacan@gmail.com">gethsemanicoyoacan@gmail.com</a> y con gusto te
+          ayudaremos.
+        </p>
+      </div>
     </div>
   </section>
 </PageLayout>

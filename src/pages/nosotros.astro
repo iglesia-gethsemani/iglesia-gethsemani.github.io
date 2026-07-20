@@ -1,25 +1,64 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/Icon.astro';
 import { elders } from '@/data/elders';
+import { societies } from '@/data/societies';
+import { pathFor } from '@/utils/paths';
 
 const base = import.meta.env.BASE_URL;
 const sortedElders = [...elders].sort((a, b) => a.order - b.order);
+const sortedSocieties = [...societies].sort((a, b) => a.order - b.order);
+
+const pillars = [
+  {
+    icon: 'scripture' as const,
+    title: 'Palabra fiel',
+    text: 'La predicación expositiva de las Escrituras como centro de nuestra vida congregacional.',
+  },
+  {
+    icon: 'church' as const,
+    title: 'Adoración reverente',
+    text: 'Un culto centrado en Dios, marcado por la reverencia, la simplicidad y la verdad.',
+  },
+  {
+    icon: 'people' as const,
+    title: 'Comunidad discipular',
+    text: 'Una familia que crece en gracia, se sirve mutuamente y da testimonio de Cristo.',
+  },
+];
 ---
 
 <PageLayout
   title="Nosotros"
-  description="Conoce la misión, convicciones y consistorio de la Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán."
+  description="Historia, misión, consistorio y sociedades de la Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán."
   canonicalPath="/nosotros/"
 >
-  <header class="page-hero">
+  <header class="page-hero page-hero-split">
     <div>
       <p class="eyebrow">Quiénes somos</p>
       <h1>Una iglesia para<br /><em>la gloria de Dios.</em></h1>
+      <p>
+        Una comunidad reformada que busca vivir el evangelio con fidelidad, reverencia y amor en el corazón de
+        Coyoacán.
+      </p>
+      <a
+        class="arrow-link"
+        href="https://www.facebook.com/iprm.gethsemani"
+        target="_blank"
+        rel="noopener"
+      >
+        Síguenos en Facebook <Icon name="facebook" />
+      </a>
     </div>
-    <p>
-      Una comunidad reformada que busca vivir el evangelio con fidelidad, reverencia y amor en el corazón de
-      Coyoacán.
-    </p>
+    <figure class="page-hero-media">
+      <img
+        src={`${base}images/historia/capilla-mcmurtrie-1904.jpg`}
+        alt="Fotografía histórica de la Capilla Whittaker McMurtrie en Coyoacán"
+        width="768"
+        height="1024"
+        loading="eager"
+      />
+    </figure>
   </header>
 
   <section class="section story-grid">
@@ -29,8 +68,8 @@ const sortedElders = [...elders].sort((a, b) => a.order - b.order);
     </div>
     <div class="prose">
       <p class="lead">
-        La Iglesia Presbiteriana Reformada Gethsemaní existe para glorificar a Dios mediante la predicación fiel de
-        la Palabra, la adoración reverente y la formación de discípulos conforme a las Escrituras.
+        Existimos para glorificar a Dios mediante la predicación fiel de la Palabra, la adoración reverente y la
+        formación de discípulos conforme a las Escrituras.
       </p>
       <p>
         Formamos parte de la tradición reformada histórica: confesamos a Cristo como cabeza de la Iglesia y
@@ -39,27 +78,176 @@ const sortedElders = [...elders].sort((a, b) => a.order - b.order);
     </div>
   </section>
 
-  <section class="values-section">
-    <div class="section-heading centered">
-      <p class="eyebrow">Lo que nos distingue</p>
-      <h2>Nuestras convicciones</h2>
+  <section class="history-section" id="nuestra-historia">
+    <div class="history-intro">
+      <div>
+        <p class="eyebrow">120 años de historia</p>
+        <h2>Remembranza</h2>
+        <p class="section-lede">
+          Los orígenes de la Iglesia Presbiteriana Reformada Gethsemaní se remontan a finales del siglo XIX, cuando la
+          Palabra de Dios comenzó a anunciarse en Coyoacán.
+        </p>
+      </div>
+      <figure class="history-hero-photo">
+        <img
+          src={`${base}images/historia/seminario-capilla-1907.jpg`}
+          alt="Terrenos del Seminario y Capilla en Coyoacán, 1907"
+          width="1024"
+          height="768"
+          loading="lazy"
+        />
+        <figcaption>Terrenos del Seminario y Capilla en Coyoacán (1907)</figcaption>
+      </figure>
     </div>
-    <div class="values-grid">
-      <article>
-        <span>S</span>
-        <h3>Sola Scriptura</h3>
-        <p>La Escritura es la única autoridad infalible para la fe y la vida.</p>
+
+    <div class="history-timeline">
+      <article class="history-item">
+        <span class="history-year">1890</span>
+        <div>
+          <h3>La semilla del evangelio en Coyoacán</h3>
+          <p>
+            En tiempos del presidente Porfirio Díaz, alrededor de 1890, no había evangélicos en Coyoacán. Ese mismo
+            año llegaron estudiantes del Seminario Presbiteriano de Tlalpan y misioneros que sembraron la Palabra de
+            Dios. Con la ayuda de hermanos convertidos de la zona de Tizapán, se formó una pequeña congregación que se
+            reunía en casas particulares.
+          </p>
+        </div>
       </article>
-      <article>
-        <span>C</span>
-        <h3>Solus Christus</h3>
-        <p>Cristo es nuestro único mediador, salvador y cabeza de la Iglesia.</p>
+
+      <article class="history-item">
+        <span class="history-year">1897</span>
+        <div>
+          <h3>Orígenes de Gethsemaní</h3>
+          <p>
+            Siete años después, la Misión Presbiteriana del Norte llegó a establecer un centro evangélico y se rentó
+            una casa en la calle Malintzin. En 1897 se fijan los orígenes de nuestra iglesia, ligados al Colegio y
+            Seminario Teológico Presbiteriano en los terrenos de la naciente Colonia Del Carmen, fundada el 18 de
+            octubre de 1890.
+          </p>
+          <p>
+            Los primeros estudiantes levantaron cuartos de adobe que albergaron la Escuela Preparatoria Presbiteriana
+            de Coyoacán —hoy Instituto Juárez— y un salón que sirvió como primer templo presbiteriano.
+          </p>
+        </div>
       </article>
-      <article>
-        <span>G</span>
-        <h3>Soli Deo Gloria</h3>
-        <p>Toda nuestra vida y adoración existen para la gloria de Dios.</p>
+
+      <article class="history-item history-item--media">
+        <span class="history-year">1904</span>
+        <div>
+          <h3>Construcción de la Capilla Memorial</h3>
+          <p>
+            Miss Clara McMurtrie, de Pensilvania, donó generosamente para la construcción de la capilla, la barda y
+            las bancas que aún se usan. Su única petición fue que el templo llevara el nombre de su madre:
+            <strong>Margaret Whittaker McMurtrie</strong>.
+          </p>
+          <p>
+            La obra, de influencia neogótica y diseñada por Maximilian Von Mitzel, inició en 1903 bajo la dirección de
+            los misioneros residentes y fue dedicada el <strong>15 de mayo de 1904</strong>.
+          </p>
+        </div>
       </article>
+
+      <article class="history-item history-item--media">
+        <span class="history-year">1907</span>
+        <div>
+          <h3>Seminario y capilla en Coyoacán</h3>
+          <p>
+            Desde sus primeros años, el predio de la iglesia fue también casa de formación. El Rev. Hubert W. Brown,
+            misionero llegado a México en 1883, dirigió el Seminario Teológico Presbiteriano en Tlalpan y después en
+            Coyoacán; pronunció el mensaje de dedicación de la Capilla McMurtrie.
+          </p>
+          <figure class="history-inline-photo history-inline-photo--wide">
+            <img
+              src={`${base}images/historia/seminario-capilla-1907.jpg`}
+              alt="Terrenos del Seminario y Capilla en Coyoacán, vista posterior, 1907"
+              width="1024"
+              height="768"
+              loading="lazy"
+            />
+            <figcaption>Terrenos del Seminario y Capilla en Coyoacán, parte posterior (1907)</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="history-item">
+        <span class="history-year">1948–1993</span>
+        <div>
+          <h3>Formación teológica reformada</h3>
+          <p>
+            El 15 de enero de 1948 se inauguró en los salones de la capilla la Escuela de Teología «Juan Calvino»,
+            bajo el liderazgo del Pbro. Felipe Delgado. Tras reuniones con Jerónimo Pott de la Iglesia Cristiana
+            Reformada (1961–1962), el 23 de julio de 1963 se inauguró el Seminario Presbiteriano «Juan Calvino».
+          </p>
+          <p>
+            En 1993, el Sínodo General Misionero de la I.P.R.M. nominó la institución como
+            <strong>Seminario Teológico Reformado de México</strong>, máxima casa de estudios de nuestra iglesia.
+          </p>
+        </div>
+      </article>
+
+      <article class="history-item history-item--media">
+        <span class="history-year">2001</span>
+        <div>
+          <h3>Cuidado del templo</h3>
+          <p>
+            A lo largo de más de un siglo, hermanos y obreros han cuidado este edificio con ofrendas y trabajo
+            fiel. En 2001 se realizaron importantes trabajos de reparación de la torre, testimonio del amor
+            congregacional por este lugar dedicado a la obra del Señor.
+          </p>
+          <figure class="history-inline-photo history-inline-photo--tall">
+            <img
+              src={`${base}images/historia/reparacion-torre-2001.jpg`}
+              alt="Trabajos de reparación de la torre del templo en el año 2001"
+              width="768"
+              height="1024"
+              loading="lazy"
+            />
+            <figcaption>Trabajos de reparación de la torre (2001)</figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+
+    <blockquote class="history-quote">
+      <p>
+        «Y cantaban, alabando y dando gracias a Jehová, y diciendo: Porque él es bueno, porque para siempre es su
+        misericordia sobre Israel. Y todo el pueblo aclamaba con gran júbilo, alabando a Jehová porque se echaban los
+        cimientos de la Casa de Jehová».
+      </p>
+      <cite>Esdras 3:11</cite>
+    </blockquote>
+  </section>
+
+  <section class="pillars-section">
+    <div class="section-heading centered">
+      <p class="eyebrow">Cómo vivimos</p>
+      <h2>Tres prioridades pastorales</h2>
+    </div>
+    <div class="pillars-grid">
+      {
+        pillars.map((pillar) => (
+          <article class="pillar-card">
+            <span class="icon-badge" aria-hidden="true">
+              <Icon name={pillar.icon} />
+            </span>
+            <h3>{pillar.title}</h3>
+            <p>{pillar.text}</p>
+          </article>
+        ))
+      }
+    </div>
+    <div class="doctrine-cta">
+      <div>
+        <p class="eyebrow">Fe confesional</p>
+        <h3>¿Quieres conocer nuestras convicciones?</h3>
+        <p>
+          Las cinco solas, el Credo Apostólico y nuestra doctrina reformada están explicadas en detalle en
+          <em>Lo que creemos</em>.
+        </p>
+      </div>
+      <a class="button button-blue" href={pathFor('/lo-que-creemos/')}>
+        Ver lo que creemos <Icon name="arrow" />
+      </a>
     </div>
   </section>
 
@@ -67,23 +255,72 @@ const sortedElders = [...elders].sort((a, b) => a.order - b.order);
     <div class="section-heading">
       <p class="eyebrow">Liderazgo</p>
       <h2>Nuestro consistorio</h2>
+      <p class="section-lede">
+        Ancianos y diáconos llamados a pastorear, servir y cuidar la vida espiritual de la congregación.
+      </p>
     </div>
     <div class="elders-grid">
       {
-        sortedElders.length > 0 ? (
-          sortedElders.map((elder) => (
-            <article class="elder-card">
-              <div class="elder-photo">
-                <img src={`${base}${elder.photo.replace(/^\//, '')}`} alt={`Retrato de ${elder.name}`} />
+        sortedElders.map((elder) => (
+          <article class="elder-card">
+            <div class={`elder-photo${elder.photo ? '' : ' elder-photo--placeholder'}`}>
+              {elder.photo ? (
+                <img src={`${base}${elder.photo.replace(/^\//, '')}`} alt={`Retrato de ${elder.name}`} loading="lazy" />
+              ) : (
+                <span class="elder-avatar" aria-hidden="true">
+                  <Icon name="person" />
+                </span>
+              )}
+            </div>
+            <h3>{elder.name}</h3>
+            <p>{elder.role}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="societies-block">
+      <div class="section-heading">
+        <p class="eyebrow">Ministerios</p>
+        <h2>Nuestras sociedades</h2>
+        <p class="section-lede">
+          Espacios de formación, servicio y comunión que acompañan la vida de la congregación.
+        </p>
+      </div>
+      <div class="societies-grid">
+        {
+          sortedSocieties.map((society) => (
+            <article class="society-card">
+              {society.logo ? (
+                <img
+                  class="society-logo"
+                  src={`${base}${society.logo.replace(/^\//, '')}`}
+                  alt=""
+                  width="120"
+                  height="120"
+                  loading="lazy"
+                />
+              ) : (
+                <span class="icon-badge" aria-hidden="true">
+                  <Icon name={society.icon} />
+                </span>
+              )}
+              <div>
+                <h3>{society.name}</h3>
+                {society.subtitle && <p class="society-subtitle">{society.subtitle}</p>}
+                <ul class="society-roles">
+                  {society.roles.map((role) => (
+                    <li>
+                      <small>{role.label}</small>
+                      <strong>{role.names}</strong>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3>{elder.name}</h3>
-              <p>{elder.role}</p>
             </article>
           ))
-        ) : (
-          <p class="empty-message">Próximamente presentaremos aquí a nuestro consistorio.</p>
-        )
-      }
+        }
+      </div>
     </div>
   </section>
 </PageLayout>

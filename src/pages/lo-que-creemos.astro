@@ -1,16 +1,85 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/Icon.astro';
 import { pathFor } from '@/utils/paths';
+
+const foundations = [
+  {
+    icon: 'trinity' as const,
+    title: 'El Dios trino',
+    text: 'Creemos en un solo Dios que existe eternamente en tres personas: Padre, Hijo y Espíritu Santo.',
+  },
+  {
+    icon: 'scripture' as const,
+    title: 'Las Escrituras',
+    text: 'La Biblia es inspirada por Dios, verdadera y suficiente; nuestra autoridad suprema.',
+  },
+  {
+    icon: 'christ' as const,
+    title: 'Jesucristo',
+    text: 'El Hijo eterno vivió sin pecado, murió por su pueblo, resucitó y reina como único Salvador.',
+  },
+  {
+    icon: 'salvation' as const,
+    title: 'La salvación',
+    text: 'Somos salvos por la gracia soberana de Dios, mediante la fe en Cristo, no por obras.',
+  },
+  {
+    icon: 'church' as const,
+    title: 'La Iglesia',
+    text: 'Cristo reúne a su pueblo para adorar, crecer, servirse mutuamente y anunciar el evangelio.',
+  },
+  {
+    icon: 'hope' as const,
+    title: 'Nuestra esperanza',
+    text: 'Esperamos el regreso visible de Cristo, la resurrección y la plenitud de su reino eterno.',
+  },
+];
+
+const solas = [
+  {
+    icon: 'scripture' as const,
+    latin: 'Sola Scriptura',
+    label: 'Solo la Escritura',
+    text: 'La Palabra de Dios es la única regla infalible y autoridad final para la doctrina y la vida cristiana.',
+  },
+  {
+    icon: 'grace' as const,
+    latin: 'Sola Gratia',
+    label: 'Solo por gracia',
+    text: 'La salvación es un regalo inmerecido de Dios, desde el principio hasta el fin.',
+  },
+  {
+    icon: 'faith' as const,
+    latin: 'Sola Fide',
+    label: 'Solo por la fe',
+    text: 'Somos declarados justos delante de Dios únicamente por la fe en Jesucristo.',
+  },
+  {
+    icon: 'christ' as const,
+    latin: 'Solus Christus',
+    label: 'Solo Cristo',
+    text: 'Jesucristo es el único mediador entre Dios y los seres humanos; su obra es plenamente suficiente.',
+  },
+  {
+    icon: 'glory' as const,
+    latin: 'Soli Deo Gloria',
+    label: 'Solo a Dios la gloria',
+    text: 'Toda la salvación y toda la vida cristiana tienen como fin último la gloria del Dios trino.',
+  },
+];
 ---
 
 <PageLayout
   title="Lo que creemos"
-  description="Doctrina bíblica, las cinco solas, el Credo de los Apóstoles y el Catecismo de Heidelberg de la Iglesia Gethsemaní."
+  description="Doctrina bíblica, las cinco solas, el Credo Apostólico y el Catecismo de Heidelberg de la Iglesia Gethsemaní."
   canonicalPath="/lo-que-creemos/"
 >
   <header class="subpage-hero">
-    <p class="overline">Nuestra doctrina</p>
-    <h1>Lo que creemos<br /><span>define cómo vivimos.</span></h1>
+    <div>
+      <p class="overline">Nuestra doctrina</p>
+      <h1>Lo que creemos<br /><span>define cómo vivimos.</span></h1>
+    </div>
     <p>
       Somos una iglesia cristiana, protestante, reformada y presbiteriana. Recibimos la Biblia como Palabra de Dios
       y anunciamos el evangelio de Jesucristo.
@@ -21,49 +90,20 @@ import { pathFor } from '@/utils/paths';
     <div>
       <p class="overline blue">Fundamento</p>
       <h2>La fe cristiana histórica.</h2>
+      <p class="section-lede">Seis afirmaciones que resumen el corazón de nuestra fe.</p>
     </div>
-    <div class="doctrine-grid">
-      <article>
-        <span>01</span>
-        <h3>El Dios trino</h3>
-        <p>
-          Creemos en un solo Dios que existe eternamente en tres personas: Padre, Hijo y Espíritu Santo; digno de
-          toda adoración.
-        </p>
-      </article>
-      <article>
-        <span>02</span>
-        <h3>Las Escrituras</h3>
-        <p>
-          La Biblia es inspirada por Dios, verdadera y suficiente; nuestra autoridad suprema para la fe y la vida.
-        </p>
-      </article>
-      <article>
-        <span>03</span>
-        <h3>Jesucristo</h3>
-        <p>
-          El Hijo eterno se hizo hombre, vivió sin pecado, murió por su pueblo, resucitó y reina como único Salvador
-          y Señor.
-        </p>
-      </article>
-      <article>
-        <span>04</span>
-        <h3>La salvación</h3>
-        <p>Somos salvos por la gracia soberana de Dios, mediante la fe en Cristo, no por méritos ni obras propias.</p>
-      </article>
-      <article>
-        <span>05</span>
-        <h3>La Iglesia</h3>
-        <p>
-          Cristo reúne a su pueblo para adorar, crecer por los medios de gracia, servirse mutuamente y anunciar el
-          evangelio.
-        </p>
-      </article>
-      <article>
-        <span>06</span>
-        <h3>Nuestra esperanza</h3>
-        <p>Esperamos el regreso visible de Cristo, la resurrección de los muertos y la plenitud de su reino eterno.</p>
-      </article>
+    <div class="doctrine-grid icon-grid">
+      {
+        foundations.map((item) => (
+          <article>
+            <span class="icon-badge" aria-hidden="true">
+              <Icon name={item.icon} />
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
 
@@ -71,64 +111,31 @@ import { pathFor } from '@/utils/paths';
     <div class="five-solas-head">
       <p class="overline">Herencia reformada</p>
       <h2>Las cinco solas</h2>
-      <p>Estas afirmaciones resumen el corazón teológico de la Reforma protestante.</p>
+      <p>El corazón teológico de la Reforma protestante.</p>
     </div>
-    <div class="solas-list">
-      <article>
-        <span>01</span>
-        <div>
-          <h3>Sola Scriptura</h3>
-          <strong>Solo la Escritura</strong>
-          <p>
-            La Palabra de Dios es la única regla infalible y autoridad final para la doctrina y la vida cristiana.
-          </p>
-        </div>
-      </article>
-      <article>
-        <span>02</span>
-        <div>
-          <h3>Sola Gratia</h3>
-          <strong>Solo por gracia</strong>
-          <p>
-            La salvación es un regalo inmerecido de Dios, desde el principio hasta el fin, y no el resultado del
-            esfuerzo humano.
-          </p>
-        </div>
-      </article>
-      <article>
-        <span>03</span>
-        <div>
-          <h3>Sola Fide</h3>
-          <strong>Solo por la fe</strong>
-          <p>Somos declarados justos delante de Dios únicamente por la fe en Jesucristo, aparte de las obras.</p>
-        </div>
-      </article>
-      <article>
-        <span>04</span>
-        <div>
-          <h3>Solus Christus</h3>
-          <strong>Solo Cristo</strong>
-          <p>
-            Jesucristo es el único mediador entre Dios y los seres humanos, y su obra es plenamente suficiente para
-            salvar.
-          </p>
-        </div>
-      </article>
-      <article>
-        <span>05</span>
-        <div>
-          <h3>Soli Deo Gloria</h3>
-          <strong>Solo a Dios la gloria</strong>
-          <p>Toda la salvación y toda la vida cristiana tienen como fin último la gloria del Dios trino.</p>
-        </div>
-      </article>
+    <div class="solas-list solas-list-icons">
+      {
+        solas.map((sola, index) => (
+          <article>
+            <span class="sola-index">{String(index + 1).padStart(2, '0')}</span>
+            <span class="icon-badge icon-badge--light" aria-hidden="true">
+              <Icon name={sola.icon} />
+            </span>
+            <div>
+              <h3>{sola.latin}</h3>
+              <strong>{sola.label}</strong>
+              <p>{sola.text}</p>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <section class="creed-section" id="credo">
     <div class="creed-heading">
       <p class="overline blue">La fe que confesamos</p>
-      <h2>El Credo de los Apóstoles</h2>
+      <h2>El Credo Apostólico</h2>
       <p>
         Junto con la Iglesia cristiana a través de los siglos, confesamos nuestra fe en el Padre, el Hijo y el
         Espíritu Santo.
@@ -136,27 +143,28 @@ import { pathFor } from '@/utils/paths';
     </div>
     <div class="creed-parts">
       <article>
-        <span>I</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="trinity" /></span>
         <small>Creo en Dios Padre</small>
-        <p>Creo en Dios Padre todopoderoso, Creador del cielo y de la tierra.</p>
+        <p>Creo en Dios Padre Todopoderoso, Creador del cielo y de la tierra.</p>
       </article>
       <article>
-        <span>II</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="christ" /></span>
         <small>Creo en Jesucristo</small>
         <p>
-          Creo en Jesucristo, su único Hijo, nuestro Señor; que fue concebido del Espíritu Santo, nació de la virgen
-          María; padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado; descendió a los
-          infiernos; al tercer día resucitó de entre los muertos; subió a los cielos y está sentado a la diestra de
-          Dios Padre todopoderoso; desde allí vendrá a juzgar a los vivos y a los muertos.
+          Y en Jesucristo, Su Hijo unigénito, Señor nuestro; que fue concebido por el Espíritu Santo, nació de la
+          virgen María; padeció bajo Poncio Pilato, fue crucificado, muerto y sepultado; descendió a los
+          infiernos. Al tercer día resucitó de entre los muertos; ascendió a los cielos; y está sentado a la diestra de
+          Dios Padre Todopoderoso; desde allí ha de venir a juzgar a vivos y muertos.
         </p>
       </article>
       <article>
-        <span>III</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="hope" /></span>
         <small>Creo en el Espíritu Santo</small>
         <p>
-          Creo en el Espíritu Santo; la santa Iglesia universal; la comunión de los santos; el perdón de los pecados;
-          la resurrección del cuerpo y la vida eterna. Amén.
+          Creo en el Espíritu Santo; la Santa Iglesia católica*; la comunión de los santos; el perdón de los pecados;
+          la resurrección del cuerpo; y la vida eterna. Amén.
         </p>
+        <p class="creed-note">*La palabra «católica» hace referencia a la Iglesia universal.</p>
       </article>
     </div>
   </section>
@@ -166,33 +174,28 @@ import { pathFor } from '@/utils/paths';
       <p class="overline">Nuestro manual de enseñanza</p>
       <h2>Catecismo de Heidelberg</h2>
       <p>
-        Publicado en 1563, organiza la enseñanza cristiana en 129 preguntas y respuestas distribuidas en 52 días del
-        Señor, para acompañar a la iglesia durante todo el año.
+        Publicado en 1563, organiza la enseñanza cristiana en 129 preguntas y respuestas para acompañar a la iglesia
+        durante todo el año.
       </p>
-      <a
-        class="button button-white"
-        href="https://www.crcna.org/welcome/beliefs/confessions/heidelberg-catechism?language=es"
-        target="_blank"
-        rel="noopener"
-      >
-        Leer el catecismo <b>↗</b>
+      <a class="button button-white" href={pathFor('/recursos/catecismo-de-heidelberg/')}>
+        Leer el catecismo <Icon name="arrow" />
       </a>
     </div>
     <div class="heidelberg-path">
       <article>
-        <span>01</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="heart" /></span>
         <small>Nuestra necesidad</small>
         <h3>Miseria</h3>
         <p>Reconocemos nuestro pecado y la profundidad de nuestra necesidad de la gracia de Dios.</p>
       </article>
       <article>
-        <span>02</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="cross" /></span>
         <small>La obra de Cristo</small>
         <h3>Redención</h3>
         <p>Descansamos en Jesucristo y en todo lo que Dios ha hecho para nuestra salvación.</p>
       </article>
       <article>
-        <span>03</span>
+        <span class="icon-badge" aria-hidden="true"><Icon name="glory" /></span>
         <small>La vida nueva</small>
         <h3>Gratitud</h3>
         <p>Respondemos a la gracia con obediencia, oración y una vida dedicada a la gloria de Dios.</p>
@@ -205,10 +208,12 @@ import { pathFor } from '@/utils/paths';
       <p class="overline blue">Fe confesional</p>
       <h2>No creemos solos.</h2>
       <p>
-        Nos reconocemos dentro de la tradición reformada y presbiteriana histórica, que ha expresado la enseñanza
-        bíblica mediante confesiones y catecismos para instruir a la Iglesia.
+        Nos reconocemos dentro de la tradición reformada y presbiteriana histórica, expresada en confesiones y
+        catecismos para instruir a la Iglesia.
       </p>
     </div>
-    <a class="button button-blue" href={pathFor('/recursos/')}>Consultar recursos</a>
+    <a class="button button-blue" href={pathFor('/recursos/')}>
+      Consultar recursos <Icon name="arrow" />
+    </a>
   </section>
 </PageLayout>

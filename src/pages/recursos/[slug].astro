@@ -1,0 +1,84 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { pathFor } from '@/utils/paths';
+
+export async function getStaticPaths() {
+  const documents = await getCollection('doctrine', ({ data }) => data.published);
+  const sorted = documents.sort((a, b) => a.data.order - b.data.order);
+
+  return sorted.map((document, index) => ({
+    params: { slug: document.id },
+    props: {
+      document,
+      previous: index > 0 ? sorted[index - 1] : null,
+      next: index < sorted.length - 1 ? sorted[index + 1] : null,
+    },
+  }));
+}
+
+const { document, previous, next } = Astro.props;
+const { Content, headings } = await render(document);
+const sections = headings.filter((heading) => heading.depth === 2);
+---
+
+<PageLayout
+  title={document.data.title}
+  description={document.data.description}
+  canonicalPath={`/recursos/${document.id}/`}
+>
+  <header class="document-hero">
+    <div>
+      <a class="document-back" href={pathFor('/recursos/')}>← Volver a Recursos</a>
+      <p class="overline">{document.data.kind}</p>
+      <h1>{document.data.title}</h1>
+      <p>{document.data.description}</p>
+      <div class="document-meta">
+        <span>{document.data.kind}</span>
+        <span>{document.data.tradition}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="document-reading-layout">
+    {
+      sections.length > 0 && (
+        <aside class="document-index">
+          <details open>
+            <summary>Índice del documento</summary>
+            <nav aria-label="Secciones del documento">
+              {sections.map((section) => (
+                <a href={`#${section.slug}`}>{section.text}</a>
+              ))}
+            </nav>
+          </details>
+        </aside>
+      )
+    }
+
+    <article class="doctrine-document">
+      <Content />
+    </article>
+  </div>
+
+  <nav class="document-pagination" aria-label="Otros documentos doctrinales">
+    {
+      previous ? (
+        <a href={pathFor(`/recursos/${previous.id}/`)}>
+          <small>← Documento anterior</small>
+          <strong>{previous.data.shortTitle}</strong>
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    {
+      next ? (
+        <a class="next" href={pathFor(`/recursos/${next.id}/`)}>
+          <small>Siguiente documento →</small>
+          <strong>{next.data.shortTitle}</strong>
+        </a>
+      ) : null
+    }
+  </nav>
+</PageLayout>

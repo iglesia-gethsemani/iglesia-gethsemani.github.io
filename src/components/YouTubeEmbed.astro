@@ -4,13 +4,14 @@ import { getYouTubeEmbedUrl } from '@/utils/youtube';
 interface Props {
   url: string;
   title: string;
+  variant?: 'standard' | 'short';
 }
 
-const { url, title } = Astro.props;
+const { url, title, variant = 'standard' } = Astro.props;
 const embedUrl = getYouTubeEmbedUrl(url);
 ---
 
-<div class="video-wrap">
+<div class:list={['video-wrap', { 'video-wrap-short': variant === 'short' }]}>
   <iframe
     src={embedUrl}
     title={title}
