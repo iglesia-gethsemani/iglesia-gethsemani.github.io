@@ -46,13 +46,22 @@ function isCurrent(match: string): boolean {
         <small>Iglesia Presbiteriana Reformada · Coyoacán</small>
       </span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
-      <span class="sr-only">Abrir menú</span>
-      <span></span>
-      <span></span>
-      <span></span>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+      aria-label="Abrir menú"
+    >
+      <span class="nav-toggle-box" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </button>
+    <div class="nav-backdrop" data-nav-backdrop hidden></div>
     <nav class="site-nav" id="site-navigation" aria-label="Navegación principal">
+      <p class="nav-label">Menú</p>
       {
         navItems.map((item) => (
           <a href={item.href} aria-current={isCurrent(item.match) ? 'page' : undefined}>
@@ -61,6 +70,10 @@ function isCurrent(match: string): boolean {
         ))
       }
       <a class="nav-cta" href={pathFor('/contacto/')}>Visítanos</a>
+      <div class="nav-meta">
+        <p>Cuauhtémoc 117 · Coyoacán</p>
+        <p>Domingos desde las 9:30 h</p>
+      </div>
     </nav>
   </div>
 </header>
