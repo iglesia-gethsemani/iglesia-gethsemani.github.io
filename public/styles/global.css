@@ -625,6 +625,7 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
     .contact-item { padding: 16px 0; gap: 12px; grid-template-columns: 36px 1fr; }
     .contact-item .icon-badge { width: 36px; height: 36px; }
     .annual-reader-section { padding: 58px 16px 75px; }.annual-reader-intro { grid-template-columns: 1fr; gap: 24px; }.annual-reader { padding: 16px; }.annual-book-stage { grid-template-columns: 38px minmax(0,1fr) 38px; gap: 8px; }.annual-edge-control { width: 38px; height: 58px; }.annual-controls { flex-wrap: wrap; }.annual-controls button { padding: 0 11px; }
+    .home-hero h1 { max-width: 100%; font-size: clamp(38px, 14vw, 70px); line-height: .98; overflow-wrap: normal; white-space: nowrap; }
 }
 
 @media (max-width: 760px) {
