@@ -40,8 +40,9 @@ const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, 
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <link rel="icon" type="image/png" href={`${base}images/logo-gethsemani.png`} />
-    <link rel="apple-touch-icon" href={`${base}images/logo-gethsemani.png`} />
+    <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
+    <link rel="icon" type="image/png" href={`${base}favicon-256.png`} sizes="256x256" />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} sizes="180x180" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
