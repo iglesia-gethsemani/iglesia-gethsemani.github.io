@@ -44,20 +44,6 @@ const latestReflection = (await getCollection('reflections'))
         width="1024"
         height="1024"
       />
-      {
-        latestReflection && (
-          <a
-            class="hero-reflection-card"
-            href={pathFor(`/reflexiones/${latestReflection.id}/`)}
-            aria-label={`Leer la reflexión ${latestReflection.data.title}`}
-          >
-            <small>Última reflexión semanal</small>
-            <strong>{latestReflection.data.title}</strong>
-            {latestReflection.data.author && <span>{latestReflection.data.author}</span>}
-            <b>Leer reflexión <Icon name="arrow" /></b>
-          </a>
-        )
-      }
     </figure>
   </section>
 
@@ -69,6 +55,26 @@ const latestReflection = (await getCollection('reflections'))
       <span>Reformada</span>
     </div>
   </section>
+
+  {
+    latestReflection && (
+      <section class="latest-reflection-section" aria-labelledby="latest-reflection-title">
+        <div class="latest-reflection-heading">
+          <span class="icon-badge icon-badge--light" aria-hidden="true"><Icon name="spark" /></span>
+          <p class="overline blue">Última reflexión semanal</p>
+          <h2 id="latest-reflection-title">{latestReflection.data.title}</h2>
+          {latestReflection.data.author && <p class="latest-reflection-author">Por {latestReflection.data.author}</p>}
+        </div>
+        <div class="latest-reflection-copy">
+          {latestReflection.data.passage && <blockquote>{latestReflection.data.passage}</blockquote>}
+          {latestReflection.data.description && <p>{latestReflection.data.description}</p>}
+          <a class="arrow-link" href={pathFor(`/reflexiones/${latestReflection.id}/`)}>
+            Leer la reflexión completa <Icon name="arrow" />
+          </a>
+        </div>
+      </section>
+    )
+  }
 
   <section class="content-section welcome-grid">
     <div>
