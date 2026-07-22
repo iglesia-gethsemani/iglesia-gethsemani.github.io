@@ -3,6 +3,7 @@ title: Regocijándonos en Cristo
 date: 2026-07-12T12:00:00-06:00
 description: El verdadero gozo nace cuando descansamos en la voluntad perfecta de Dios y confiamos plenamente en Cristo.
 passage: '“Este es el día que hizo Jehová; nos gozaremos y alegraremos en él.” — Salmo 118:24'
+author: Presbítero Antonio Rodríguez Álvarez
 published: true
 ---
 
