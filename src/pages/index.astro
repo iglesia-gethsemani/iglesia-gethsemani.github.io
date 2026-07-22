@@ -60,7 +60,7 @@ const latestReflection = (await getCollection('reflections'))
     latestReflection && (
       <section class="latest-reflection-section" aria-labelledby="latest-reflection-title">
         <div class="latest-reflection-heading">
-          <span class="icon-badge icon-badge--light" aria-hidden="true"><Icon name="spark" /></span>
+          <span class="icon-badge icon-badge--light" aria-hidden="true"><Icon name="feather" /></span>
           <p class="overline blue">Última reflexión semanal</p>
           <h2 id="latest-reflection-title">{latestReflection.data.title}</h2>
           {latestReflection.data.author && <p class="latest-reflection-author">Por {latestReflection.data.author}</p>}
