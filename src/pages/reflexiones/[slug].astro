@@ -37,9 +37,12 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
       <a class="back-link" href={pathFor('/reflexiones/')}>← Todas las reflexiones</a>
       <p class="eyebrow">Reflexión semanal</p>
       <h1>{reflection.data.title}</h1>
-      <time datetime={reflection.data.date.toISOString().slice(0, 10)}>
-        {dateFormatter.format(reflection.data.date)}
-      </time>
+      <div class="reflection-byline">
+        <time datetime={reflection.data.date.toISOString().slice(0, 10)}>
+          {dateFormatter.format(reflection.data.date)}
+        </time>
+        {reflection.data.author && <span>Por {reflection.data.author}</span>}
+      </div>
     </header>
 
     <div class="article-body">
