@@ -1,12 +1,16 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/Icon.astro';
+import { getCollection } from 'astro:content';
 import { pathFor } from '@/utils/paths';
 import { getYouTubeThumbnail } from '@/utils/youtube';
 
 const base = import.meta.env.BASE_URL;
 const featuredVideoUrl = 'https://www.youtube.com/watch?v=O1HHTV9ncFs';
 const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
+const latestReflection = (await getCollection('reflections'))
+  .filter((reflection) => reflection.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 ---
 
 <PageLayout
@@ -40,6 +44,20 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
         width="1024"
         height="1024"
       />
+      {
+        latestReflection && (
+          <a
+            class="hero-reflection-card"
+            href={pathFor(`/reflexiones/${latestReflection.id}/`)}
+            aria-label={`Leer la reflexión ${latestReflection.data.title}`}
+          >
+            <small>Última reflexión semanal</small>
+            <strong>{latestReflection.data.title}</strong>
+            {latestReflection.data.author && <span>{latestReflection.data.author}</span>}
+            <b>Leer reflexión <Icon name="arrow" /></b>
+          </a>
+        )
+      }
     </figure>
   </section>
 
