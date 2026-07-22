@@ -1,0 +1,88 @@
+---
+import Icon from '@/components/Icon.astro';
+---
+
+<aside class="contact-chat" data-contact-chat aria-label="Chat de contacto">
+  <section
+    class="contact-chat-panel"
+    id="contact-chat-panel"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="contact-chat-title"
+    hidden
+  >
+    <header class="contact-chat-header">
+      <span class="contact-chat-avatar" aria-hidden="true"><Icon name="church" /></span>
+      <div>
+        <strong id="contact-chat-title">Iglesia Gethsemaní</strong>
+        <span><i aria-hidden="true"></i> Escríbenos</span>
+      </div>
+      <button class="contact-chat-close" type="button" data-chat-close aria-label="Cerrar chat">×</button>
+    </header>
+
+    <div class="contact-chat-body" data-chat-messages aria-live="polite">
+      <div class="chat-message chat-message--received">
+        ¡Hola! Gracias por escribirnos. Puedes enviarnos una petición de oración, pregunta o sugerencia.
+      </div>
+      <div class="chat-message chat-message--received" data-chat-prompt>Para comenzar, ¿cómo te llamas?</div>
+    </div>
+
+    <form class="contact-chat-form" data-chat-form novalidate>
+      <label class="sr-only" data-chat-label for="chat-name">Tu nombre</label>
+      <input
+        id="chat-name"
+        name="name"
+        type="text"
+        autocomplete="name"
+        maxlength="80"
+        placeholder="Escribe tu nombre"
+        aria-label="Tu nombre"
+        required
+        data-chat-field="name"
+      />
+      <input
+        id="chat-email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        maxlength="120"
+        placeholder="tu@correo.com"
+        aria-label="Tu correo electrónico"
+        required
+        hidden
+        data-chat-field="email"
+      />
+      <textarea
+        id="chat-message"
+        name="message"
+        rows="3"
+        maxlength="2000"
+        placeholder="Escribe tu mensaje"
+        aria-label="Tu mensaje"
+        required
+        hidden
+        data-chat-field="message"
+      ></textarea>
+      <input class="chat-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button class="contact-chat-send" type="submit" data-chat-submit>
+        <span data-chat-submit-label>Continuar</span>
+        <Icon name="arrow" />
+      </button>
+      <p class="contact-chat-error" data-chat-error role="alert" hidden></p>
+      <p class="contact-chat-privacy" data-chat-privacy>
+        Usaremos tus datos únicamente para responderte. No compartas información sensible.
+      </p>
+    </form>
+  </section>
+
+  <button
+    class="contact-chat-launcher"
+    type="button"
+    data-chat-launcher
+    aria-controls="contact-chat-panel"
+    aria-expanded="false"
+  >
+    <span class="contact-chat-launcher-icon" aria-hidden="true"><Icon name="mail" /></span>
+    <span class="contact-chat-launcher-copy"><strong>¿Podemos ayudarte?</strong><small>Envíanos un mensaje</small></span>
+  </button>
+</aside>

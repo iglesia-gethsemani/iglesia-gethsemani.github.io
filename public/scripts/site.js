@@ -110,3 +110,140 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
 
     animatedElements.forEach((element) => observer.observe(element));
 }
+
+const contactChat = document.querySelector('[data-contact-chat]');
+
+if (contactChat) {
+    const panel = contactChat.querySelector('#contact-chat-panel');
+    const launcher = contactChat.querySelector('[data-chat-launcher]');
+    const closeButton = contactChat.querySelector('[data-chat-close]');
+    const form = contactChat.querySelector('[data-chat-form]');
+    const messages = contactChat.querySelector('[data-chat-messages]');
+    const submitButton = contactChat.querySelector('[data-chat-submit]');
+    const submitLabel = contactChat.querySelector('[data-chat-submit-label]');
+    const errorMessage = contactChat.querySelector('[data-chat-error]');
+    const privacyMessage = contactChat.querySelector('[data-chat-privacy]');
+    const fields = {
+        name: contactChat.querySelector('[data-chat-field="name"]'),
+        email: contactChat.querySelector('[data-chat-field="email"]'),
+        message: contactChat.querySelector('[data-chat-field="message"]'),
+    };
+    let currentStep = 'name';
+
+    const openChat = () => {
+        panel.hidden = false;
+        launcher.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('chat-open');
+        window.setTimeout(() => fields[currentStep]?.focus(), 60);
+    };
+
+    const closeChat = () => {
+        panel.hidden = true;
+        launcher.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('chat-open');
+        launcher.focus();
+    };
+
+    const addMessage = (text, type = 'sent') => {
+        const bubble = document.createElement('div');
+        bubble.className = `chat-message chat-message--${type}`;
+        bubble.textContent = text;
+        messages.appendChild(bubble);
+        messages.scrollTop = messages.scrollHeight;
+    };
+
+    const showField = (nextStep) => {
+        Object.entries(fields).forEach(([key, field]) => {
+            field.hidden = key !== nextStep;
+        });
+        currentStep = nextStep;
+        errorMessage.hidden = true;
+        fields[nextStep].focus();
+    };
+
+    const showError = (text) => {
+        errorMessage.textContent = text;
+        errorMessage.hidden = false;
+    };
+
+    launcher.addEventListener('click', () => panel.hidden ? openChat() : closeChat());
+    closeButton.addEventListener('click', closeChat);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !panel.hidden) closeChat();
+    });
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const field = fields[currentStep];
+
+        if (!field.checkValidity()) {
+            field.reportValidity();
+            return;
+        }
+
+        if (currentStep === 'name') {
+            addMessage(field.value.trim());
+            addMessage(`Mucho gusto, ${field.value.trim()}. ¿A qué correo podemos responderte?`, 'received');
+            showField('email');
+            return;
+        }
+
+        if (currentStep === 'email') {
+            addMessage(field.value.trim());
+            addMessage('Ahora cuéntanos, ¿en qué podemos ayudarte?', 'received');
+            showField('message');
+            submitLabel.textContent = 'Enviar';
+            return;
+        }
+
+        const messageText = field.value.trim();
+        if (!form.dataset.messageAdded) {
+            addMessage(messageText);
+            form.dataset.messageAdded = 'true';
+        }
+        field.hidden = true;
+        submitButton.disabled = true;
+        submitLabel.textContent = 'Enviando…';
+        errorMessage.hidden = true;
+
+        const payload = {
+            name: fields.name.value.trim(),
+            email: fields.email.value.trim(),
+            message: messageText,
+            pagina: window.location.href,
+            _subject: 'Nuevo mensaje desde el chat de Gethsemaní',
+            _template: 'table',
+            _captcha: 'false',
+            _honey: form.elements._honey.value,
+        };
+
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/gethsemanicoyoacan@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+            if (!response.ok || result.success === false) throw new Error('No fue posible enviar el mensaje');
+
+            addMessage('¡Gracias! Tu mensaje fue enviado. Te responderemos por correo tan pronto como nos sea posible.', 'received');
+            form.classList.add('is-complete');
+            submitButton.hidden = true;
+            privacyMessage.hidden = true;
+        } catch (error) {
+            field.hidden = false;
+            submitButton.disabled = false;
+            submitLabel.textContent = 'Intentar de nuevo';
+            const subject = encodeURIComponent('Mensaje desde el sitio de Gethsemaní');
+            const body = encodeURIComponent(`Nombre: ${payload.name}\nCorreo: ${payload.email}\n\n${payload.message}`);
+            showError(`No pudimos enviarlo en este momento. Puedes escribirnos directamente a gethsemanicoyoacan@gmail.com.`);
+            const fallback = document.createElement('a');
+            fallback.className = 'contact-chat-fallback';
+            fallback.href = `mailto:gethsemanicoyoacan@gmail.com?subject=${subject}&body=${body}`;
+            fallback.textContent = 'Abrir mi correo';
+            errorMessage.append(' ', fallback);
+        }
+    });
+}
