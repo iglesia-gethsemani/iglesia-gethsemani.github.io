@@ -437,8 +437,11 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .share-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
 .share-btn { min-height: 42px; padding: 0 14px; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 3px; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
 .share-btn .icon { width: 15px; height: 15px; }
+.share-btn--primary { color: white; background: var(--brick); border-color: var(--brick); }
+.share-btn--primary:hover, .share-btn--primary:focus-visible { color: var(--brick); background: transparent; }
 .share-btn:hover, .share-btn:focus-visible { color: var(--brick); border-color: var(--brick); outline: 0; }
 .share-btn.is-copied { color: white; background: var(--brick); border-color: var(--brick); }
+.share-feedback { margin: 14px 0 0; color: var(--brick); font-size: 12px; line-height: 1.45; }
 .reflection-nav { padding-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; border-top: 1px solid var(--line); }
 .reflection-nav a { display: flex; flex-direction: column; min-width: 0; color: var(--navy); text-decoration: none; }
 .reflection-nav strong { overflow-wrap: anywhere; word-break: break-word; }
@@ -640,6 +643,7 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
     .share-box { margin-top: 36px; padding: 22px 18px; }
     .share-actions { gap: 8px; }
     .share-btn { flex: 1 1 calc(50% - 8px); justify-content: center; }
+    .share-btn--primary { flex: 1 1 100%; }
     .reflection-nav { grid-template-columns: 1fr; gap: 18px; }
     .reflection-nav .next { text-align: left; }
     .latest-reflection-heading h2 { font-size: clamp(28px, 8vw, 40px); }

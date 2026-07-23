@@ -5,33 +5,73 @@ interface Props {
   url: string;
   title: string;
   description?: string;
+  passage?: string;
+  body?: string;
 }
 
-const { url, title, description = '' } = Astro.props;
+const { url, title, description = '', passage = '', body = '' } = Astro.props;
 
-const shareText = description
-  ? `${title} — ${description}`
-  : `${title} | Iglesia Presbiteriana Reformada Gethsemaní`;
+function toPlainText(markdown: string): string {
+  return markdown
+    .replace(/\r\n/g, '\n')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[`*_~>#]/g, '')
+    .replace(/^\s*[-*+]\s+/gm, '• ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 
-const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-const whatsappHref = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n\nLéela completa aquí:\n${url}`)}`;
-const xHref = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareText)}`;
+const plainBody = toPlainText(body);
+const parts = [
+  title,
+  passage ? `“${passage}”` : '',
+  plainBody,
+  description && description !== title && description !== passage ? description : '',
+].filter(Boolean);
+
+const fullText = parts.join('\n\n');
+const shareMessage = `${fullText}\n\n———\nLéela en la página de la iglesia (vista completa):\n${url}`;
+const facebookQuote = fullText.slice(0, 500);
+
+// Desktop/fallback Facebook dialog. On mobile we prefer the system share sheet via JS.
+const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(facebookQuote)}`;
+const whatsappHref = `https://wa.me/?text=${encodeURIComponent(shareMessage)}`;
+const xHref = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(`${title}${passage ? ` — ${passage}` : ''}`)}`;
 ---
 
-<div class="share-box">
+<div
+  class="share-box"
+  data-share-root
+  data-share-url={url}
+  data-share-title={title}
+  data-share-text={shareMessage}
+>
   <p class="share-label">Compartir esta reflexión</p>
-  <p class="share-note">Se comparte el enlace a esta página para leerla completa en el sitio.</p>
+  <p class="share-note">
+    Se envía el texto completo y el enlace a esta página, para que se vea la vista previa embebida y puedan abrirla en el
+    sitio.
+  </p>
   <div class="share-actions">
-    <a
+    <button
+      class="share-btn share-btn--primary"
+      type="button"
+      data-share-native
+      aria-label="Compartir reflexión con el menú del dispositivo"
+    >
+      <Icon name="share" />
+      <span>Compartir</span>
+    </button>
+    <button
       class="share-btn"
-      href={facebookHref}
-      target="_blank"
-      rel="noopener noreferrer"
+      type="button"
+      data-share-facebook
+      data-facebook-href={facebookHref}
       aria-label="Compartir en Facebook"
     >
       <Icon name="facebook" />
       <span>Facebook</span>
-    </a>
+    </button>
     <a
       class="share-btn"
       href={whatsappHref}
@@ -46,9 +86,16 @@ const xHref = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&t
       <Icon name="x" />
       <span>X</span>
     </a>
-    <button class="share-btn" type="button" data-copy-link={url} aria-label="Copiar enlace de la reflexión">
+    <button
+      class="share-btn"
+      type="button"
+      data-copy-link={url}
+      data-copy-text={shareMessage}
+      aria-label="Copiar reflexión y enlace"
+    >
       <Icon name="link" />
-      <span data-copy-label>Copiar enlace</span>
+      <span data-copy-label>Copiar texto y enlace</span>
     </button>
   </div>
+  <p class="share-feedback" data-share-feedback hidden></p>
 </div>

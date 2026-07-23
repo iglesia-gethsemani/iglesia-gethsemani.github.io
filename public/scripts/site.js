@@ -250,22 +250,90 @@ if (contactChat) {
 
 document.querySelectorAll('[data-copy-link]').forEach((button) => {
     button.addEventListener('click', async () => {
-        const url = button.getAttribute('data-copy-link');
-        if (!url) return;
+        const text = button.getAttribute('data-copy-text') || button.getAttribute('data-copy-link');
+        if (!text) return;
 
         const label = button.querySelector('[data-copy-label]');
-        const original = label?.textContent ?? 'Copiar enlace';
+        const original = label?.textContent ?? 'Copiar';
 
         try {
-            await navigator.clipboard.writeText(url);
+            await navigator.clipboard.writeText(text);
             button.classList.add('is-copied');
-            if (label) label.textContent = 'Enlace copiado';
+            if (label) label.textContent = 'Copiado';
             window.setTimeout(() => {
                 button.classList.remove('is-copied');
                 if (label) label.textContent = original;
             }, 2000);
         } catch {
-            window.prompt('Copia este enlace:', url);
+            window.prompt('Copia este texto:', text);
         }
+    });
+});
+
+async function shareWithSystem(title, text, url) {
+    if (!navigator.share) return false;
+    try {
+        await navigator.share({ title, text, url });
+        return true;
+    } catch (error) {
+        if (error?.name === 'AbortError') return true;
+        return false;
+    }
+}
+
+function showShareFeedback(root, message) {
+    const feedback = root.querySelector('[data-share-feedback]');
+    if (!feedback) return;
+    feedback.hidden = false;
+    feedback.textContent = message;
+    window.setTimeout(() => {
+        feedback.hidden = true;
+    }, 4200);
+}
+
+document.querySelectorAll('[data-share-root]').forEach((root) => {
+    const title = root.getAttribute('data-share-title') || document.title;
+    const text = root.getAttribute('data-share-text') || '';
+    const url = root.getAttribute('data-share-url') || window.location.href;
+
+    root.querySelector('[data-share-native]')?.addEventListener('click', async () => {
+        const shared = await shareWithSystem(title, text, url);
+        if (shared) return;
+
+        try {
+            await navigator.clipboard.writeText(text || url);
+            showShareFeedback(root, 'Texto y enlace copiados. Pégalos donde quieras compartir.');
+        } catch {
+            window.prompt('Copia este texto para compartir:', text || url);
+        }
+    });
+
+    root.querySelector('[data-share-facebook]')?.addEventListener('click', async () => {
+        // En iPhone el sharer de Facebook suele abrir solo la app sin el enlace.
+        // Preferimos el menú nativo (donde eliges Facebook) o copiar + abrir Facebook.
+        const shared = await shareWithSystem(title, text, url);
+        if (shared) return;
+
+        try {
+            await navigator.clipboard.writeText(url);
+        } catch {
+            /* ignore */
+        }
+
+        const href = root.querySelector('[data-share-facebook]')?.getAttribute('data-facebook-href');
+        const popup = href
+            ? window.open(href, 'fbShare', 'noopener,noreferrer,width=640,height=560')
+            : null;
+
+        if (!popup) {
+            window.open('https://www.facebook.com/', '_blank', 'noopener,noreferrer');
+            showShareFeedback(
+                root,
+                'Enlace copiado. En Facebook crea una publicación y pégalo para que se vea la vista previa de la reflexión.'
+            );
+            return;
+        }
+
+        showShareFeedback(root, 'Si Facebook no trae el enlace, pega el enlace copiado en la publicación.');
     });
 });
