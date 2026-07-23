@@ -23,6 +23,18 @@ const base = import.meta.env.BASE_URL;
 const pageTitle = title.includes('Gethsemaní') ? title : `${title} | Iglesia Presbiteriana Reformada Gethsemaní`;
 const canonicalUrl = new URL(canonicalPath.replace(/^\//, ''), `${site}${base}`).href;
 const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, ''), `${site}${base}`).href;
+const logoUrl = new URL('images/logo-gethsemani.png', `${site}${base}`).href;
+const churchSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Church',
+  name: 'Iglesia Presbiteriana Reformada Gethsemaní',
+  url: `${site}${base === '/' ? '/' : base}`,
+  logo: logoUrl,
+  sameAs: [
+    'https://www.facebook.com/iprm.gethsemani',
+    'https://www.youtube.com/@i.p.r.m.gethsemani',
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,6 +43,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
+    <meta name="google-site-verification" content="RbaQ1oJ7DiOYhGZav_rs-bkQ42MVvWKnDLZxa6V6KWg" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
@@ -55,6 +68,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, 
       rel="stylesheet"
     />
     <link rel="stylesheet" href={`${base}styles/global.css?v=${assetVersion}`} />
+    <script type="application/ld+json" set:html={JSON.stringify(churchSchema)} />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Ir al contenido</a>
