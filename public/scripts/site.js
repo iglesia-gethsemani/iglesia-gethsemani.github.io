@@ -72,11 +72,7 @@ if (toggle && navigation) {
         }
     };
 
-    if (typeof mobileQuery.addEventListener === 'function') {
-        mobileQuery.addEventListener('change', handleViewportChange);
-    } else {
-        mobileQuery.addListener(handleViewportChange);
-    }
+    mobileQuery.addEventListener('change', handleViewportChange);
 }
 
 const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);
@@ -290,7 +286,9 @@ function showShareFeedback(root, message) {
 }
 
 function isAppleTouchDevice() {
-    return /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isAppleMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isIPadDesktopMode = /Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1;
+    return isAppleMobile || isIPadDesktopMode;
 }
 
 document.querySelectorAll('[data-share-root]').forEach((root) => {

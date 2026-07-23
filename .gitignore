@@ -1,22 +1,8 @@
-# Entorno virtual Python (legacy)
-venv/
-.venv/
-legacy-django/.venv/
-
-# Base de datos y media Django (legacy)
-db.sqlite3
-legacy-django/db.sqlite3
-media/
-legacy-django/media/
-
-# Python
-__pycache__/
-*.pyc
-
 # Node / Astro
 node_modules/
 dist/
 .astro/
+tmp/
 
 # Archivos del sistema
 .DS_Store

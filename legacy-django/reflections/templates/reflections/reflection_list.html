@@ -1,6 +1,0 @@
-{% extends "core/base.html" %}
-{% block title %}Reflexiones | Iglesia Presbiteriana Reformada Gethsemaní{% endblock %}
-{% block content %}
-<header class="page-hero"><div><p class="eyebrow">Para tu semana</p><h1>Reflexiones<br><em>desde la Palabra.</em></h1></div><p>Lecturas breves para detenernos, meditar en las Escrituras y orientar el corazón hacia Cristo.</p></header>
-<section class="section listing-section"><div class="list-header"><p>Reflexiones publicadas</p><span>{{ reflections|length|stringformat:"02d" }}</span></div><div class="article-list">{% for reflection in reflections %}<article class="article-row"><time datetime="{{ reflection.published_date|date:'Y-m-d' }}"><span>{{ reflection.published_date|date:"d" }}</span>{{ reflection.published_date|date:"M Y" }}</time><div><p class="article-kicker">Reflexión semanal</p><h2><a href="{% url 'reflections:reflection_detail' reflection.slug %}">{{ reflection.title }}</a></h2>{% if reflection.scripture %}<p>{{ reflection.scripture|truncatewords:18 }}</p>{% endif %}</div><a class="round-link" href="{% url 'reflections:reflection_detail' reflection.slug %}" aria-label="Leer {{ reflection.title }}">→</a></article>{% empty %}<div class="empty-panel"><h2>Próximamente</h2><p>Aún no hay reflexiones publicadas. Vuelve pronto.</p></div>{% endfor %}</div></section>
-{% endblock %}
