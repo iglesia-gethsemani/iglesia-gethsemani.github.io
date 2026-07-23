@@ -1,0 +1,79 @@
+---
+import Icon from '@/components/Icon.astro';
+
+interface OrderElement {
+  label: string;
+  title: string;
+  detail?: string;
+}
+
+interface Props {
+  title: string;
+  date: Date;
+  time: string;
+  location: string;
+  theme?: string;
+  sermonTitle?: string;
+  sermonPassage?: string;
+  preacher?: string;
+  elements: OrderElement[];
+  headingLevel?: 'h1' | 'h2';
+}
+
+const {
+  title,
+  date,
+  time,
+  location,
+  theme,
+  sermonTitle,
+  sermonPassage,
+  preacher,
+  elements,
+  headingLevel = 'h2',
+} = Astro.props;
+
+const Heading = headingLevel;
+const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<article class="service-order">
+  <header class="service-order-header">
+    <p class="overline blue">Culto dominical</p>
+    <Heading>{title}</Heading>
+    <div class="service-order-meta">
+      <span><Icon name="clock" /> {dateFormatter.format(date)} · {time} h</span>
+      <span><Icon name="map" /> {location}</span>
+    </div>
+    {
+      (theme || sermonTitle || sermonPassage || preacher) && (
+        <div class="service-order-sermon">
+          {theme && <small>{theme}</small>}
+          {sermonTitle && <strong>{sermonTitle}</strong>}
+          {sermonPassage && <span>{sermonPassage}</span>}
+          {preacher && <p>{preacher}</p>}
+        </div>
+      )
+    }
+  </header>
+
+  <ol class="service-order-sequence">
+    {
+      elements.map((element) => (
+        <li>
+          <span class="service-order-number" aria-hidden="true"></span>
+          <div>
+            <small>{element.label}</small>
+            <strong>{element.title}</strong>
+            {element.detail && <p>{element.detail}</p>}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</article>

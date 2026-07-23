@@ -371,6 +371,47 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .schedule-list strong { margin: 0 10px 0 0; color: var(--brick); font-size: 13px; font-weight: 800; }
 .map-wrap { min-height: 520px; overflow: hidden; border-radius: 4px; border: 1px solid var(--line); }
 .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+/* Orden del culto dominical */
+.service-order-page { max-width: 1280px; margin: auto; padding: 86px 24px 110px; display: grid; grid-template-columns: minmax(0,1fr) 330px; gap: 7%; align-items: start; }
+.service-order-main { min-width: 0; }
+.service-order-header { padding-bottom: 35px; border-bottom: 1px solid var(--line); }
+.service-order-header h1,.service-order-header h2 { margin: 0; color: var(--ink); font: 600 clamp(42px,4.6vw,64px)/1.06 var(--serif); letter-spacing: 0; }
+.service-order-meta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.service-order-meta span { display: inline-flex; align-items: center; gap: 8px; }
+.service-order-meta .icon { width: 15px; height: 15px; color: var(--brick); }
+.service-order-sermon { margin-top: 30px; padding: 25px 28px; display: flex; flex-direction: column; background: #f3f0e9; border-left: 4px solid var(--brick); }
+.service-order-sermon small { color: var(--brick); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.service-order-sermon strong { margin-top: 7px; color: var(--ink); font: 600 25px/1.25 var(--serif); }
+.service-order-sermon span { margin-top: 5px; color: var(--muted); font-size: 12px; }
+.service-order-sermon p { margin: 12px 0 0; color: var(--ink); font-size: 12px; font-weight: 700; }
+.service-order-sequence { margin: 0; padding: 0; list-style: none; counter-reset: service-order; }
+.service-order-sequence li { min-height: 96px; padding: 24px 0; display: grid; grid-template-columns: 48px minmax(0,1fr); gap: 18px; align-items: start; border-bottom: 1px solid var(--line); counter-increment: service-order; }
+.service-order-number { width: 42px; height: 42px; display: grid; place-items: center; color: white; background: var(--brick); border-radius: 50%; }
+.service-order-number::after { content: counter(service-order, decimal-leading-zero); font-size: 10px; font-weight: 800; }
+.service-order-sequence li > div { display: flex; flex-direction: column; }
+.service-order-sequence small { color: var(--brick); font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.service-order-sequence strong { margin-top: 4px; color: var(--ink); font: 600 21px/1.3 var(--serif); }
+.service-order-sequence p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+.service-order-empty { padding: 52px; background: #f3f0e9; border-top: 4px solid var(--brick); }
+.service-order-empty .icon-badge { margin-bottom: 24px; }
+.service-order-empty h2 { margin: 0; color: var(--ink); font: 600 clamp(38px,4vw,56px)/1.08 var(--serif); }
+.service-order-empty > p:last-child { max-width: 620px; margin: 22px 0 0; color: var(--muted); }
+.service-order-qr { padding: 30px; position: sticky; top: 108px; text-align: center; background: white; border: 1px solid var(--line); box-shadow: 0 18px 42px rgba(37,42,39,.08); }
+.service-order-qr .overline { margin-bottom: 10px; }
+.service-order-qr h2 { margin: 0; color: var(--ink); font: 600 29px/1.15 var(--serif); }
+.service-order-qr img { width: 100%; margin: 24px auto 18px; image-rendering: crisp-edges; }
+.service-order-qr p:not(.overline) { color: var(--muted); font-size: 11px; }
+.service-order-qr .button { width: 100%; margin-top: 10px; }
+.service-order-archive { padding-top: 0; }
+.service-order-archive-list { margin-top: 35px; border-top: 1px solid var(--line); }
+.service-order-archive-list a { padding: 22px 8px; display: grid; grid-template-columns: 180px minmax(0,1fr) 24px; gap: 24px; align-items: center; color: var(--ink); border-bottom: 1px solid var(--line); text-decoration: none; }
+.service-order-archive-list a:hover { color: var(--brick); background: var(--ice); }
+.service-order-archive-list time { color: var(--muted); font-size: 10px; text-transform: capitalize; }
+.service-order-archive-list strong { font: 600 19px var(--serif); }
+.service-order-detail { max-width: 850px; margin: auto; padding: 80px 24px 110px; }
+.service-order-detail > .back-link { margin-bottom: 45px; }
+
 .listing-section,.sermons-section { padding-top: 70px; }
 .list-header { padding-bottom: 15px; display: flex; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--navy); }
 .list-header p { font-size: 10px; font-weight: 800; text-transform: uppercase; }
@@ -704,6 +745,16 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
     .footer-main { grid-template-columns: 1fr; gap: 35px; }
     .footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
     .subpage-hero h1, .page-hero h1 { font-size: clamp(32px, 9vw, 40px); overflow-wrap: anywhere; word-break: break-word; }
+}
+
+@media (max-width: 900px) {
+    .service-order-page { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 45px; }
+    .service-order-qr { position: static; max-width: 380px; width: 100%; justify-self: center; }
+    .service-order-empty { padding: 36px 26px; }
+    .service-order-archive-list a { grid-template-columns: 1fr 24px; gap: 7px 18px; }
+    .service-order-archive-list time,.service-order-archive-list strong { grid-column: 1; }
+    .service-order-archive-list span { grid-column: 2; grid-row: 1 / 3; }
+    .service-order-detail { padding: 60px 20px 80px; }
 }
 
 @media (max-width: 760px) {

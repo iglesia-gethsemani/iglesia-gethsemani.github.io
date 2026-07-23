@@ -1,0 +1,91 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ServiceOrder from '@/components/ServiceOrder.astro';
+import Icon from '@/components/Icon.astro';
+import { getCollection } from 'astro:content';
+import { pathFor } from '@/utils/paths';
+
+const orders = (await getCollection('serviceOrders'))
+  .filter((order) => order.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const currentOrder = orders[0];
+const previousOrders = orders.slice(1);
+const base = import.meta.env.BASE_URL;
+const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<PageLayout
+  title="Orden del culto"
+  description="Consulta el orden del culto dominical de la Iglesia Presbiteriana Reformada Gethsemaní."
+  canonicalPath="/orden-del-culto/"
+>
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Adoremos juntos</p>
+      <h1>Orden del<br /><em>culto dominical.</em></h1>
+    </div>
+    <p>Lecturas, himnos, oraciones y demás elementos que guían nuestra adoración congregacional cada domingo.</p>
+  </header>
+
+  <section class="service-order-page">
+    <div class="service-order-main">
+      {
+        currentOrder ? (
+          <ServiceOrder {...currentOrder.data} />
+        ) : (
+          <div class="service-order-empty">
+            <span class="icon-badge icon-badge--light" aria-hidden="true"><Icon name="church" /></span>
+            <p class="overline blue">Próximo domingo</p>
+            <h2>El nuevo orden se publicará aquí.</h2>
+            <p>
+              En cuanto esté listo, esta página mostrará el orden completo del culto. El mismo código QR seguirá
+              funcionando cada semana.
+            </p>
+          </div>
+        )
+      }
+    </div>
+
+    <aside class="service-order-qr" aria-labelledby="qr-title">
+      <p class="overline blue">Acceso desde el templo</p>
+      <h2 id="qr-title">Escanea para consultar el orden</h2>
+      <img
+        src={`${base}images/qr-orden-del-culto.png`}
+        alt="Código QR para abrir el orden del culto dominical"
+        width="1200"
+        height="1200"
+      />
+      <p>Este código siempre abrirá el orden vigente. Puedes imprimirlo y colocarlo en la entrada o en las bancas.</p>
+      <a class="button button-blue" href={`${base}images/qr-orden-del-culto.png`} download="QR-orden-del-culto-Gethsemani.png">
+        Descargar código QR
+      </a>
+    </aside>
+  </section>
+
+  {
+    previousOrders.length > 0 && (
+      <section class="service-order-archive section" aria-labelledby="order-archive-title">
+        <div class="section-heading">
+          <p class="overline blue">Archivo</p>
+          <h2 id="order-archive-title">Órdenes anteriores</h2>
+        </div>
+        <div class="service-order-archive-list">
+          {previousOrders.map((order) => (
+            <a href={pathFor(`/orden-del-culto/${order.id}/`)}>
+              <time datetime={order.data.date.toISOString().slice(0, 10)}>
+                {dateFormatter.format(order.data.date)}
+              </time>
+              <strong>{order.data.title}</strong>
+              <span aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</PageLayout>

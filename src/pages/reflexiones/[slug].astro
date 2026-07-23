@@ -31,7 +31,8 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://iglesia-geths
 const base = import.meta.env.BASE_URL;
 const canonicalPath = `/reflexiones/${reflection.id}/`;
 const shareUrl = new URL(canonicalPath.replace(/^\//, ''), `${site}${base}`).href;
-const plainBody = reflection.body
+const reflectionBody = reflection.body ?? '';
+const plainBody = reflectionBody
   .replace(/\r\n/g, '\n')
   .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
   .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -75,7 +76,7 @@ const ogDescription = [reflection.data.passage, plainBody.slice(0, 220)].filter(
         title={reflection.data.title}
         description={description}
         passage={reflection.data.passage}
-        body={reflection.body}
+        body={reflectionBody}
       />
     </div>
 

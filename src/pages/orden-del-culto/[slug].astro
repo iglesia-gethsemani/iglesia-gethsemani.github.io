@@ -1,0 +1,28 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import ServiceOrder from '@/components/ServiceOrder.astro';
+import { getCollection } from 'astro:content';
+import { pathFor } from '@/utils/paths';
+
+export async function getStaticPaths() {
+  const orders = await getCollection('serviceOrders', ({ data }) => data.published);
+
+  return orders.map((order) => ({
+    params: { slug: order.id },
+    props: { order },
+  }));
+}
+
+const { order } = Astro.props;
+---
+
+<PageLayout
+  title={order.data.title}
+  description="Orden del culto dominical de la Iglesia Gethsemaní."
+  canonicalPath={`/orden-del-culto/${order.id}/`}
+>
+  <article class="service-order-detail">
+    <a class="back-link" href={pathFor('/orden-del-culto/')}>← Orden vigente y archivo</a>
+    <ServiceOrder {...order.data} headingLevel="h1" />
+  </article>
+</PageLayout>

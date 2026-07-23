@@ -44,4 +44,26 @@ const doctrine = defineCollection({
   }),
 });
 
-export const collections = { reflections, sermons, doctrine };
+const serviceOrders = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/service-orders' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    time: z.string().default('12:00'),
+    location: z.string().default('Templo Gethsemaní'),
+    theme: z.string().optional(),
+    sermonTitle: z.string().optional(),
+    sermonPassage: z.string().optional(),
+    preacher: z.string().optional(),
+    published: z.boolean().default(true),
+    elements: z.array(
+      z.object({
+        label: z.string(),
+        title: z.string(),
+        detail: z.string().optional(),
+      }),
+    ),
+  }),
+});
+
+export const collections = { reflections, sermons, doctrine, serviceOrders };
