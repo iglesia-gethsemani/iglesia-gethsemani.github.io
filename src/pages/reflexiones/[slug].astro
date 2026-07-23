@@ -1,5 +1,6 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import ShareLinks from '@/components/ShareLinks.astro';
 import { getCollection, render } from 'astro:content';
 import { pathFor } from '@/utils/paths';
 
@@ -25,12 +26,19 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
   month: 'long',
   year: 'numeric',
 });
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://iglesia-gethsemani.github.io';
+const base = import.meta.env.BASE_URL;
+const canonicalPath = `/reflexiones/${reflection.id}/`;
+const shareUrl = new URL(canonicalPath.replace(/^\//, ''), `${site}${base}`).href;
+const description = reflection.data.description ?? reflection.data.passage ?? reflection.data.title;
 ---
 
 <PageLayout
   title={reflection.data.title}
-  description={reflection.data.description ?? reflection.data.passage ?? reflection.data.title}
-  canonicalPath={`/reflexiones/${reflection.id}/`}
+  description={description}
+  canonicalPath={canonicalPath}
+  ogType="article"
 >
   <article class="reflection-page">
     <header class="article-hero">
@@ -50,6 +58,7 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
       <div class="prose-body">
         <Content />
       </div>
+      <ShareLinks url={shareUrl} title={reflection.data.title} description={description} />
     </div>
 
     <nav class="reflection-nav" aria-label="Otras reflexiones">

@@ -247,3 +247,25 @@ if (contactChat) {
         }
     });
 }
+
+document.querySelectorAll('[data-copy-link]').forEach((button) => {
+    button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-copy-link');
+        if (!url) return;
+
+        const label = button.querySelector('[data-copy-label]');
+        const original = label?.textContent ?? 'Copiar enlace';
+
+        try {
+            await navigator.clipboard.writeText(url);
+            button.classList.add('is-copied');
+            if (label) label.textContent = 'Enlace copiado';
+            window.setTimeout(() => {
+                button.classList.remove('is-copied');
+                if (label) label.textContent = original;
+            }, 2000);
+        } catch {
+            window.prompt('Copia este enlace:', url);
+        }
+    });
+});

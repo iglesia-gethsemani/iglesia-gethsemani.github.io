@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   image?: string;
   canonicalPath?: string;
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   description = 'Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán. Una iglesia confesional centrada en Cristo y en su Palabra.',
   image = '/images/templo-gethsemani.jpg',
   canonicalPath = '/',
+  ogType = 'website',
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://iglesia-gethsemani.github.io';
@@ -32,7 +34,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image.replace(/^\//, 
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="es_MX" />
     <meta property="og:site_name" content="Iglesia Presbiteriana Reformada Gethsemaní" />
     <meta property="og:title" content={pageTitle} />

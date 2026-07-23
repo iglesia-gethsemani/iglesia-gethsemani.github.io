@@ -1,0 +1,54 @@
+---
+import Icon from '@/components/Icon.astro';
+
+interface Props {
+  url: string;
+  title: string;
+  description?: string;
+}
+
+const { url, title, description = '' } = Astro.props;
+
+const shareText = description
+  ? `${title} — ${description}`
+  : `${title} | Iglesia Presbiteriana Reformada Gethsemaní`;
+
+const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+const whatsappHref = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n\nLéela completa aquí:\n${url}`)}`;
+const xHref = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareText)}`;
+---
+
+<div class="share-box">
+  <p class="share-label">Compartir esta reflexión</p>
+  <p class="share-note">Se comparte el enlace a esta página para leerla completa en el sitio.</p>
+  <div class="share-actions">
+    <a
+      class="share-btn"
+      href={facebookHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Compartir en Facebook"
+    >
+      <Icon name="facebook" />
+      <span>Facebook</span>
+    </a>
+    <a
+      class="share-btn"
+      href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Compartir en WhatsApp"
+    >
+      <Icon name="whatsapp" />
+      <span>WhatsApp</span>
+    </a>
+    <a class="share-btn" href={xHref} target="_blank" rel="noopener noreferrer" aria-label="Compartir en X">
+      <Icon name="x" />
+      <span>X</span>
+    </a>
+    <button class="share-btn" type="button" data-copy-link={url} aria-label="Copiar enlace de la reflexión">
+      <Icon name="link" />
+      <span data-copy-label>Copiar enlace</span>
+    </button>
+  </div>
+</div>
