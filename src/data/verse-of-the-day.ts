@@ -1,0 +1,77 @@
+export interface DailyVerse {
+  reference: string;
+  text: string;
+  version: 'RVR1960';
+}
+
+/** Selección pastoral de versículos (RVR1960). Se rota por día del año. */
+export const dailyVerses: DailyVerse[] = [
+  { reference: 'Salmo 119:105', text: 'Lámpara es a mis pies tu palabra, y lumbrera a mi camino.', version: 'RVR1960' },
+  { reference: 'Josué 1:9', text: 'Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas.', version: 'RVR1960' },
+  { reference: 'Proverbios 3:5-6', text: 'Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia. Reconócelo en todos tus caminos, y él enderezará tus veredas.', version: 'RVR1960' },
+  { reference: 'Isaías 40:31', text: 'Pero los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán; caminarán, y no se fatigarán.', version: 'RVR1960' },
+  { reference: 'Isaías 41:10', text: 'No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.', version: 'RVR1960' },
+  { reference: 'Jeremías 29:11', text: 'Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.', version: 'RVR1960' },
+  { reference: 'Lamentaciones 3:22-23', text: 'Por la misericordia de Jehová no hemos sido consumidos, porque nunca decayeron sus misericordias. Nuevas son cada mañana; grande es tu fidelidad.', version: 'RVR1960' },
+  { reference: 'Miqueas 6:8', text: 'Oh hombre, él te ha declarado lo que es bueno, y qué pide Jehová de ti: solamente hacer justicia, y amar misericordia, y humillarte ante tu Dios.', version: 'RVR1960' },
+  { reference: 'Habacuc 3:17-18', text: 'Aunque la higuera no florezca, ni en las vides haya frutos… con todo, yo me alegraré en Jehová, y me gozaré en el Dios de mi salvación.', version: 'RVR1960' },
+  { reference: 'Mateo 5:16', text: 'Así alumbre vuestra luz delante de los hombres, para que vean vuestras buenas obras, y glorifiquen a vuestro Padre que está en los cielos.', version: 'RVR1960' },
+  { reference: 'Mateo 6:33', text: 'Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas.', version: 'RVR1960' },
+  { reference: 'Mateo 11:28', text: 'Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.', version: 'RVR1960' },
+  { reference: 'Mateo 28:19-20', text: 'Por tanto, id, y haced discípulos a todas las naciones… y he aquí yo estoy con vosotros todos los días, hasta el fin del mundo. Amén.', version: 'RVR1960' },
+  { reference: 'Juan 1:12', text: 'Mas a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios.', version: 'RVR1960' },
+  { reference: 'Juan 3:16', text: 'Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.', version: 'RVR1960' },
+  { reference: 'Juan 8:12', text: 'Otra vez Jesús les habló, diciendo: Yo soy la luz del mundo; el que me sigue, no andará en tinieblas, sino que tendrá la luz de la vida.', version: 'RVR1960' },
+  { reference: 'Juan 14:6', text: 'Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí.', version: 'RVR1960' },
+  { reference: 'Juan 15:5', text: 'Yo soy la vid, vosotros los pámpanos; el que permanece en mí, y yo en él, éste lleva mucho fruto; porque separados de mí nada podéis hacer.', version: 'RVR1960' },
+  { reference: 'Romanos 1:16', text: 'Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree; al judío primeramente, y también al griego.', version: 'RVR1960' },
+  { reference: 'Romanos 5:8', text: 'Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.', version: 'RVR1960' },
+  { reference: 'Romanos 8:28', text: 'Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.', version: 'RVR1960' },
+  { reference: 'Romanos 8:38-39', text: 'Por lo cual estoy seguro de que ni la muerte, ni la vida… ni ninguna otra cosa creada nos podrá separar del amor de Dios, que es en Cristo Jesús Señor nuestro.', version: 'RVR1960' },
+  { reference: 'Romanos 12:1-2', text: 'Así que, hermanos, os ruego por las misericordias de Dios, que presentéis vuestros cuerpos en sacrificio vivo… No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento.', version: 'RVR1960' },
+  { reference: '1 Corintios 10:31', text: 'Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios.', version: 'RVR1960' },
+  { reference: '1 Corintios 15:58', text: 'Así que, hermanos míos amados, estad firmes y constantes, creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es en vano.', version: 'RVR1960' },
+  { reference: '2 Corintios 5:17', text: 'De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas.', version: 'RVR1960' },
+  { reference: '2 Corintios 12:9', text: 'Y me ha dicho: Bástate mi gracia; porque mi poder se perfecciona en la debilidad.', version: 'RVR1960' },
+  { reference: 'Gálatas 2:20', text: 'Con Cristo estoy juntamente crucificado, y ya no vivo yo, mas vive Cristo en mí.', version: 'RVR1960' },
+  { reference: 'Gálatas 5:22-23', text: 'Mas el fruto del Espíritu es amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza; contra tales cosas no hay ley.', version: 'RVR1960' },
+  { reference: 'Efesios 2:8-9', text: 'Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.', version: 'RVR1960' },
+  { reference: 'Efesios 4:32', text: 'Antes sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.', version: 'RVR1960' },
+  { reference: 'Efesios 6:10', text: 'Por lo demás, hermanos míos, fortaleceos en el Señor, y en el poder de su fuerza.', version: 'RVR1960' },
+  { reference: 'Filipenses 1:6', text: 'Estando persuadido de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo.', version: 'RVR1960' },
+  { reference: 'Filipenses 4:6-7', text: 'Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias. Y la paz de Dios… guardará vuestros corazones y vuestros pensamientos en Cristo Jesús.', version: 'RVR1960' },
+  { reference: 'Filipenses 4:13', text: 'Todo lo puedo en Cristo que me fortalece.', version: 'RVR1960' },
+  { reference: 'Colosenses 3:16', text: 'La palabra de Cristo more en abundancia en vosotros, enseñándoos y exhortándoos unos a otros en toda sabiduría.', version: 'RVR1960' },
+  { reference: 'Colosenses 3:23', text: 'Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres.', version: 'RVR1960' },
+  { reference: '1 Tesalonicenses 5:16-18', text: 'Estad siempre gozosos. Orad sin cesar. Dad gracias en todo, porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.', version: 'RVR1960' },
+  { reference: '2 Timoteo 1:7', text: 'Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.', version: 'RVR1960' },
+  { reference: '2 Timoteo 3:16-17', text: 'Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia.', version: 'RVR1960' },
+  { reference: 'Hebreos 4:12', text: 'Porque la palabra de Dios es viva y eficaz, y más cortante que toda espada de dos filos.', version: 'RVR1960' },
+  { reference: 'Hebreos 11:1', text: 'Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve.', version: 'RVR1960' },
+  { reference: 'Hebreos 12:1-2', text: 'Por tanto, nosotros también… corramos con paciencia la carrera que tenemos por delante, puestos los ojos en Jesús, el autor y consumador de la fe.', version: 'RVR1960' },
+  { reference: 'Hebreos 13:8', text: 'Jesucristo es el mismo ayer, y hoy, y por los siglos.', version: 'RVR1960' },
+  { reference: 'Santiago 1:5', text: 'Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche, y le será dada.', version: 'RVR1960' },
+  { reference: 'Santiago 1:22', text: 'Pero sed hacedores de la palabra, y no tan solamente oidores, engañándoos a vosotros mismos.', version: 'RVR1960' },
+  { reference: '1 Pedro 5:7', text: 'Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.', version: 'RVR1960' },
+  { reference: '1 Juan 1:9', text: 'Si confesamos nuestros pecados, él es fiel y justo para perdonar nuestros pecados, y limpiarnos de toda maldad.', version: 'RVR1960' },
+  { reference: '1 Juan 4:19', text: 'Nosotros le amamos a él, porque él nos amó primero.', version: 'RVR1960' },
+  { reference: 'Apocalipsis 21:4', text: 'Enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron.', version: 'RVR1960' },
+  { reference: 'Génesis 1:1', text: 'En el principio creó Dios los cielos y la tierra.', version: 'RVR1960' },
+  { reference: 'Salmo 23:1', text: 'Jehová es mi pastor; nada me faltará.', version: 'RVR1960' },
+  { reference: 'Salmo 27:1', text: 'Jehová es mi luz y mi salvación; ¿de quién temeré? Jehová es la fuerza de mi vida; ¿de quién he de atemorizarme?', version: 'RVR1960' },
+  { reference: 'Salmo 46:1', text: 'Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones.', version: 'RVR1960' },
+  { reference: 'Salmo 51:10', text: 'Crea en mí, oh Dios, un corazón limpio, y renueva un espíritu recto dentro de mí.', version: 'RVR1960' },
+  { reference: 'Salmo 100:2', text: 'Servid a Jehová con alegría; venid ante su presencia con regocijo.', version: 'RVR1960' },
+  { reference: 'Salmo 121:1-2', text: 'Alzaré mis ojos a los montes; ¿de dónde vendrá mi socorro? Mi socorro viene de Jehová, que hizo los cielos y la tierra.', version: 'RVR1960' },
+  { reference: 'Salmo 139:14', text: 'Te alabaré; porque formidables, maravillosas son tus obras; estoy maravillado, y mi alma lo sabe muy bien.', version: 'RVR1960' },
+  { reference: 'Proverbios 9:10', text: 'El temor de Jehová es el principio de la sabiduría, y el conocimiento del Santísimo es la inteligencia.', version: 'RVR1960' },
+  { reference: 'Isaías 53:5', text: 'Mas él herido fue por nuestras rebeliones, molido por nuestros pecados; el castigo de nuestra paz fue sobre él, y por su llaga fuimos nosotros curados.', version: 'RVR1960' },
+  { reference: 'Hechos 1:8', text: 'Pero recibiréis poder, cuando haya venido sobre vosotros el Espíritu Santo, y me seréis testigos… hasta lo último de la tierra.', version: 'RVR1960' },
+  { reference: 'Hechos 4:12', text: 'Y en ningún otro hay salvación; porque no hay otro nombre bajo el cielo, dado a los hombres, en que podamos ser salvos.', version: 'RVR1960' },
+  { reference: 'Apocalipsis 3:20', text: 'He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo.', version: 'RVR1960' },
+];
+
+export function getVerseForDay(dayOfYear: number): DailyVerse {
+  const index = ((dayOfYear - 1) % dailyVerses.length + dailyVerses.length) % dailyVerses.length;
+  return dailyVerses[index];
+}

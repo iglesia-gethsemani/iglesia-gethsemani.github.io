@@ -1,0 +1,342 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/Icon.astro';
+import {
+  addDaysToParts,
+  formatDateMexico,
+  formatPartsShort,
+  getMexicoDateParts,
+  getPlanDayMexico,
+  getWeekStartMexico,
+  weekdayNameEs,
+} from '@/utils/calendar';
+import {
+  annualReadingPlan,
+  getReadingForDay,
+  passageUrl,
+} from '@/data/reading-plan';
+
+const todayParts = getMexicoDateParts();
+const todayReading = getReadingForDay(getPlanDayMexico());
+const dateLabel = formatDateMexico();
+const weekStart = getWeekStartMexico();
+
+const initialWeek = Array.from({ length: 7 }, (_, index) => {
+  const parts = addDaysToParts(weekStart, index);
+  const planDay = Math.min(
+    Math.floor(
+      (Date.UTC(parts.year, parts.month - 1, parts.day) - Date.UTC(parts.year, 0, 0)) /
+        86_400_000,
+    ),
+    365,
+  );
+  const reading = getReadingForDay(planDay);
+  const isToday =
+    parts.year === todayParts.year &&
+    parts.month === todayParts.month &&
+    parts.day === todayParts.day;
+
+  return {
+    planDay,
+    reading,
+    isToday,
+    weekday: weekdayNameEs(parts),
+    shortDate: formatPartsShort(parts),
+  };
+});
+
+const weekLabel = `${formatPartsShort(weekStart)} – ${formatPartsShort(addDaysToParts(weekStart, 6))}`;
+
+const planPayload = annualReadingPlan.map((d) => ({
+  day: d.day,
+  passages: d.passages.map((p) => ({ label: p.label, url: passageUrl(p) })),
+}));
+---
+
+<PageLayout
+  title="Plan de lecturas"
+  description="Plan anual de lectura bíblica de la Iglesia Presbiteriana Reformada Gethsemaní: Antiguo Testamento, Nuevo Testamento y Salmos cada día."
+  canonicalPath="/plan-de-lecturas/"
+>
+  <header class="subpage-hero plan-hero">
+    <div>
+      <p class="overline">Disciplina espiritual</p>
+      <h1>Plan de<br /><span>lecturas.</span></h1>
+    </div>
+    <p>
+      Un recorrido anual por las Escrituras: cada día un pasaje del Antiguo Testamento, uno del Nuevo
+      Testamento y un salmo. Textos en RVR1960 a través de Bible Gateway.
+    </p>
+  </header>
+
+  <section class="plan-today" aria-labelledby="plan-today-title" data-plan-today>
+    <div class="plan-today-copy">
+      <p class="overline blue">Hoy</p>
+      <h2 id="plan-today-title">Lectura de hoy</h2>
+      <p class="plan-today-date" data-plan-date>{dateLabel}</p>
+      <p class="plan-today-day" data-plan-day>Día {todayReading.day} de 365</p>
+    </div>
+    <ul class="plan-today-passages" data-plan-passages>
+      {
+        todayReading.passages.map((passage) => (
+          <li>
+            <a href={passageUrl(passage)} target="_blank" rel="noopener noreferrer">
+              <span>{passage.label}</span>
+              <Icon name="arrow" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section
+    class="plan-calendar"
+    aria-labelledby="plan-calendar-title"
+    data-plan-calendar
+    data-week-start={`${weekStart.year}-${weekStart.month}-${weekStart.day}`}
+  >
+    <div class="plan-calendar-head">
+      <div>
+        <h2 id="plan-calendar-title">Lecturas de la semana</h2>
+        <p>Semana de domingo a sábado. Usa las flechas para cambiar de semana.</p>
+      </div>
+
+      <div class="plan-week-controls">
+        <div class="plan-month-nav" role="group" aria-label="Cambiar semana">
+          <button type="button" class="plan-month-btn" data-week-prev aria-label="Semana anterior">
+            <span aria-hidden="true">←</span>
+          </button>
+          <p class="plan-month-label plan-week-label" data-week-label aria-live="polite">{weekLabel}</p>
+          <button type="button" class="plan-month-btn" data-week-next aria-label="Semana siguiente">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <button type="button" class="plan-week-today" data-week-today hidden>
+          Ir a esta semana
+        </button>
+      </div>
+    </div>
+
+    <ol class="plan-day-list plan-week-list" data-week-list>
+      {
+        initialWeek.map((entry) => (
+          <li
+            class:list={['plan-day', { 'is-today': entry.isToday }]}
+            data-plan-entry={entry.planDay}
+            id={entry.isToday ? 'lectura-de-hoy' : undefined}
+          >
+            <div class="plan-day-meta">
+              <strong>
+                <span class="plan-day-weekday">{entry.weekday}</span>
+                <span class="plan-day-date">{entry.shortDate}</span>
+              </strong>
+              <span>Día {entry.planDay}</span>
+            </div>
+            <ul>
+              {entry.reading.passages.map((passage) => (
+                <li>
+                  <a href={passageUrl(passage)} target="_blank" rel="noopener noreferrer">
+                    {passage.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</PageLayout>
+
+<script define:vars={{ plan: planPayload }}>
+  function getMexicoDateParts(date = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Mexico_City',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    }).formatToParts(date);
+    return {
+      year: Number(parts.find((part) => part.type === 'year')?.value),
+      month: Number(parts.find((part) => part.type === 'month')?.value),
+      day: Number(parts.find((part) => part.type === 'day')?.value),
+    };
+  }
+
+  function getDayOfYearFromParts(parts) {
+    return Math.min(
+      Math.floor(
+        (Date.UTC(parts.year, parts.month - 1, parts.day) - Date.UTC(parts.year, 0, 0)) /
+          86_400_000,
+      ),
+      365,
+    );
+  }
+
+  function getWeekStart(parts) {
+    // 0 = domingo … 6 = sábado
+    const weekday = new Date(Date.UTC(parts.year, parts.month - 1, parts.day)).getUTCDay();
+    const offset = weekday; // domingo = inicio
+    const start = new Date(Date.UTC(parts.year, parts.month - 1, parts.day - offset));
+    return {
+      year: start.getUTCFullYear(),
+      month: start.getUTCMonth() + 1,
+      day: start.getUTCDate(),
+    };
+  }
+
+  function addDays(parts, days) {
+    const next = new Date(Date.UTC(parts.year, parts.month - 1, parts.day + days));
+    return {
+      year: next.getUTCFullYear(),
+      month: next.getUTCMonth() + 1,
+      day: next.getUTCDate(),
+    };
+  }
+
+  function formatShort(parts) {
+    return new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'UTC',
+      day: 'numeric',
+      month: 'short',
+    }).format(new Date(Date.UTC(parts.year, parts.month - 1, parts.day, 12)));
+  }
+
+  function weekdayName(parts) {
+    return new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'UTC',
+      weekday: 'long',
+    }).format(new Date(Date.UTC(parts.year, parts.month - 1, parts.day, 12)));
+  }
+
+  function formatDateMexico(date = new Date()) {
+    return new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'America/Mexico_City',
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(date);
+  }
+
+  function sameDay(a, b) {
+    return a.year === b.year && a.month === b.month && a.day === b.day;
+  }
+
+  function partsKey(parts) {
+    return `${parts.year}-${parts.month}-${parts.day}`;
+  }
+
+  const calendar = document.querySelector('[data-plan-calendar]');
+  const listEl = calendar?.querySelector('[data-week-list]');
+  const labelEl = calendar?.querySelector('[data-week-label]');
+  const todayBtn = calendar?.querySelector('[data-week-today]');
+  const todayParts = getMexicoDateParts();
+  const todayWeekStart = getWeekStart(todayParts);
+  const planYear = todayParts.year;
+  let weekStart = todayWeekStart;
+
+  const todayReading = plan[getDayOfYearFromParts(todayParts) - 1];
+  if (todayReading) {
+    const dateEl = document.querySelector('[data-plan-date]');
+    const dayEl = document.querySelector('[data-plan-day]');
+    const passagesEl = document.querySelector('[data-plan-passages]');
+    if (dateEl) dateEl.textContent = formatDateMexico();
+    if (dayEl) dayEl.textContent = `Día ${todayReading.day} de 365`;
+    if (passagesEl) {
+      passagesEl.replaceChildren(
+        ...todayReading.passages.map((passage) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = passage.url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          const span = document.createElement('span');
+          span.textContent = passage.label;
+          a.append(span);
+          li.append(a);
+          return li;
+        }),
+      );
+    }
+  }
+
+  function renderWeek(start) {
+    if (!calendar || !listEl) return;
+    weekStart = start;
+    calendar.setAttribute('data-week-start', partsKey(weekStart));
+
+    const end = addDays(weekStart, 6);
+    if (labelEl) labelEl.textContent = `${formatShort(weekStart)} – ${formatShort(end)}`;
+    if (todayBtn instanceof HTMLButtonElement) {
+      todayBtn.hidden = sameDay(weekStart, todayWeekStart);
+    }
+
+    const prevBtn = calendar.querySelector('[data-week-prev]');
+    const nextBtn = calendar.querySelector('[data-week-next]');
+    if (prevBtn instanceof HTMLButtonElement) {
+      prevBtn.disabled = addDays(weekStart, -1).year < planYear;
+    }
+    if (nextBtn instanceof HTMLButtonElement) {
+      nextBtn.disabled = addDays(weekStart, 7).year > planYear;
+    }
+
+    listEl.replaceChildren(
+      ...Array.from({ length: 7 }, (_, index) => {
+        const parts = addDays(weekStart, index);
+        const planDay = getDayOfYearFromParts(parts);
+        const reading = plan[planDay - 1];
+        const isToday = sameDay(parts, todayParts);
+
+        const li = document.createElement('li');
+        li.className = isToday ? 'plan-day is-today' : 'plan-day';
+        li.setAttribute('data-plan-entry', String(planDay));
+        if (isToday) li.id = 'lectura-de-hoy';
+
+        const meta = document.createElement('div');
+        meta.className = 'plan-day-meta';
+
+        const strong = document.createElement('strong');
+        const weekday = document.createElement('span');
+        weekday.className = 'plan-day-weekday';
+        weekday.textContent = weekdayName(parts);
+        const date = document.createElement('span');
+        date.className = 'plan-day-date';
+        date.textContent = formatShort(parts);
+        strong.append(weekday, date);
+
+        const daySpan = document.createElement('span');
+        daySpan.textContent = `Día ${planDay}`;
+        meta.append(strong, daySpan);
+
+        const ul = document.createElement('ul');
+        for (const passage of reading?.passages ?? []) {
+          const item = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = passage.url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = passage.label;
+          item.append(a);
+          ul.append(item);
+        }
+
+        li.append(meta, ul);
+        return li;
+      }),
+    );
+  }
+
+  calendar?.querySelector('[data-week-prev]')?.addEventListener('click', () => {
+    renderWeek(addDays(weekStart, -7));
+  });
+  calendar?.querySelector('[data-week-next]')?.addEventListener('click', () => {
+    renderWeek(addDays(weekStart, 7));
+  });
+  todayBtn?.addEventListener('click', () => {
+    renderWeek(todayWeekStart);
+  });
+
+  renderWeek(weekStart);
+</script>

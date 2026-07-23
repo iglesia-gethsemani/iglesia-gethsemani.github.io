@@ -1,0 +1,159 @@
+---
+import Icon from '@/components/Icon.astro';
+import { pathFor } from '@/utils/paths';
+import {
+  bibleGatewayUrl,
+  formatDateMexico,
+  getDayOfYearMexico,
+} from '@/utils/calendar';
+import { dailyVerses, getVerseForDay } from '@/data/verse-of-the-day';
+import {
+  annualReadingPlan,
+  formatPassagesLabel,
+  getReadingForDay,
+  passageUrl,
+} from '@/data/reading-plan';
+
+const dayOfYear = getDayOfYearMexico();
+const verse = getVerseForDay(dayOfYear);
+const reading = getReadingForDay(dayOfYear);
+const dateLabel = formatDateMexico();
+const verseLink = bibleGatewayUrl(verse.reference);
+const readingLabel = formatPassagesLabel(reading.passages);
+
+const clientPayload = {
+  verses: dailyVerses,
+  plan: annualReadingPlan.map((day) => ({
+    day: day.day,
+    passages: day.passages.map((p) => ({
+      label: p.label,
+      url: passageUrl(p),
+    })),
+  })),
+};
+---
+
+<section class="daily-devotion" aria-labelledby="daily-devotion-title" data-daily-devotion>
+  <div class="daily-devotion-stage">
+    <header class="daily-devotion-head">
+      <p class="overline">Cada día en la Palabra</p>
+      <div class="daily-devotion-head-meta">
+        <time data-devotion-date>{dateLabel}</time>
+        <span aria-hidden="true">·</span>
+        <span data-verse-version>{verse.version}</span>
+      </div>
+    </header>
+
+    <div class="daily-verse-stage">
+      <p class="daily-verse-kicker" id="daily-devotion-title">Versículo del día</p>
+      <blockquote data-verse-text>“{verse.text}”</blockquote>
+      <a
+        class="daily-verse-ref"
+        data-verse-ref
+        href={verseLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {verse.reference}
+      </a>
+    </div>
+  </div>
+
+  <div class="daily-reading-bar">
+    <div class="daily-reading-bar-copy">
+      <p class="daily-panel-label">Lectura de hoy</p>
+      <p class="daily-reading-day" data-reading-day>
+        Día <strong data-reading-day-num>{reading.day}</strong>
+        <span>del plan anual</span>
+      </p>
+      <p class="sr-only" data-reading-summary>{readingLabel}</p>
+    </div>
+
+    <ul class="daily-reading-list" data-reading-list>
+      {
+        reading.passages.map((passage) => (
+          <li>
+            <a href={passageUrl(passage)} target="_blank" rel="noopener noreferrer">
+              {passage.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a class="daily-reading-cta" href={pathFor('/plan-de-lecturas/')}>
+      Plan completo <Icon name="arrow" />
+    </a>
+  </div>
+</section>
+
+<script define:vars={{ clientPayload }}>
+  function getDayOfYearMexico(date = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Mexico_City',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    }).formatToParts(date);
+    const year = Number(parts.find((part) => part.type === 'year')?.value);
+    const month = Number(parts.find((part) => part.type === 'month')?.value);
+    const day = Number(parts.find((part) => part.type === 'day')?.value);
+    const start = Date.UTC(year, 0, 0);
+    const current = Date.UTC(year, month - 1, day);
+    return Math.floor((current - start) / 86_400_000);
+  }
+
+  function formatDateMexico(date = new Date()) {
+    return new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'America/Mexico_City',
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(date);
+  }
+
+  function bibleGatewayUrl(reference) {
+    return `https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=RVR1960`;
+  }
+
+  const root = document.querySelector('[data-daily-devotion]');
+  if (!root) return;
+
+  const dayOfYear = getDayOfYearMexico();
+  const verse = clientPayload.verses[(dayOfYear - 1) % clientPayload.verses.length];
+  const reading =
+    clientPayload.plan[Math.min(Math.max(dayOfYear, 1), clientPayload.plan.length) - 1];
+
+  const dateEl = root.querySelector('[data-devotion-date]');
+  const textEl = root.querySelector('[data-verse-text]');
+  const refEl = root.querySelector('[data-verse-ref]');
+  const versionEl = root.querySelector('[data-verse-version]');
+  const dayEl = root.querySelector('[data-reading-day]');
+  const dayNumEl = root.querySelector('[data-reading-day-num]');
+  const listEl = root.querySelector('[data-reading-list]');
+
+  if (dateEl) dateEl.textContent = formatDateMexico();
+  if (textEl) textEl.textContent = `“${verse.text}”`;
+  if (refEl instanceof HTMLAnchorElement) {
+    refEl.textContent = verse.reference;
+    refEl.href = bibleGatewayUrl(verse.reference);
+  }
+  if (versionEl) versionEl.textContent = verse.version;
+  if (dayNumEl) dayNumEl.textContent = String(reading.day);
+  else if (dayEl) dayEl.textContent = `Día ${reading.day} del plan anual`;
+  if (listEl) {
+    listEl.replaceChildren(
+      ...reading.passages.map((passage) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = passage.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = passage.label;
+        li.append(a);
+        return li;
+      }),
+    );
+  }
+</script>
