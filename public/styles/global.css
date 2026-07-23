@@ -109,8 +109,12 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .daily-verse-stage { max-width: 920px; position: relative; z-index: 1; }
 .daily-verse-kicker { margin: 0 0 22px; color: rgba(217,191,125,.9); font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
 .daily-verse-stage blockquote { margin: 0; color: #f4f0e8; font: italic 500 clamp(28px, 4.2vw, 48px)/1.28 var(--serif); letter-spacing: -.01em; animation: devotion-rise .8s ease both; }
-.daily-verse-ref { display: inline-block; margin-top: 28px; color: #d9bf7d; font-size: 14px; font-weight: 800; letter-spacing: .04em; text-decoration: none; border-bottom: 1px solid rgba(217,191,125,.35); transition: border-color .2s, color .2s; animation: devotion-rise .8s .12s ease both; }
+.daily-verse-actions { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; animation: devotion-rise .8s .12s ease both; }
+.daily-verse-ref { display: inline-block; color: #d9bf7d; font-size: 14px; font-weight: 800; letter-spacing: .04em; text-decoration: none; border-bottom: 1px solid rgba(217,191,125,.35); transition: border-color .2s, color .2s; }
 .daily-verse-ref:hover { color: #f0dfa8; border-bottom-color: #f0dfa8; }
+.daily-share-toggle { min-height: 34px; padding: 0 12px; display: inline-flex; align-items: center; gap: 7px; color: #d9bf7d; background: transparent; border: 1px solid rgba(217,191,125,.35); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.daily-share-toggle .icon { width: 13px; height: 13px; }
+.daily-share-toggle:hover, .daily-share-toggle:focus-visible, .daily-share-toggle[aria-expanded="true"] { color: #0b1c2a; background: #d9bf7d; border-color: #d9bf7d; outline: 0; }
 .daily-reading-bar { max-width: 1280px; margin: auto; padding: 28px 24px 36px; display: grid; grid-template-columns: minmax(160px, .7fr) minmax(0, 1.6fr) auto; gap: 28px 40px; align-items: center; border-top: 1px solid rgba(217,191,125,.22); background: rgba(0,0,0,.18); }
 .daily-panel-label { margin: 0 0 8px; color: #d9bf7d; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .daily-reading-day { margin: 0; color: #e8eef2; font: 500 18px/1.25 var(--serif); }
@@ -122,6 +126,19 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .daily-reading-cta { display: inline-flex; align-items: center; gap: 10px; justify-self: end; color: #d9bf7d; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
 .daily-reading-cta:hover { color: #f0dfa8; }
 .daily-reading-cta .icon { width: 16px; height: 16px; }
+.daily-share { max-width: 1280px; margin: auto; padding: 36px 24px 56px; display: grid; grid-template-columns: minmax(180px, .72fr) 1.28fr; gap: 36px; align-items: center; border-top: 1px solid rgba(217,191,125,.18); animation: devotion-rise .45s ease both; }
+.daily-share[hidden] { display: none; }
+.daily-share-preview { position: relative; max-width: 300px; border: 1px solid rgba(217,191,125,.28); background: rgba(0,0,0,.25); overflow: hidden; }
+.daily-share-preview canvas { display: block; width: 100%; height: auto; aspect-ratio: 1080 / 1350; }
+.daily-share-copy h3 { margin: 0 0 12px; color: #f4f0e8; font: 600 clamp(26px, 3vw, 36px)/1.15 var(--serif); }
+.daily-share-copy > p { margin: 0 0 22px; max-width: 420px; color: #b8c2c9; font-size: 14px; }
+.daily-share-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.daily-share-btn { min-height: 44px; padding: 0 16px; display: inline-flex; align-items: center; gap: 8px; color: #f4f0e8; background: rgba(255,255,255,.06); border: 1px solid rgba(217,191,125,.32); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.daily-share-btn .icon { width: 15px; height: 15px; }
+.daily-share-btn:hover, .daily-share-btn:focus-visible { color: #0b1c2a; background: #d9bf7d; border-color: #d9bf7d; outline: 0; }
+.daily-share-btn--primary { color: #0b1c2a; background: #d9bf7d; border-color: #d9bf7d; }
+.daily-share-btn--primary:hover, .daily-share-btn--primary:focus-visible { color: #f4f0e8; background: transparent; }
+.daily-share-feedback { margin: 16px 0 0; color: #d9bf7d; font-size: 13px; }
 @keyframes devotion-rise {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
@@ -733,6 +750,8 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
     .daily-verse-stage blockquote { font-size: clamp(24px, 7vw, 34px); }
     .daily-reading-bar { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
     .daily-reading-cta { justify-self: start; }
+    .daily-share { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px 48px; }
+    .daily-share-preview { max-width: 240px; }
     .plan-today { padding: 56px 24px; grid-template-columns: 1fr; gap: 28px; }
     .plan-today-passages a { font-size: 18px; }
     .plan-calendar { padding: 56px 24px 80px; }
