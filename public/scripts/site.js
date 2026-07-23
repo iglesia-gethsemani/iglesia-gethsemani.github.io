@@ -270,13 +270,11 @@ document.querySelectorAll('[data-copy-link]').forEach((button) => {
     });
 });
 
-async function shareWithSystem(title, text, url) {
-    if (!navigator.share) return false;
+async function copyText(value) {
     try {
-        await navigator.share({ title, text, url });
+        await navigator.clipboard.writeText(value);
         return true;
-    } catch (error) {
-        if (error?.name === 'AbortError') return true;
+    } catch {
         return false;
     }
 }
@@ -288,52 +286,64 @@ function showShareFeedback(root, message) {
     feedback.textContent = message;
     window.setTimeout(() => {
         feedback.hidden = true;
-    }, 4200);
+    }, 6000);
+}
+
+function isAppleTouchDevice() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 }
 
 document.querySelectorAll('[data-share-root]').forEach((root) => {
     const title = root.getAttribute('data-share-title') || document.title;
     const text = root.getAttribute('data-share-text') || '';
     const url = root.getAttribute('data-share-url') || window.location.href;
+    const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
 
+    // Solo este botón usa el menú de Apple/Android.
     root.querySelector('[data-share-native]')?.addEventListener('click', async () => {
-        const shared = await shareWithSystem(title, text, url);
-        if (shared) return;
-
-        try {
-            await navigator.clipboard.writeText(text || url);
-            showShareFeedback(root, 'Texto y enlace copiados. Pégalos donde quieras compartir.');
-        } catch {
-            window.prompt('Copia este texto para compartir:', text || url);
+        if (navigator.share) {
+            try {
+                await navigator.share({ title, text, url });
+                return;
+            } catch (error) {
+                if (error?.name === 'AbortError') return;
+            }
         }
+
+        const copied = await copyText(text || url);
+        showShareFeedback(
+            root,
+            copied
+                ? 'Texto y enlace copiados. Pégalos donde quieras compartir.'
+                : 'Usa «Copiar texto y enlace» para compartir.'
+        );
     });
 
+    // Facebook nunca usa navigator.share (evita el menú de Apple).
     root.querySelector('[data-share-facebook]')?.addEventListener('click', async () => {
-        // En iPhone el sharer de Facebook suele abrir solo la app sin el enlace.
-        // Preferimos el menú nativo (donde eliges Facebook) o copiar + abrir Facebook.
-        const shared = await shareWithSystem(title, text, url);
-        if (shared) return;
+        const copied = await copyText(url);
 
-        try {
-            await navigator.clipboard.writeText(url);
-        } catch {
-            /* ignore */
-        }
-
-        const href = root.querySelector('[data-share-facebook]')?.getAttribute('data-facebook-href');
-        const popup = href
-            ? window.open(href, 'fbShare', 'noopener,noreferrer,width=640,height=560')
-            : null;
-
-        if (!popup) {
-            window.open('https://www.facebook.com/', '_blank', 'noopener,noreferrer');
+        if (isAppleTouchDevice()) {
+            // En iPhone, sharer.php abre la app vacía y pierde el enlace.
+            // Flujo fiable: copiar URL + abrir Facebook para pegarlo (genera la tarjeta).
             showShareFeedback(
                 root,
-                'Enlace copiado. En Facebook crea una publicación y pégalo para que se vea la vista previa de la reflexión.'
+                copied
+                    ? 'Enlace copiado. Se abrirá Facebook: toca «¿Qué estás pensando?» y pega el enlace para ver la vista previa.'
+                    : 'Abre Facebook, crea una publicación y pega el enlace de esta reflexión.'
             );
+            window.setTimeout(() => {
+                window.location.href = 'https://www.facebook.com/';
+            }, 400);
             return;
         }
 
-        showShareFeedback(root, 'Si Facebook no trae el enlace, pega el enlace copiado en la publicación.');
+        const popup = window.open(facebookHref, 'fbShare', 'noopener,noreferrer,width=640,height=560');
+        if (!popup) {
+            window.location.href = facebookHref;
+        }
+        if (copied) {
+            showShareFeedback(root, 'Si no aparece el enlace en Facebook, pégalo en la publicación.');
+        }
     });
 });
