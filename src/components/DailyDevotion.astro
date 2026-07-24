@@ -219,77 +219,43 @@ const clientPayload = {
     ctx.drawImage(img, x + (w - bw) / 2, y + (h - bh) / 2, bw, bh);
   }
 
-  /** Variantes de composición (formato + tipografía). */
+  /** Diseños tipográficos para compartir (el versículo llena el cuadro). */
   const cardLayouts = [
     {
-      id: 'bottom-panel',
-      size: [1080, 1350],
-      type: {
-        kicker: '700 24px Manrope, Arial, sans-serif',
-        date: '600 22px Manrope, Arial, sans-serif',
-        verse: 'italic 500 48px "Source Serif 4", Georgia, serif',
-        ref: '700 28px Manrope, Arial, sans-serif',
-        reading: '600 30px "Source Serif 4", Georgia, serif',
-        passage: '600 26px Manrope, Arial, sans-serif',
-        brand: '600 26px "Source Serif 4", Georgia, serif',
-        line: 64,
-      },
-    },
-    {
-      id: 'side-panel',
+      id: 'centered-quote',
       size: [1080, 1080],
-      type: {
-        kicker: '800 20px Manrope, Arial, sans-serif',
-        date: '600 18px Manrope, Arial, sans-serif',
-        verse: '600 40px "Source Serif 4", Georgia, serif',
-        ref: '700 22px Manrope, Arial, sans-serif',
-        reading: '600 24px "Source Serif 4", Georgia, serif',
-        passage: '600 22px Manrope, Arial, sans-serif',
-        brand: '600 22px "Source Serif 4", Georgia, serif',
-        line: 52,
-      },
+      align: 'center',
+      face: 'italic 500 {size}px "Source Serif 4", Georgia, serif',
+      kicker: '700 18px Manrope, Arial, sans-serif',
+      meta: '500 18px Manrope, Arial, sans-serif',
+      brand: '600 26px "Source Serif 4", Georgia, serif',
     },
     {
-      id: 'centered',
+      id: 'bold-serif',
       size: [1080, 1350],
-      type: {
-        kicker: '700 22px Manrope, Arial, sans-serif',
-        date: '500 20px Manrope, Arial, sans-serif',
-        verse: 'italic 600 52px Georgia, "Times New Roman", serif',
-        ref: '600 26px Manrope, Arial, sans-serif',
-        reading: '500 28px Georgia, serif',
-        passage: '500 24px Manrope, Arial, sans-serif',
-        brand: '500 24px Georgia, serif',
-        line: 68,
-      },
+      align: 'left',
+      face: '600 {size}px "Source Serif 4", Georgia, serif',
+      kicker: '800 17px Manrope, Arial, sans-serif',
+      meta: '500 17px Manrope, Arial, sans-serif',
+      brand: '600 24px "Source Serif 4", Georgia, serif',
     },
     {
-      id: 'top-band',
-      size: [1080, 1350],
-      type: {
-        kicker: '800 18px Manrope, Arial, sans-serif',
-        date: '600 20px Manrope, Arial, sans-serif',
-        verse: '500 44px Manrope, Arial, sans-serif',
-        ref: '700 24px "Source Serif 4", Georgia, serif',
-        reading: '600 28px Manrope, Arial, sans-serif',
-        passage: '500 24px Manrope, Arial, sans-serif',
-        brand: '600 24px Manrope, Arial, sans-serif',
-        line: 58,
-      },
-    },
-    {
-      id: 'split-square',
+      id: 'modern-sans',
       size: [1080, 1080],
-      type: {
-        kicker: '700 18px Manrope, Arial, sans-serif',
-        date: '500 16px Manrope, Arial, sans-serif',
-        verse: 'italic 500 36px "Source Serif 4", Georgia, serif',
-        ref: '700 20px Manrope, Arial, sans-serif',
-        reading: '600 22px "Source Serif 4", Georgia, serif',
-        passage: '600 20px Manrope, Arial, sans-serif',
-        brand: '600 20px "Source Serif 4", Georgia, serif',
-        line: 46,
-      },
+      align: 'left',
+      face: '500 {size}px Manrope, Arial, sans-serif',
+      kicker: '800 16px Manrope, Arial, sans-serif',
+      meta: '500 16px Manrope, Arial, sans-serif',
+      brand: '700 22px Manrope, Arial, sans-serif',
+    },
+    {
+      id: 'classic-frame',
+      size: [1080, 1350],
+      align: 'center',
+      face: 'italic 600 {size}px Georgia, "Times New Roman", serif',
+      kicker: '700 16px Manrope, Arial, sans-serif',
+      meta: '500 16px Manrope, Arial, sans-serif',
+      brand: '500 24px Georgia, serif',
     },
   ];
 
@@ -373,12 +339,10 @@ const clientPayload = {
       clientPayload.themes[(dayOfYear - 1) % clientPayload.themes.length] ?? clientPayload.themes[0];
     const layout = cardLayouts[(dayOfYear - 1) % cardLayouts.length];
     const { palette } = theme;
-    const type = layout.type;
     const [W, H] = layout.size;
     canvas.width = W;
     canvas.height = H;
     canvas.style.aspectRatio = `${W} / ${H}`;
-
     ctx.clearRect(0, 0, W, H);
 
     let photo = null;
@@ -392,162 +356,137 @@ const clientPayload = {
       }
     }
 
-    function paintPhoto(x, y, w, h) {
-      if (photo) {
-        coverImage(ctx, photo, x, y, w, h);
-        ctx.fillStyle = hexToRgba(palette.deep, 0.48);
-        ctx.fillRect(x, y, w, h);
-      } else {
-        const g = ctx.createLinearGradient(x, y, x + w, y + h);
-        g.addColorStop(0, palette.deep);
-        g.addColorStop(1, palette.mid);
-        ctx.fillStyle = g;
-        ctx.fillRect(x, y, w, h);
-      }
-    }
-
-    function drawBrand(x, y, maxW) {
-      ctx.fillStyle = palette.accent;
-      ctx.fillRect(x, y - 28, 42, 3);
-      ctx.fillStyle = palette.ink;
-      ctx.font = type.brand;
-      ctx.fillText('Gethsemaní', x, y);
-      ctx.fillStyle = palette.muted;
-      ctx.font = type.date;
-      const brandLine = 'Iglesia Presbiteriana Reformada';
-      const clipped =
-        ctx.measureText(brandLine).width > maxW ? 'Iglesia Presb. Reformada' : brandLine;
-      ctx.fillText(clipped, x, y + 28);
-    }
-
-    function drawVerseBlock(x, y, maxW, opts = {}) {
-      const {
-        align = 'left',
-        showReading = true,
-        maxVerseLines = 8,
-        kicker = 'VERSÍCULO DEL DÍA',
-      } = opts;
-      let cursor = y;
-
-      ctx.textAlign = align;
-      const tx = align === 'center' ? x + maxW / 2 : x;
-
-      ctx.fillStyle = palette.accent;
-      ctx.font = type.kicker;
-      ctx.fillText(kicker, tx, cursor);
-      cursor += 36;
-
-      ctx.fillStyle = palette.muted;
-      ctx.font = type.date;
-      ctx.fillText(dateLabel.replace(/^\w/, (c) => c.toUpperCase()), tx, cursor);
-      cursor += 48;
-
-      ctx.fillStyle = palette.ink;
-      ctx.font = type.verse;
-      const verseLines = wrapLines(ctx, `“${verse.text}”`, maxW);
-      for (const line of verseLines.slice(0, maxVerseLines)) {
-        ctx.fillText(line, tx, cursor);
-        cursor += type.line;
-      }
-      if (verseLines.length > maxVerseLines) {
-        ctx.fillText('…', tx, cursor);
-        cursor += type.line;
-      }
-
-      cursor += 8;
-      ctx.fillStyle = palette.accent;
-      ctx.font = type.ref;
-      ctx.fillText(`${verse.reference}  ·  ${verse.version}`, tx, cursor);
-      cursor += 48;
-
-      if (showReading) {
-        if (align === 'left') {
-          ctx.strokeStyle = hexToRgba(palette.accent, 0.45);
-          ctx.beginPath();
-          ctx.moveTo(x, cursor);
-          ctx.lineTo(x + Math.min(maxW, 280), cursor);
-          ctx.stroke();
-          cursor += 42;
-        } else {
-          cursor += 12;
-        }
-
-        ctx.fillStyle = palette.accent;
-        ctx.font = type.kicker;
-        ctx.fillText('LECTURA DE HOY', tx, cursor);
-        cursor += 36;
-        ctx.fillStyle = palette.ink;
-        ctx.font = type.reading;
-        ctx.fillText(`Día ${reading.day}`, tx, cursor);
-        cursor += 40;
-        ctx.font = type.passage;
-        for (const passage of reading.passages) {
-          ctx.fillStyle = palette.muted;
-          ctx.fillText(`•  ${passage.label}`, tx, cursor);
-          cursor += 34;
-        }
-      }
-
-      ctx.textAlign = 'left';
-      return cursor;
-    }
-
-    if (layout.id === 'bottom-panel') {
-      paintPhoto(0, 0, W, H * 0.48);
-      ctx.fillStyle = palette.deep;
-      ctx.fillRect(0, H * 0.42, W, H * 0.58);
-      ctx.fillStyle = hexToRgba(palette.accent, 0.55);
-      ctx.fillRect(0, H * 0.42, W, 4);
-      drawVerseBlock(72, H * 0.42 + 70, W - 144, { maxVerseLines: 7 });
-      drawBrand(72, H - 70, W - 160);
-    } else if (layout.id === 'side-panel') {
-      paintPhoto(W * 0.46, 0, W * 0.54, H);
-      ctx.fillStyle = palette.deep;
-      ctx.fillRect(0, 0, W * 0.5, H);
-      ctx.fillStyle = hexToRgba(palette.accent, 0.5);
-      ctx.fillRect(W * 0.5 - 3, 0, 3, H);
-      drawVerseBlock(56, 90, W * 0.42, { maxVerseLines: 7, showReading: true });
-      drawBrand(56, H - 70, W * 0.4);
-    } else if (layout.id === 'centered') {
-      paintPhoto(0, 0, W, H);
-      ctx.fillStyle = hexToRgba(palette.deep, 0.84);
+    if (photo) coverImage(ctx, photo, 0, 0, W, H);
+    else {
+      const base = ctx.createLinearGradient(0, 0, W, H);
+      base.addColorStop(0, palette.deep);
+      base.addColorStop(1, palette.mid);
+      ctx.fillStyle = base;
       ctx.fillRect(0, 0, W, H);
-      const cardX = 70;
-      const cardY = 110;
-      const cardW = W - 140;
-      const cardH = H - 260;
-      ctx.fillStyle = hexToRgba(palette.deep, 0.5);
-      ctx.fillRect(cardX, cardY, cardW, cardH);
-      ctx.strokeStyle = hexToRgba(palette.accent, 0.4);
-      ctx.lineWidth = 2;
-      ctx.strokeRect(cardX + 18, cardY + 18, cardW - 36, cardH - 36);
-      drawVerseBlock(cardX + 56, cardY + 90, cardW - 112, {
-        align: 'center',
-        maxVerseLines: 8,
-      });
-      drawBrand(90, H - 70, W - 180);
-    } else if (layout.id === 'top-band') {
-      paintPhoto(0, 0, W, H);
-      ctx.fillStyle = hexToRgba('#000000', 0.38);
-      ctx.fillRect(0, 0, W, H);
-      const bandY = H * 0.18;
-      const bandH = H * 0.62;
-      ctx.fillStyle = palette.deep;
-      ctx.fillRect(0, bandY, W, bandH);
-      ctx.fillStyle = hexToRgba(palette.accent, 0.45);
-      ctx.fillRect(0, bandY, W, 3);
-      ctx.fillRect(0, bandY + bandH - 3, W, 3);
-      drawVerseBlock(80, bandY + 70, W - 160, { maxVerseLines: 8 });
-      drawBrand(80, H - 70, W - 160);
-    } else {
-      paintPhoto(0, 0, W, H * 0.42);
-      ctx.fillStyle = palette.deep;
-      ctx.fillRect(0, H * 0.38, W, H * 0.62);
-      ctx.fillStyle = hexToRgba(palette.accent, 0.5);
-      ctx.fillRect(72, H * 0.38, 64, 4);
-      drawVerseBlock(72, H * 0.38 + 60, W - 144, { maxVerseLines: 6 });
-      drawBrand(72, H - 64, W - 160);
     }
+
+    // Atmósfera oscura uniforme (la foto es textura, no paisaje vacío).
+    ctx.fillStyle = hexToRgba(palette.deep, 0.62);
+    ctx.fillRect(0, 0, W, H);
+    const wash = ctx.createRadialGradient(W / 2, H / 2, H * 0.1, W / 2, H / 2, H * 0.75);
+    wash.addColorStop(0, hexToRgba(palette.mid, 0.15));
+    wash.addColorStop(1, hexToRgba(palette.deep, 0.55));
+    ctx.fillStyle = wash;
+    ctx.fillRect(0, 0, W, H);
+
+    const padX = layout.align === 'center' ? 90 : 72;
+    const maxW = W - padX * 2;
+    const verseText = `“${verse.text}”`;
+    const dateText = dateLabel.replace(/^\w/, (c) => c.toUpperCase());
+    const readingText = `Día ${reading.day}  ·  ${reading.passages.map((p) => p.label).join('  ·  ')}`;
+
+    // Tipografía dinámica: el versículo ocupa ~42–50% de la altura.
+    const targetVerseH = H * (H > 1200 ? 0.46 : 0.42);
+    let fontSize = 78;
+    let verseLines = [];
+    let lineH = 0;
+    while (fontSize >= 30) {
+      ctx.font = layout.face.replace('{size}', String(fontSize));
+      verseLines = wrapLines(ctx, verseText, maxW);
+      lineH = Math.round(fontSize * 1.22);
+      if (verseLines.length * lineH <= targetVerseH && verseLines.length <= 9) break;
+      fontSize -= 2;
+    }
+    if (verseLines.length > 9) {
+      verseLines = verseLines.slice(0, 9);
+      verseLines[8] = verseLines[8].replace(/…?$/, '') + '…';
+    }
+    const verseBlockH = verseLines.length * lineH;
+
+    // Medir bloques fijos
+    ctx.font = layout.brand;
+    const brandH = 28;
+    ctx.font = layout.kicker;
+    const kickerH = 22;
+    ctx.font = layout.meta;
+    const metaH = 20;
+    const refH = 28;
+    const readingLines = (() => {
+      ctx.font = layout.meta;
+      return wrapLines(ctx, readingText, maxW).slice(0, 2);
+    })();
+    const readingH = readingLines.length * 26;
+    const gap = 22;
+    const stackH =
+      brandH + gap + kickerH + 14 + metaH + gap * 1.4 + verseBlockH + gap + refH + gap + readingH;
+
+    // Centrar el bloque completo (sin huecos muertos arriba/abajo).
+    let y = Math.max(72, (H - stackH) / 2);
+    const tx = layout.align === 'center' ? W / 2 : padX;
+    ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
+
+    // Comilla ornamental grande (llena el fondo del bloque tipográfico).
+    ctx.save();
+    ctx.globalAlpha = 0.1;
+    ctx.fillStyle = palette.accent;
+    ctx.font = `italic 500 ${Math.round(H * 0.28)}px Georgia, serif`;
+    ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
+    ctx.fillText('“', layout.align === 'center' ? W / 2 : padX - 10, y + H * 0.12);
+    ctx.restore();
+
+    // Marco sutil
+    ctx.strokeStyle = hexToRgba(palette.accent, 0.35);
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Marca
+    ctx.fillStyle = palette.ink;
+    ctx.font = layout.brand;
+    ctx.fillText('Gethsemaní', tx, y + brandH);
+    y += brandH + gap;
+
+    // Línea acento
+    const lineW = 48;
+    ctx.fillStyle = palette.accent;
+    if (layout.align === 'center') ctx.fillRect(W / 2 - lineW / 2, y, lineW, 2);
+    else ctx.fillRect(padX, y, lineW, 2);
+    y += 18;
+
+    // Kicker + fecha
+    ctx.fillStyle = palette.accent;
+    ctx.font = layout.kicker;
+    ctx.fillText('VERSÍCULO DEL DÍA', tx, y + kickerH);
+    y += kickerH + 14;
+    ctx.fillStyle = palette.muted;
+    ctx.font = layout.meta;
+    ctx.fillText(dateText, tx, y + metaH);
+    y += metaH + gap * 1.4;
+
+    // Versículo (protagonista)
+    ctx.fillStyle = palette.ink;
+    ctx.font = layout.face.replace('{size}', String(fontSize));
+    for (const line of verseLines) {
+      ctx.fillText(line, tx, y + fontSize * 0.85);
+      y += lineH;
+    }
+    y += gap;
+
+    // Referencia
+    ctx.fillStyle = palette.accent;
+    ctx.font = `700 ${Math.max(20, Math.round(fontSize * 0.38))}px Manrope, Arial, sans-serif`;
+    ctx.fillText(`${verse.reference}  ·  ${verse.version}`, tx, y + refH * 0.7);
+    y += refH + gap;
+
+    // Lecturas
+    ctx.fillStyle = palette.muted;
+    ctx.font = layout.meta;
+    for (const line of readingLines) {
+      ctx.fillText(line, tx, y + 18);
+      y += 26;
+    }
+
+    // Pie fijo abajo (ancla visual)
+    ctx.textAlign = 'left';
+    ctx.fillStyle = hexToRgba(palette.accent, 0.8);
+    ctx.fillRect(padX, H - 58, 36, 2);
+    ctx.fillStyle = palette.muted;
+    ctx.font = layout.meta;
+    ctx.fillText('Iglesia Presbiteriana Reformada', padX, H - 32);
 
     return canvas;
   }
