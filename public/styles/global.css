@@ -129,7 +129,7 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .daily-share { max-width: 1280px; margin: auto; padding: 36px 24px 56px; display: grid; grid-template-columns: minmax(180px, .72fr) 1.28fr; gap: 36px; align-items: center; border-top: 1px solid rgba(217,191,125,.18); animation: devotion-rise .45s ease both; }
 .daily-share[hidden] { display: none; }
 .daily-share-preview { position: relative; max-width: 300px; border: 1px solid rgba(217,191,125,.28); background: rgba(0,0,0,.25); overflow: hidden; }
-.daily-share-preview canvas { display: block; width: 100%; height: auto; aspect-ratio: 1080 / 1350; }
+.daily-share-preview canvas { display: block; width: 100%; height: auto; }
 .daily-share-copy h3 { margin: 0 0 12px; color: #f4f0e8; font: 600 clamp(26px, 3vw, 36px)/1.15 var(--serif); }
 .daily-share-copy > p { margin: 0 0 22px; max-width: 420px; color: #b8c2c9; font-size: 14px; }
 .daily-share-actions { display: flex; flex-wrap: wrap; gap: 10px; }

@@ -212,6 +212,87 @@ const clientPayload = {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
 
+  function coverImage(ctx, img, x, y, w, h) {
+    const scale = Math.max(w / img.width, h / img.height);
+    const bw = img.width * scale;
+    const bh = img.height * scale;
+    ctx.drawImage(img, x + (w - bw) / 2, y + (h - bh) / 2, bw, bh);
+  }
+
+  /** Variantes de composición (formato + tipografía). */
+  const cardLayouts = [
+    {
+      id: 'bottom-panel',
+      size: [1080, 1350],
+      type: {
+        kicker: '700 24px Manrope, Arial, sans-serif',
+        date: '600 22px Manrope, Arial, sans-serif',
+        verse: 'italic 500 48px "Source Serif 4", Georgia, serif',
+        ref: '700 28px Manrope, Arial, sans-serif',
+        reading: '600 30px "Source Serif 4", Georgia, serif',
+        passage: '600 26px Manrope, Arial, sans-serif',
+        brand: '600 26px "Source Serif 4", Georgia, serif',
+        line: 64,
+      },
+    },
+    {
+      id: 'side-panel',
+      size: [1080, 1080],
+      type: {
+        kicker: '800 20px Manrope, Arial, sans-serif',
+        date: '600 18px Manrope, Arial, sans-serif',
+        verse: '600 40px "Source Serif 4", Georgia, serif',
+        ref: '700 22px Manrope, Arial, sans-serif',
+        reading: '600 24px "Source Serif 4", Georgia, serif',
+        passage: '600 22px Manrope, Arial, sans-serif',
+        brand: '600 22px "Source Serif 4", Georgia, serif',
+        line: 52,
+      },
+    },
+    {
+      id: 'centered',
+      size: [1080, 1350],
+      type: {
+        kicker: '700 22px Manrope, Arial, sans-serif',
+        date: '500 20px Manrope, Arial, sans-serif',
+        verse: 'italic 600 52px Georgia, "Times New Roman", serif',
+        ref: '600 26px Manrope, Arial, sans-serif',
+        reading: '500 28px Georgia, serif',
+        passage: '500 24px Manrope, Arial, sans-serif',
+        brand: '500 24px Georgia, serif',
+        line: 68,
+      },
+    },
+    {
+      id: 'top-band',
+      size: [1080, 1350],
+      type: {
+        kicker: '800 18px Manrope, Arial, sans-serif',
+        date: '600 20px Manrope, Arial, sans-serif',
+        verse: '500 44px Manrope, Arial, sans-serif',
+        ref: '700 24px "Source Serif 4", Georgia, serif',
+        reading: '600 28px Manrope, Arial, sans-serif',
+        passage: '500 24px Manrope, Arial, sans-serif',
+        brand: '600 24px Manrope, Arial, sans-serif',
+        line: 58,
+      },
+    },
+    {
+      id: 'split-square',
+      size: [1080, 1080],
+      type: {
+        kicker: '700 18px Manrope, Arial, sans-serif',
+        date: '500 16px Manrope, Arial, sans-serif',
+        verse: 'italic 500 36px "Source Serif 4", Georgia, serif',
+        ref: '700 20px Manrope, Arial, sans-serif',
+        reading: '600 22px "Source Serif 4", Georgia, serif',
+        passage: '600 20px Manrope, Arial, sans-serif',
+        brand: '600 20px "Source Serif 4", Georgia, serif',
+        line: 46,
+      },
+    },
+  ];
+
   const root = document.querySelector('[data-daily-devotion]');
   if (!root) return;
 
@@ -290,126 +371,182 @@ const clientPayload = {
 
     const theme =
       clientPayload.themes[(dayOfYear - 1) % clientPayload.themes.length] ?? clientPayload.themes[0];
+    const layout = cardLayouts[(dayOfYear - 1) % cardLayouts.length];
     const { palette } = theme;
+    const type = layout.type;
+    const [W, H] = layout.size;
+    canvas.width = W;
+    canvas.height = H;
+    canvas.style.aspectRatio = `${W} / ${H}`;
 
-    const W = canvas.width;
-    const H = canvas.height;
     ctx.clearRect(0, 0, W, H);
 
-    let drewPhoto = false;
+    let photo = null;
     try {
-      const bg = await loadImage(theme.imageUrl, { cors: true });
-      const scale = Math.max(W / bg.width, H / bg.height);
-      const bw = bg.width * scale;
-      const bh = bg.height * scale;
-      ctx.drawImage(bg, (W - bw) / 2, (H - bh) / 2, bw, bh);
-      drewPhoto = true;
+      photo = await loadImage(theme.imageUrl, { cors: true });
     } catch {
       try {
-        const local = await loadImage(clientPayload.fallbackBgSrc);
-        const scale = Math.max(W / local.width, H / local.height);
-        const bw = local.width * scale;
-        const bh = local.height * scale;
-        ctx.drawImage(local, (W - bw) / 2, (H - bh) / 2, bw, bh);
-        drewPhoto = true;
+        photo = await loadImage(clientPayload.fallbackBgSrc);
       } catch {
-        /* degradado abajo */
+        photo = null;
       }
     }
 
-    if (!drewPhoto) {
-      const fallback = ctx.createLinearGradient(0, 0, W, H);
-      fallback.addColorStop(0, palette.deep);
-      fallback.addColorStop(1, palette.mid);
-      ctx.fillStyle = fallback;
+    function paintPhoto(x, y, w, h) {
+      if (photo) {
+        coverImage(ctx, photo, x, y, w, h);
+        ctx.fillStyle = hexToRgba(palette.deep, 0.48);
+        ctx.fillRect(x, y, w, h);
+      } else {
+        const g = ctx.createLinearGradient(x, y, x + w, y + h);
+        g.addColorStop(0, palette.deep);
+        g.addColorStop(1, palette.mid);
+        ctx.fillStyle = g;
+        ctx.fillRect(x, y, w, h);
+      }
+    }
+
+    function drawBrand(x, y, maxW) {
+      ctx.fillStyle = palette.accent;
+      ctx.fillRect(x, y - 28, 42, 3);
+      ctx.fillStyle = palette.ink;
+      ctx.font = type.brand;
+      ctx.fillText('Gethsemaní', x, y);
+      ctx.fillStyle = palette.muted;
+      ctx.font = type.date;
+      const brandLine = 'Iglesia Presbiteriana Reformada';
+      const clipped =
+        ctx.measureText(brandLine).width > maxW ? 'Iglesia Presb. Reformada' : brandLine;
+      ctx.fillText(clipped, x, y + 28);
+    }
+
+    function drawVerseBlock(x, y, maxW, opts = {}) {
+      const {
+        align = 'left',
+        showReading = true,
+        maxVerseLines = 8,
+        kicker = 'VERSÍCULO DEL DÍA',
+      } = opts;
+      let cursor = y;
+
+      ctx.textAlign = align;
+      const tx = align === 'center' ? x + maxW / 2 : x;
+
+      ctx.fillStyle = palette.accent;
+      ctx.font = type.kicker;
+      ctx.fillText(kicker, tx, cursor);
+      cursor += 36;
+
+      ctx.fillStyle = palette.muted;
+      ctx.font = type.date;
+      ctx.fillText(dateLabel.replace(/^\w/, (c) => c.toUpperCase()), tx, cursor);
+      cursor += 48;
+
+      ctx.fillStyle = palette.ink;
+      ctx.font = type.verse;
+      const verseLines = wrapLines(ctx, `“${verse.text}”`, maxW);
+      for (const line of verseLines.slice(0, maxVerseLines)) {
+        ctx.fillText(line, tx, cursor);
+        cursor += type.line;
+      }
+      if (verseLines.length > maxVerseLines) {
+        ctx.fillText('…', tx, cursor);
+        cursor += type.line;
+      }
+
+      cursor += 8;
+      ctx.fillStyle = palette.accent;
+      ctx.font = type.ref;
+      ctx.fillText(`${verse.reference}  ·  ${verse.version}`, tx, cursor);
+      cursor += 48;
+
+      if (showReading) {
+        if (align === 'left') {
+          ctx.strokeStyle = hexToRgba(palette.accent, 0.45);
+          ctx.beginPath();
+          ctx.moveTo(x, cursor);
+          ctx.lineTo(x + Math.min(maxW, 280), cursor);
+          ctx.stroke();
+          cursor += 42;
+        } else {
+          cursor += 12;
+        }
+
+        ctx.fillStyle = palette.accent;
+        ctx.font = type.kicker;
+        ctx.fillText('LECTURA DE HOY', tx, cursor);
+        cursor += 36;
+        ctx.fillStyle = palette.ink;
+        ctx.font = type.reading;
+        ctx.fillText(`Día ${reading.day}`, tx, cursor);
+        cursor += 40;
+        ctx.font = type.passage;
+        for (const passage of reading.passages) {
+          ctx.fillStyle = palette.muted;
+          ctx.fillText(`•  ${passage.label}`, tx, cursor);
+          cursor += 34;
+        }
+      }
+
+      ctx.textAlign = 'left';
+      return cursor;
+    }
+
+    if (layout.id === 'bottom-panel') {
+      paintPhoto(0, 0, W, H * 0.48);
+      ctx.fillStyle = palette.deep;
+      ctx.fillRect(0, H * 0.42, W, H * 0.58);
+      ctx.fillStyle = hexToRgba(palette.accent, 0.55);
+      ctx.fillRect(0, H * 0.42, W, 4);
+      drawVerseBlock(72, H * 0.42 + 70, W - 144, { maxVerseLines: 7 });
+      drawBrand(72, H - 70, W - 160);
+    } else if (layout.id === 'side-panel') {
+      paintPhoto(W * 0.46, 0, W * 0.54, H);
+      ctx.fillStyle = palette.deep;
+      ctx.fillRect(0, 0, W * 0.5, H);
+      ctx.fillStyle = hexToRgba(palette.accent, 0.5);
+      ctx.fillRect(W * 0.5 - 3, 0, 3, H);
+      drawVerseBlock(56, 90, W * 0.42, { maxVerseLines: 7, showReading: true });
+      drawBrand(56, H - 70, W * 0.4);
+    } else if (layout.id === 'centered') {
+      paintPhoto(0, 0, W, H);
+      ctx.fillStyle = hexToRgba(palette.deep, 0.84);
       ctx.fillRect(0, 0, W, H);
-    }
-
-    const overlay = ctx.createLinearGradient(0, 0, 0, H);
-    overlay.addColorStop(0, hexToRgba(palette.deep, 0.72));
-    overlay.addColorStop(0.42, hexToRgba(palette.mid, 0.82));
-    overlay.addColorStop(1, hexToRgba(palette.deep, 0.94));
-    ctx.fillStyle = overlay;
-    ctx.fillRect(0, 0, W, H);
-
-    // Velo de color del día (cambia el matiz aunque la foto se repita).
-    const wash = ctx.createLinearGradient(W, 0, 0, H);
-    wash.addColorStop(0, hexToRgba(palette.mid, 0.28));
-    wash.addColorStop(1, hexToRgba(palette.accent, 0.12));
-    ctx.fillStyle = wash;
-    ctx.fillRect(0, 0, W, H);
-
-    ctx.strokeStyle = hexToRgba(palette.accent, 0.35);
-    ctx.lineWidth = 2;
-    ctx.strokeRect(48, 48, W - 96, H - 96);
-
-    ctx.fillStyle = palette.accent;
-    ctx.font = '700 28px Manrope, Arial, sans-serif';
-    ctx.fillText('VERSÍCULO DEL DÍA', 90, 140);
-
-    ctx.fillStyle = palette.muted;
-    ctx.font = '600 26px Manrope, Arial, sans-serif';
-    ctx.fillText(dateLabel.replace(/^\w/, (c) => c.toUpperCase()), 90, 190);
-
-    ctx.fillStyle = palette.ink;
-    ctx.font = 'italic 500 54px "Source Serif 4", Georgia, serif';
-    const verseLines = wrapLines(ctx, `“${verse.text}”`, W - 180);
-    let y = 280;
-    const lineHeight = 72;
-    const maxVerseLines = 10;
-    for (const line of verseLines.slice(0, maxVerseLines)) {
-      ctx.fillText(line, 90, y);
-      y += lineHeight;
-    }
-    if (verseLines.length > maxVerseLines) {
-      ctx.fillText('…', 90, y);
-      y += lineHeight;
-    }
-
-    y += 18;
-    ctx.fillStyle = palette.accent;
-    ctx.font = '700 32px Manrope, Arial, sans-serif';
-    ctx.fillText(`${verse.reference}  ·  ${verse.version}`, 90, y);
-
-    y += 70;
-    ctx.strokeStyle = hexToRgba(palette.accent, 0.4);
-    ctx.beginPath();
-    ctx.moveTo(90, y);
-    ctx.lineTo(W - 90, y);
-    ctx.stroke();
-
-    y += 70;
-    ctx.fillStyle = palette.accent;
-    ctx.font = '700 24px Manrope, Arial, sans-serif';
-    ctx.fillText('LECTURA DE HOY', 90, y);
-    y += 48;
-    ctx.fillStyle = palette.ink;
-    ctx.font = '600 36px "Source Serif 4", Georgia, serif';
-    ctx.fillText(`Día ${reading.day} del plan anual`, 90, y);
-
-    y += 56;
-    ctx.font = '600 34px Manrope, Arial, sans-serif';
-    for (const passage of reading.passages) {
-      ctx.fillStyle = palette.muted;
-      ctx.fillText(`•  ${passage.label}`, 90, y);
-      y += 52;
-    }
-
-    try {
-      const logo = await loadImage(clientPayload.logoSrc);
-      const logoH = 78;
-      const logoW = (logo.width / logo.height) * logoH;
-      ctx.drawImage(logo, 90, H - 170, logoW, logoH);
-      ctx.fillStyle = palette.ink;
-      ctx.font = '600 28px "Source Serif 4", Georgia, serif';
-      ctx.fillText('Gethsemaní', 90 + logoW + 22, H - 130);
-      ctx.fillStyle = palette.muted;
-      ctx.font = '600 20px Manrope, Arial, sans-serif';
-      ctx.fillText('Iglesia Presbiteriana Reformada', 90 + logoW + 22, H - 96);
-    } catch {
-      ctx.fillStyle = palette.ink;
-      ctx.font = '600 32px "Source Serif 4", Georgia, serif';
-      ctx.fillText('Iglesia Presbiteriana Reformada Gethsemaní', 90, H - 110);
+      const cardX = 70;
+      const cardY = 110;
+      const cardW = W - 140;
+      const cardH = H - 260;
+      ctx.fillStyle = hexToRgba(palette.deep, 0.5);
+      ctx.fillRect(cardX, cardY, cardW, cardH);
+      ctx.strokeStyle = hexToRgba(palette.accent, 0.4);
+      ctx.lineWidth = 2;
+      ctx.strokeRect(cardX + 18, cardY + 18, cardW - 36, cardH - 36);
+      drawVerseBlock(cardX + 56, cardY + 90, cardW - 112, {
+        align: 'center',
+        maxVerseLines: 8,
+      });
+      drawBrand(90, H - 70, W - 180);
+    } else if (layout.id === 'top-band') {
+      paintPhoto(0, 0, W, H);
+      ctx.fillStyle = hexToRgba('#000000', 0.38);
+      ctx.fillRect(0, 0, W, H);
+      const bandY = H * 0.18;
+      const bandH = H * 0.62;
+      ctx.fillStyle = palette.deep;
+      ctx.fillRect(0, bandY, W, bandH);
+      ctx.fillStyle = hexToRgba(palette.accent, 0.45);
+      ctx.fillRect(0, bandY, W, 3);
+      ctx.fillRect(0, bandY + bandH - 3, W, 3);
+      drawVerseBlock(80, bandY + 70, W - 160, { maxVerseLines: 8 });
+      drawBrand(80, H - 70, W - 160);
+    } else {
+      paintPhoto(0, 0, W, H * 0.42);
+      ctx.fillStyle = palette.deep;
+      ctx.fillRect(0, H * 0.38, W, H * 0.62);
+      ctx.fillStyle = hexToRgba(palette.accent, 0.5);
+      ctx.fillRect(72, H * 0.38, 64, 4);
+      drawVerseBlock(72, H * 0.38 + 60, W - 144, { maxVerseLines: 6 });
+      drawBrand(72, H - 64, W - 160);
     }
 
     return canvas;
