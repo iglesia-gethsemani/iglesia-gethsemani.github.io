@@ -398,6 +398,20 @@ const clientPayload = {
     }
     const verseBlockH = verseLines.length * lineH;
 
+    // Pie con logo (dentro del marco: margen inferior del stroke en H - 40).
+    const frameInset = 40;
+    const footerPad = 28;
+    const logoH = 64;
+    let logo = null;
+    try {
+      logo = await loadImage(clientPayload.logoSrc);
+    } catch {
+      logo = null;
+    }
+    const logoW = logo ? (logo.width / logo.height) * logoH : 0;
+    const footerBlockH = Math.max(logoH, 58) + 8;
+    const footerTop = H - frameInset - footerPad - footerBlockH;
+
     // Medir bloques fijos
     ctx.font = layout.brand;
     const brandH = 28;
@@ -415,26 +429,29 @@ const clientPayload = {
     const stackH =
       brandH + gap + kickerH + 14 + metaH + gap * 1.4 + verseBlockH + gap + refH + gap + readingH;
 
-    // Centrar el bloque completo (sin huecos muertos arriba/abajo).
-    let y = Math.max(72, (H - stackH) / 2);
+    // Centrar el bloque entre el marco superior y el pie.
+    const contentTop = frameInset + 48;
+    const contentBottom = footerTop - 24;
+    const available = contentBottom - contentTop;
+    let y = contentTop + Math.max(0, (available - stackH) / 2);
     const tx = layout.align === 'center' ? W / 2 : padX;
     ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
 
-    // Comilla ornamental grande (llena el fondo del bloque tipográfico).
+    // Comilla ornamental grande
     ctx.save();
     ctx.globalAlpha = 0.1;
     ctx.fillStyle = palette.accent;
     ctx.font = `italic 500 ${Math.round(H * 0.28)}px Georgia, serif`;
     ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
-    ctx.fillText('“', layout.align === 'center' ? W / 2 : padX - 10, y + H * 0.12);
+    ctx.fillText('“', layout.align === 'center' ? W / 2 : padX - 10, y + H * 0.1);
     ctx.restore();
 
     // Marco sutil
     ctx.strokeStyle = hexToRgba(palette.accent, 0.35);
     ctx.lineWidth = 1.5;
-    ctx.strokeRect(40, 40, W - 80, H - 80);
+    ctx.strokeRect(frameInset, frameInset, W - frameInset * 2, H - frameInset * 2);
 
-    // Marca
+    // Marca superior
     ctx.fillStyle = palette.ink;
     ctx.font = layout.brand;
     ctx.fillText('Gethsemaní', tx, y + brandH);
@@ -457,7 +474,7 @@ const clientPayload = {
     ctx.fillText(dateText, tx, y + metaH);
     y += metaH + gap * 1.4;
 
-    // Versículo (protagonista)
+    // Versículo
     ctx.fillStyle = palette.ink;
     ctx.font = layout.face.replace('{size}', String(fontSize));
     for (const line of verseLines) {
@@ -480,13 +497,21 @@ const clientPayload = {
       y += 26;
     }
 
-    // Pie fijo abajo (ancla visual)
+    // Firma completa: logo + nombre completo (dentro del marco)
     ctx.textAlign = 'left';
-    ctx.fillStyle = hexToRgba(palette.accent, 0.8);
-    ctx.fillRect(padX, H - 58, 36, 2);
+    const signatureX = padX;
+    const signatureY = footerTop;
+    if (logo) {
+      ctx.drawImage(logo, signatureX, signatureY, logoW, logoH);
+    }
+    const textX = signatureX + (logo ? logoW + 18 : 0);
+    const textMidY = signatureY + logoH / 2;
+    ctx.fillStyle = palette.ink;
+    ctx.font = '600 26px "Source Serif 4", Georgia, serif';
+    ctx.fillText('Gethsemaní', textX, textMidY - 6);
     ctx.fillStyle = palette.muted;
-    ctx.font = layout.meta;
-    ctx.fillText('Iglesia Presbiteriana Reformada', padX, H - 32);
+    ctx.font = '600 15px Manrope, Arial, sans-serif';
+    ctx.fillText('Iglesia Presbiteriana Reformada Gethsemaní', textX, textMidY + 18);
 
     return canvas;
   }
