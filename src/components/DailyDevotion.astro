@@ -228,7 +228,6 @@ const clientPayload = {
       face: 'italic 500 {size}px "Source Serif 4", Georgia, serif',
       kicker: '700 18px Manrope, Arial, sans-serif',
       meta: '500 18px Manrope, Arial, sans-serif',
-      brand: '600 26px "Source Serif 4", Georgia, serif',
     },
     {
       id: 'bold-serif',
@@ -237,7 +236,6 @@ const clientPayload = {
       face: '600 {size}px "Source Serif 4", Georgia, serif',
       kicker: '800 17px Manrope, Arial, sans-serif',
       meta: '500 17px Manrope, Arial, sans-serif',
-      brand: '600 24px "Source Serif 4", Georgia, serif',
     },
     {
       id: 'modern-sans',
@@ -246,7 +244,6 @@ const clientPayload = {
       face: '500 {size}px Manrope, Arial, sans-serif',
       kicker: '800 16px Manrope, Arial, sans-serif',
       meta: '500 16px Manrope, Arial, sans-serif',
-      brand: '700 22px Manrope, Arial, sans-serif',
     },
     {
       id: 'classic-frame',
@@ -255,7 +252,6 @@ const clientPayload = {
       face: 'italic 600 {size}px Georgia, "Times New Roman", serif',
       kicker: '700 16px Manrope, Arial, sans-serif',
       meta: '500 16px Manrope, Arial, sans-serif',
-      brand: '500 24px Georgia, serif',
     },
   ];
 
@@ -412,14 +408,13 @@ const clientPayload = {
     const footerBlockH = Math.max(logoH, 58) + 8;
     const footerTop = H - frameInset - footerPad - footerBlockH;
 
-    // Medir bloques fijos
-    ctx.font = layout.brand;
-    const brandH = 28;
+    // Medir bloques fijos (sin marca arriba: la firma va al pie).
     ctx.font = layout.kicker;
     const kickerH = 22;
     ctx.font = layout.meta;
     const metaH = 20;
     const refH = 28;
+    const accentLineH = 20;
     const readingLines = (() => {
       ctx.font = layout.meta;
       return wrapLines(ctx, readingText, maxW).slice(0, 2);
@@ -427,7 +422,7 @@ const clientPayload = {
     const readingH = readingLines.length * 26;
     const gap = 22;
     const stackH =
-      brandH + gap + kickerH + 14 + metaH + gap * 1.4 + verseBlockH + gap + refH + gap + readingH;
+      accentLineH + kickerH + 14 + metaH + gap * 1.4 + verseBlockH + gap + refH + gap + readingH;
 
     // Centrar el bloque entre el marco superior y el pie.
     const contentTop = frameInset + 48;
@@ -437,7 +432,7 @@ const clientPayload = {
     const tx = layout.align === 'center' ? W / 2 : padX;
     ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
 
-    // Comilla ornamental grande
+    // Comilla ornamental
     ctx.save();
     ctx.globalAlpha = 0.1;
     ctx.fillStyle = palette.accent;
@@ -446,35 +441,28 @@ const clientPayload = {
     ctx.fillText('“', layout.align === 'center' ? W / 2 : padX - 10, y + H * 0.1);
     ctx.restore();
 
-    // Marco sutil
+    // Marco
     ctx.strokeStyle = hexToRgba(palette.accent, 0.35);
     ctx.lineWidth = 1.5;
     ctx.strokeRect(frameInset, frameInset, W - frameInset * 2, H - frameInset * 2);
 
-    // Marca superior
-    ctx.fillStyle = palette.ink;
-    ctx.font = layout.brand;
-    ctx.fillText('Gethsemaní', tx, y + brandH);
-    y += brandH + gap;
-
-    // Línea acento
+    // Acento → kicker → fecha → versículo → referencia → lecturas
     const lineW = 48;
     ctx.fillStyle = palette.accent;
     if (layout.align === 'center') ctx.fillRect(W / 2 - lineW / 2, y, lineW, 2);
     else ctx.fillRect(padX, y, lineW, 2);
-    y += 18;
+    y += accentLineH;
 
-    // Kicker + fecha
     ctx.fillStyle = palette.accent;
     ctx.font = layout.kicker;
     ctx.fillText('VERSÍCULO DEL DÍA', tx, y + kickerH);
     y += kickerH + 14;
+
     ctx.fillStyle = palette.muted;
     ctx.font = layout.meta;
     ctx.fillText(dateText, tx, y + metaH);
     y += metaH + gap * 1.4;
 
-    // Versículo
     ctx.fillStyle = palette.ink;
     ctx.font = layout.face.replace('{size}', String(fontSize));
     for (const line of verseLines) {
@@ -483,13 +471,11 @@ const clientPayload = {
     }
     y += gap;
 
-    // Referencia
     ctx.fillStyle = palette.accent;
     ctx.font = `700 ${Math.max(20, Math.round(fontSize * 0.38))}px Manrope, Arial, sans-serif`;
     ctx.fillText(`${verse.reference}  ·  ${verse.version}`, tx, y + refH * 0.7);
     y += refH + gap;
 
-    // Lecturas
     ctx.fillStyle = palette.muted;
     ctx.font = layout.meta;
     for (const line of readingLines) {
@@ -497,7 +483,7 @@ const clientPayload = {
       y += 26;
     }
 
-    // Firma completa: logo + nombre completo (dentro del marco)
+    // Firma: logo + nombre completo (única mención de la iglesia)
     ctx.textAlign = 'left';
     const signatureX = padX;
     const signatureY = footerTop;
