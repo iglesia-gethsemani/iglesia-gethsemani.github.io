@@ -432,15 +432,6 @@ const clientPayload = {
     const tx = layout.align === 'center' ? W / 2 : padX;
     ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
 
-    // Comilla ornamental
-    ctx.save();
-    ctx.globalAlpha = 0.1;
-    ctx.fillStyle = palette.accent;
-    ctx.font = `italic 500 ${Math.round(H * 0.28)}px Georgia, serif`;
-    ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
-    ctx.fillText('“', layout.align === 'center' ? W / 2 : padX - 10, y + H * 0.1);
-    ctx.restore();
-
     // Marco
     ctx.strokeStyle = hexToRgba(palette.accent, 0.35);
     ctx.lineWidth = 1.5;
