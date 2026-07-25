@@ -21,13 +21,11 @@ const currentDay = orders[0] ? dayKey(orders[0].data.date) : null;
 const ordersForCurrentDay = currentDay
   ? orders.filter((order) => dayKey(order.data.date) === currentDay)
   : [];
-const primaryOrder = ordersForCurrentDay.find((order) => order.data.time === '12:00');
-const currentOrders = [
-  ...(primaryOrder ? [primaryOrder] : []),
-  ...ordersForCurrentDay
-    .filter((order) => order !== primaryOrder)
-    .sort((a, b) => a.data.time.localeCompare(b.data.time)),
-];
+const currentOrders = [...ordersForCurrentDay].sort((a, b) =>
+  a.data.time.localeCompare(b.data.time),
+);
+const defaultOrderId =
+  currentOrders.find((order) => order.data.time === '12:00')?.id ?? currentOrders[0]?.id ?? null;
 const previousOrders = currentDay
   ? orders.filter((order) => dayKey(order.data.date) !== currentDay)
   : [];
@@ -37,6 +35,17 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
   month: 'long',
   year: 'numeric',
 });
+
+function orderTabLabel(title: string, time: string): string {
+  const normalized = title
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase();
+  if (normalized.includes('escuela')) return 'Escuela Dominical';
+  if (normalized.includes('vespertino')) return 'Vespertino';
+  if (time === '12:00' || normalized.includes('adoracion')) return 'Culto';
+  return title.replace(/[“”"].*$/, '').trim().slice(0, 28) || time;
+}
 ---
 
 <PageLayout
@@ -53,12 +62,56 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
   </header>
 
   <section class="service-order-page">
-    <div class="service-order-main">
+    <div class="service-order-main" data-service-order-switcher>
       {
         currentOrders.length > 0 ? (
-          currentOrders.map((order) => (
-            <ServiceOrder {...order.data} />
-          ))
+          <>
+            {currentOrders.length > 1 && (
+              <div
+                class="service-order-tabs"
+                role="tablist"
+                aria-label="Órdenes del culto de hoy"
+              >
+                {currentOrders.map((order) => {
+                  const selected = order.id === defaultOrderId;
+                  return (
+                    <button
+                      type="button"
+                      class="service-order-tab"
+                      role="tab"
+                      id={`order-tab-${order.id}`}
+                      aria-selected={selected ? 'true' : 'false'}
+                      aria-controls={`order-panel-${order.id}`}
+                      tabindex={selected ? 0 : -1}
+                      data-order-tab={order.id}
+                    >
+                      <span class="service-order-tab-time">{order.data.time} h</span>
+                      <span class="service-order-tab-label">
+                        {orderTabLabel(order.data.title, order.data.time)}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+            {currentOrders.map((order) => {
+              const selected = order.id === defaultOrderId;
+              return (
+                <div
+                  class="service-order-panel"
+                  role="tabpanel"
+                  id={`order-panel-${order.id}`}
+                  aria-labelledby={
+                    currentOrders.length > 1 ? `order-tab-${order.id}` : undefined
+                  }
+                  hidden={!selected}
+                  data-order-panel={order.id}
+                >
+                  <ServiceOrder {...order.data} />
+                </div>
+              );
+            })}
+          </>
         ) : (
           <div class="service-order-empty">
             <span class="icon-badge icon-badge--light" aria-hidden="true"><Icon name="church" /></span>
@@ -74,7 +127,7 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
     </div>
 
     <aside class="service-order-qr" aria-labelledby="qr-title">
-      <p class="overline blue">Acceso desde el templo</p>
+      
       <h2 id="qr-title">Escanea para consultar el orden</h2>
       <img
         src={`${base}images/qr-orden-del-culto.png`}

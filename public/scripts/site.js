@@ -346,6 +346,44 @@ document.querySelectorAll('[data-share-root]').forEach((root) => {
     });
 });
 
+document.querySelectorAll('[data-service-order-switcher]').forEach((root) => {
+    const tabs = [...root.querySelectorAll('[data-order-tab]')];
+    const panels = [...root.querySelectorAll('[data-order-panel]')];
+    if (tabs.length < 2) return;
+
+    const selectOrder = (orderId, { focusTab = false } = {}) => {
+        tabs.forEach((tab) => {
+            const selected = tab.getAttribute('data-order-tab') === orderId;
+            tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
+            if (selected && focusTab) tab.focus({ preventScroll: true });
+        });
+
+        panels.forEach((panel) => {
+            panel.hidden = panel.getAttribute('data-order-panel') !== orderId;
+        });
+    };
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            selectOrder(tab.getAttribute('data-order-tab'));
+        });
+
+        tab.addEventListener('keydown', (event) => {
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+            event.preventDefault();
+
+            let nextIndex = index;
+            if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+            if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+            if (event.key === 'Home') nextIndex = 0;
+            if (event.key === 'End') nextIndex = tabs.length - 1;
+
+            selectOrder(tabs[nextIndex].getAttribute('data-order-tab'), { focusTab: true });
+        });
+    });
+});
+
 document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
     const resourcesNode = orderRoot.querySelector('[data-service-resources]');
     const shell = orderRoot.querySelector('[data-service-resource-shell]');
