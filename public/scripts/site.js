@@ -345,3 +345,127 @@ document.querySelectorAll('[data-share-root]').forEach((root) => {
         }
     });
 });
+
+document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
+    const resourcesNode = orderRoot.querySelector('[data-service-resources]');
+    const shell = orderRoot.querySelector('[data-service-resource-shell]');
+    const panel = orderRoot.querySelector('[data-service-resource-panel]');
+    if (!resourcesNode || !shell || !panel) return;
+
+    let resources = {};
+    try {
+        resources = JSON.parse(resourcesNode.textContent || '{}');
+    } catch {
+        return;
+    }
+
+    const kicker = panel.querySelector('[data-resource-kicker]');
+    const titleEl = panel.querySelector('[data-resource-title]');
+    const subtitleEl = panel.querySelector('[data-resource-subtitle]');
+    const bodyEl = panel.querySelector('[data-resource-body]');
+    const sourceEl = panel.querySelector('[data-resource-source]');
+    const externalEl = panel.querySelector('[data-resource-external]');
+    let lastTrigger = null;
+
+    const closePanel = () => {
+        shell.hidden = true;
+        shell.setAttribute('inert', '');
+        document.body.classList.remove('resource-open');
+        lastTrigger?.focus({ preventScroll: true });
+        lastTrigger = null;
+    };
+
+    const renderHymn = (resource) => {
+        const parts = [];
+        if (resource.intro) {
+            parts.push(`<p class="service-resource-intro">${escapeHtml(resource.intro)}</p>`);
+        }
+        for (const stanza of resource.stanzas || []) {
+            const lines = (stanza.lines || [])
+                .map((line) => `<p>${escapeHtml(line)}</p>`)
+                .join('');
+            parts.push(
+                `<article class="service-resource-stanza">` +
+                    `<p class="service-resource-stanza-name">${escapeHtml(stanza.name)}</p>` +
+                    `${lines}` +
+                `</article>`
+            );
+        }
+        if (resource.authors?.length) {
+            parts.push(
+                `<p class="service-resource-authors">${escapeHtml(resource.authors.join(' · '))}</p>`
+            );
+        }
+        return parts.join('');
+    };
+
+    const renderScripture = (resource) => {
+        return (resource.verses || [])
+            .map(
+                (verse) =>
+                    `<div class="service-resource-verse">` +
+                        `<span class="service-resource-verse-num">${escapeHtml(String(verse.number))}</span>` +
+                        `<p>${escapeHtml(verse.text)}</p>` +
+                    `</div>`
+            )
+            .join('');
+    };
+
+    const openPanel = (id, trigger) => {
+        const resource = resources[id];
+        if (!resource) return;
+
+        lastTrigger = trigger;
+        kicker.textContent = resource.kind === 'hymn' ? 'Himnario' : 'Lectura bíblica';
+        titleEl.textContent = resource.kind === 'hymn'
+            ? (resource.subtitle || resource.title)
+            : resource.title;
+        if (resource.kind === 'hymn') {
+            subtitleEl.hidden = false;
+            subtitleEl.textContent = resource.title;
+        } else {
+            subtitleEl.hidden = false;
+            subtitleEl.textContent = resource.subtitle || 'Reina-Valera 1960';
+        }
+        bodyEl.innerHTML = resource.kind === 'hymn' ? renderHymn(resource) : renderScripture(resource);
+        sourceEl.textContent = resource.source || '';
+        if (externalEl) {
+            externalEl.href = resource.externalUrl || '#';
+            const externalLabel = externalEl.querySelector('[data-resource-external-label]');
+            if (externalLabel) {
+                externalLabel.textContent = resource.kind === 'hymn'
+                    ? 'Abrir himnario'
+                    : 'Abrir en Bible Gateway';
+            }
+        }
+        shell.hidden = false;
+        shell.removeAttribute('inert');
+        document.body.classList.add('resource-open');
+        window.setTimeout(() => panel.focus({ preventScroll: true }), 40);
+    };
+
+    shell.setAttribute('inert', '');
+
+    orderRoot.querySelectorAll('[data-resource-open]').forEach((button) => {
+        button.addEventListener('click', () => {
+            openPanel(button.getAttribute('data-resource-open'), button);
+        });
+    });
+
+    shell.querySelectorAll('[data-resource-close]').forEach((button) => {
+        button.addEventListener('click', closePanel);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !shell.hidden) closePanel();
+    });
+});
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}

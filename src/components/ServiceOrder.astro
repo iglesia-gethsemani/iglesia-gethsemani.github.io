@@ -1,5 +1,6 @@
 ---
 import Icon from '@/components/Icon.astro';
+import { enrichServiceOrder } from '@/utils/service-resources';
 
 interface OrderElement {
   label: string;
@@ -40,9 +41,13 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
   month: 'long',
   year: 'numeric',
 });
+
+const enriched = await enrichServiceOrder({ elements, sermonPassage, theme });
+const hasResources = Object.keys(enriched.resources).length > 0;
+const panelTitleId = `service-resource-${date.getTime()}-${time.replace(':', '')}`;
 ---
 
-<article class="service-order">
+<article class="service-order" data-service-order>
   <header class="service-order-header">
     <p class="overline blue">Culto dominical</p>
     <Heading>{title}</Heading>
@@ -55,7 +60,20 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
         <div class="service-order-sermon">
           {theme && <small>{theme}</small>}
           {sermonTitle && <strong>{sermonTitle}</strong>}
-          {sermonPassage && <span>{sermonPassage}</span>}
+          {sermonPassage &&
+            (enriched.sermonPassageResourceId ? (
+              <button
+                type="button"
+                class="service-order-resource-link"
+                data-resource-open={enriched.sermonPassageResourceId}
+              >
+                <Icon name="scripture" />
+                <span>{sermonPassage}</span>
+                <em>Ver lectura</em>
+              </button>
+            ) : (
+              <span>{sermonPassage}</span>
+            ))}
           {preacher && <p>{preacher}</p>}
         </div>
       )
@@ -64,16 +82,96 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
 
   <ol class="service-order-sequence">
     {
-      elements.map((element) => (
-        <li>
-          <span class="service-order-number" aria-hidden="true"></span>
-          <div>
-            <small>{element.label}</small>
-            <strong>{element.title}</strong>
-            {element.detail && <p>{element.detail}</p>}
-          </div>
-        </li>
-      ))
+      enriched.elements.map((element) => {
+        const resourceId = element.hymnResourceId || element.scriptureResourceId;
+
+        return (
+          <li class={resourceId ? 'has-resource' : undefined}>
+            <span class="service-order-number" aria-hidden="true"></span>
+            <div>
+              <small>{element.label}</small>
+              {element.hymnResourceId ? (
+                <button
+                  type="button"
+                  class="service-order-resource-link service-order-resource-link--title"
+                  data-resource-open={element.hymnResourceId}
+                >
+                  <strong>{element.title}</strong>
+                  <span class="service-order-resource-hint">
+                    <Icon name="music" />
+                    Ver letra
+                  </span>
+                </button>
+              ) : (
+                <strong>{element.title}</strong>
+              )}
+              {element.detail &&
+                (element.scriptureResourceId ? (
+                  <button
+                    type="button"
+                    class="service-order-resource-link service-order-resource-link--detail"
+                    data-resource-open={element.scriptureResourceId}
+                  >
+                    <span>{element.detail}</span>
+                    <em>
+                      <Icon name="scripture" />
+                      Ver lectura
+                    </em>
+                  </button>
+                ) : (
+                  <p>{element.detail}</p>
+                ))}
+            </div>
+          </li>
+        );
+      })
     }
   </ol>
+
+  {
+    hasResources && (
+      <>
+        <script
+          type="application/json"
+          data-service-resources
+          set:html={JSON.stringify(enriched.resources)}
+        />
+        <div class="service-resource-shell" data-service-resource-shell hidden>
+          <button
+            type="button"
+            class="service-resource-backdrop"
+            data-resource-close
+            aria-label="Cerrar"
+          />
+          <section
+            class="service-resource-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={panelTitleId}
+            tabindex="-1"
+            data-service-resource-panel
+          >
+            <header class="service-resource-header">
+              <div>
+                <p class="overline" data-resource-kicker></p>
+                <h2 id={panelTitleId} data-resource-title></h2>
+                <p class="service-resource-subtitle" data-resource-subtitle hidden></p>
+              </div>
+              <button type="button" class="service-resource-close" data-resource-close aria-label="Cerrar">
+                ×
+              </button>
+            </header>
+            <div class="service-resource-body" data-resource-body></div>
+            <footer class="service-resource-footer">
+              <p data-resource-source></p>
+              <a href="#" target="_blank" rel="noopener noreferrer" data-resource-external>
+                <span data-resource-external-label>Abrir en recurso externo</span>
+                <Icon name="arrow" />
+              </a>
+            </footer>
+          </section>
+        </div>
+      </>
+    )
+  }
 </article>
