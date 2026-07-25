@@ -411,7 +411,39 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
             .join('');
     };
 
-    const openPanel = (id, trigger) => {
+    const loadScripture = async (resource) => {
+        if (resource.verses?.length || !resource.apiUrl) return true;
+
+        bodyEl.innerHTML = '<p class="service-resource-status">Cargando lectura bíblica…</p>';
+        try {
+            const response = await fetch(resource.apiUrl);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const payload = await response.json();
+            const data = payload?.data;
+            const texts = data?.verses?.length
+                ? data.verses
+                : data?.text
+                    ? [data.text]
+                    : [];
+            if (!texts.length) throw new Error('La respuesta no contiene versículos');
+
+            const start = Number(data.verse) || 1;
+            resource.verses = texts.map((text, index) => ({
+                number: start + index,
+                text,
+            }));
+            bodyEl.innerHTML = renderScripture(resource);
+            return true;
+        } catch {
+            bodyEl.innerHTML =
+                '<p class="service-resource-status service-resource-status--error">' +
+                'No pudimos cargar esta lectura en este momento. Puedes abrirla en Bible Gateway.' +
+                '</p>';
+            return false;
+        }
+    };
+
+    const openPanel = async (id, trigger) => {
         const resource = resources[id];
         if (!resource) return;
 
@@ -427,7 +459,11 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
             subtitleEl.hidden = false;
             subtitleEl.textContent = resource.subtitle || 'Reina-Valera 1960';
         }
-        bodyEl.innerHTML = resource.kind === 'hymn' ? renderHymn(resource) : renderScripture(resource);
+        bodyEl.innerHTML = resource.kind === 'hymn'
+            ? renderHymn(resource)
+            : resource.verses?.length
+                ? renderScripture(resource)
+                : '<p class="service-resource-status">Cargando lectura bíblica…</p>';
         sourceEl.textContent = resource.source || '';
         if (externalEl) {
             externalEl.href = resource.externalUrl || '#';
@@ -442,6 +478,10 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
         shell.removeAttribute('inert');
         document.body.classList.add('resource-open');
         window.setTimeout(() => panel.focus({ preventScroll: true }), 40);
+
+        if (resource.kind === 'scripture' && !resource.verses?.length) {
+            await loadScripture(resource);
+        }
     };
 
     shell.setAttribute('inert', '');

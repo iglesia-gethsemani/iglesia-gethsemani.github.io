@@ -1,4 +1,5 @@
 import {
+  createBiblePassage,
   fetchBiblePassage,
   parseBibleReference,
   type BiblePassageContent,
@@ -51,8 +52,7 @@ async function addScripture(
   const id = `scripture-${parsed.bookSlug}-${parsed.chapter}-${parsed.verseStart ?? 'all'}-${parsed.verseEnd ?? ''}`;
   if (!resources[id]) {
     const passage = await fetchBiblePassage(parsed);
-    if (!passage) return undefined;
-    resources[id] = { ...passage, id };
+    resources[id] = passage ?? createBiblePassage(parsed);
   }
   return id;
 }

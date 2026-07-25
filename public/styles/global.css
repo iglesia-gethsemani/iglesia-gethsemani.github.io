@@ -519,6 +519,8 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .service-resource-close { width: 40px; height: 40px; padding: 0; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 50%; cursor: pointer; font: 300 28px/1 var(--sans); }
 .service-resource-close:hover,.service-resource-close:focus-visible { color: white; background: var(--brick); border-color: var(--brick); outline: 0; }
 .service-resource-body { min-height: 0; padding: 28px 24px 36px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.service-resource-status { margin: 0; padding: 28px 20px; color: var(--muted); background: #f3f0e9; border-left: 4px solid var(--gold); font: 600 16px/1.5 var(--serif); }
+.service-resource-status--error { color: #79291f; background: #fff0ed; border-left-color: var(--brick); }
 .service-resource-intro { margin: 0 0 22px; color: var(--muted); font: italic 500 15px/1.5 var(--serif); }
 .service-resource-stanza { margin: 0 0 26px; }
 .service-resource-stanza:last-child { margin-bottom: 0; }

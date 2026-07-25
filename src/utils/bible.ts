@@ -16,6 +16,7 @@ export interface BiblePassageContent {
   title: string;
   subtitle: string;
   verses: { number: number; text: string }[];
+  apiUrl: string;
   source: string;
   externalUrl: string;
 }
@@ -141,7 +142,7 @@ export function parseBibleReference(text: string): ParsedBibleRef | null {
   };
 }
 
-function passagePath(ref: ParsedBibleRef): string {
+export function biblePassageApiUrl(ref: ParsedBibleRef): string {
   const base = `https://api.midvash.com/v1/rvr1960/${ref.bookSlug}/${ref.chapter}`;
   if (ref.verseStart == null) return base;
   if (ref.verseEnd != null && ref.verseEnd !== ref.verseStart) {
@@ -150,9 +151,25 @@ function passagePath(ref: ParsedBibleRef): string {
   return `${base}/${ref.verseStart}`;
 }
 
+/** Metadatos que permiten cargar la lectura en el navegador si falla durante el build. */
+export function createBiblePassage(ref: ParsedBibleRef): BiblePassageContent {
+  return {
+    id: `scripture-${ref.bookSlug}-${ref.chapter}-${ref.verseStart ?? 'all'}-${ref.verseEnd ?? ''}`,
+    kind: 'scripture',
+    title: ref.reference,
+    subtitle: 'Reina-Valera 1960',
+    verses: [],
+    apiUrl: biblePassageApiUrl(ref),
+    source: 'RV1960',
+    externalUrl: bibleGatewayUrl(ref.reference),
+  };
+}
+
 export async function fetchBiblePassage(ref: ParsedBibleRef): Promise<BiblePassageContent | null> {
   try {
-    const response = await fetch(passagePath(ref));
+    const response = await fetch(biblePassageApiUrl(ref), {
+      signal: AbortSignal.timeout(8_000),
+    });
     if (!response.ok) return null;
 
     const payload = (await response.json()) as {
@@ -182,15 +199,7 @@ export async function fetchBiblePassage(ref: ParsedBibleRef): Promise<BiblePassa
       text: text.trim(),
     }));
 
-    return {
-      id: `scripture-${ref.bookSlug}-${ref.chapter}-${ref.verseStart ?? 'all'}-${ref.verseEnd ?? ''}`,
-      kind: 'scripture',
-      title: ref.reference,
-      subtitle: 'Reina-Valera 1960',
-      verses,
-      source: 'RV1960',
-      externalUrl: bibleGatewayUrl(ref.reference),
-    };
+    return { ...createBiblePassage(ref), verses };
   } catch {
     return null;
   }
