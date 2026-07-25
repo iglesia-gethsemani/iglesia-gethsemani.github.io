@@ -452,7 +452,8 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 
 /* Orden del culto dominical */
 .service-order-page { max-width: 1280px; margin: auto; padding: 86px 24px 110px; display: grid; grid-template-columns: minmax(0,1fr) 330px; gap: 7%; align-items: start; }
-.service-order-main { min-width: 0; }
+.service-order-main { min-width: 0; display: grid; gap: 90px; }
+.service-order-main > .service-order + .service-order { padding-top: 78px; border-top: 1px solid var(--line); }
 .service-order-header { padding-bottom: 35px; border-bottom: 1px solid var(--line); }
 .service-order-header h1,.service-order-header h2 { margin: 0; color: var(--ink); font: 600 clamp(42px,4.6vw,64px)/1.06 var(--serif); letter-spacing: 0; }
 .service-order-meta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; color: var(--muted); font-size: 11px; font-weight: 700; }
@@ -843,6 +844,8 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 
 @media (max-width: 900px) {
     .service-order-page { padding: 64px 20px 80px; grid-template-columns: 1fr; gap: 45px; }
+    .service-order-main { gap: 68px; }
+    .service-order-main > .service-order + .service-order { padding-top: 58px; }
     .service-order-qr { position: static; max-width: 380px; width: 100%; justify-self: center; }
     .service-order-empty { padding: 36px 26px; }
     .service-order-archive-list a { grid-template-columns: 1fr 24px; gap: 7px 18px; }
