@@ -474,7 +474,7 @@ const clientPayload = {
       y += 26;
     }
 
-    // Firma: logo + nombre completo (única mención de la iglesia)
+    // Firma: nombre de la congregación + denominación, sin repetir Gethsemaní
     ctx.textAlign = 'left';
     const signatureX = padX;
     const signatureY = footerTop;
@@ -488,7 +488,7 @@ const clientPayload = {
     ctx.fillText('Gethsemaní', textX, textMidY - 6);
     ctx.fillStyle = palette.muted;
     ctx.font = '600 15px Manrope, Arial, sans-serif';
-    ctx.fillText('Iglesia Presbiteriana Reformada Gethsemaní', textX, textMidY + 18);
+    ctx.fillText('Iglesia Presbiteriana Reformada', textX, textMidY + 18);
 
     return canvas;
   }
