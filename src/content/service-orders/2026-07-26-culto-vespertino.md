@@ -41,6 +41,6 @@ elements:
   - label: Envío
     title: Doxología No. 450 “Dios te bendiga”
   - label: Dirección
-    title: A.G. Efrén Haro Hernández
+    title: A.G. Hazael Cordova Ruiz
 ---
 

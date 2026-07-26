@@ -42,8 +42,8 @@ function orderTabLabel(title: string, time: string): string {
     .replace(/\p{M}/gu, '')
     .toLowerCase();
   if (normalized.includes('escuela')) return 'Escuela Dominical';
-  if (normalized.includes('vespertino')) return 'Vespertino';
-  if (time === '12:00' || normalized.includes('adoracion')) return 'Culto';
+  if (normalized.includes('vespertino')) return 'Culto Vespertino';
+  if (time === '12:00' || normalized.includes('adoracion')) return 'Culto de Adoración';
   return title.replace(/[“”"].*$/, '').trim().slice(0, 28) || time;
 }
 ---
