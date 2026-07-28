@@ -5,7 +5,9 @@
   "description": "Sitio estático de la Iglesia Presbiteriana Reformada Gethsemaní",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/generate-og-orden.mjs",
     "build": "astro build",
+    "og:orden": "node scripts/generate-og-orden.mjs",
     "preview": "astro preview",
     "check": "astro check"
   },

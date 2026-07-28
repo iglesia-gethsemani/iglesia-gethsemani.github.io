@@ -46,12 +46,27 @@ function orderTabLabel(title: string, time: string): string {
   if (time === '12:00' || normalized.includes('adoracion')) return 'Culto de Adoración';
   return title.replace(/[“”"].*$/, '').trim().slice(0, 28) || time;
 }
+
+const currentDateLabel = currentOrders[0]
+  ? dateFormatter.format(currentOrders[0].data.date)
+  : null;
+const ogDescription = currentDateLabel
+  ? `Orden del culto dominical del ${currentDateLabel}. Lecturas, himnos y oraciones de la Iglesia Presbiteriana Reformada Gethsemaní.`
+  : 'Consulta el orden del culto dominical de la Iglesia Presbiteriana Reformada Gethsemaní.';
 ---
 
 <PageLayout
   title="Orden del culto"
-  description="Consulta el orden del culto dominical de la Iglesia Presbiteriana Reformada Gethsemaní."
+  description={ogDescription}
   canonicalPath="/orden-del-culto/"
+  image={`/images/og/orden-del-culto.jpg?v=${currentOrders[0] ? dayKey(currentOrders[0].data.date).replaceAll('-', '') : '0'}`}
+  imageWidth={1200}
+  imageHeight={630}
+  imageAlt={
+    currentOrders[0]
+      ? `Orden del culto · ${currentOrders[0].data.title} · ${currentDateLabel}`
+      : 'Orden del culto dominical · Iglesia Presbiteriana Reformada Gethsemaní'
+  }
 >
   <header class="page-hero">
     <div>

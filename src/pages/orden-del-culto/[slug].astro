@@ -14,12 +14,24 @@ export async function getStaticPaths() {
 }
 
 const { order } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const dateLabel = dateFormatter.format(order.data.date);
+const description = `${order.data.title} · ${dateLabel}, ${order.data.time} h. Orden del culto de la Iglesia Presbiteriana Reformada Gethsemaní.`;
 ---
 
 <PageLayout
   title={order.data.title}
-  description="Orden del culto dominical de la Iglesia Gethsemaní."
+  description={description}
   canonicalPath={`/orden-del-culto/${order.id}/`}
+  image={`/images/og/orden-del-culto.jpg?v=${order.id.replace(/[^a-zA-Z0-9]/g, '')}`}
+  imageWidth={1200}
+  imageHeight={630}
+  imageAlt={`${order.data.title} · ${dateLabel} · Orden del culto Gethsemaní`}
 >
   <article class="service-order-detail">
     <a class="back-link" href={pathFor('/orden-del-culto/')}>← Orden vigente y archivo</a>

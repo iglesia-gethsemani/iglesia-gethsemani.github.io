@@ -6,6 +6,9 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageAlt?: string;
   canonicalPath?: string;
   ogType?: 'website' | 'article';
 }
@@ -13,7 +16,10 @@ interface Props {
 const {
   title = 'Iglesia Presbiteriana Reformada Gethsemaní',
   description = 'Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán. Una iglesia confesional centrada en Cristo y en su Palabra.',
-  image = '/images/templo-gethsemani.jpg',
+  image = '/images/og/default.jpg',
+  imageWidth = 1200,
+  imageHeight = 630,
+  imageAlt = 'Iglesia Presbiteriana Reformada Gethsemaní',
   canonicalPath = '/',
   ogType = 'website',
 } = Astro.props;
@@ -42,10 +48,8 @@ const churchSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="description" content={description} />
-    <meta name="google-site-verification" content="RbaQ1oJ7DiOYhGZav_rs-bkQ42MVvWKnDLZxa6V6KWg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="es_MX" />
@@ -54,10 +58,17 @@ const churchSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content={String(imageWidth)} />
+    <meta property="og:image:height" content={String(imageHeight)} />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="google-site-verification" content="RbaQ1oJ7DiOYhGZav_rs-bkQ42MVvWKnDLZxa6V6KWg" />
+    <meta name="generator" content={Astro.generator} />
     <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
     <link rel="icon" type="image/png" href={`${base}favicon-256.png`} sizes="256x256" />
     <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} sizes="180x180" />
