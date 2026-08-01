@@ -31,6 +31,7 @@ const previousOrders = currentDay
   : [];
 const base = import.meta.env.BASE_URL;
 const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  timeZone: 'America/Mexico_City',
   day: 'numeric',
   month: 'long',
   year: 'numeric',
@@ -167,7 +168,7 @@ const ogDescription = currentDateLabel
         <div class="service-order-archive-list">
           {previousOrders.map((order) => (
             <a href={pathFor(`/orden-del-culto/${order.id}/`)}>
-              <time datetime={order.data.date.toISOString().slice(0, 10)}>
+              <time datetime={dayKey(order.data.date)}>
                 {dateFormatter.format(order.data.date)}
               </time>
               <strong>{order.data.title}</strong>

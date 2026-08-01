@@ -72,6 +72,7 @@ function pickCurrentOrder(orders) {
 
 function buildSvg(order, logoDataUri) {
   const dateLabel = new Intl.DateTimeFormat('es-MX', {
+    timeZone: 'America/Mexico_City',
     weekday: 'long',
     day: 'numeric',
     month: 'long',

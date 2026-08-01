@@ -16,6 +16,7 @@ export async function getStaticPaths() {
 const { order } = Astro.props;
 
 const dateFormatter = new Intl.DateTimeFormat('es-MX', {
+  timeZone: 'America/Mexico_City',
   day: 'numeric',
   month: 'long',
   year: 'numeric',
