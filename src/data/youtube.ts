@@ -7,6 +7,12 @@ export interface ChannelVideo {
 
 export const regularVideos: ChannelVideo[] = [
   {
+    title: 'Simón bar-Jona',
+    url: 'https://www.youtube.com/watch?v=r04o3Rq9DDs',
+    label: 'Sermón',
+    detail: 'Mateo 4:18-20 · A.G. Enrique Jiménez Monzalvo',
+  },
+  {
     title: 'La murmuración',
     url: 'https://www.youtube.com/watch?v=O1HHTV9ncFs',
     label: 'Estudio bíblico',
@@ -69,13 +75,13 @@ export const regularVideos: ChannelVideo[] = [
 
 export const latestLiveVideo: ChannelVideo = {
   title: 'Solemne Culto de Adoración',
-  url: 'https://www.youtube.com/watch?v=yBbQsGKjouQ',
+  url: 'https://www.youtube.com/watch?v=9BZq-_POIkY',
   label: 'Última transmisión',
-  detail: '19 de julio de 2026',
+  detail: '26 de julio de 2026',
 };
 
 export const latestShortVideo: ChannelVideo = {
-  title: 'Invitación a la Escuela Bíblica de Vacaciones',
-  url: 'https://www.youtube.com/shorts/xD-5DBRUq74',
+  title: 'El verdadero arrepentimiento',
+  url: 'https://www.youtube.com/shorts/Fn95ip6WC1Q',
   label: 'Último Short',
 };
