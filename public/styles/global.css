@@ -90,6 +90,18 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .intro-band { max-width: 1280px; margin: auto; min-height: 85px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: #fbfaf7; }
 .intro-band p { margin: 0; color: var(--navy); font-weight: 700; }
 .intro-band div { display: flex; gap: 35px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.sermon-invitation { max-width: 1232px; margin: 0 auto; display: grid; grid-template-columns: 1.22fr .78fr; overflow: hidden; color: var(--ink); background: #f3f0e9; border: 1px solid var(--line); box-shadow: 0 14px 34px rgba(37,42,39,.08); }
+.sermon-invitation-media { min-width: 0; margin: 0; overflow: hidden; }
+.sermon-invitation-media img { width: 100%; height: 100%; min-height: 370px; object-fit: cover; }
+.sermon-invitation-copy { padding: 38px 42px; display: flex; flex-direction: column; justify-content: center; border-left: 4px solid var(--brick); }
+.sermon-invitation-copy .overline { margin-bottom: 10px; }
+.sermon-invitation-copy time { color: var(--brick); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: capitalize; }
+.sermon-invitation-copy h2 { margin: 14px 0 0; color: var(--navy); font: 600 clamp(35px,3.2vw,50px)/1.04 var(--serif); letter-spacing: 0; }
+.sermon-invitation-preacher { margin: 22px 0 0; display: flex; flex-direction: column; }
+.sermon-invitation-preacher small { color: var(--muted); font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.sermon-invitation-preacher strong { margin-top: 4px; color: var(--ink); font-size: 13px; }
+.sermon-invitation-copy .button { align-self: flex-start; margin-top: 26px; }
+.sermon-invitation + .latest-reflection-section { padding-top: 56px; }
 .latest-reflection-section { max-width: 1280px; margin: auto; padding: 86px 24px; display: grid; grid-template-columns: .78fr 1.22fr; gap: 9%; align-items: center; border-bottom: 1px solid var(--line); }
 .latest-reflection-heading > .icon-badge { margin-bottom: 24px; }
 .latest-reflection-heading .overline { margin-bottom: 14px; }
@@ -468,6 +480,8 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .service-order-meta span { display: inline-flex; align-items: center; gap: 8px; }
 .service-order-meta .icon { width: 15px; height: 15px; color: var(--brick); }
 .service-order-sermon { margin-top: 30px; padding: 25px 28px; display: flex; flex-direction: column; background: #f3f0e9; border-left: 4px solid var(--brick); }
+.service-order-sermon-image { margin: -25px -28px 24px; overflow: hidden; aspect-ratio: 16 / 9; background: var(--navy); }
+.service-order-sermon-image img { width: 100%; height: 100%; object-fit: cover; }
 .service-order-sermon small { color: var(--brick); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .service-order-sermon strong { margin-top: 7px; color: var(--ink); font: 600 25px/1.25 var(--serif); }
 .service-order-sermon span { margin-top: 5px; color: var(--muted); font-size: 12px; }
@@ -808,6 +822,12 @@ body.resource-open { overflow: hidden; }
     .site-nav .nav-meta { display: grid; gap: 6px; margin-top: auto; padding-top: 40px; color: var(--muted); font-size: 13px; line-height: 1.5; }
     .site-nav .nav-meta p { margin: 0; }
     .home-hero { grid-template-columns: 1fr; }.home-hero-copy { padding: 70px 24px 55px; }.home-hero h1 { font-size: clamp(52px, 15vw, 70px); }.hero-buttons { align-items: stretch; flex-direction: column; }.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; overflow: visible; }.hero-stats div { min-width: 0; }.home-hero-image { min-height: 510px; }.intro-band { padding: 22px 24px; align-items: flex-start; flex-direction: column; gap: 18px; }.intro-band div { gap: 15px; flex-wrap: wrap; }
+    .sermon-invitation { margin: 0 16px; grid-template-columns: 1fr; }
+    .sermon-invitation-media img { min-height: 0; aspect-ratio: 16 / 9; }
+    .sermon-invitation-copy { padding: 30px 24px 34px; border-top: 4px solid var(--brick); border-left: 0; }
+    .sermon-invitation-copy h2 { font-size: clamp(32px, 9vw, 43px); }
+    .sermon-invitation-copy .button { width: 100%; }
+    .sermon-invitation + .latest-reflection-section { padding-top: 46px; }
     .latest-reflection-section { padding: 64px 24px; grid-template-columns: 1fr; gap: 34px; }
     .latest-reflection-copy { padding: 30px 26px; }
     .daily-devotion-stage { padding: 56px 24px 40px; }

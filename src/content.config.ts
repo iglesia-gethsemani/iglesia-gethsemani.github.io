@@ -54,6 +54,8 @@ const serviceOrders = defineCollection({
     theme: z.string().optional(),
     sermonTitle: z.string().optional(),
     sermonPassage: z.string().optional(),
+    sermonImage: z.string().optional(),
+    sermonImageAlt: z.string().optional(),
     preacher: z.string().optional(),
     published: z.boolean().default(true),
     elements: z.array(

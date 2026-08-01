@@ -16,6 +16,8 @@ interface Props {
   theme?: string;
   sermonTitle?: string;
   sermonPassage?: string;
+  sermonImage?: string;
+  sermonImageAlt?: string;
   preacher?: string;
   elements: OrderElement[];
   headingLevel?: 'h1' | 'h2';
@@ -29,6 +31,8 @@ const {
   theme,
   sermonTitle,
   sermonPassage,
+  sermonImage,
+  sermonImageAlt,
   preacher,
   elements,
   headingLevel = 'h2',
@@ -46,6 +50,12 @@ const dateFormatter = new Intl.DateTimeFormat('es-MX', {
 const enriched = await enrichServiceOrder({ elements, sermonPassage, theme });
 const hasResources = Object.keys(enriched.resources).length > 0;
 const panelTitleId = `service-resource-${date.getTime()}-${time.replace(':', '')}`;
+const base = import.meta.env.BASE_URL;
+const sermonImageSrc = sermonImage
+  ? sermonImage.startsWith('http')
+    ? sermonImage
+    : `${base}${sermonImage.replace(/^\//, '')}`
+  : null;
 ---
 
 <article class="service-order" data-service-order>
@@ -57,8 +67,19 @@ const panelTitleId = `service-resource-${date.getTime()}-${time.replace(':', '')
       <span><Icon name="map" /> {location}</span>
     </div>
     {
-      (theme || sermonTitle || sermonPassage || preacher) && (
+      (theme || sermonTitle || sermonPassage || sermonImageSrc || preacher) && (
         <div class="service-order-sermon">
+          {sermonImageSrc && (
+            <figure class="service-order-sermon-image">
+              <img
+                src={sermonImageSrc}
+                alt={sermonImageAlt ?? `Miniatura de la predicación ${sermonTitle ?? ''}`.trim()}
+                width="1280"
+                height="720"
+                loading="eager"
+              />
+            </figure>
+          )}
           {theme && <small>{theme}</small>}
           {sermonTitle && <strong>{sermonTitle}</strong>}
           {sermonPassage &&

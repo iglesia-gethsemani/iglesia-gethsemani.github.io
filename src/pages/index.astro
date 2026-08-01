@@ -12,6 +12,27 @@ const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
 const latestReflection = (await getCollection('reflections'))
   .filter((reflection) => reflection.data.published)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const featuredService = (await getCollection('serviceOrders'))
+  .filter(
+    (order) =>
+      order.data.published &&
+      order.data.time === '12:00' &&
+      Boolean(order.data.sermonImage),
+  )
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const featuredServiceDate = featuredService
+  ? new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'America/Mexico_City',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(featuredService.data.date)
+  : null;
+const featuredServiceImage = featuredService?.data.sermonImage
+  ? featuredService.data.sermonImage.startsWith('http')
+    ? featuredService.data.sermonImage
+    : `${base}${featuredService.data.sermonImage.replace(/^\//, '')}`
+  : null;
 ---
 
 <PageLayout
@@ -56,6 +77,37 @@ const latestReflection = (await getCollection('reflections'))
       <span>Reformada</span>
     </div>
   </section>
+
+  {
+    featuredService && featuredServiceImage && (
+      <section class="sermon-invitation" aria-labelledby="sermon-invitation-title">
+        <figure class="sermon-invitation-media">
+          <img
+            src={featuredServiceImage}
+            alt={featuredService.data.sermonImageAlt ?? `Miniatura de la predicación ${featuredService.data.sermonTitle ?? ''}`.trim()}
+            width="1280"
+            height="720"
+          />
+        </figure>
+        <div class="sermon-invitation-copy">
+          <p class="overline blue">Acompáñanos</p>
+          <time datetime={featuredService.data.date.toISOString()}>
+            {featuredServiceDate} · {featuredService.data.time} h
+          </time>
+          <h2 id="sermon-invitation-title">Solemne culto de adoración</h2>
+          {featuredService.data.preacher && (
+            <p class="sermon-invitation-preacher">
+              <small>Predica</small>
+              <strong>{featuredService.data.preacher}</strong>
+            </p>
+          )}
+          <a class="button button-blue" href={pathFor('/orden-del-culto/')}>
+            Consultar el orden del culto <Icon name="arrow" />
+          </a>
+        </div>
+      </section>
+    )
+  }
 
   {
     latestReflection && (
