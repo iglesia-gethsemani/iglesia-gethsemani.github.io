@@ -69,6 +69,7 @@ for (const variant of variants) {
   for (const [output, width] of variant.outputs) {
     const outputPath = path.join(root, output);
     await sharp(path.join(root, variant.input))
+      .rotate()
       .resize({ width, withoutEnlargement: true })
       .webp({ quality: variant.quality, effort: 6 })
       .toFile(outputPath);
