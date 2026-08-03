@@ -668,7 +668,7 @@ body.resource-open { overflow: hidden; }
 .nav-cta:hover { color: var(--brick); background: transparent; }
 .overline,.eyebrow,.overline.blue { color: var(--brick); letter-spacing: .16em; }
 
-.home-hero { min-height: 590px; color: var(--ink); background: #f3f0e9; position: relative; z-index: 0; }
+.home-hero { min-height: 800px; color: var(--ink); background: #f3f0e9; position: relative; z-index: 0; }
 .home-hero-copy { padding-top: 68px; padding-bottom: 48px; color: var(--ink); background: transparent; }
 .home-hero h1 { color: var(--ink); font-size: clamp(54px,5.2vw,78px); }
 .hero-summary { margin: 24px 0 28px; color: #555b57; }
@@ -679,7 +679,7 @@ body.resource-open { overflow: hidden; }
 .hero-stats { margin-top: 42px; border-color: #cec7bc; }
 .hero-stats strong { color: var(--brick); }
 .hero-stats span { color: var(--muted); }
-.home-hero-image { min-height: 590px; }
+.home-hero-image { min-height: 800px; }
 .home-hero-image::after { background: linear-gradient(90deg,rgba(37,42,39,.08),transparent 35%),linear-gradient(0deg,rgba(37,42,39,.18),transparent 30%); }
 .intro-band { min-height: 68px; background: white; }
 .content-section,.section { padding-top: 86px; padding-bottom: 86px; }
@@ -876,7 +876,7 @@ body.resource-open { overflow: hidden; }
     .document-hero h1 { font-size: clamp(28px, 8vw, 42px); overflow-wrap: anywhere; }
     .featured-book-copy h2, .annual-reader-intro h2, .youtube-library-head h2, .church-hymn-heading h2 { font-size: clamp(28px, 7vw, 40px); overflow-wrap: anywhere; }
     .home-hero h1 { max-width: 100%; font-size: clamp(36px, 12vw, 58px); line-height: 1.02; overflow-wrap: anywhere; white-space: normal; }
-    .home-hero-copy { padding-top: 56px; padding-bottom: 46px; }.home-hero-image { min-height: 430px; }.subpage-hero,.page-hero { min-height: auto; padding-top: 52px; padding-bottom: 52px; }.page-hero-split { padding-top: 0; padding-bottom: 0; }.channel-section,.youtube-library { padding: 26px; }.visit-banner { padding: 42px 28px; }.belief-pillars,.belief-pillars--five { grid-template-columns: 1fr; }
+    .home-hero-copy { padding-top: 56px; padding-bottom: 46px; }.home-hero-image { min-height: 0; aspect-ratio: 3 / 4; max-height: 900px; }.subpage-hero,.page-hero { min-height: auto; padding-top: 52px; padding-bottom: 52px; }.page-hero-split { padding-top: 0; padding-bottom: 0; }.channel-section,.youtube-library { padding: 26px; }.visit-banner { padding: 42px 28px; }.belief-pillars,.belief-pillars--five { grid-template-columns: 1fr; }
     /* Compact mobile cards: consistorio, sociedades, pilares, doctrina */
     .story-grid h2, .section-heading h2, .contact-info h2 { font-size: 32px; }
     .content-section h2, .belief-preview h2, .media-section h2, .visit-banner h2, .visit-cta-copy h2,

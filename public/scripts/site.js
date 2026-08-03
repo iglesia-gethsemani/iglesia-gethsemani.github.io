@@ -409,6 +409,8 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
         shell.hidden = true;
         shell.setAttribute('inert', '');
         document.body.classList.remove('resource-open');
+        bodyEl.scrollTop = 0;
+        panel.scrollTop = 0;
         lastTrigger?.focus({ preventScroll: true });
         lastTrigger = null;
     };
@@ -529,6 +531,8 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
             : resource.verses?.length
                 ? renderScripture(resource)
                 : '<p class="service-resource-status">Cargando lectura bíblica…</p>';
+        bodyEl.scrollTop = 0;
+        panel.scrollTop = 0;
         sourceEl.textContent = resource.source || '';
         if (externalEl) {
             externalEl.href = resource.externalUrl || '#';
@@ -542,7 +546,11 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
         shell.hidden = false;
         shell.removeAttribute('inert');
         document.body.classList.add('resource-open');
-        window.setTimeout(() => panel.focus({ preventScroll: true }), 40);
+        window.setTimeout(() => {
+            bodyEl.scrollTop = 0;
+            panel.scrollTop = 0;
+            panel.focus({ preventScroll: true });
+        }, 40);
 
         if (resource.kind === 'scripture' && !resource.verses?.length) {
             await loadScripture(resource);
