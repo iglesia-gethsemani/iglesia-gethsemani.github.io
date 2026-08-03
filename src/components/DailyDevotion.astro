@@ -144,7 +144,7 @@ const clientPayload = {
   </div>
 </section>
 
-<script define:vars={{ clientPayload }}>
+<script is:inline define:vars={{ clientPayload }}>
   function getDayOfYearMexico(date = new Date()) {
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/Mexico_City',

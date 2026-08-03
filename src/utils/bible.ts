@@ -166,41 +166,47 @@ export function createBiblePassage(ref: ParsedBibleRef): BiblePassageContent {
 }
 
 export async function fetchBiblePassage(ref: ParsedBibleRef): Promise<BiblePassageContent | null> {
-  try {
-    const response = await fetch(biblePassageApiUrl(ref), {
-      signal: AbortSignal.timeout(8_000),
-    });
-    if (!response.ok) return null;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const response = await fetch(biblePassageApiUrl(ref), {
+        signal: AbortSignal.timeout(6_000),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-    const payload = (await response.json()) as {
-      data?: {
-        verse?: number;
-        verseEnd?: number;
-        verses?: string[];
-        text?: string;
+      const payload = (await response.json()) as {
+        data?: {
+          verse?: number;
+          verseEnd?: number;
+          verses?: string[];
+          text?: string;
+        };
+        meta?: { reference?: string };
       };
-      meta?: { reference?: string };
-    };
 
-    const data = payload.data;
-    if (!data) return null;
+      const data = payload.data;
+      if (!data) throw new Error('Respuesta sin datos');
 
-    const start = data.verse ?? ref.verseStart ?? 1;
-    const texts = data.verses?.length
-      ? data.verses
-      : data.text
-        ? [data.text]
-        : [];
+      const start = data.verse ?? ref.verseStart ?? 1;
+      const texts = data.verses?.length
+        ? data.verses
+        : data.text
+          ? [data.text]
+          : [];
 
-    if (!texts.length) return null;
+      if (!texts.length) throw new Error('Respuesta sin versículos');
 
-    const verses = texts.map((text, index) => ({
-      number: start + index,
-      text: text.trim(),
-    }));
+      const verses = texts.map((text, index) => ({
+        number: start + index,
+        text: text.trim(),
+      }));
 
-    return { ...createBiblePassage(ref), verses };
-  } catch {
-    return null;
+      return { ...createBiblePassage(ref), verses };
+    } catch {
+      if (attempt < 2) {
+        await new Promise((resolve) => setTimeout(resolve, 400 * (attempt + 1)));
+      }
+    }
   }
+  return null;
 }

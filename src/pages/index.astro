@@ -33,6 +33,14 @@ const featuredServiceImage = featuredService?.data.sermonImage
     ? featuredService.data.sermonImage
     : `${base}${featuredService.data.sermonImage.replace(/^\//, '')}`
   : null;
+const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
+  '/nada-me-faltara-salmo-23.jpg',
+)
+  ? {
+      src: `${base}images/optimized/nada-me-faltara-640.webp`,
+      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w`,
+    }
+  : null;
 ---
 
 <PageLayout
@@ -60,12 +68,21 @@ const featuredServiceImage = featuredService?.data.sermonImage
       </div>
     </div>
     <figure class="home-hero-image">
-      <img
-        src={`${base}images/templo-gethsemani.jpg`}
-        alt="Templo de la Iglesia Presbiteriana Reformada Gethsemaní"
-        width="1024"
-        height="1024"
-      />
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-1024.webp 1024w, ${base}images/optimized/templo-gethsemani-1600.webp 1600w`}
+          sizes="(max-width: 900px) 100vw, 50vw"
+        />
+        <img
+          src={`${base}images/templo-gethsemani.jpg`}
+          alt="Templo de la Iglesia Presbiteriana Reformada Gethsemaní"
+          width="1800"
+          height="1350"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
     </figure>
   </section>
 
@@ -82,12 +99,23 @@ const featuredServiceImage = featuredService?.data.sermonImage
     featuredService && featuredServiceImage && (
       <section class="sermon-invitation" aria-labelledby="sermon-invitation-title">
         <figure class="sermon-invitation-media">
-          <img
-            src={featuredServiceImage}
-            alt={featuredService.data.sermonImageAlt ?? `Miniatura de la predicación ${featuredService.data.sermonTitle ?? ''}`.trim()}
-            width="1280"
-            height="720"
-          />
+          <picture>
+            {featuredServiceWebp && (
+              <source
+                type="image/webp"
+                srcset={featuredServiceWebp.srcset}
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+            )}
+            <img
+              src={featuredServiceImage}
+              alt={featuredService.data.sermonImageAlt ?? `Miniatura de la predicación ${featuredService.data.sermonTitle ?? ''}`.trim()}
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </figure>
         <div class="sermon-invitation-copy">
           <p class="overline blue">Acompáñanos</p>
@@ -223,7 +251,12 @@ const featuredServiceImage = featuredService?.data.sermonImage
       </a>
     </div>
     <a class="channel-feature" href={featuredVideoUrl} target="_blank" rel="noopener">
-      <img src={featuredThumbnail} alt="La murmuración, estudio bíblico del 19 de julio de 2026" />
+      <img
+        src={featuredThumbnail}
+        alt="La murmuración, estudio bíblico del 19 de julio de 2026"
+        loading="lazy"
+        decoding="async"
+      />
       <span class="play-icon" aria-hidden="true"><Icon name="play" /></span>
       <div>
         <small>Estudio bíblico reciente</small>
@@ -235,13 +268,21 @@ const featuredServiceImage = featuredService?.data.sermonImage
 
   <section class="visit-cta">
     <div class="visit-cta-media" aria-hidden="true">
-      <img
-        src={`${base}images/templo-gethsemani.jpg`}
-        alt=""
-        width="1024"
-        height="768"
-        loading="lazy"
-      />
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-1024.webp 1024w`}
+          sizes="(max-width: 900px) 100vw, 50vw"
+        />
+        <img
+          src={`${base}images/templo-gethsemani.jpg`}
+          alt=""
+          width="1800"
+          height="1350"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
     </div>
     <div class="visit-cta-copy">
       <p class="overline">Este domingo</p>

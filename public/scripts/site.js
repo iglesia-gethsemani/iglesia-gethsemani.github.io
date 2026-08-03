@@ -449,14 +449,37 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
             .join('');
     };
 
+    const fetchScriptureJson = async (url) => {
+        let lastError;
+        for (let attempt = 0; attempt < 2; attempt += 1) {
+            const controller = new AbortController();
+            const timeout = window.setTimeout(() => controller.abort(), 8_000);
+            try {
+                const response = await fetch(url, {
+                    signal: controller.signal,
+                    cache: 'force-cache',
+                    headers: { Accept: 'application/json' },
+                });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                lastError = error;
+                if (attempt === 0) {
+                    await new Promise((resolve) => window.setTimeout(resolve, 600));
+                }
+            } finally {
+                window.clearTimeout(timeout);
+            }
+        }
+        throw lastError;
+    };
+
     const loadScripture = async (resource) => {
         if (resource.verses?.length || !resource.apiUrl) return true;
 
         bodyEl.innerHTML = '<p class="service-resource-status">Cargando lectura bíblica…</p>';
         try {
-            const response = await fetch(resource.apiUrl);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const payload = await response.json();
+            const payload = await fetchScriptureJson(resource.apiUrl);
             const data = payload?.data;
             const texts = data?.verses?.length
                 ? data.verses
@@ -475,8 +498,12 @@ document.querySelectorAll('[data-service-order]').forEach((orderRoot) => {
         } catch {
             bodyEl.innerHTML =
                 '<p class="service-resource-status service-resource-status--error">' +
-                'No pudimos cargar esta lectura en este momento. Puedes abrirla en Bible Gateway.' +
-                '</p>';
+                'No pudimos cargar esta lectura con la conexión actual. Intenta nuevamente o ábrela en Bible Gateway.' +
+                '</p>' +
+                '<button type="button" class="service-resource-retry">Intentar nuevamente</button>';
+            bodyEl.querySelector('.service-resource-retry')?.addEventListener('click', () => {
+                loadScripture(resource);
+            }, { once: true });
             return false;
         }
     };

@@ -56,6 +56,12 @@ const sermonImageSrc = sermonImage
     ? sermonImage
     : `${base}${sermonImage.replace(/^\//, '')}`
   : null;
+const sermonImageWebp = sermonImage?.endsWith('/nada-me-faltara-salmo-23.jpg')
+  ? {
+      src: `${base}images/optimized/nada-me-faltara-640.webp`,
+      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w`,
+    }
+  : null;
 ---
 
 <article class="service-order" data-service-order>
@@ -71,13 +77,23 @@ const sermonImageSrc = sermonImage
         <div class="service-order-sermon">
           {sermonImageSrc && (
             <figure class="service-order-sermon-image">
-              <img
-                src={sermonImageSrc}
-                alt={sermonImageAlt ?? `Miniatura de la predicación ${sermonTitle ?? ''}`.trim()}
-                width="1280"
-                height="720"
-                loading="eager"
-              />
+              <picture>
+                {sermonImageWebp && (
+                  <source
+                    type="image/webp"
+                    srcset={sermonImageWebp.srcset}
+                    sizes="(max-width: 900px) 100vw, 760px"
+                  />
+                )}
+                <img
+                  src={sermonImageSrc}
+                  alt={sermonImageAlt ?? `Miniatura de la predicación ${sermonTitle ?? ''}`.trim()}
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </figure>
           )}
           {theme && <small>{theme}</small>}
@@ -154,6 +170,7 @@ const sermonImageSrc = sermonImage
     hasResources && (
       <>
         <script
+          is:inline
           type="application/json"
           data-service-resources
           set:html={JSON.stringify(enriched.resources)}

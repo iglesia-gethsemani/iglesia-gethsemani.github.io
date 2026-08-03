@@ -149,7 +149,7 @@ const planPayload = annualReadingPlan.map((d) => ({
   </section>
 </PageLayout>
 
-<script define:vars={{ plan: planPayload }}>
+<script is:inline define:vars={{ plan: planPayload }}>
   function getMexicoDateParts(date = new Date()) {
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/Mexico_City',

@@ -9,13 +9,17 @@
     const status = reader.querySelector('[data-page-status]');
     const totalPages = Number(reader.dataset.totalPages);
     const pagePrefix = reader.dataset.pagePrefix;
+    const coverSrc = reader.dataset.coverSrc;
     const documentTitle = reader.dataset.documentTitle;
     const mobileQuery = window.matchMedia('(max-width: 760px)');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let currentPage = 1;
     let pointerStart = null;
 
-    const pageUrl = (page) => `${pagePrefix}${String(page).padStart(2, '0')}.png`;
+    const pageUrl = (page) =>
+      page === 1 && coverSrc
+        ? coverSrc
+        : `${pagePrefix}${String(page).padStart(2, '0')}.png`;
 
     function normalizePage(page) {
       const clamped = Math.max(1, Math.min(totalPages, Number(page) || 1));

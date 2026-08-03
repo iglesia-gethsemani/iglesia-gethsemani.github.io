@@ -16,7 +16,7 @@ export const societies: Society[] = [
     name: 'Sociedad de Jóvenes',
     subtitle: 'Redención Gratuita',
     icon: 'people',
-    logo: '/images/sociedad-redencion-gratuita.png',
+    logo: '/images/optimized/sociedad-redencion-gratuita-480.webp',
     roles: [
       { label: 'Presidenta', names: 'Nira Jimena Pérez' },
       { label: 'Consejeros', names: 'Israel Galicia y Edith Álvarez' },

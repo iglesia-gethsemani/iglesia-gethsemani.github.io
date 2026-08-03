@@ -6,18 +6,23 @@ interface Props {
   totalPages: number;
   pageWidth: number;
   pageHeight: number;
+  coverImage?: string;
 }
 
-const { title, accessibleTitle, pageDirectory, totalPages, pageWidth, pageHeight } = Astro.props;
+const { title, accessibleTitle, pageDirectory, totalPages, pageWidth, pageHeight, coverImage } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const normalizedDirectory = pageDirectory.replace(/^\//, '').replace(/\/?$/, '/');
 const pagePrefix = `${base}${normalizedDirectory}page-`;
+const coverSrc = coverImage
+  ? `${base}${coverImage.replace(/^\//, '')}`
+  : `${pagePrefix}01.png`;
 ---
 
 <div
   class="annual-reader"
   data-book-reader
   data-page-prefix={pagePrefix}
+  data-cover-src={coverSrc}
   data-total-pages={totalPages}
   data-document-title={accessibleTitle}
 >
@@ -31,18 +36,21 @@ const pagePrefix = `${base}${normalizedDirectory}page-`;
     <div class="annual-book is-cover" data-book tabindex="0" aria-label={`Lector de ${accessibleTitle}`}>
       <figure class="annual-page" data-page-one>
         <img
-          src={`${pagePrefix}01.png`}
+          src={coverSrc}
           alt={`Portada de ${accessibleTitle}`}
           width={pageWidth}
           height={pageHeight}
+          fetchpriority="high"
+          decoding="async"
         />
       </figure>
       <figure class="annual-page" data-page-two hidden>
         <img
-          src={`${pagePrefix}02.png`}
-          alt={`Página 2 de ${accessibleTitle}`}
+          alt=""
           width={pageWidth}
           height={pageHeight}
+          loading="lazy"
+          decoding="async"
         />
       </figure>
     </div>
