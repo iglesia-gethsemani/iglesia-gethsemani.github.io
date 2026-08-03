@@ -1,3 +1,5 @@
+import cachedHymns from '@/data/hymnal-cache.json';
+
 export interface HymnStanza {
   name: string;
   lines: string[];
@@ -60,6 +62,9 @@ export function parseHymnNumber(text: string): number | null {
 }
 
 export async function fetchHymn(number: number): Promise<HymnContent | null> {
+  const cached = (cachedHymns as Record<string, HymnContent>)[`hymn-${number}`];
+  if (cached?.stanzas?.length) return cached;
+
   const index = await loadHymnalIndex();
   const hymn = index.get(number);
   if (!hymn?.titulo || !hymn.versos?.length) return null;

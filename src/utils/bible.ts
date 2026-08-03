@@ -1,4 +1,5 @@
 import { bibleGatewayUrl } from './calendar';
+import cachedReadings from '@/data/bible-cache.json';
 
 export interface ParsedBibleRef {
   /** Texto original, p. ej. "Mateo 4:18-20" */
@@ -166,6 +167,12 @@ export function createBiblePassage(ref: ParsedBibleRef): BiblePassageContent {
 }
 
 export async function fetchBiblePassage(ref: ParsedBibleRef): Promise<BiblePassageContent | null> {
+  const emptyPassage = createBiblePassage(ref);
+  const cached = (cachedReadings as Record<string, BiblePassageContent>)[emptyPassage.id];
+  if (cached?.verses?.length) {
+    return cached;
+  }
+
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
       const response = await fetch(biblePassageApiUrl(ref), {
