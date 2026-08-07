@@ -37,8 +37,7 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
   '/nada-me-faltara-salmo-23.jpg',
 )
   ? {
-      src: `${base}images/optimized/nada-me-faltara-640.webp`,
-      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w`,
+      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w, ${base}images/optimized/nada-me-faltara-1280.webp 1280w`,
     }
   : null;
 ---
@@ -53,18 +52,12 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
       <p class="overline">Iglesia Presbiteriana Reformada</p>
       <h1>Gethsemaní</h1>
       <p class="hero-summary">
-        Existimos para glorificar a Dios mediante la adoración, la predicación fiel de las Escrituras y una
-        comunidad formada por la gracia de Jesucristo.
+        Congregación confesional en Coyoacán, dedicada a la adoración solemne, la predicación de las Escrituras
+        y la vida en comunidad bajo la soberanía de Jesucristo.
       </p>
       <div class="hero-buttons">
         <a class="button button-white" href={pathFor('/contacto/')}>Planea tu visita <Icon name="arrow" /></a>
         <a class="button button-ghost" href={pathFor('/sermones/')}>Ver sermones</a>
-      </div>
-      <div class="hero-stats">
-        <div><strong>9:30</strong><span>Aposento Alto</span></div>
-        <div><strong>10:30</strong><span>Escuela Bíblica Dominical</span></div>
-        <div><strong>12:00</strong><span>Culto de adoración</span></div>
-        <div><strong>18:00</strong><span>Culto familiar</span></div>
       </div>
     </div>
     <figure class="home-hero-image">
@@ -75,10 +68,10 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
           sizes="(max-width: 900px) 100vw, 50vw"
         />
         <img
-          src={`${base}images/templo-gethsemani.jpg`}
+          src={`${base}images/optimized/templo-gethsemani-640.jpg`}
           alt="Templo de la Iglesia Presbiteriana Reformada Gethsemaní"
-          width="1800"
-          height="1350"
+          width="640"
+          height="480"
           fetchpriority="high"
           decoding="async"
         />
@@ -87,12 +80,7 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
   </section>
 
   <section class="intro-band">
-    <p>Una congregación histórica con un mensaje que no cambia.</p>
-    <div>
-      <span>Confesional</span>
-      <span>Presbiteriana</span>
-      <span>Reformada</span>
-    </div>
+    <p>Fundada en la fe reformada · Predicando a Cristo en Coyoacán</p>
   </section>
 
   {
@@ -104,7 +92,7 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
               <source
                 type="image/webp"
                 srcset={featuredServiceWebp.srcset}
-                sizes="(max-width: 900px) 100vw, 50vw"
+                sizes="(max-width: 900px) 100vw, min(1232px, 100vw)"
               />
             )}
             <img
@@ -118,17 +106,21 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
           </picture>
         </figure>
         <div class="sermon-invitation-copy">
-          <p class="overline blue">Acompáñanos</p>
-          <time datetime={featuredService.data.date.toISOString()}>
-            {featuredServiceDate} · {featuredService.data.time} h
-          </time>
-          <h2 id="sermon-invitation-title">Solemne culto de adoración</h2>
-          {featuredService.data.preacher && (
-            <p class="sermon-invitation-preacher">
-              <small>Predica</small>
-              <strong>{featuredService.data.preacher}</strong>
-            </p>
-          )}
+          <div class="sermon-invitation-meta">
+            <p class="overline blue">Este domingo</p>
+            <time datetime={featuredService.data.date.toISOString()}>
+              {featuredServiceDate} · {featuredService.data.time} h
+            </time>
+            <h2 id="sermon-invitation-title" class="sr-only">
+              {featuredService.data.sermonTitle || featuredService.data.title}
+            </h2>
+            {featuredService.data.preacher && (
+              <p class="sermon-invitation-preacher">
+                <small>Predica</small>
+                <strong>{featuredService.data.preacher}</strong>
+              </p>
+            )}
+          </div>
           <a class="button button-blue" href={pathFor('/orden-del-culto/')}>
             Consultar el orden del culto <Icon name="arrow" />
           </a>
@@ -141,8 +133,7 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
     latestReflection && (
       <section class="latest-reflection-section" aria-labelledby="latest-reflection-title">
         <div class="latest-reflection-heading">
-          <span class="icon-badge icon-badge--light" aria-hidden="true"><Icon name="feather" /></span>
-          <p class="overline blue">Última reflexión semanal</p>
+          <p class="overline blue">Reflexión semanal</p>
           <h2 id="latest-reflection-title">{latestReflection.data.title}</h2>
           {latestReflection.data.author && <p class="latest-reflection-author">Por {latestReflection.data.author}</p>}
         </div>
@@ -161,26 +152,26 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
 
   <section class="content-section welcome-grid">
     <div>
-      <p class="overline blue">Bienvenidos</p>
-      <h2>Doctrina bíblica.<br />Adoración reverente.<br />Vida en comunidad.</h2>
+      <p class="overline blue">Nuestra congregación</p>
+      <h2>Doctrina bíblica,<br />adoración solemne<br />y vida congregacional.</h2>
     </div>
     <div>
       <p class="large-copy">
-        Creemos que la iglesia debe ser más que un evento dominical. Es una familia que aprende, adora, sirve y da
-        testimonio de Cristo en medio de la ciudad.
+        Somos una iglesia presbiteriana reformada que confiesa las Escrituras como regla de fe y práctica,
+        y que vive su fe en el culto público, la instrucción y el servicio mutuo.
       </p>
-      <a class="arrow-link" href={pathFor('/nosotros/')}>Conoce nuestra historia <Icon name="arrow" /></a>
+      <a class="arrow-link" href={pathFor('/nosotros/')}>Nuestra historia <Icon name="arrow" /></a>
     </div>
   </section>
 
   <section class="belief-preview">
     <div class="belief-preview-head">
       <div>
-        <p class="overline">El corazón de nuestra fe</p>
+        <p class="overline">Lo que creemos</p>
         <h2>Una fe bíblica, histórica y reformada.</h2>
       </div>
       <a class="button button-blue" href={pathFor('/lo-que-creemos/')}>
-        Explorar lo que creemos <Icon name="arrow" />
+        Ver confesiones <Icon name="arrow" />
       </a>
     </div>
     <div class="belief-pillars belief-pillars--five">
@@ -214,8 +205,8 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
 
   <section class="media-section">
     <div>
-      <p class="overline blue">Crece en la Palabra</p>
-      <h2>Sermones, reflexiones<br />y recursos para ti.</h2>
+      <p class="overline blue">Ministerio de la Palabra</p>
+      <h2>Sermones, reflexiones<br />y recursos.</h2>
     </div>
     <div class="media-cards">
       <a href={pathFor('/sermones/')}>
@@ -235,7 +226,7 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
       </a>
       <a href={pathFor('/recursos/')}>
         <span class="icon-badge" aria-hidden="true"><Icon name="scroll" /></span>
-        <div><small>Explora</small><strong>Biblioteca de recursos</strong></div>
+        <div><small>Biblioteca</small><strong>Recursos confesionales</strong></div>
         <b aria-hidden="true">→</b>
       </a>
     </div>
@@ -244,8 +235,8 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
   <section class="channel-section">
     <div class="channel-copy">
       <p class="overline">Canal oficial</p>
-      <h2>Predicación para escuchar durante la semana.</h2>
-      <p>Sermones, cultos y conferencias publicados por nuestra congregación.</p>
+      <h2>Predicación para la semana.</h2>
+      <p>Sermones, cultos y estudios publicados por la congregación.</p>
       <a class="button button-white" href={pathFor('/sermones/')}>
         Ver todos los videos <Icon name="arrow" />
       </a>
@@ -254,6 +245,8 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
       <img
         src={featuredThumbnail}
         alt="La murmuración, estudio bíblico del 19 de julio de 2026"
+        width="1280"
+        height="720"
         loading="lazy"
         decoding="async"
       />
@@ -275,21 +268,20 @@ const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
           sizes="(max-width: 900px) 100vw, 50vw"
         />
         <img
-          src={`${base}images/templo-gethsemani.jpg`}
+          src={`${base}images/optimized/templo-gethsemani-640.jpg`}
           alt=""
-          width="1800"
-          height="1350"
+          width="640"
+          height="480"
           loading="lazy"
           decoding="async"
         />
       </picture>
     </div>
     <div class="visit-cta-copy">
-      <p class="overline">Este domingo</p>
-      <h2>Hay un lugar para ti.</h2>
+      <p class="overline">Horario dominical</p>
+      <h2>Te esperamos este domingo.</h2>
       <p>
-        Únete a nuestra familia en adoración. Te esperamos en Cuauhtémoc 117, esquina con Allende, Colonia Del Carmen,
-        Coyoacán.
+        Cuauhtémoc 117, esquina con Allende, Colonia Del Carmen, Coyoacán, Ciudad de México.
       </p>
       <ul class="visit-cta-times">
         <li><strong>9:30</strong><span>Aposento Alto</span></li>

@@ -2,11 +2,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-/**
- * Ruta base para GitHub Pages.
- * - Sitio de organización (repo `iglesia-gethsemani.github.io`): `/`
- * - Sitio de proyecto (repo `webside_gethsemani`): `/webside_gethsemani/`
- */
 const base = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({

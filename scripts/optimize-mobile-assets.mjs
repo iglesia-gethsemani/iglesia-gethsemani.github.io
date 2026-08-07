@@ -27,8 +27,9 @@ const variants = [
     outputs: [
       ['public/images/optimized/nada-me-faltara-640.webp', 640],
       ['public/images/optimized/nada-me-faltara-960.webp', 960],
+      ['public/images/optimized/nada-me-faltara-1280.webp', 1280],
     ],
-    quality: 74,
+    quality: 86,
   },
   {
     input: 'public/images/sociedad-redencion-gratuita.png',

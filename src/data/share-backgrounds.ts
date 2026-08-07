@@ -1,8 +1,3 @@
-/**
- * Fondos gratuitos (Unsplash License) + paletas diarias para la tarjeta del versículo.
- * ~30 temas: uno por día del mes (rotan con el día del año).
- * Si la imagen remota falla, se usa el degradado / foto local.
- */
 export interface SharePalette {
   deep: string;
   mid: string;
@@ -19,7 +14,6 @@ export interface ShareBackground {
 const unsplashUrl = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1080&h=1350&q=80`;
 
-/** Cielos, montañas, agua y luz — sin personas en primer plano. */
 export const shareBackgrounds: ShareBackground[] = [
   {
     unsplashId: 'photo-1506905925346-21bda4d32df4',

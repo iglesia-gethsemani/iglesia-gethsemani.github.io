@@ -68,7 +68,6 @@ const churchSchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <meta name="google-site-verification" content="RbaQ1oJ7DiOYhGZav_rs-bkQ42MVvWKnDLZxa6V6KWg" />
-    <meta name="generator" content={Astro.generator} />
     <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
     <link rel="icon" type="image/png" href={`${base}favicon-256.png`} sizes="256x256" />
     <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} sizes="180x180" />
@@ -77,24 +76,24 @@ const churchSchema = {
         <link
           rel="preload"
           as="image"
+          type="image/webp"
           href={`${base}images/optimized/templo-gethsemani-640.webp`}
-          imagesrcset={`${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-1024.webp 1024w, ${base}images/optimized/templo-gethsemani-1600.webp 1600w`}
+          imagesrcset={`${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-1024.webp 1024w`}
           imagesizes="(max-width: 900px) 100vw, 50vw"
           fetchpriority="high"
         />
       )
     }
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,600;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Source+Serif+4:ital,wght@0,600;1,500&display=swap"
       rel="stylesheet"
       media="print"
-      onload="this.setAttribute('media','all')"
+      onload="this.media='all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,600;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Source+Serif+4:ital,wght@0,600;1,500&display=swap"
         rel="stylesheet"
       />
     </noscript>

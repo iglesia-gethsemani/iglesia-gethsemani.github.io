@@ -58,8 +58,7 @@ const sermonImageSrc = sermonImage
   : null;
 const sermonImageWebp = sermonImage?.endsWith('/nada-me-faltara-salmo-23.jpg')
   ? {
-      src: `${base}images/optimized/nada-me-faltara-640.webp`,
-      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w`,
+      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w, ${base}images/optimized/nada-me-faltara-1280.webp 1280w`,
     }
   : null;
 ---
@@ -82,7 +81,7 @@ const sermonImageWebp = sermonImage?.endsWith('/nada-me-faltara-salmo-23.jpg')
                   <source
                     type="image/webp"
                     srcset={sermonImageWebp.srcset}
-                    sizes="(max-width: 900px) 100vw, 760px"
+                    sizes="(max-width: 900px) 100vw, 850px"
                   />
                 )}
                 <img
