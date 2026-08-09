@@ -67,6 +67,69 @@
     "source": "Himnario Evangélico Presbiteriano",
     "externalUrl": "https://himnariop.web.app/#"
   },
+  "hymn-11": {
+    "id": "hymn-11",
+    "kind": "hymn",
+    "number": 11,
+    "title": "Himno 11",
+    "subtitle": "Tu palabra santa llama",
+    "intro": "Tu ley esta en medio de mi corazón. Is. 40:8",
+    "authors": [
+      "LETRA Y MÚSICA: Alberto G. Martínez, en Rayos de esperanza, arr. L. Dominguez"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Tu palabra santa llama",
+          "a todo hombre pecador,",
+          "para darle siempre calma",
+          "y llenarlo de tu amor;",
+          "si la acepta con el alma",
+          "sentirá su corazón",
+          "que de veras tú le amas,",
+          "¡oh, divino Salvador!"
+        ]
+      },
+      {
+        "name": "Coro",
+        "lines": [
+          "Cielo, estrellas, mar y tierra,",
+          "todo, todo pasará;",
+          "sólo tu palabra eterna",
+          "por los siglos durará."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "Tu palabra salvadora",
+          "es verdad, es vida, es luz",
+          "que ilumina a toda hora",
+          "hasta donde te hallas tú.",
+          "Haz que tenga yo la honra",
+          "de llevar siempre tu cruz",
+          "y alcanzar así la gloria,",
+          "donde moras, mi Jesús."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Tu palabra es pan de Vida,",
+          "es sustento espiritual;",
+          "cuando llega al alma herida",
+          "le da alivio, le da paz.",
+          "Todo aquel que la recibe,",
+          "nunca, nunca morirá,",
+          "porque tú quieres que viva",
+          "por toda la eternidad."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
   "hymn-13": {
     "id": "hymn-13",
     "kind": "hymn",
@@ -178,6 +241,67 @@
           "su poder me ha sanado,",
           "a Dios sea la gloria",
           "por lo que hizo por mí."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-256": {
+    "id": "hymn-256",
+    "kind": "hymn",
+    "number": 256,
+    "title": "Himno 256",
+    "subtitle": "Venid, cantad de gozo en plenitud",
+    "intro": "Cristo Jesús me ha librado de la ley del pecado y de la muerte. Ro. 8.2",
+    "authors": [
+      "LETRA: Thomas M. Westrup",
+      "MÚSICA: James McGranahan"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Venid, cantad",
+          "de gozo en plenitud",
+          "y dad loor al que su sangre dio,",
+          "y luego en ella nos lavó,",
+          "de nuestra lepra nos limpió,",
+          "y así librónos de la esclavitud."
+        ]
+      },
+      {
+        "name": "Coro",
+        "lines": [
+          "Él nos libró de culpabilidad",
+          "y nos limpió para la eternidad;",
+          "con ángeles y arcángeles",
+          "nos igualó;",
+          "precioso Salvador;",
+          "el que por nos murió."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "El Dios de amor",
+          "que vino acá a sufrir,",
+          "llevando en sí",
+          "por nos la maldición,",
+          "y en vez de eterna perdición,",
+          "nos proporciona salvación,",
+          "que sin él nadie puede conseguir."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Honor y gloria,",
+          "en todo su esplendor,",
+          "serán el fin del que siga a Jesús.",
+          "Que tome en pos de él su cruz",
+          "y guiado siempre por su luz,",
+          "reciba el sello de su Salvador."
         ]
       }
     ],
@@ -678,6 +802,31 @@
     "source": "Himnario Evangélico Presbiteriano",
     "externalUrl": "https://himnariop.web.app/#"
   },
+  "hymn-430": {
+    "id": "hymn-430",
+    "kind": "hymn",
+    "number": 430,
+    "title": "Himno 430",
+    "subtitle": "A Dios  el Padre celestial",
+    "intro": "Bendito sea el Dios y Padre de nuestro Señor Jescristo.",
+    "authors": [
+      "LETRA: Tradicional",
+      "MÚSICA: Atrib. a Louis Bourgeois en Salterio de Ginebra, 1551"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "A Dios el Padre celestial,",
+          "al Hijo nuestro Redentor",
+          "y al eternal Consolador,",
+          "unidos todos alabad. Amén."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
   "hymn-443": {
     "id": "hymn-443",
     "kind": "hymn",
@@ -756,6 +905,45 @@
           "y haya alimento en mi casa,",
           "y probadme, dice Dios,/",
           "/y probadme, dice Dios./"
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-445": {
+    "id": "hymn-445",
+    "kind": "hymn",
+    "number": 445,
+    "title": "Himno 445",
+    "subtitle": "Quiero darte mi ofrenda",
+    "intro": "Publicad ofrendas voluntarias, pues que así lo queréis. Am. 4.5",
+    "authors": [
+      "LETRA Y MÚSICA: Autor desconocido, Puerto Rico, arr. Irwig Gatell"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Quiero darte mi ofrenda,",
+          "adorarte con ella,",
+          "aprender a servirte mejor.",
+          "Dártela con cariño",
+          "como lo hacen los niños",
+          "que la dan de todo corazón."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "Quiero ser sacrificio",
+          "de tu fuego divino,",
+          "mas al darte mi ofrenda,",
+          "ofrendarme a mí mismo;",
+          "quiero darte mi ofrenda hoy,",
+          "quiero darte mi ofrenda hoy;",
+          "quiero darte mi ofrenda hoy,",
+          "quiero darte mi ofrenda hoy."
         ]
       }
     ],
@@ -982,6 +1170,70 @@
           "La grandeza",
           "De su poder",
           "Y su infinito amor."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-82": {
+    "id": "hymn-82",
+    "kind": "hymn",
+    "number": 82,
+    "title": "Himno 82",
+    "subtitle": "Alma, bendice al Señor",
+    "intro": "Alabo, engrandezco y glorifico al Rey del cielo. Dn. 4:37",
+    "authors": [
+      "LETRA: Joachim Neander, trad. Federico Fritz Fliedner",
+      "MÚSICA: En Stralsund Gesangbuch, arr. William S. Bennett"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Alma, bendice al señor,",
+          "Rey potente de gloria;",
+          "De sus mercedes esté",
+          "Viva en ti la memoria.",
+          "¡Oh despertad,",
+          "Arpa y salterio¡ Entonad",
+          "Himnos de honor y victoria."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "Alma, bendice al señor,",
+          "Que los orbes gobierna",
+          "Y te conduce, paciente,",
+          "Con mano paterna.",
+          "Te perdonó,",
+          "De todo mal te libró,",
+          "Porque su gracia es eterna."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Alma , bendice al Señor",
+          "De tu vida la fuente;",
+          "Que te creó y en salud",
+          "Te sostiene clemente.",
+          "Tu defensor,",
+          "En todo trance y dolor,",
+          "Su diestra es omnipotente."
+        ]
+      },
+      {
+        "name": "4",
+        "lines": [
+          "Alma, bendice al Señor,",
+          "Por su amor infinito;",
+          "Con todo el pueblo de Dios,",
+          "Su alabanza repito.",
+          "Dios, mi salud,",
+          "De todo bien plenitud,",
+          "¡sea por siempre bendito!"
         ]
       }
     ],

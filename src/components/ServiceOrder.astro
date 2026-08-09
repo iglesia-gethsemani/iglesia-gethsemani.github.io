@@ -1,6 +1,7 @@
 ---
 import Icon from '@/components/Icon.astro';
 import { enrichServiceOrder } from '@/utils/service-resources';
+import { sermonImageWebpSrcset } from '@/utils/sermon-image';
 
 interface OrderElement {
   label: string;
@@ -56,11 +57,8 @@ const sermonImageSrc = sermonImage
     ? sermonImage
     : `${base}${sermonImage.replace(/^\//, '')}`
   : null;
-const sermonImageWebp = sermonImage?.endsWith('/nada-me-faltara-salmo-23.jpg')
-  ? {
-      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w, ${base}images/optimized/nada-me-faltara-1280.webp 1280w`,
-    }
-  : null;
+const sermonImageWebpSrc = sermonImageWebpSrcset(sermonImage, base);
+const sermonImageWebp = sermonImageWebpSrc ? { srcset: sermonImageWebpSrc } : null;
 ---
 
 <article class="service-order" data-service-order>

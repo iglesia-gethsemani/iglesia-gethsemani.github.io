@@ -25,9 +25,18 @@ const variants = [
   {
     input: 'public/images/sermons/nada-me-faltara-salmo-23.jpg',
     outputs: [
-      ['public/images/optimized/nada-me-faltara-640.webp', 640],
-      ['public/images/optimized/nada-me-faltara-960.webp', 960],
-      ['public/images/optimized/nada-me-faltara-1280.webp', 1280],
+      ['public/images/optimized/nada-me-faltara-salmo-23-640.webp', 640],
+      ['public/images/optimized/nada-me-faltara-salmo-23-960.webp', 960],
+      ['public/images/optimized/nada-me-faltara-salmo-23-1280.webp', 1280],
+    ],
+    quality: 86,
+  },
+  {
+    input: 'public/images/sermons/promesa-restauracion-esperanza-ezequiel-37.jpg',
+    outputs: [
+      ['public/images/optimized/promesa-restauracion-esperanza-ezequiel-37-640.webp', 640],
+      ['public/images/optimized/promesa-restauracion-esperanza-ezequiel-37-960.webp', 960],
+      ['public/images/optimized/promesa-restauracion-esperanza-ezequiel-37-1280.webp', 1280],
     ],
     quality: 86,
   },

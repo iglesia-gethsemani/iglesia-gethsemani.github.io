@@ -1,4 +1,19 @@
 {
+  "scripture-2-corintios-13-14-14": {
+    "id": "scripture-2-corintios-13-14-14",
+    "kind": "scripture",
+    "title": "2 Corintios 13:14",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 14,
+        "text": "La gracia del Señor Jesucristo, el amor de Dios, y la comunión del Espíritu Santo sean con todos vosotros. Amén."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-corintios/13/14",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Corintios%2013%3A14&version=RVR1960"
+  },
   "scripture-2-corintios-9-7-7": {
     "id": "scripture-2-corintios-9-7-7",
     "kind": "scripture",
@@ -28,6 +43,96 @@
     "apiUrl": "https://api.midvash.com/v1/rvr1960/2-pedro/3/18",
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Pedro%203%3A18&version=RVR1960"
+  },
+  "scripture-2-reyes-14-1-12": {
+    "id": "scripture-2-reyes-14-1-12",
+    "kind": "scripture",
+    "title": "2 Reyes 14:1-12",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "En el año segundo de Joás hijo de Joacaz rey de Israel, comenzó a reinar Amasías hijo de Joás rey de Judá."
+      },
+      {
+        "number": 2,
+        "text": "Cuando comenzó a reinar era de veinticinco años, y veintinueve años reinó en Jerusalén; el nombre de su madre fue Joadán, de Jerusalén."
+      },
+      {
+        "number": 3,
+        "text": "Y él hizo lo recto ante los ojos de Jehová, aunque no como David su padre; hizo conforme a todas las cosas que había hecho Joás su padre."
+      },
+      {
+        "number": 4,
+        "text": "Con todo eso, los lugares altos no fueron quitados, porque el pueblo aún sacrificaba y quemaba incienso en esos lugares altos."
+      },
+      {
+        "number": 5,
+        "text": "Y cuando hubo afirmado en sus manos el reino, mató a los siervos que habían dado muerte al rey su padre."
+      },
+      {
+        "number": 6,
+        "text": "Pero no mató a los hijos de los que le dieron muerte, conforme a lo que está escrito en el libro de la ley de Moisés, donde Jehová mandó diciendo: No matarán a los padres por los hijos, ni a los hijos por los padres, sino que cada uno morirá por su propio pecado."
+      },
+      {
+        "number": 7,
+        "text": "Este mató asimismo a diez mil edomitas en el Valle de la Sal, y tomó a Sela en batalla, y la llamó Jocteel, hasta hoy."
+      },
+      {
+        "number": 8,
+        "text": "Entonces Amasías envió mensajeros a Joás hijo de Joacaz, hijo de Jehú, rey de Israel, diciendo: Ven, para que nos veamos las caras."
+      },
+      {
+        "number": 9,
+        "text": "Y Joás rey de Israel envió a Amasías rey de Judá esta respuesta: El cardo que está en el Líbano envió a decir al cedro que está en el Líbano: Da tu hija por mujer a mi hijo. Y pasaron las fieras que están en el Líbano, y hollaron el cardo."
+      },
+      {
+        "number": 10,
+        "text": "Ciertamente has derrotado a Edom, y tu corazón se ha envanecido; gloríate pues, mas quédate en tu casa. ¿Para qué te metes en un mal, para que caigas tú y Judá contigo?"
+      },
+      {
+        "number": 11,
+        "text": "Pero Amasías no escuchó; por lo cual subió Joás rey de Israel, y se vieron las caras él y Amasías rey de Judá, en Bet-semes, que es de Judá."
+      },
+      {
+        "number": 12,
+        "text": "Y Judá cayó delante de Israel, y huyeron, cada uno a su tienda."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-reyes/14/1-12",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Reyes%2014%3A1-12&version=RVR1960"
+  },
+  "scripture-2-tesalonicenses-2-13-17": {
+    "id": "scripture-2-tesalonicenses-2-13-17",
+    "kind": "scripture",
+    "title": "2 Tesalonicenses 2:13-17",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 13,
+        "text": "Pero nosotros debemos dar siempre gracias a Dios respecto a vosotros, hermanos amados por el Señor, de que Dios os haya escogido desde el principio para salvación, mediante la santificación por el Espíritu y la fe en la verdad,"
+      },
+      {
+        "number": 14,
+        "text": "a lo cual os llamó mediante nuestro evangelio, para alcanzar la gloria de nuestro Señor Jesucristo."
+      },
+      {
+        "number": 15,
+        "text": "Así que, hermanos, estad firmes, y retened la doctrina que habéis aprendido, sea por palabra, o por carta nuestra."
+      },
+      {
+        "number": 16,
+        "text": "Y el mismo Jesucristo Señor nuestro, y Dios nuestro Padre, el cual nos amó y nos dio consolación eterna y buena esperanza por gracia,"
+      },
+      {
+        "number": 17,
+        "text": "conforte vuestros corazones, y os confirme en toda buena palabra y obra."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-tesalonicenses/2/13-17",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Tesalonicenses%202%3A13-17&version=RVR1960"
   },
   "scripture-2-timoteo-3-12-17": {
     "id": "scripture-2-timoteo-3-12-17",
@@ -129,6 +234,199 @@
     "apiUrl": "https://api.midvash.com/v1/rvr1960/eclesiastes/3/1-8",
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=Eclesiast%C3%A9s%203%3A1-8&version=RVR1960"
+  },
+  "scripture-ezequiel-18-1-20": {
+    "id": "scripture-ezequiel-18-1-20",
+    "kind": "scripture",
+    "title": "Ezequiel 18:1-20",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Vino a mí palabra de Jehová, diciendo:"
+      },
+      {
+        "number": 2,
+        "text": "¿Qué pensáis vosotros, los que usáis este refrán sobre la tierra de Israel, que dice: Los padres comieron las uvas agrias, y los dientes de los hijos tienen la dentera?"
+      },
+      {
+        "number": 3,
+        "text": "Vivo yo, dice Jehová el Señor, que nunca más tendréis por qué usar este refrán en Israel."
+      },
+      {
+        "number": 4,
+        "text": "He aquí que todas las almas son mías; como el alma del padre, así el alma del hijo es mía; el alma que pecare, esa morirá."
+      },
+      {
+        "number": 5,
+        "text": "Y el hombre que fuere justo, e hiciere según el derecho y la justicia;"
+      },
+      {
+        "number": 6,
+        "text": "que no comiere sobre los montes, ni alzare sus ojos a los ídolos de la casa de Israel, ni violare la mujer de su prójimo, ni se llegare a la mujer menstruosa,"
+      },
+      {
+        "number": 7,
+        "text": "ni oprimiere a ninguno; que al deudor devolviere su prenda, que no cometiere robo, y que diere de su pan al hambriento y cubriere al desnudo con vestido,"
+      },
+      {
+        "number": 8,
+        "text": "que no prestare a interés ni tomare usura; que de la maldad retrajere su mano, e hiciere juicio verdadero entre hombre y hombre,"
+      },
+      {
+        "number": 9,
+        "text": "en mis ordenanzas caminare, y guardare mis decretos para hacer rectamente, éste es justo; éste vivirá, dice Jehová el Señor."
+      },
+      {
+        "number": 10,
+        "text": "Mas si engendrare hijo ladrón, derramador de sangre, o que haga alguna cosa de estas,"
+      },
+      {
+        "number": 11,
+        "text": "y que no haga las otras, sino que comiere sobre los montes, o violare la mujer de su prójimo,"
+      },
+      {
+        "number": 12,
+        "text": "al pobre y menesteroso oprimiere, cometiere robos, no devolviere la prenda, o alzare sus ojos a los ídolos e hiciere abominación,"
+      },
+      {
+        "number": 13,
+        "text": "prestare a interés y tomare usura; ¿vivirá éste? No vivirá. Todas estas abominaciones hizo; de cierto morirá, su sangre será sobre él."
+      },
+      {
+        "number": 14,
+        "text": "Pero si éste engendrare hijo, el cual viere todos los pecados que su padre hizo, y viéndolos no hiciere según ellos;"
+      },
+      {
+        "number": 15,
+        "text": "no comiere sobre los montes, ni alzare sus ojos a los ídolos de la casa de Israel; la mujer de su prójimo no violare,"
+      },
+      {
+        "number": 16,
+        "text": "ni oprimiere a nadie, la prenda no retuviere, ni cometiere robos; al hambriento diere de su pan, y cubriere con vestido al desnudo;"
+      },
+      {
+        "number": 17,
+        "text": "apartare su mano del pobre, interés y usura no recibiere; guardare mis decretos y anduviere en mis ordenanzas; éste no morirá por la maldad de su padre; de cierto vivirá."
+      },
+      {
+        "number": 18,
+        "text": "Su padre, por cuanto hizo agravio, despojó violentamente al hermano, e hizo en medio de su pueblo lo que no es bueno, he aquí que él morirá por su maldad."
+      },
+      {
+        "number": 19,
+        "text": "Y si dijereis: ¿Por qué el hijo no llevará el pecado de su padre? Porque el hijo hizo según el derecho y la justicia, guardó todos mis estatutos y los cumplió, de cierto vivirá."
+      },
+      {
+        "number": 20,
+        "text": "El alma que pecare, esa morirá; el hijo no llevará el pecado del padre, ni el padre llevará el pecado del hijo; la justicia del justo será sobre él, y la impiedad del impío será sobre él."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/ezequiel/18/1-20",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Ezequiel%2018%3A1-20&version=RVR1960"
+  },
+  "scripture-ezequiel-37-1-14": {
+    "id": "scripture-ezequiel-37-1-14",
+    "kind": "scripture",
+    "title": "Ezequiel 37:1-14",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "La mano de Jehová vino sobre mí, y me llevó en el Espíritu de Jehová, y me puso en medio de un valle que estaba lleno de huesos."
+      },
+      {
+        "number": 2,
+        "text": "Y me hizo pasar cerca de ellos por todo en derredor; y he aquí que eran muchísimos sobre la faz del campo, y por cierto secos en gran manera."
+      },
+      {
+        "number": 3,
+        "text": "Y me dijo: Hijo de hombre, ¿vivirán estos huesos? Y dije: Señor Jehová, tú lo sabes."
+      },
+      {
+        "number": 4,
+        "text": "Me dijo entonces: Profetiza sobre estos huesos, y diles: Huesos secos, oíd palabra de Jehová."
+      },
+      {
+        "number": 5,
+        "text": "Así ha dicho Jehová el Señor a estos huesos: He aquí, yo hago entrar espíritu en vosotros, y viviréis."
+      },
+      {
+        "number": 6,
+        "text": "Y pondré tendones sobre vosotros, y haré subir sobre vosotros carne, y os cubriré de piel, y pondré en vosotros espíritu, y viviréis; y sabréis que yo soy Jehová."
+      },
+      {
+        "number": 7,
+        "text": "Profeticé, pues, como me fue mandado; y hubo un ruido mientras yo profetizaba, y he aquí un temblor; y los huesos se juntaron cada hueso con su hueso."
+      },
+      {
+        "number": 8,
+        "text": "Y miré, y he aquí tendones sobre ellos, y la carne subió, y la piel cubrió por encima de ellos; pero no había en ellos espíritu."
+      },
+      {
+        "number": 9,
+        "text": "Y me dijo: Profetiza al espíritu, profetiza, hijo de hombre, y di al espíritu: Así ha dicho Jehová el Señor: Espíritu, ven de los cuatro vientos, y sopla sobre estos muertos, y vivirán."
+      },
+      {
+        "number": 10,
+        "text": "Y profeticé como me había mandado, y entró espíritu en ellos, y vivieron, y estuvieron sobre sus pies; un ejército grande en extremo."
+      },
+      {
+        "number": 11,
+        "text": "Me dijo luego: Hijo de hombre, todos estos huesos son la casa de Israel. He aquí, ellos dicen: Nuestros huesos se secaron, y pereció nuestra esperanza, y somos del todo destruidos."
+      },
+      {
+        "number": 12,
+        "text": "Por tanto, profetiza, y diles: Así ha dicho Jehová el Señor: He aquí yo abro vuestros sepulcros, pueblo mío, y os haré subir de vuestras sepulturas, y os traeré a la tierra de Israel."
+      },
+      {
+        "number": 13,
+        "text": "Y sabréis que yo soy Jehová, cuando abra vuestros sepulcros, y os saque de vuestras sepulturas, pueblo mío."
+      },
+      {
+        "number": 14,
+        "text": "Y pondré mi Espíritu en vosotros, y viviréis, y os haré reposar sobre vuestra tierra; y sabréis que yo Jehová hablé, y lo hice, dice Jehová."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/ezequiel/37/1-14",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Ezequiel%2037%3A1-14&version=RVR1960"
+  },
+  "scripture-hebreos-9-23-28": {
+    "id": "scripture-hebreos-9-23-28",
+    "kind": "scripture",
+    "title": "Hebreos 9:23-28",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 23,
+        "text": "Fue, pues, necesario que las figuras de las cosas celestiales fuesen purificadas así; pero las cosas celestiales mismas, con mejores sacrificios que estos."
+      },
+      {
+        "number": 24,
+        "text": "Porque no entró Cristo en el santuario hecho de mano, figura del verdadero, sino en el cielo mismo para presentarse ahora por nosotros ante Dios;"
+      },
+      {
+        "number": 25,
+        "text": "y no para ofrecerse muchas veces, como entra el sumo sacerdote en el Lugar Santísimo cada año con sangre ajena."
+      },
+      {
+        "number": 26,
+        "text": "De otra manera le hubiera sido necesario padecer muchas veces desde el principio del mundo; pero ahora, en la consumación de los siglos, se presentó una vez para siempre por el sacrificio de sí mismo para quitar de en medio el pecado."
+      },
+      {
+        "number": 27,
+        "text": "Y de la manera que está establecido para los hombres que mueran una sola vez, y después de esto el juicio,"
+      },
+      {
+        "number": 28,
+        "text": "así también Cristo fue ofrecido una sola vez para llevar los pecados de muchos; y aparecerá por segunda vez, sin relación con el pecado, para salvar a los que le esperan."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/hebreos/9/23-28",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Hebreos%209%3A23-28&version=RVR1960"
   },
   "scripture-isaias-40-10-11": {
     "id": "scripture-isaias-40-10-11",
@@ -437,6 +735,53 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20119%3A105-112&version=RVR1960"
   },
+  "scripture-salmos-137-all-": {
+    "id": "scripture-salmos-137-all-",
+    "kind": "scripture",
+    "title": "Salmo 137",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Junto a los ríos de Babilonia, Allí nos sentábamos, y aun llorábamos, Acordándonos de Sion."
+      },
+      {
+        "number": 2,
+        "text": "Sobre los sauces en medio de ella Colgamos nuestras arpas."
+      },
+      {
+        "number": 3,
+        "text": "Y los que nos habían llevado cautivos nos pedían que cantásemos, Y los que nos habían desolado nos pedían alegría, diciendo: Cantadnos algunos de los cánticos de Sion."
+      },
+      {
+        "number": 4,
+        "text": "¿Cómo cantaremos cántico de Jehová En tierra de extraños?"
+      },
+      {
+        "number": 5,
+        "text": "Si me olvidare de ti, oh Jerusalén, Pierda mi diestra su destreza."
+      },
+      {
+        "number": 6,
+        "text": "Mi lengua se pegue a mi paladar, Si de ti no me acordare; Si no enalteciere a Jerusalén Como preferente asunto de mi alegría."
+      },
+      {
+        "number": 7,
+        "text": "Oh Jehová, recuerda contra los hijos de Edom el día de Jerusalén, Cuando decían: Arrasadla, arrasadla Hasta los cimientos."
+      },
+      {
+        "number": 8,
+        "text": "Hija de Babilonia la desolada, Bienaventurado el que te diere el pago De lo que tú nos hiciste."
+      },
+      {
+        "number": 9,
+        "text": "Dichoso el que tomare y estrellare tus niños Contra la peña."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/137",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20137&version=RVR1960"
+  },
   "scripture-salmos-19-all-": {
     "id": "scripture-salmos-19-all-",
     "kind": "scripture",
@@ -665,6 +1010,113 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2030&version=RVR1960"
   },
+  "scripture-salmos-31-all-": {
+    "id": "scripture-salmos-31-all-",
+    "kind": "scripture",
+    "title": "Salmo 31",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "En ti, oh Jehová, he confiado; no sea yo confundido jamás; Líbrame en tu justicia."
+      },
+      {
+        "number": 2,
+        "text": "Inclina a mí tu oído, líbrame pronto; Sé tú mi roca fuerte, y fortaleza para salvarme."
+      },
+      {
+        "number": 3,
+        "text": "Porque tú eres mi roca y mi castillo; Por tu nombre me guiarás y me encaminarás."
+      },
+      {
+        "number": 4,
+        "text": "Sácame de la red que han escondido para mí, Pues tú eres mi refugio."
+      },
+      {
+        "number": 5,
+        "text": "En tu mano encomiendo mi espíritu; Tú me has redimido, oh Jehová, Dios de verdad."
+      },
+      {
+        "number": 6,
+        "text": "Aborrezco a los que esperan en vanidades ilusorias; Mas yo en Jehová he esperado."
+      },
+      {
+        "number": 7,
+        "text": "Me gozaré y alegraré en tu misericordia, Porque has visto mi aflicción; Has conocido mi alma en las angustias."
+      },
+      {
+        "number": 8,
+        "text": "No me entregaste en mano del enemigo; Pusiste mis pies en lugar espacioso."
+      },
+      {
+        "number": 9,
+        "text": "Ten misericordia de mí, oh Jehová, porque estoy en angustia; Se han consumido de tristeza mis ojos, mi alma también y mi cuerpo."
+      },
+      {
+        "number": 10,
+        "text": "Porque mi vida se va gastando de dolor, y mis años de suspirar; Se agotan mis fuerzas a causa de mi iniquidad, y mis huesos se han consumido."
+      },
+      {
+        "number": 11,
+        "text": "De todos mis enemigos soy objeto de oprobio, Y de mis vecinos mucho más, y el horror de mis conocidos; Los que me ven fuera huyen de mí."
+      },
+      {
+        "number": 12,
+        "text": "He sido olvidado de su corazón como un muerto; He venido a ser como un vaso quebrado."
+      },
+      {
+        "number": 13,
+        "text": "Porque oigo la calumnia de muchos; El miedo me asalta por todas partes, Mientras consultan juntos contra mí E idean quitarme la vida."
+      },
+      {
+        "number": 14,
+        "text": "Mas yo en ti confío, oh Jehová; Digo: Tú eres mi Dios."
+      },
+      {
+        "number": 15,
+        "text": "En tu mano están mis tiempos; Líbrame de la mano de mis enemigos y de mis perseguidores."
+      },
+      {
+        "number": 16,
+        "text": "Haz resplandecer tu rostro sobre tu siervo; Sálvame por tu misericordia."
+      },
+      {
+        "number": 17,
+        "text": "No sea yo avergonzado, oh Jehová, ya que te he invocado; Sean avergonzados los impíos, estén mudos en el Seol."
+      },
+      {
+        "number": 18,
+        "text": "Enmudezcan los labios mentirosos, Que hablan contra el justo cosas duras Con soberbia y menosprecio."
+      },
+      {
+        "number": 19,
+        "text": "¡Cuán grande es tu bondad, que has guardado para los que te temen, Que has mostrado a los que esperan en ti, delante de los hijos de los hombres!"
+      },
+      {
+        "number": 20,
+        "text": "En lo secreto de tu presencia los esconderás de la conspiración del hombre; Los pondrás en un tabernáculo a cubierto de contención de lenguas."
+      },
+      {
+        "number": 21,
+        "text": "Bendito sea Jehová, Porque ha hecho maravillosa su misericordia para conmigo en ciudad fortificada."
+      },
+      {
+        "number": 22,
+        "text": "Decía yo en mi premura: Cortado soy de delante de tus ojos; Pero tú oíste la voz de mis ruegos cuando a ti clamaba."
+      },
+      {
+        "number": 23,
+        "text": "Amad a Jehová, todos vosotros sus santos; A los fieles guarda Jehová, Y paga abundantemente al que procede con soberbia."
+      },
+      {
+        "number": 24,
+        "text": "Esforzaos todos vosotros los que esperáis en Jehová, Y tome aliento vuestro corazón."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/31",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2031&version=RVR1960"
+  },
   "scripture-salmos-34-all-": {
     "id": "scripture-salmos-34-all-",
     "kind": "scripture",
@@ -763,6 +1215,45 @@
     "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/34",
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2034&version=RVR1960"
+  },
+  "scripture-salmos-67-all-": {
+    "id": "scripture-salmos-67-all-",
+    "kind": "scripture",
+    "title": "Salmo 67",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Dios tenga misericordia de nosotros, y nos bendiga; Haga resplandecer su rostro sobre nosotros; Selah"
+      },
+      {
+        "number": 2,
+        "text": "Para que sea conocido en la tierra tu camino, En todas las naciones tu salvación."
+      },
+      {
+        "number": 3,
+        "text": "Te alaben los pueblos, oh Dios; Todos los pueblos te alaben."
+      },
+      {
+        "number": 4,
+        "text": "Alégrense y gócense las naciones, Porque juzgarás los pueblos con equidad, Y pastorearás las naciones en la tierra. Selah"
+      },
+      {
+        "number": 5,
+        "text": "Te alaben los pueblos, oh Dios; Todos los pueblos te alaben."
+      },
+      {
+        "number": 6,
+        "text": "La tierra dará su fruto; Nos bendecirá Dios, el Dios nuestro."
+      },
+      {
+        "number": 7,
+        "text": "Bendíganos Dios, Y témanlo todos los términos de la tierra."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/67",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2067&version=RVR1960"
   },
   "scripture-salmos-90-all-": {
     "id": "scripture-salmos-90-all-",

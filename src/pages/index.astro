@@ -5,6 +5,7 @@ import DailyDevotion from '@/components/DailyDevotion.astro';
 import { getCollection } from 'astro:content';
 import { pathFor } from '@/utils/paths';
 import { getYouTubeThumbnail } from '@/utils/youtube';
+import { sermonImageWebpSrcset } from '@/utils/sermon-image';
 
 const base = import.meta.env.BASE_URL;
 const featuredVideoUrl = 'https://www.youtube.com/watch?v=O1HHTV9ncFs';
@@ -33,12 +34,12 @@ const featuredServiceImage = featuredService?.data.sermonImage
     ? featuredService.data.sermonImage
     : `${base}${featuredService.data.sermonImage.replace(/^\//, '')}`
   : null;
-const featuredServiceWebp = featuredService?.data.sermonImage?.endsWith(
-  '/nada-me-faltara-salmo-23.jpg',
-)
-  ? {
-      srcset: `${base}images/optimized/nada-me-faltara-640.webp 640w, ${base}images/optimized/nada-me-faltara-960.webp 960w, ${base}images/optimized/nada-me-faltara-1280.webp 1280w`,
-    }
+const featuredServiceWebpSrc = sermonImageWebpSrcset(
+  featuredService?.data.sermonImage,
+  base,
+);
+const featuredServiceWebp = featuredServiceWebpSrc
+  ? { srcset: featuredServiceWebpSrc }
   : null;
 ---
 
