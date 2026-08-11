@@ -84,7 +84,7 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .home-hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9,25,38,.2), transparent 42%), linear-gradient(0deg, rgba(9,25,38,.28), transparent 32%); }
 .home-hero-image picture,.sermon-invitation-media picture,.visit-cta-media picture { display: block; width: 100%; height: 100%; }
 .home-hero-image > picture { position: absolute; inset: 0; }
-.home-hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.home-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
 .home-hero-image img { animation: image-enter 1.1s ease both; transition: transform 1.2s ease; }
 .home-hero-image:hover img { transform: scale(1.025); }
 .home-hero-image figcaption { position: absolute; right: 14px; bottom: 10px; z-index: 2; color: rgba(255,255,255,.75); font-size: 8px; }
@@ -238,7 +238,7 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .visit-banner p:not(.overline) { margin: 22px 0 0; color: #c9d9ff; }
 .visit-cta { margin-top: 0; display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; color: white; background: #1a2420; width: 100%; max-width: 100%; }
 .visit-cta-media { margin: 0; min-width: 0; min-height: 100%; overflow: hidden; }
-.visit-cta-media img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; opacity: .88; }
+.visit-cta-media img { width: 100%; height: 100%; min-height: 480px; object-fit: cover; object-position: center 28%; opacity: .88; }
 .visit-cta-copy { padding: 70px var(--page-pad) 70px 48px; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(145deg, #252b28, #3a3028); min-width: 0; }
 .visit-cta-copy .overline { color: #d9bf7d; }
 .visit-cta-copy h2 { margin: 0; color: white; font: 600 clamp(40px, 4vw, 58px)/1.08 var(--serif); }
@@ -862,7 +862,7 @@ body.resource-open { overflow: hidden; }
     .document-hero h1 { font-size: clamp(28px, 8vw, 42px); overflow-wrap: anywhere; }
     .featured-book-copy h2, .annual-reader-intro h2, .youtube-library-head h2, .church-hymn-heading h2 { font-size: clamp(28px, 7vw, 40px); overflow-wrap: anywhere; }
     .home-hero h1 { max-width: 100%; font-size: clamp(36px, 12vw, 58px); line-height: 1.02; overflow-wrap: anywhere; white-space: normal; }
-    .home-hero-copy { padding-top: 56px; padding-bottom: 46px; }.home-hero-image { min-height: 0; aspect-ratio: 3 / 4; max-height: 720px; }.subpage-hero,.page-hero { min-height: auto; padding-top: 52px; padding-bottom: 52px; }.page-hero-split { padding-top: 0; padding-bottom: 0; }.channel-section,.youtube-library { padding: var(--page-gutter); }.visit-banner { padding: 42px 28px; }
+    .home-hero-copy { padding-top: 56px; padding-bottom: 46px; }.home-hero-image { min-height: 0; aspect-ratio: 3 / 4; max-height: 640px; }.home-hero-image img { object-position: center 22%; }.subpage-hero,.page-hero { min-height: auto; padding-top: 52px; padding-bottom: 52px; }.page-hero-split { padding-top: 0; padding-bottom: 0; }.channel-section,.youtube-library { padding: var(--page-gutter); }.visit-banner { padding: 42px 28px; }
     .belief-pillars,.belief-pillars--five { grid-template-columns: 1fr; }
     .belief-pillars--five { gap: 12px; }
     .belief-pillars--five article { min-height: 0; align-items: center; text-align: center; padding: 22px 18px; }

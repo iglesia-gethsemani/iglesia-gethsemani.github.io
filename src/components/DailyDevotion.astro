@@ -12,7 +12,7 @@ import {
   getReadingForDay,
   passageUrl,
 } from '@/data/reading-plan';
-import { getShareTheme, shareBackgrounds } from '@/data/share-backgrounds';
+import { getShareTheme } from '@/data/share-backgrounds';
 
 const dayOfYear = getDayOfYearMexico();
 const verse = getVerseForDay(dayOfYear);
@@ -25,6 +25,7 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://iglesia-geths
 const planUrl = new URL('plan-de-lecturas/', `${site}${base}`).href;
 const logoSrc = `${base}images/optimized/logo-gethsemani-240.webp`;
 const fallbackBgSrc = `${base}images/optimized/templo-gethsemani-640.jpg`;
+const shareTheme = getShareTheme(dayOfYear);
 
 const clientPayload = {
   verse,
@@ -35,10 +36,7 @@ const clientPayload = {
       url: passageUrl(p),
     })),
   },
-  themes: shareBackgrounds.map((_, index) => {
-    const theme = getShareTheme(index + 1);
-    return { palette: theme.palette, imageUrl: theme.imageUrl };
-  }),
+  theme: { palette: shareTheme.palette, imageUrl: shareTheme.imageUrl },
   planUrl,
   logoSrc,
   fallbackBgSrc,
@@ -309,8 +307,7 @@ const clientPayload = {
     const ctx = canvas.getContext('2d');
     if (!ctx) return null;
 
-    const theme =
-      clientPayload.themes[(dayOfYear - 1) % clientPayload.themes.length] ?? clientPayload.themes[0];
+    const theme = clientPayload.theme;
     const layout = cardLayouts[(dayOfYear - 1) % cardLayouts.length];
     const { palette } = theme;
     const [W, H] = layout.size;

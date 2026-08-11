@@ -6,15 +6,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const variants = [
   {
-    input: 'public/images/templo-gethsemani.jpg',
-    outputs: [
-      ['public/images/optimized/templo-gethsemani-640.webp', 640],
-      ['public/images/optimized/templo-gethsemani-1024.webp', 1024],
-      ['public/images/optimized/templo-gethsemani-1600.webp', 1600],
-    ],
-    quality: 72,
-  },
-  {
     input: 'public/images/logo-gethsemani.png',
     outputs: [
       ['public/images/optimized/logo-gethsemani-120.webp', 120],
@@ -74,6 +65,54 @@ const variants = [
     quality: 74,
   },
 ];
+
+async function optimizeTemple() {
+  const input = path.join(root, 'public/images/templo-gethsemani.jpg');
+  const oriented = await sharp(input).rotate().toBuffer();
+  const { width, height } = await sharp(oriented).metadata();
+
+  for (const [w, q, out] of [
+    [480, 78, 'public/images/optimized/templo-gethsemani-480.webp'],
+    [640, 78, 'public/images/optimized/templo-gethsemani-640.webp'],
+    [960, 80, 'public/images/optimized/templo-gethsemani-960.webp'],
+    [1280, 80, 'public/images/optimized/templo-gethsemani-1280.webp'],
+  ]) {
+    await sharp(oriented)
+      .resize({ width: w, withoutEnlargement: true })
+      .webp({ quality: q, effort: 6 })
+      .toFile(path.join(root, out));
+  }
+
+  await sharp(oriented)
+    .resize({ width: 640, withoutEnlargement: true })
+    .jpeg({ quality: 72, mozjpeg: true })
+    .toFile(path.join(root, 'public/images/optimized/templo-gethsemani-640.jpg'));
+
+  const targetRatio = 4 / 3;
+  let cropW = width;
+  let cropH = Math.round(width / targetRatio);
+  if (cropH > height) {
+    cropH = height;
+    cropW = Math.round(height * targetRatio);
+  }
+  const left = Math.max(0, Math.round((width - cropW) / 2));
+  const top = Math.max(0, Math.round((height - cropH) * 0.18));
+  const landscape = await sharp(oriented)
+    .extract({ left, top, width: cropW, height: Math.min(cropH, height - top) })
+    .toBuffer();
+
+  for (const [w, out] of [
+    [1024, 'public/images/optimized/templo-gethsemani-1024.webp'],
+    [1600, 'public/images/optimized/templo-gethsemani-1600.webp'],
+  ]) {
+    await sharp(landscape)
+      .resize({ width: w, withoutEnlargement: true })
+      .webp({ quality: 80, effort: 6 })
+      .toFile(path.join(root, out));
+  }
+}
+
+await optimizeTemple();
 
 for (const variant of variants) {
   for (const [output, width] of variant.outputs) {
