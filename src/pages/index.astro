@@ -8,7 +8,7 @@ import { getYouTubeThumbnail } from '@/utils/youtube';
 import { sermonImageWebpSrcset } from '@/utils/sermon-image';
 
 const base = import.meta.env.BASE_URL;
-const featuredVideoUrl = 'https://www.youtube.com/watch?v=O1HHTV9ncFs';
+const featuredVideoUrl = 'https://www.youtube.com/watch?v=XvYqXVpmSv8';
 const featuredThumbnail = getYouTubeThumbnail(featuredVideoUrl);
 const latestReflection = (await getCollection('reflections'))
   .filter((reflection) => reflection.data.published)
@@ -64,15 +64,9 @@ const featuredServiceWebp = featuredServiceWebpSrc
     <figure class="home-hero-image">
       <picture>
         <source
-          media="(min-width: 901px)"
           type="image/webp"
-          srcset={`${base}images/optimized/templo-gethsemani-1024.webp 1024w, ${base}images/optimized/templo-gethsemani-1600.webp 1600w`}
-          sizes="50vw"
-        />
-        <source
-          type="image/webp"
-          srcset={`${base}images/optimized/templo-gethsemani-480.webp 480w, ${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-960.webp 960w`}
-          sizes="100vw"
+          srcset={`${base}images/optimized/templo-gethsemani-480.webp 480w, ${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-960.webp 960w, ${base}images/optimized/templo-gethsemani-1280.webp 1280w`}
+          sizes="(min-width: 901px) 50vw, 100vw"
         />
         <img
           src={`${base}images/optimized/templo-gethsemani-640.jpg`}

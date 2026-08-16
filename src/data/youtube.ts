@@ -7,6 +7,12 @@ export interface ChannelVideo {
 
 export const regularVideos: ChannelVideo[] = [
   {
+    title: 'Promesa de restauración y esperanza',
+    url: 'https://www.youtube.com/watch?v=XvYqXVpmSv8',
+    label: 'Culto de adoración',
+    detail: '9 de agosto de 2026',
+  },
+  {
     title: 'Simón bar-Jona',
     url: 'https://www.youtube.com/watch?v=r04o3Rq9DDs',
     label: 'Sermón',
@@ -65,23 +71,17 @@ export const regularVideos: ChannelVideo[] = [
     url: 'https://www.youtube.com/watch?v=JiLvbqFk8H8',
     label: 'Programa especial',
   },
-  {
-    title: 'Beneficios de la gracia de Dios',
-    url: 'https://www.youtube.com/watch?v=7Qo4gDPMQE0',
-    label: 'Culto de adoración',
-    detail: '21 de septiembre de 2025',
-  },
 ];
 
 export const latestLiveVideo: ChannelVideo = {
-  title: 'Solemne Culto de Adoración',
-  url: 'https://www.youtube.com/watch?v=9BZq-_POIkY',
+  title: 'Promesa de restauración y esperanza',
+  url: 'https://www.youtube.com/watch?v=XvYqXVpmSv8',
   label: 'Última transmisión',
-  detail: '26 de julio de 2026',
+  detail: '9 de agosto de 2026',
 };
 
 export const latestShortVideo: ChannelVideo = {
-  title: 'El verdadero arrepentimiento',
-  url: 'https://www.youtube.com/shorts/Fn95ip6WC1Q',
+  title: '¿Quieres que no te falte nada?',
+  url: 'https://www.youtube.com/shorts/lKuBGy6jd_Y',
   label: 'Último Short',
 };
