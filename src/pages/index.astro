@@ -264,15 +264,9 @@ const featuredServiceWebp = featuredServiceWebpSrc
     <div class="visit-cta-media" aria-hidden="true">
       <picture>
         <source
-          media="(min-width: 901px)"
           type="image/webp"
-          srcset={`${base}images/optimized/templo-gethsemani-1024.webp 1024w, ${base}images/optimized/templo-gethsemani-1600.webp 1600w`}
-          sizes="50vw"
-        />
-        <source
-          type="image/webp"
-          srcset={`${base}images/optimized/templo-gethsemani-480.webp 480w, ${base}images/optimized/templo-gethsemani-640.webp 640w`}
-          sizes="100vw"
+          srcset={`${base}images/optimized/templo-gethsemani-480.webp 480w, ${base}images/optimized/templo-gethsemani-640.webp 640w, ${base}images/optimized/templo-gethsemani-960.webp 960w, ${base}images/optimized/templo-gethsemani-1280.webp 1280w`}
+          sizes="(min-width: 901px) 50vw, 100vw"
         />
         <img
           src={`${base}images/optimized/templo-gethsemani-640.jpg`}
