@@ -69,7 +69,6 @@ const churchSchema = {
     <meta name="twitter:image" content={ogImage} />
     <meta name="google-site-verification" content="RbaQ1oJ7DiOYhGZav_rs-bkQ42MVvWKnDLZxa6V6KWg" />
     <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
-    <link rel="icon" type="image/png" href={`${base}favicon-256.png`} sizes="256x256" />
     <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} sizes="180x180" />
     {
       canonicalPath === '/' && (
@@ -78,8 +77,16 @@ const churchSchema = {
             rel="preload"
             as="image"
             type="image/webp"
+            href={`${base}images/optimized/templo-gethsemani-480.webp`}
+            media="(max-width: 480px)"
+            fetchpriority="high"
+          />
+          <link
+            rel="preload"
+            as="image"
+            type="image/webp"
             href={`${base}images/optimized/templo-gethsemani-640.webp`}
-            media="(max-width: 900px)"
+            media="(min-width: 481px) and (max-width: 900px)"
             fetchpriority="high"
           />
           <link

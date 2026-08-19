@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "prebuild": "node scripts/generate-og-orden.mjs",
-    "build": "astro build",
+    "build": "astro build && node scripts/minify-css.mjs",
     "cache:readings": "node scripts/cache-service-readings.mjs",
     "optimize:assets": "node scripts/optimize-mobile-assets.mjs",
     "og:orden": "node scripts/generate-og-orden.mjs",

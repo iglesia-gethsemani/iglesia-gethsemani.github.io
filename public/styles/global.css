@@ -143,6 +143,10 @@ main { min-width: 0; max-width: 100%; overflow-x: clip; }
 .daily-share-copy h3 { margin: 0 0 12px; color: #f4f0e8; font: 600 clamp(26px, 3vw, 36px)/1.15 var(--serif); }
 .daily-share-copy > p { margin: 0 0 22px; max-width: 420px; color: #b8c2c9; font-size: 14px; }
 .daily-share-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.daily-share-styles { margin: 0 0 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.daily-share-style { min-height: 36px; padding: 0 12px; color: #d9bf7d; background: transparent; border: 1px solid rgba(217,191,125,.32); font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.daily-share-style:hover, .daily-share-style:focus-visible { color: #0b1c2a; background: #d9bf7d; border-color: #d9bf7d; outline: 0; }
+.daily-share-style-label { color: #c9d2cc; font-size: 12px; font-weight: 600; min-width: 12ch; text-align: center; }
 .daily-share-btn { min-height: 44px; padding: 0 16px; display: inline-flex; align-items: center; gap: 8px; color: #f4f0e8; background: rgba(255,255,255,.06); border: 1px solid rgba(217,191,125,.32); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
 .daily-share-btn .icon { width: 15px; height: 15px; }
 .daily-share-btn:hover, .daily-share-btn:focus-visible { color: #0b1c2a; background: #d9bf7d; border-color: #d9bf7d; outline: 0; }
