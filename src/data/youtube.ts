@@ -7,6 +7,12 @@ export interface ChannelVideo {
 
 export const regularVideos: ChannelVideo[] = [
   {
+    title: 'Alabad',
+    url: 'https://www.youtube.com/watch?v=wFzQMnFORgU',
+    label: 'Culto de adoración',
+    detail: 'Salmo 113 · X aniversario del Ensamble Musical Selah · 16 de agosto de 2026',
+  },
+  {
     title: 'Promesa de restauración y esperanza',
     url: 'https://www.youtube.com/watch?v=XvYqXVpmSv8',
     label: 'Culto de adoración',
@@ -66,22 +72,17 @@ export const regularVideos: ChannelVideo[] = [
     label: 'Sermón',
     detail: 'Filipenses 4:1–6 · Pastor Antonio Rodríguez',
   },
-  {
-    title: 'Festival Navideño 2025',
-    url: 'https://www.youtube.com/watch?v=JiLvbqFk8H8',
-    label: 'Programa especial',
-  },
 ];
 
 export const latestLiveVideo: ChannelVideo = {
-  title: 'Promesa de restauración y esperanza',
-  url: 'https://www.youtube.com/watch?v=XvYqXVpmSv8',
+  title: 'Alabad',
+  url: 'https://www.youtube.com/watch?v=wFzQMnFORgU',
   label: 'Última transmisión',
-  detail: '9 de agosto de 2026',
+  detail: '16 de agosto de 2026',
 };
 
 export const latestShortVideo: ChannelVideo = {
-  title: '¿Quieres que no te falte nada?',
-  url: 'https://www.youtube.com/shorts/lKuBGy6jd_Y',
+  title: '¿Buscas esperanza?',
+  url: 'https://www.youtube.com/shorts/ZYrYp-3SIEs',
   label: 'Último Short',
 };

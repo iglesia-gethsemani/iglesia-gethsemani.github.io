@@ -14,11 +14,11 @@ const variants = [
     quality: 82,
   },
   {
-    input: 'public/images/sermons/alaba-salmo-113.jpg',
+    input: 'public/images/sermons/jesus-el-cristo-mateo-16.jpg',
     outputs: [
-      ['public/images/optimized/alaba-salmo-113-640.webp', 640],
-      ['public/images/optimized/alaba-salmo-113-960.webp', 960],
-      ['public/images/optimized/alaba-salmo-113-1280.webp', 1280],
+      ['public/images/optimized/jesus-el-cristo-mateo-16-640.webp', 640],
+      ['public/images/optimized/jesus-el-cristo-mateo-16-960.webp', 960],
+      ['public/images/optimized/jesus-el-cristo-mateo-16-1280.webp', 1280],
     ],
     quality: 86,
   },

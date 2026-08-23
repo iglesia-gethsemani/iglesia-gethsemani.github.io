@@ -1,36 +1,33 @@
 ---
 title: Culto vespertino de adoración
-date: 2026-08-16T18:00:00-06:00
+date: 2026-08-23T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: ¡Servid!
-sermonPassage: Salmo 113
-preacher: A.G. Israel Galicia Reyes
+sermonTitle: Más allá de la meta
+sermonPassage: Mateo 5:12
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 134
+    detail: Salmo 95
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 503 “Al servicio siempre estoy”
+    title: Himno No. 1 “Sólo a Dios la gloria”
   - label: Palabra
     title: Lectura devocional
-    detail: Isaías 6:1-8
+    detail: Lucas 15:11-32
   - label: Oración
     title: Momentos de oración
   - label: Adoración
-    title: Tiempo de alabanza
-    detail: Tres himnos a elegir
+    title: Himno “Más allá del sol”
   - label: Palabra
     title: Lectura bíblica
-    detail: Salmo 113
+    detail: Mateo 5:12
   - label: Palabra
-    title: Mensaje “¡Servid!”
-    detail: A.G. Israel Galicia Reyes
+    title: Mensaje “Más allá de la meta”
   - label: Ofrendas
     title: Himno No. 447 “Mi ofrenda doy”
   - label: Comunidad
