@@ -12,7 +12,7 @@ import {
   getReadingForDay,
   passageUrl,
 } from '@/data/reading-plan';
-import { assetVersion } from '@/utils/assets';
+import { getShareTheme } from '@/data/share-backgrounds';
 
 const dayOfYear = getDayOfYearMexico();
 const verse = getVerseForDay(dayOfYear);
@@ -25,10 +25,22 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://iglesia-geths
 const planUrl = new URL('plan-de-lecturas/', `${site}${base}`).href;
 const logoSrc = `${base}images/optimized/logo-gethsemani-240.webp`;
 const fallbackBgSrc = `${base}images/optimized/templo-gethsemani-640.jpg`;
-const catalogUrl = `${base}data/daily-devotion.json?v=${assetVersion}`;
-const themesUrl = `${base}data/share-themes.json?v=${assetVersion}`;
+const shareTheme = getShareTheme(dayOfYear);
 
-const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
+const clientPayload = {
+  verse,
+  reading: {
+    day: reading.day,
+    passages: reading.passages.map((p) => ({
+      label: p.label,
+      url: passageUrl(p),
+    })),
+  },
+  theme: { palette: shareTheme.palette, imageUrl: shareTheme.imageUrl },
+  planUrl,
+  logoSrc,
+  fallbackBgSrc,
+};
 ---
 
 <section class="daily-devotion" aria-labelledby="daily-devotion-title" data-daily-devotion>
@@ -109,12 +121,7 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     <div class="daily-share-copy">
       <p class="daily-panel-label">Compartir</p>
       <h3>Versículo y lectura del día</h3>
-      <p>Copia el texto o descarga la imagen. Puedes probar distintos estilos visuales.</p>
-      <div class="daily-share-styles" role="group" aria-label="Estilo de la imagen">
-        <button type="button" class="daily-share-style" data-share-style-prev>← Anterior</button>
-        <span class="daily-share-style-label" data-share-style-label>Estilo 1</span>
-        <button type="button" class="daily-share-style" data-share-style-next>Siguiente →</button>
-      </div>
+      <p>Copia el texto o descarga la imagen para compartirla donde desees.</p>
       <div class="daily-share-actions">
         <button type="button" class="daily-share-btn daily-share-btn--primary" data-copy-devotion>
           <Icon name="link" />
@@ -134,7 +141,7 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
   </div>
 </section>
 
-<script is:inline define:vars={{ boot }}>
+<script is:inline define:vars={{ clientPayload }}>
   function getDayOfYearMexico(date = new Date()) {
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/Mexico_City',
@@ -162,11 +169,6 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
 
   function bibleGatewayUrl(reference) {
     return `https://www.biblegateway.com/passage/?search=${encodeURIComponent(reference)}&version=RVR1960`;
-  }
-
-  function pick(list, dayOfYear) {
-    if (!list?.length) return null;
-    return list[((dayOfYear - 1) % list.length + list.length) % list.length];
   }
 
   function wrapLines(ctx, text, maxWidth) {
@@ -201,7 +203,10 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     const value = hex.replace('#', '');
     const full = value.length === 3 ? value.split('').map((c) => c + c).join('') : value;
     const num = Number.parseInt(full, 16);
-    return `rgba(${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}, ${alpha})`;
+    const r = (num >> 16) & 255;
+    const g = (num >> 8) & 255;
+    const b = num & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
 
   function coverImage(ctx, img, x, y, w, h) {
@@ -214,105 +219,35 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
   const cardLayouts = [
     {
       id: 'centered-quote',
-      label: 'Cita centrada',
       size: [1080, 1080],
       align: 'center',
       face: 'italic 500 {size}px "Source Serif 4", Georgia, serif',
       kicker: '700 18px Manrope, Arial, sans-serif',
       meta: '500 18px Manrope, Arial, sans-serif',
-      overlay: 0.62,
     },
     {
       id: 'bold-serif',
-      label: 'Serif editorial',
       size: [1080, 1350],
       align: 'left',
       face: '600 {size}px "Source Serif 4", Georgia, serif',
       kicker: '800 17px Manrope, Arial, sans-serif',
       meta: '500 17px Manrope, Arial, sans-serif',
-      overlay: 0.64,
     },
     {
       id: 'modern-sans',
-      label: 'Sans moderna',
       size: [1080, 1080],
       align: 'left',
       face: '500 {size}px Manrope, Arial, sans-serif',
       kicker: '800 16px Manrope, Arial, sans-serif',
       meta: '500 16px Manrope, Arial, sans-serif',
-      overlay: 0.6,
     },
     {
       id: 'classic-frame',
-      label: 'Marco clásico',
       size: [1080, 1350],
       align: 'center',
       face: 'italic 600 {size}px Georgia, "Times New Roman", serif',
       kicker: '700 16px Manrope, Arial, sans-serif',
       meta: '500 16px Manrope, Arial, sans-serif',
-      overlay: 0.66,
-    },
-    {
-      id: 'story-tall',
-      label: 'Historia vertical',
-      size: [1080, 1920],
-      align: 'center',
-      face: 'italic 500 {size}px "Source Serif 4", Georgia, serif',
-      kicker: '800 18px Manrope, Arial, sans-serif',
-      meta: '500 18px Manrope, Arial, sans-serif',
-      overlay: 0.68,
-    },
-    {
-      id: 'minimal-light',
-      label: 'Minimal clara',
-      size: [1080, 1080],
-      align: 'left',
-      face: '600 {size}px "Source Serif 4", Georgia, serif',
-      kicker: '800 15px Manrope, Arial, sans-serif',
-      meta: '500 16px Manrope, Arial, sans-serif',
-      overlay: 0.22,
-      light: true,
-    },
-    {
-      id: 'wide-banner',
-      label: 'Banner horizontal',
-      size: [1350, 1080],
-      align: 'left',
-      face: '600 {size}px "Source Serif 4", Georgia, serif',
-      kicker: '800 16px Manrope, Arial, sans-serif',
-      meta: '500 16px Manrope, Arial, sans-serif',
-      overlay: 0.58,
-    },
-    {
-      id: 'compact-card',
-      label: 'Tarjeta compacta',
-      size: [1080, 1080],
-      align: 'center',
-      face: '600 {size}px Georgia, "Times New Roman", serif',
-      kicker: '800 15px Manrope, Arial, sans-serif',
-      meta: '500 15px Manrope, Arial, sans-serif',
-      overlay: 0.72,
-    },
-    {
-      id: 'bottom-anchor',
-      label: 'Ancla inferior',
-      size: [1080, 1350],
-      align: 'left',
-      face: 'italic 500 {size}px "Source Serif 4", Georgia, serif',
-      kicker: '800 16px Manrope, Arial, sans-serif',
-      meta: '500 16px Manrope, Arial, sans-serif',
-      overlay: 0.7,
-      anchor: 'bottom',
-    },
-    {
-      id: 'soft-wash',
-      label: 'Lavado suave',
-      size: [1080, 1080],
-      align: 'center',
-      face: '500 {size}px "Source Serif 4", Georgia, serif',
-      kicker: '700 15px Manrope, Arial, sans-serif',
-      meta: '500 15px Manrope, Arial, sans-serif',
-      overlay: 0.48,
     },
   ];
 
@@ -320,22 +255,14 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
   if (!root) return;
 
   const dayOfYear = getDayOfYearMexico();
+  const verse = clientPayload.verse;
+  const reading = clientPayload.reading;
   const dateLabel = formatDateMexico();
-  let verse = null;
-  let reading = null;
-  let theme = null;
-  let catalog = null;
-  let layoutIndex = (dayOfYear - 1) % cardLayouts.length;
-  let shareText = '';
-  let cardReady = false;
 
   const dateEl = root.querySelector('[data-devotion-date]');
   const textEl = root.querySelector('[data-verse-text]');
   const refEl = root.querySelector('[data-verse-ref]');
   const versionEl = root.querySelector('[data-verse-version]');
-  const dayNumEl = root.querySelector('[data-reading-day-num]');
-  const listEl = root.querySelector('[data-reading-list]');
-  const summaryEl = root.querySelector('[data-reading-summary]');
   const sharePanel = root.querySelector('[data-daily-share]');
   const shareToggle = root.querySelector('[data-share-toggle]');
   const canvas = root.querySelector('[data-share-canvas]');
@@ -345,84 +272,29 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
   const downloadBtn = root.querySelector('[data-download-devotion]');
   const copyImageBtn = root.querySelector('[data-copy-devotion-image]');
   const copyImageLabel = root.querySelector('[data-copy-image-label]');
-  const stylePrev = root.querySelector('[data-share-style-prev]');
-  const styleNext = root.querySelector('[data-share-style-next]');
-  const styleLabel = root.querySelector('[data-share-style-label]');
+  let cardReady = false;
 
-  function updateStyleLabel() {
-    const layout = cardLayouts[layoutIndex];
-    if (styleLabel) styleLabel.textContent = `${layout.label} · ${layoutIndex + 1}/${cardLayouts.length}`;
+  if (dateEl) dateEl.textContent = dateLabel;
+  if (textEl) textEl.textContent = `“${verse.text}”`;
+  if (refEl instanceof HTMLAnchorElement) {
+    refEl.textContent = verse.reference;
+    refEl.href = bibleGatewayUrl(verse.reference);
   }
+  if (versionEl) versionEl.textContent = verse.version;
 
-  function renderDevotion() {
-    if (!verse || !reading) return;
-    if (dateEl) dateEl.textContent = dateLabel;
-    if (textEl) textEl.textContent = `“${verse.text}”`;
-    if (refEl instanceof HTMLAnchorElement) {
-      refEl.textContent = verse.reference;
-      refEl.href = bibleGatewayUrl(verse.reference);
-    }
-    if (versionEl) versionEl.textContent = verse.version;
-    if (dayNumEl) dayNumEl.textContent = String(reading.day);
-    if (summaryEl) summaryEl.textContent = reading.passages.map((p) => p.label).join(' · ');
-    if (listEl) {
-      listEl.replaceChildren(
-        ...reading.passages.map((passage) => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = bibleGatewayUrl(passage.gatewayRef || passage.label);
-          a.target = '_blank';
-          a.rel = 'noopener noreferrer';
-          a.textContent = passage.label;
-          li.append(a);
-          return li;
-        }),
-      );
-    }
-    shareText = [
-      'Versículo del día',
-      dateLabel.replace(/^\w/, (c) => c.toUpperCase()),
-      '',
-      `“${verse.text}”`,
-      `— ${verse.reference} (${verse.version})`,
-      '',
-      `Lectura de hoy · Día ${reading.day}`,
-      ...reading.passages.map((passage) => `• ${passage.label}`),
-      '',
-      'Iglesia Presbiteriana Reformada Gethsemaní',
-      boot.planUrl,
-    ].join('\n');
-    updateStyleLabel();
-  }
-
-  function normalizeReading(entry) {
-    if (!entry) return null;
-    const passages = (entry.passages || []).map((passage) =>
-      typeof passage === 'string'
-        ? { label: passage, gatewayRef: passage }
-        : { label: passage.label, gatewayRef: passage.gatewayRef || passage.label },
-    );
-    return { day: entry.day, passages };
-  }
-
-  async function loadCatalog() {
-    const response = await fetch(boot.catalogUrl, { credentials: 'same-origin' });
-    if (!response.ok) throw new Error(`catalog ${response.status}`);
-    catalog = await response.json();
-    verse = pick(catalog.verses, dayOfYear);
-    const planDay = Math.min(Math.max(dayOfYear, 1), catalog.plan.length);
-    reading = normalizeReading(catalog.plan[planDay - 1]);
-    renderDevotion();
-  }
-
-  async function loadThemes() {
-    if (theme) return theme;
-    const response = await fetch(boot.themesUrl, { credentials: 'same-origin' });
-    if (!response.ok) throw new Error(`themes ${response.status}`);
-    const data = await response.json();
-    theme = pick(data.themes, dayOfYear);
-    return theme;
-  }
+  const shareText = [
+    'Versículo del día',
+    dateLabel.replace(/^\w/, (c) => c.toUpperCase()),
+    '',
+    `“${verse.text}”`,
+    `— ${verse.reference} (${verse.version})`,
+    '',
+    `Lectura de hoy · Día ${reading.day}`,
+    ...reading.passages.map((passage) => `• ${passage.label}`),
+    '',
+    'Iglesia Presbiteriana Reformada Gethsemaní',
+    clientPayload.planUrl,
+  ].join('\n');
 
   function showFeedback(message) {
     if (!(feedback instanceof HTMLElement)) return;
@@ -431,14 +303,14 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
   }
 
   async function drawShareCard() {
-    if (!(canvas instanceof HTMLCanvasElement) || !verse || !reading || !theme) return null;
+    if (!(canvas instanceof HTMLCanvasElement)) return null;
     const ctx = canvas.getContext('2d');
     if (!ctx) return null;
 
-    const layout = cardLayouts[layoutIndex];
+    const theme = clientPayload.theme;
+    const layout = cardLayouts[(dayOfYear - 1) % cardLayouts.length];
     const { palette } = theme;
     const [W, H] = layout.size;
-    const light = Boolean(layout.light);
     canvas.width = W;
     canvas.height = H;
     canvas.style.aspectRatio = `${W} / ${H}`;
@@ -449,7 +321,7 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
       photo = await loadImage(theme.imageUrl, { cors: true });
     } catch {
       try {
-        photo = await loadImage(boot.fallbackBgSrc);
+        photo = await loadImage(clientPayload.fallbackBgSrc);
       } catch {
         photo = null;
       }
@@ -457,26 +329,20 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
 
     if (photo) coverImage(ctx, photo, 0, 0, W, H);
     else {
-      const gradient = ctx.createLinearGradient(0, 0, W, H);
-      gradient.addColorStop(0, light ? '#f7f4ec' : palette.deep);
-      gradient.addColorStop(1, light ? '#ebe4d6' : palette.mid);
-      ctx.fillStyle = gradient;
+      const base = ctx.createLinearGradient(0, 0, W, H);
+      base.addColorStop(0, palette.deep);
+      base.addColorStop(1, palette.mid);
+      ctx.fillStyle = base;
       ctx.fillRect(0, 0, W, H);
     }
 
-    ctx.fillStyle = light ? hexToRgba('#f7f4ec', layout.overlay) : hexToRgba(palette.deep, layout.overlay);
+    ctx.fillStyle = hexToRgba(palette.deep, 0.62);
     ctx.fillRect(0, 0, W, H);
-    if (!light) {
-      const wash = ctx.createRadialGradient(W / 2, H / 2, H * 0.1, W / 2, H / 2, H * 0.75);
-      wash.addColorStop(0, hexToRgba(palette.mid, 0.15));
-      wash.addColorStop(1, hexToRgba(palette.deep, 0.55));
-      ctx.fillStyle = wash;
-      ctx.fillRect(0, 0, W, H);
-    }
-
-    const ink = light ? '#252a27' : palette.ink;
-    const muted = light ? '#686d69' : palette.muted;
-    const accent = light ? '#835f34' : palette.accent;
+    const wash = ctx.createRadialGradient(W / 2, H / 2, H * 0.1, W / 2, H / 2, H * 0.75);
+    wash.addColorStop(0, hexToRgba(palette.mid, 0.15));
+    wash.addColorStop(1, hexToRgba(palette.deep, 0.55));
+    ctx.fillStyle = wash;
+    ctx.fillRect(0, 0, W, H);
 
     const padX = layout.align === 'center' ? 90 : 72;
     const maxW = W - padX * 2;
@@ -484,20 +350,20 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     const dateText = dateLabel.replace(/^\w/, (c) => c.toUpperCase());
     const readingText = `Día ${reading.day}  ·  ${reading.passages.map((p) => p.label).join('  ·  ')}`;
 
-    const targetVerseH = H * (H > 1600 ? 0.4 : H > 1200 ? 0.46 : 0.42);
-    let fontSize = H > 1600 ? 86 : 78;
+    const targetVerseH = H * (H > 1200 ? 0.46 : 0.42);
+    let fontSize = 78;
     let verseLines = [];
     let lineH = 0;
-    while (fontSize >= 28) {
+    while (fontSize >= 30) {
       ctx.font = layout.face.replace('{size}', String(fontSize));
       verseLines = wrapLines(ctx, verseText, maxW);
       lineH = Math.round(fontSize * 1.22);
-      if (verseLines.length * lineH <= targetVerseH && verseLines.length <= 10) break;
+      if (verseLines.length * lineH <= targetVerseH && verseLines.length <= 9) break;
       fontSize -= 2;
     }
-    if (verseLines.length > 10) {
-      verseLines = verseLines.slice(0, 10);
-      verseLines[9] = verseLines[9].replace(/…?$/, '') + '…';
+    if (verseLines.length > 9) {
+      verseLines = verseLines.slice(0, 9);
+      verseLines[8] = verseLines[8].replace(/…?$/, '') + '…';
     }
     const verseBlockH = verseLines.length * lineH;
 
@@ -506,7 +372,7 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     const logoH = 64;
     let logo = null;
     try {
-      logo = await loadImage(boot.logoSrc);
+      logo = await loadImage(clientPayload.logoSrc);
     } catch {
       logo = null;
     }
@@ -532,34 +398,31 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     const contentTop = frameInset + 48;
     const contentBottom = footerTop - 24;
     const available = contentBottom - contentTop;
-    let y =
-      layout.anchor === 'bottom'
-        ? Math.max(contentTop, contentBottom - stackH)
-        : contentTop + Math.max(0, (available - stackH) / 2);
+    let y = contentTop + Math.max(0, (available - stackH) / 2);
     const tx = layout.align === 'center' ? W / 2 : padX;
     ctx.textAlign = layout.align === 'center' ? 'center' : 'left';
 
-    ctx.strokeStyle = hexToRgba(accent, light ? 0.55 : 0.35);
+    ctx.strokeStyle = hexToRgba(palette.accent, 0.35);
     ctx.lineWidth = 1.5;
     ctx.strokeRect(frameInset, frameInset, W - frameInset * 2, H - frameInset * 2);
 
     const lineW = 48;
-    ctx.fillStyle = accent;
+    ctx.fillStyle = palette.accent;
     if (layout.align === 'center') ctx.fillRect(W / 2 - lineW / 2, y, lineW, 2);
     else ctx.fillRect(padX, y, lineW, 2);
     y += accentLineH;
 
-    ctx.fillStyle = accent;
+    ctx.fillStyle = palette.accent;
     ctx.font = layout.kicker;
     ctx.fillText('VERSÍCULO DEL DÍA', tx, y + kickerH);
     y += kickerH + 14;
 
-    ctx.fillStyle = muted;
+    ctx.fillStyle = palette.muted;
     ctx.font = layout.meta;
     ctx.fillText(dateText, tx, y + metaH);
     y += metaH + gap * 1.4;
 
-    ctx.fillStyle = ink;
+    ctx.fillStyle = palette.ink;
     ctx.font = layout.face.replace('{size}', String(fontSize));
     for (const line of verseLines) {
       ctx.fillText(line, tx, y + fontSize * 0.85);
@@ -567,12 +430,12 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     }
     y += gap;
 
-    ctx.fillStyle = accent;
+    ctx.fillStyle = palette.accent;
     ctx.font = `700 ${Math.max(20, Math.round(fontSize * 0.38))}px Manrope, Arial, sans-serif`;
     ctx.fillText(`${verse.reference}  ·  ${verse.version}`, tx, y + refH * 0.7);
     y += refH + gap;
 
-    ctx.fillStyle = muted;
+    ctx.fillStyle = palette.muted;
     ctx.font = layout.meta;
     for (const line of readingLines) {
       ctx.fillText(line, tx, y + 18);
@@ -582,13 +445,15 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     ctx.textAlign = 'left';
     const signatureX = padX;
     const signatureY = footerTop;
-    if (logo) ctx.drawImage(logo, signatureX, signatureY, logoW, logoH);
+    if (logo) {
+      ctx.drawImage(logo, signatureX, signatureY, logoW, logoH);
+    }
     const textX = signatureX + (logo ? logoW + 18 : 0);
     const textMidY = signatureY + logoH / 2;
-    ctx.fillStyle = ink;
+    ctx.fillStyle = palette.ink;
     ctx.font = '600 26px "Source Serif 4", Georgia, serif';
     ctx.fillText('Gethsemaní', textX, textMidY - 6);
-    ctx.fillStyle = muted;
+    ctx.fillStyle = palette.muted;
     ctx.font = '600 15px Manrope, Arial, sans-serif';
     ctx.fillText('Iglesia Presbiteriana Reformada', textX, textMidY + 18);
 
@@ -601,8 +466,8 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     });
   }
 
-  async function ensureShareCard(force = false) {
-    if (cardReady && !force) return canvas;
+  async function ensureShareCard() {
+    if (cardReady) return canvas;
     try {
       await document.fonts?.ready;
     } catch {
@@ -613,37 +478,19 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     return drawn;
   }
 
-  async function changeStyle(delta) {
-    layoutIndex = (layoutIndex + delta + cardLayouts.length) % cardLayouts.length;
-    updateStyleLabel();
-    cardReady = false;
-    await ensureShareCard(true);
-  }
-
   shareToggle?.addEventListener('click', async () => {
     if (!(sharePanel instanceof HTMLElement) || !(shareToggle instanceof HTMLButtonElement)) return;
     const willOpen = sharePanel.hidden;
     sharePanel.hidden = !willOpen;
     shareToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
     if (willOpen) {
-      try {
-        if (!catalog) await loadCatalog();
-        await loadThemes();
-      } catch {
-        showFeedback('No se pudo preparar la imagen. Revisa tu conexión.');
-        return;
-      }
-      await ensureShareCard(true);
+      await ensureShareCard();
       sharePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   });
 
-  stylePrev?.addEventListener('click', () => changeStyle(-1));
-  styleNext?.addEventListener('click', () => changeStyle(1));
-
   copyBtn?.addEventListener('click', async () => {
     try {
-      if (!shareText) await loadCatalog();
       await navigator.clipboard.writeText(shareText);
       if (copyLabel) copyLabel.textContent = '¡Copiado!';
       showFeedback('Texto copiado al portapapeles.');
@@ -656,15 +503,8 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
   });
 
   downloadBtn?.addEventListener('click', async () => {
-    try {
-      if (!catalog) await loadCatalog();
-      await loadThemes();
-    } catch {
-      showFeedback('No se pudo preparar la imagen. Revisa tu conexión.');
-      return;
-    }
     const drawn = await ensureShareCard();
-    if (!(drawn instanceof HTMLCanvasElement) || !reading) return;
+    if (!(drawn instanceof HTMLCanvasElement)) return;
     const link = document.createElement('a');
     link.download = `versiculo-del-dia-${reading.day}.png`;
     link.href = drawn.toDataURL('image/png');
@@ -676,8 +516,6 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
     copyImageBtn.hidden = false;
     copyImageBtn.addEventListener('click', async () => {
       try {
-        if (!catalog) await loadCatalog();
-        await loadThemes();
         const drawn = await ensureShareCard();
         if (!(drawn instanceof HTMLCanvasElement)) return;
         const blob = await canvasToBlob(drawn);
@@ -693,41 +531,4 @@ const boot = { catalogUrl, themesUrl, planUrl, logoSrc, fallbackBgSrc };
       }
     });
   }
-
-  const refresh = () => {
-    loadCatalog().catch(() => {
-      /* SSR fallback remains visible until the next successful fetch */
-    });
-  };
-
-  function msUntilNextMexicoMidnight(from = new Date()) {
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Mexico_City',
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      hourCycle: 'h23',
-    }).formatToParts(from);
-    const get = (type) => Number(parts.find((part) => part.type === type)?.value);
-    const elapsed =
-      ((get('hour') * 60 + get('minute')) * 60 + get('second')) * 1000 +
-      (from.getMilliseconds() || 0);
-    return 86_400_000 - elapsed + 1500;
-  }
-
-  function scheduleMidnightRefresh() {
-    window.setTimeout(() => {
-      location.reload();
-    }, msUntilNextMexicoMidnight());
-  }
-
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(refresh, { timeout: 900 });
-  } else {
-    window.setTimeout(refresh, 120);
-  }
-  scheduleMidnightRefresh();
 </script>
