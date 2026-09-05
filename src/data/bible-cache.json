@@ -1,4 +1,101 @@
 {
+  "scripture-1-corintios-15-1-10": {
+    "id": "scripture-1-corintios-15-1-10",
+    "kind": "scripture",
+    "title": "1 Corintios 15:1-10",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Además os declaro, hermanos, el evangelio que os he predicado, el cual también recibisteis, en el cual también perseveráis;"
+      },
+      {
+        "number": 2,
+        "text": "por el cual asimismo, si retenéis la palabra que os he predicado, sois salvos, si no creísteis en vano."
+      },
+      {
+        "number": 3,
+        "text": "Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras;"
+      },
+      {
+        "number": 4,
+        "text": "y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras;"
+      },
+      {
+        "number": 5,
+        "text": "y que apareció a Cefas, y después a los doce."
+      },
+      {
+        "number": 6,
+        "text": "Después apareció a más de quinientos hermanos a la vez, de los cuales muchos viven aún, y otros ya duermen."
+      },
+      {
+        "number": 7,
+        "text": "Después apareció a Jacobo; después a todos los apóstoles;"
+      },
+      {
+        "number": 8,
+        "text": "y al último de todos, como a un abortivo, me apareció a mí."
+      },
+      {
+        "number": 9,
+        "text": "Porque yo soy el más pequeño de los apóstoles, que no soy digno de ser llamado apóstol, porque perseguí a la iglesia de Dios."
+      },
+      {
+        "number": 10,
+        "text": "Pero por la gracia de Dios soy lo que soy; y su gracia no ha sido en vano para conmigo, antes he trabajado más que todos ellos; pero no yo, sino la gracia de Dios conmigo."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-corintios/15/1-10",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Corintios%2015%3A1-10&version=RVR1960"
+  },
+  "scripture-1-pedro-2-24-25": {
+    "id": "scripture-1-pedro-2-24-25",
+    "kind": "scripture",
+    "title": "1 Pedro 2:24-25",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 24,
+        "text": "quien llevó él mismo nuestros pecados en su cuerpo sobre el madero, para que nosotros, estando muertos a los pecados, vivamos a la justicia; y por cuya herida fuisteis sanados."
+      },
+      {
+        "number": 25,
+        "text": "Porque vosotros erais como ovejas descarriadas, pero ahora habéis vuelto al Pastor y Obispo de vuestras almas."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-pedro/2/24-25",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Pedro%202%3A24-25&version=RVR1960"
+  },
+  "scripture-2-corintios-13-11-14": {
+    "id": "scripture-2-corintios-13-11-14",
+    "kind": "scripture",
+    "title": "2 Corintios 13:11-14",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 11,
+        "text": "Por lo demás, hermanos, tened gozo, perfeccionaos, consolaos, sed de un mismo sentir, y vivid en paz; y el Dios de paz y de amor estará con vosotros."
+      },
+      {
+        "number": 12,
+        "text": "Saludaos unos a otros con ósculo santo."
+      },
+      {
+        "number": 13,
+        "text": "Todos los santos os saludan."
+      },
+      {
+        "number": 14,
+        "text": "La gracia del Señor Jesucristo, el amor de Dios, y la comunión del Espíritu Santo sean con todos vosotros. Amén."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-corintios/13/11-14",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Corintios%2013%3A11-14&version=RVR1960"
+  },
   "scripture-2-corintios-9-7-7": {
     "id": "scripture-2-corintios-9-7-7",
     "kind": "scripture",
@@ -28,5 +125,273 @@
     "apiUrl": "https://api.midvash.com/v1/rvr1960/2-pedro/3/18",
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Pedro%203%3A18&version=RVR1960"
+  },
+  "scripture-mateo-11-28-30": {
+    "id": "scripture-mateo-11-28-30",
+    "kind": "scripture",
+    "title": "Mateo 11:28-30",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 28,
+        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar."
+      },
+      {
+        "number": 29,
+        "text": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;"
+      },
+      {
+        "number": 30,
+        "text": "porque mi yugo es fácil, y ligera mi carga."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/11/28-30",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%2011%3A28-30&version=RVR1960"
+  },
+  "scripture-mateo-28-5-10": {
+    "id": "scripture-mateo-28-5-10",
+    "kind": "scripture",
+    "title": "Mateo 28:5-10",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 5,
+        "text": "Mas el ángel, respondiendo, dijo a las mujeres: No temáis vosotras; porque yo sé que buscáis a Jesús, el que fue crucificado."
+      },
+      {
+        "number": 6,
+        "text": "No está aquí, pues ha resucitado, como dijo. Venid, ved el lugar donde fue puesto el Señor."
+      },
+      {
+        "number": 7,
+        "text": "E id pronto y decid a sus discípulos que ha resucitado de los muertos, y he aquí va delante de vosotros a Galilea; allí le veréis. He aquí, os lo he dicho."
+      },
+      {
+        "number": 8,
+        "text": "Entonces ellas, saliendo del sepulcro con temor y gran gozo, fueron corriendo a dar las nuevas a sus discípulos. Y mientras iban a dar las nuevas a los discípulos,"
+      },
+      {
+        "number": 9,
+        "text": "he aquí, Jesús les salió al encuentro, diciendo: ¡Salve! Y ellas, acercándose, abrazaron sus pies, y le adoraron."
+      },
+      {
+        "number": 10,
+        "text": "Entonces Jesús les dijo: No temáis; id, dad las nuevas a mis hermanos, para que vayan a Galilea, y allí me verán."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/28/5-10",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%2028%3A5-10&version=RVR1960"
+  },
+  "scripture-mateo-6-9-13": {
+    "id": "scripture-mateo-6-9-13",
+    "kind": "scripture",
+    "title": "Mateo 6:9-13",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 9,
+        "text": "Vosotros, pues, oraréis así: Padre nuestro que estás en los cielos, santificado sea tu nombre."
+      },
+      {
+        "number": 10,
+        "text": "Venga tu reino. Hágase tu voluntad, como en el cielo, así también en la tierra."
+      },
+      {
+        "number": 11,
+        "text": "El pan nuestro de cada día, dánoslo hoy."
+      },
+      {
+        "number": 12,
+        "text": "Y perdónanos nuestras deudas, como también nosotros perdonamos a nuestros deudores."
+      },
+      {
+        "number": 13,
+        "text": "Y no nos metas en tentación, mas líbranos del mal; porque tuyo es el reino, y el poder, y la gloria, por todos los siglos. Amén."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/6/9-13",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%206%3A9-13&version=RVR1960"
+  },
+  "scripture-salmos-16-all-": {
+    "id": "scripture-salmos-16-all-",
+    "kind": "scripture",
+    "title": "Salmo 16",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Guárdame, oh Dios, porque en ti he confiado."
+      },
+      {
+        "number": 2,
+        "text": "Oh alma mía, dijiste a Jehová: Tú eres mi Señor; No hay para mí bien fuera de ti."
+      },
+      {
+        "number": 3,
+        "text": "Para los santos que están en la tierra, Y para los íntegros, es toda mi complacencia."
+      },
+      {
+        "number": 4,
+        "text": "Se multiplicarán los dolores de aquellos que sirven diligentes a otro dios. No ofreceré yo sus libaciones de sangre, Ni en mis labios tomaré sus nombres."
+      },
+      {
+        "number": 5,
+        "text": "Jehová es la porción de mi herencia y de mi copa; Tú sustentas mi suerte."
+      },
+      {
+        "number": 6,
+        "text": "Las cuerdas me cayeron en lugares deleitosos, Y es hermosa la heredad que me ha tocado."
+      },
+      {
+        "number": 7,
+        "text": "Bendeciré a Jehová que me aconseja; Aun en las noches me enseña mi conciencia."
+      },
+      {
+        "number": 8,
+        "text": "A Jehová he puesto siempre delante de mí; Porque está a mi diestra, no seré conmovido."
+      },
+      {
+        "number": 9,
+        "text": "Se alegró por tanto mi corazón, y se gozó mi alma; Mi carne también reposará confiadamente;"
+      },
+      {
+        "number": 10,
+        "text": "Porque no dejarás mi alma en el Seol, Ni permitirás que tu santo vea corrupción."
+      },
+      {
+        "number": 11,
+        "text": "Me mostrarás la senda de la vida; En tu presencia hay plenitud de gozo; Delicias a tu diestra para siempre."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/16",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2016&version=RVR1960"
+  },
+  "scripture-salmos-23-1-3": {
+    "id": "scripture-salmos-23-1-3",
+    "kind": "scripture",
+    "title": "Salmo 23:1-3",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Jehová es mi pastor; nada me faltará."
+      },
+      {
+        "number": 2,
+        "text": "En lugares de delicados pastos me hará descansar; Junto a aguas de reposo me pastoreará."
+      },
+      {
+        "number": 3,
+        "text": "Confortará mi alma; Me guiará por sendas de justicia por amor de su nombre."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/1-3",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A1-3&version=RVR1960"
+  },
+  "scripture-salmos-23-3-3": {
+    "id": "scripture-salmos-23-3-3",
+    "kind": "scripture",
+    "title": "Salmo 23:3",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 3,
+        "text": "Confortará mi alma; Me guiará por sendas de justicia por amor de su nombre."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/3",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A3&version=RVR1960"
+  },
+  "scripture-salmos-23-all-": {
+    "id": "scripture-salmos-23-all-",
+    "kind": "scripture",
+    "title": "Salmo 23",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Jehová es mi pastor; nada me faltará."
+      },
+      {
+        "number": 2,
+        "text": "En lugares de delicados pastos me hará descansar; Junto a aguas de reposo me pastoreará."
+      },
+      {
+        "number": 3,
+        "text": "Confortará mi alma; Me guiará por sendas de justicia por amor de su nombre."
+      },
+      {
+        "number": 4,
+        "text": "Aunque ande en valle de sombra de muerte, No temeré mal alguno, porque tú estarás conmigo; Tu vara y tu cayado me infundirán aliento."
+      },
+      {
+        "number": 5,
+        "text": "Aderezas mesa delante de mí en presencia de mis angustiadores; Unges mi cabeza con aceite; mi copa está rebosando."
+      },
+      {
+        "number": 6,
+        "text": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, Y en la casa de Jehová moraré por largos días."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023&version=RVR1960"
+  },
+  "scripture-salmos-25-1-10": {
+    "id": "scripture-salmos-25-1-10",
+    "kind": "scripture",
+    "title": "Salmo 25:1-10",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "A ti, oh Jehová, levantaré mi alma."
+      },
+      {
+        "number": 2,
+        "text": "Dios mío, en ti confío; No sea yo avergonzado, No se alegren de mí mis enemigos."
+      },
+      {
+        "number": 3,
+        "text": "Ciertamente ninguno de cuantos esperan en ti será confundido; Serán avergonzados los que se rebelan sin causa."
+      },
+      {
+        "number": 4,
+        "text": "Muéstrame, oh Jehová, tus caminos; Enséñame tus sendas."
+      },
+      {
+        "number": 5,
+        "text": "Encamíname en tu verdad, y enséñame, Porque tú eres el Dios de mi salvación; En ti he esperado todo el día."
+      },
+      {
+        "number": 6,
+        "text": "Acuérdate, oh Jehová, de tus piedades y de tus misericordias, Que son perpetuas."
+      },
+      {
+        "number": 7,
+        "text": "De los pecados de mi juventud, y de mis rebeliones, no te acuerdes; Conforme a tu misericordia acuérdate de mí, Por tu bondad, oh Jehová."
+      },
+      {
+        "number": 8,
+        "text": "Bueno y recto es Jehová; Por tanto, él enseñará a los pecadores el camino."
+      },
+      {
+        "number": 9,
+        "text": "Encaminará a los humildes por el juicio, Y enseñará a los mansos su carrera."
+      },
+      {
+        "number": 10,
+        "text": "Todas las sendas de Jehová son misericordia y verdad, Para los que guardan su pacto y sus testimonios."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/25/1-10",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2025%3A1-10&version=RVR1960"
   }
 }

@@ -14,11 +14,11 @@ const variants = [
     quality: 82,
   },
   {
-    input: 'public/images/sermons/provision-paz-reposo-salmo-23.jpg',
+    input: 'public/images/sermons/estancamiento-espiritual-mateo-13.jpg',
     outputs: [
-      ['public/images/optimized/provision-paz-reposo-salmo-23-640.webp', 640],
-      ['public/images/optimized/provision-paz-reposo-salmo-23-960.webp', 960],
-      ['public/images/optimized/provision-paz-reposo-salmo-23-1280.webp', 1280],
+      ['public/images/optimized/estancamiento-espiritual-mateo-13-640.webp', 640],
+      ['public/images/optimized/estancamiento-espiritual-mateo-13-960.webp', 960],
+      ['public/images/optimized/estancamiento-espiritual-mateo-13-1280.webp', 1280],
     ],
     quality: 86,
   },

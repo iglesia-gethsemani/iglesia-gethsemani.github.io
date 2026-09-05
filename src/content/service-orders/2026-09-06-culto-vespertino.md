@@ -1,25 +1,25 @@
 ---
 title: Culto vespertino de adoración
-date: 2026-08-30T18:00:00-06:00
+date: 2026-09-06T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: Restauración y dirección
-sermonPassage: Salmo 23:3
-preacher: A.G. Hazael Cordova Ruiz
+sermonTitle: ¿Eres Gayo, Demetrio o Diótrefes?
+sermonPassage: 3 Juan
+preacher: Hna. Beatriz Samantha Hernández
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 25:1-10
+    detail: Salmo 133
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 2 “A Dios sea la gloria”
+    title: Himno No. 511 “Dulce comunión”
   - label: Palabra
     title: Lectura devocional
-    detail: 1 Pedro 2:24-25
+    detail: Efesios 4:1-6
   - label: Oración
     title: Momentos de oración
   - label: Adoración
@@ -27,19 +27,19 @@ elements:
     detail: Tres himnos a escoger
   - label: Palabra
     title: Lectura bíblica
-    detail: Salmo 23:3
+    detail: 3 Juan
   - label: Palabra
-    title: Mensaje “Restauración y dirección”
-    detail: A.G. Hazael Cordova Ruiz
+    title: Mensaje “¿Eres Gayo, Demetrio o Diótrefes?”
+    detail: Hna. Beatriz Samantha Hernández
   - label: Ofrendas
     title: Himno No. 438 “Los panes y los peces”
   - label: Comunidad
     title: Avisos
   - label: Envío
     title: Bendición
-    detail: 2 Corintios 13:11-14
+    detail: 2 Tesalonicenses 3:16
   - label: Envío
-    title: Doxología No. 579 “Pastor, te bendigo”
+    title: Doxología No. 450 “Dios te bendiga”
   - label: Dirección
     title: Diácono Roberto Gómez Valdez
 ---
