@@ -1,37 +1,37 @@
 ---
 title: Escuela Dominical Superior “Antioquía”
-date: 2026-09-06T10:30:00-06:00
+date: 2026-09-13T10:30:00-06:00
 time: "10:30"
 location: Templo Gethsemaní
-theme: Introducción a los evangelios
-sermonTitle: Clase 31 “Evangelio de Juan”, capítulo 21
-sermonPassage: Ezequiel 34:11-15
-preacher: Hna. Gladis Hernández Solís
+theme: Repaso de los evangelios
+sermonTitle: Repaso de los evangelios
+sermonPassage: Mateo 13:23-30
+preacher: A.G. Efrén Haro Hernández
 published: true
 elements:
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 80
+    detail: Salmo 65:1-8
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 50 “Grande es tu fidelidad”
+    title: Himno No. 366 “Dios cuidará de ti”
   - label: Palabra
     title: Lectura devocional
-    detail: 1 Pedro 5:1-4
+    detail: Miqueas 6:6-16
   - label: Adoración
-    title: Himno No. 79 “Con cánticos, Señor”
+    title: Himno No. 526 “Da lo mejor al Maestro”
   - label: Estudio
     title: Texto de estudio
-    detail: Ezequiel 34:11-15
+    detail: Mateo 13:23-30
   - label: Estudio
-    title: Introducción a los evangelios
-    detail: Clase 31 “Evangelio de Juan”, capítulo 21 · Hna. Gladis Hernández Solís
+    title: Repaso de los evangelios
+    detail: A.G. Efrén Haro Hernández
   - label: Comunidad
     title: Avisos
   - label: Envío
     title: Bendición de la Escuela Dominical
     detail: 2 Pedro 3:18
   - label: Dirección
-    title: Rubén Gregorio Marcelo
+    title: A.G. Efrén Haro Hernández
 ---

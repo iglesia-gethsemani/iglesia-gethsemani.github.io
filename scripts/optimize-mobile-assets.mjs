@@ -14,11 +14,11 @@ const variants = [
     quality: 82,
   },
   {
-    input: 'public/images/sermons/estancamiento-espiritual-mateo-13.jpg',
+    input: 'public/images/sermons/nuestra-libertad-hebreos-12.jpg',
     outputs: [
-      ['public/images/optimized/estancamiento-espiritual-mateo-13-640.webp', 640],
-      ['public/images/optimized/estancamiento-espiritual-mateo-13-960.webp', 960],
-      ['public/images/optimized/estancamiento-espiritual-mateo-13-1280.webp', 1280],
+      ['public/images/optimized/nuestra-libertad-hebreos-12-640.webp', 640],
+      ['public/images/optimized/nuestra-libertad-hebreos-12-960.webp', 960],
+      ['public/images/optimized/nuestra-libertad-hebreos-12-1280.webp', 1280],
     ],
     quality: 86,
   },

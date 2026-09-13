@@ -1,25 +1,25 @@
 ---
 title: Culto vespertino de adoración
-date: 2026-09-06T18:00:00-06:00
+date: 2026-09-13T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: ¿Eres Gayo, Demetrio o Diótrefes?
-sermonPassage: 3 Juan
-preacher: Hna. Beatriz Samantha Hernández
+sermonTitle: Un verdadero adorador
+sermonPassage: Juan 4:23-24
+preacher: Min. Music. Karla Patricia Santiago Flores
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 133
+    detail: Salmo 95
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 511 “Dulce comunión”
+    title: Himno No. 76 “A Dios adorad”
   - label: Palabra
     title: Lectura devocional
-    detail: Efesios 4:1-6
+    detail: Gálatas 4:1-16
   - label: Oración
     title: Momentos de oración
   - label: Adoración
@@ -27,19 +27,19 @@ elements:
     detail: Tres himnos a escoger
   - label: Palabra
     title: Lectura bíblica
-    detail: 3 Juan
+    detail: Juan 4:23-24
   - label: Palabra
-    title: Mensaje “¿Eres Gayo, Demetrio o Diótrefes?”
-    detail: Hna. Beatriz Samantha Hernández
+    title: Mensaje “Un verdadero adorador”
+    detail: Min. Music. Karla Patricia Santiago Flores
   - label: Ofrendas
     title: Himno No. 438 “Los panes y los peces”
   - label: Comunidad
     title: Avisos
   - label: Envío
     title: Bendición
-    detail: 2 Tesalonicenses 3:16
+    detail: Mateo 6:9-13
   - label: Envío
     title: Doxología No. 450 “Dios te bendiga”
   - label: Dirección
-    title: Diácono Roberto Gómez Valdez
+    title: Diáconos
 ---

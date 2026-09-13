@@ -1,100 +1,161 @@
 {
-  "scripture-1-corintios-15-1-10": {
-    "id": "scripture-1-corintios-15-1-10",
+  "scripture-1-pedro-5-1-4": {
+    "id": "scripture-1-pedro-5-1-4",
     "kind": "scripture",
-    "title": "1 Corintios 15:1-10",
+    "title": "1 Pedro 5:1-4",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Además os declaro, hermanos, el evangelio que os he predicado, el cual también recibisteis, en el cual también perseveráis;"
+        "text": "Ruego a los ancianos que están entre vosotros, yo anciano también con ellos, y testigo de los padecimientos de Cristo, que soy también participante de la gloria que será revelada:"
       },
       {
         "number": 2,
-        "text": "por el cual asimismo, si retenéis la palabra que os he predicado, sois salvos, si no creísteis en vano."
+        "text": "Apacentad la grey de Dios que está entre vosotros, cuidando de ella, no por fuerza, sino voluntariamente; no por ganancia deshonesta, sino con ánimo pronto;"
       },
       {
         "number": 3,
-        "text": "Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras;"
+        "text": "no como teniendo señorío sobre los que están a vuestro cuidado, sino siendo ejemplos de la grey."
       },
       {
         "number": 4,
-        "text": "y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras;"
+        "text": "Y cuando aparezca el Príncipe de los pastores, vosotros recibiréis la corona incorruptible de gloria."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-pedro/5/1-4",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Pedro%205%3A1-4&version=RVR1960"
+  },
+  "scripture-1-samuel-25-1-30": {
+    "id": "scripture-1-samuel-25-1-30",
+    "kind": "scripture",
+    "title": "1 Samuel 25:1-30",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Murió Samuel, y se juntó todo Israel, y lo lloraron, y lo sepultaron en su casa en Ramá. Y se levantó David y se fue al desierto de Parán."
+      },
+      {
+        "number": 2,
+        "text": "Y en Maón había un hombre que tenía su hacienda en Carmel, el cual era muy rico, y tenía tres mil ovejas y mil cabras. Y aconteció que estaba esquilando sus ovejas en Carmel."
+      },
+      {
+        "number": 3,
+        "text": "Y aquel varón se llamaba Nabal, y su mujer, Abigail. Era aquella mujer de buen entendimiento y de hermosa apariencia, pero el hombre era duro y de malas obras; y era del linaje de Caleb."
+      },
+      {
+        "number": 4,
+        "text": "Y oyó David en el desierto que Nabal esquilaba sus ovejas."
       },
       {
         "number": 5,
-        "text": "y que apareció a Cefas, y después a los doce."
+        "text": "Entonces envió David diez jóvenes y les dijo: Subid a Carmel e id a Nabal, y saludadle en mi nombre,"
       },
       {
         "number": 6,
-        "text": "Después apareció a más de quinientos hermanos a la vez, de los cuales muchos viven aún, y otros ya duermen."
+        "text": "y decidle así: Sea paz a ti, y paz a tu familia, y paz a todo cuanto tienes."
       },
       {
         "number": 7,
-        "text": "Después apareció a Jacobo; después a todos los apóstoles;"
+        "text": "He sabido que tienes esquiladores. Ahora, tus pastores han estado con nosotros; no les tratamos mal, ni les faltó nada en todo el tiempo que han estado en Carmel."
       },
       {
         "number": 8,
-        "text": "y al último de todos, como a un abortivo, me apareció a mí."
+        "text": "Pregunta a tus criados, y ellos te lo dirán. Hallen, por tanto, estos jóvenes gracia en tus ojos, porque hemos venido en buen día; te ruego que des lo que tuvieres a mano a tus siervos, y a tu hijo David."
       },
       {
         "number": 9,
-        "text": "Porque yo soy el más pequeño de los apóstoles, que no soy digno de ser llamado apóstol, porque perseguí a la iglesia de Dios."
+        "text": "Cuando llegaron los jóvenes enviados por David, dijeron a Nabal todas estas palabras en nombre de David, y callaron."
       },
       {
         "number": 10,
-        "text": "Pero por la gracia de Dios soy lo que soy; y su gracia no ha sido en vano para conmigo, antes he trabajado más que todos ellos; pero no yo, sino la gracia de Dios conmigo."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-corintios/15/1-10",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Corintios%2015%3A1-10&version=RVR1960"
-  },
-  "scripture-1-pedro-2-24-25": {
-    "id": "scripture-1-pedro-2-24-25",
-    "kind": "scripture",
-    "title": "1 Pedro 2:24-25",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 24,
-        "text": "quien llevó él mismo nuestros pecados en su cuerpo sobre el madero, para que nosotros, estando muertos a los pecados, vivamos a la justicia; y por cuya herida fuisteis sanados."
+        "text": "Y Nabal respondió a los jóvenes enviados por David, y dijo: ¿Quién es David, y quién es el hijo de Isaí? Muchos siervos hay hoy que huyen de sus señores."
       },
       {
-        "number": 25,
-        "text": "Porque vosotros erais como ovejas descarriadas, pero ahora habéis vuelto al Pastor y Obispo de vuestras almas."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-pedro/2/24-25",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Pedro%202%3A24-25&version=RVR1960"
-  },
-  "scripture-2-corintios-13-11-14": {
-    "id": "scripture-2-corintios-13-11-14",
-    "kind": "scripture",
-    "title": "2 Corintios 13:11-14",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
         "number": 11,
-        "text": "Por lo demás, hermanos, tened gozo, perfeccionaos, consolaos, sed de un mismo sentir, y vivid en paz; y el Dios de paz y de amor estará con vosotros."
+        "text": "¿He de tomar yo ahora mi pan, mi agua, y la carne que he preparado para mis esquiladores, y darla a hombres que no sé de dónde son?"
       },
       {
         "number": 12,
-        "text": "Saludaos unos a otros con ósculo santo."
+        "text": "Y los jóvenes que había enviado David se volvieron por su camino, y vinieron y dijeron a David todas estas palabras."
       },
       {
         "number": 13,
-        "text": "Todos los santos os saludan."
+        "text": "Entonces David dijo a sus hombres: Cíñase cada uno su espada. Y se ciñó cada uno su espada y también David se ciñó su espada; y subieron tras David como cuatrocientos hombres, y dejaron doscientos con el bagaje."
       },
       {
         "number": 14,
-        "text": "La gracia del Señor Jesucristo, el amor de Dios, y la comunión del Espíritu Santo sean con todos vosotros. Amén."
+        "text": "Pero uno de los criados dio aviso a Abigail mujer de Nabal, diciendo: He aquí David envió mensajeros del desierto que saludasen a nuestro amo, y él los ha zaherido."
+      },
+      {
+        "number": 15,
+        "text": "Y aquellos hombres han sido muy buenos con nosotros, y nunca nos trataron mal, ni nos faltó nada en todo el tiempo que anduvimos con ellos, cuando estábamos en el campo."
+      },
+      {
+        "number": 16,
+        "text": "Muro fueron para nosotros de día y de noche, todos los días que hemos estado con ellos apacentando las ovejas."
+      },
+      {
+        "number": 17,
+        "text": "Ahora, pues, reflexiona y ve lo que has de hacer, porque el mal está ya resuelto contra nuestro amo y contra toda su casa; pues él es un hombre tan perverso, que no hay quien pueda hablarle."
+      },
+      {
+        "number": 18,
+        "text": "Entonces Abigail tomó luego doscientos panes, dos cueros de vino, cinco ovejas guisadas, cinco medidas de grano tostado, cien racimos de uvas pasas, y doscientos panes de higos secos, y lo cargó todo en asnos."
+      },
+      {
+        "number": 19,
+        "text": "Y dijo a sus criados: Id delante de mí, y yo os seguiré luego; y nada declaró a su marido Nabal."
+      },
+      {
+        "number": 20,
+        "text": "Y montando un asno, descendió por una parte secreta del monte; y he aquí David y sus hombres venían frente a ella, y ella les salió al encuentro."
+      },
+      {
+        "number": 21,
+        "text": "Y David había dicho: Ciertamente en vano he guardado todo lo que éste tiene en el desierto, sin que nada le haya faltado de todo cuanto es suyo; y él me ha vuelto mal por bien."
+      },
+      {
+        "number": 22,
+        "text": "Así haga Dios a los enemigos de David y aun les añada, que de aquí a mañana, de todo lo que fuere suyo no he de dejar con vida ni un varón."
+      },
+      {
+        "number": 23,
+        "text": "Y cuando Abigail vio a David, se bajó prontamente del asno, y postrándose sobre su rostro delante de David, se inclinó a tierra;"
+      },
+      {
+        "number": 24,
+        "text": "y se echó a sus pies, y dijo: Señor mío, sobre mí sea el pecado; mas te ruego que permitas que tu sierva hable a tus oídos, y escucha las palabras de tu sierva."
+      },
+      {
+        "number": 25,
+        "text": "No haga caso ahora mi señor de ese hombre perverso, de Nabal; porque conforme a su nombre, así es. El se llama Nabal, y la insensatez está con él; mas yo tu sierva no vi a los jóvenes que tú enviaste."
+      },
+      {
+        "number": 26,
+        "text": "Ahora pues, señor mío, vive Jehová, y vive tu alma, que Jehová te ha impedido el venir a derramar sangre y vengarte por tu propia mano. Sean, pues, como Nabal tus enemigos, y todos los que procuran mal contra mi señor."
+      },
+      {
+        "number": 27,
+        "text": "Y ahora este presente que tu sierva ha traído a mi señor, sea dado a los hombres que siguen a mi señor."
+      },
+      {
+        "number": 28,
+        "text": "Y yo te ruego que perdones a tu sierva esta ofensa; pues Jehová de cierto hará casa estable a mi señor, por cuanto mi señor pelea las batallas de Jehová, y mal no se ha hallado en ti en tus días."
+      },
+      {
+        "number": 29,
+        "text": "Aunque alguien se haya levantado para perseguirte y atentar contra tu vida, con todo, la vida de mi señor será ligada en el haz de los que viven delante de Jehová tu Dios, y él arrojará la vida de tus enemigos como de en medio de la palma de una honda."
+      },
+      {
+        "number": 30,
+        "text": "Y acontecerá que cuando Jehová haga con mi señor conforme a todo el bien que ha hablado de ti, y te establezca por príncipe sobre Israel,"
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-corintios/13/11-14",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-samuel/25/1-30",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Corintios%2013%3A11-14&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Samuel%2025%3A1-30&version=RVR1960"
   },
   "scripture-2-corintios-9-7-7": {
     "id": "scripture-2-corintios-9-7-7",
@@ -126,63 +187,109 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Pedro%203%3A18&version=RVR1960"
   },
-  "scripture-mateo-11-28-30": {
-    "id": "scripture-mateo-11-28-30",
+  "scripture-2-tesalonicenses-3-16-16": {
+    "id": "scripture-2-tesalonicenses-3-16-16",
     "kind": "scripture",
-    "title": "Mateo 11:28-30",
+    "title": "2 Tesalonicenses 3:16",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
-        "number": 28,
-        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar."
-      },
-      {
-        "number": 29,
-        "text": "Llevad mi yugo sobre vosotros, y aprended de mí, que soy manso y humilde de corazón; y hallaréis descanso para vuestras almas;"
-      },
-      {
-        "number": 30,
-        "text": "porque mi yugo es fácil, y ligera mi carga."
+        "number": 16,
+        "text": "Y el mismo Señor de paz os dé siempre paz en toda manera. El Señor sea con todos vosotros."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/11/28-30",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-tesalonicenses/3/16",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%2011%3A28-30&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Tesalonicenses%203%3A16&version=RVR1960"
   },
-  "scripture-mateo-28-5-10": {
-    "id": "scripture-mateo-28-5-10",
+  "scripture-efesios-4-1-6": {
+    "id": "scripture-efesios-4-1-6",
     "kind": "scripture",
-    "title": "Mateo 28:5-10",
+    "title": "Efesios 4:1-6",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
+        "number": 1,
+        "text": "Yo pues, preso en el Señor, os ruego que andéis como es digno de la vocación con que fuisteis llamados,"
+      },
+      {
+        "number": 2,
+        "text": "con toda humildad y mansedumbre, soportándoos con paciencia los unos a los otros en amor,"
+      },
+      {
+        "number": 3,
+        "text": "solícitos en guardar la unidad del Espíritu en el vínculo de la paz;"
+      },
+      {
+        "number": 4,
+        "text": "un cuerpo, y un Espíritu, como fuisteis también llamados en una misma esperanza de vuestra vocación;"
+      },
+      {
         "number": 5,
-        "text": "Mas el ángel, respondiendo, dijo a las mujeres: No temáis vosotras; porque yo sé que buscáis a Jesús, el que fue crucificado."
+        "text": "un Señor, una fe, un bautismo,"
       },
       {
         "number": 6,
-        "text": "No está aquí, pues ha resucitado, como dijo. Venid, ved el lugar donde fue puesto el Señor."
-      },
-      {
-        "number": 7,
-        "text": "E id pronto y decid a sus discípulos que ha resucitado de los muertos, y he aquí va delante de vosotros a Galilea; allí le veréis. He aquí, os lo he dicho."
-      },
-      {
-        "number": 8,
-        "text": "Entonces ellas, saliendo del sepulcro con temor y gran gozo, fueron corriendo a dar las nuevas a sus discípulos. Y mientras iban a dar las nuevas a los discípulos,"
-      },
-      {
-        "number": 9,
-        "text": "he aquí, Jesús les salió al encuentro, diciendo: ¡Salve! Y ellas, acercándose, abrazaron sus pies, y le adoraron."
-      },
-      {
-        "number": 10,
-        "text": "Entonces Jesús les dijo: No temáis; id, dad las nuevas a mis hermanos, para que vayan a Galilea, y allí me verán."
+        "text": "un Dios y Padre de todos, el cual es sobre todos, y por todos, y en todos."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/28/5-10",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/efesios/4/1-6",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%2028%3A5-10&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Efesios%204%3A1-6&version=RVR1960"
+  },
+  "scripture-ezequiel-34-11-15": {
+    "id": "scripture-ezequiel-34-11-15",
+    "kind": "scripture",
+    "title": "Ezequiel 34:11-15",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 11,
+        "text": "Porque así ha dicho Jehová el Señor: He aquí yo, yo mismo iré a buscar mis ovejas, y las reconoceré."
+      },
+      {
+        "number": 12,
+        "text": "Como reconoce su rebaño el pastor el día que está en medio de sus ovejas esparcidas, así reconoceré mis ovejas, y las libraré de todos los lugares en que fueron esparcidas el día del nublado y de la oscuridad."
+      },
+      {
+        "number": 13,
+        "text": "Y yo las sacaré de los pueblos, y las juntaré de las tierras; las traeré a su propia tierra, y las apacentaré en los montes de Israel, por las riberas, y en todos los lugares habitados del país."
+      },
+      {
+        "number": 14,
+        "text": "En buenos pastos las apacentaré, y en los altos montes de Israel estará su aprisco; allí dormirán en buen redil, y en pastos suculentos serán apacentadas sobre los montes de Israel."
+      },
+      {
+        "number": 15,
+        "text": "Yo apacentaré mis ovejas, y yo les daré aprisco, dice Jehová el Señor."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/ezequiel/34/11-15",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Ezequiel%2034%3A11-15&version=RVR1960"
+  },
+  "scripture-mateo-13-13-15": {
+    "id": "scripture-mateo-13-13-15",
+    "kind": "scripture",
+    "title": "Mateo 13:13-15",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 13,
+        "text": "Por eso les hablo por parábolas: porque viendo no ven, y oyendo no oyen, ni entienden."
+      },
+      {
+        "number": 14,
+        "text": "De manera que se cumple en ellos la profecía de Isaías, que dijo: De oído oiréis, y no entenderéis; Y viendo veréis, y no percibiréis."
+      },
+      {
+        "number": 15,
+        "text": "Porque el corazón de este pueblo se ha engrosado, Y con los oídos oyen pesadamente, Y han cerrado sus ojos; Para que no vean con los ojos, Y oigan con los oídos, Y con el corazón entiendan, Y se conviertan, Y yo los sane."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/13/13-15",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%2013%3A13-15&version=RVR1960"
   },
   "scripture-mateo-6-9-13": {
     "id": "scripture-mateo-6-9-13",
@@ -215,183 +322,177 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%206%3A9-13&version=RVR1960"
   },
-  "scripture-salmos-16-all-": {
-    "id": "scripture-salmos-16-all-",
+  "scripture-salmos-133-all-": {
+    "id": "scripture-salmos-133-all-",
     "kind": "scripture",
-    "title": "Salmo 16",
+    "title": "Salmo 133",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Guárdame, oh Dios, porque en ti he confiado."
+        "text": "¡Mirad cuán bueno y cuán delicioso es Habitar los hermanos juntos en armonía!"
       },
       {
         "number": 2,
-        "text": "Oh alma mía, dijiste a Jehová: Tú eres mi Señor; No hay para mí bien fuera de ti."
+        "text": "Es como el buen óleo sobre la cabeza, El cual desciende sobre la barba, La barba de Aarón, Y baja hasta el borde de sus vestiduras;"
       },
       {
         "number": 3,
-        "text": "Para los santos que están en la tierra, Y para los íntegros, es toda mi complacencia."
+        "text": "Como el rocío de Hermón, Que desciende sobre los montes de Sion; Porque allí envía Jehová bendición, Y vida eterna."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/133",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20133&version=RVR1960"
+  },
+  "scripture-salmos-80-all-": {
+    "id": "scripture-salmos-80-all-",
+    "kind": "scripture",
+    "title": "Salmo 80",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Oh Pastor de Israel, escucha; Tú que pastoreas como a ovejas a José, Que estás entre querubines, resplandece."
+      },
+      {
+        "number": 2,
+        "text": "Despierta tu poder delante de Efraín, de Benjamín y de Manasés, Y ven a salvarnos."
+      },
+      {
+        "number": 3,
+        "text": "Oh Dios, restáuranos; Haz resplandecer tu rostro, y seremos salvos."
       },
       {
         "number": 4,
-        "text": "Se multiplicarán los dolores de aquellos que sirven diligentes a otro dios. No ofreceré yo sus libaciones de sangre, Ni en mis labios tomaré sus nombres."
+        "text": "Jehová, Dios de los ejércitos, ¿Hasta cuándo mostrarás tu indignación contra la oración de tu pueblo?"
       },
       {
         "number": 5,
-        "text": "Jehová es la porción de mi herencia y de mi copa; Tú sustentas mi suerte."
+        "text": "Les diste a comer pan de lágrimas, Y a beber lágrimas en gran abundancia."
       },
       {
         "number": 6,
-        "text": "Las cuerdas me cayeron en lugares deleitosos, Y es hermosa la heredad que me ha tocado."
+        "text": "Nos pusiste por escarnio a nuestros vecinos, Y nuestros enemigos se burlan entre sí."
       },
       {
         "number": 7,
-        "text": "Bendeciré a Jehová que me aconseja; Aun en las noches me enseña mi conciencia."
+        "text": "Oh Dios de los ejércitos, restáuranos; Haz resplandecer tu rostro, y seremos salvos."
       },
       {
         "number": 8,
-        "text": "A Jehová he puesto siempre delante de mí; Porque está a mi diestra, no seré conmovido."
+        "text": "Hiciste venir una vid de Egipto; Echaste las naciones, y la plantaste."
       },
       {
         "number": 9,
-        "text": "Se alegró por tanto mi corazón, y se gozó mi alma; Mi carne también reposará confiadamente;"
+        "text": "Limpiaste sitio delante de ella, E hiciste arraigar sus raíces, y llenó la tierra."
       },
       {
         "number": 10,
-        "text": "Porque no dejarás mi alma en el Seol, Ni permitirás que tu santo vea corrupción."
+        "text": "Los montes fueron cubiertos de su sombra, Y con sus sarmientos los cedros de Dios."
       },
       {
         "number": 11,
-        "text": "Me mostrarás la senda de la vida; En tu presencia hay plenitud de gozo; Delicias a tu diestra para siempre."
+        "text": "Extendió sus vástagos hasta el mar, Y hasta el río sus renuevos."
+      },
+      {
+        "number": 12,
+        "text": "¿Por qué aportillaste sus vallados, Y la vendimian todos los que pasan por el camino?"
+      },
+      {
+        "number": 13,
+        "text": "La destroza el puerco montés, Y la bestia del campo la devora."
+      },
+      {
+        "number": 14,
+        "text": "Oh Dios de los ejércitos, vuelve ahora; Mira desde el cielo, y considera, y visita esta viña,"
+      },
+      {
+        "number": 15,
+        "text": "La planta que plantó tu diestra, Y el renuevo que para ti afirmaste."
+      },
+      {
+        "number": 16,
+        "text": "Quemada a fuego está, asolada; Perezcan por la reprensión de tu rostro."
+      },
+      {
+        "number": 17,
+        "text": "Sea tu mano sobre el varón de tu diestra, Sobre el hijo de hombre que para ti afirmaste."
+      },
+      {
+        "number": 18,
+        "text": "Así no nos apartaremos de ti; Vida nos darás, e invocaremos tu nombre."
+      },
+      {
+        "number": 19,
+        "text": "¡Oh Jehová, Dios de los ejércitos, restáuranos! Haz resplandecer tu rostro, y seremos salvos."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/16",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/80",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2016&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2080&version=RVR1960"
   },
-  "scripture-salmos-23-1-3": {
-    "id": "scripture-salmos-23-1-3",
+  "scripture-salmos-85-all-": {
+    "id": "scripture-salmos-85-all-",
     "kind": "scripture",
-    "title": "Salmo 23:1-3",
+    "title": "Salmo 85",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Jehová es mi pastor; nada me faltará."
+        "text": "Fuiste propicio a tu tierra, oh Jehová; Volviste la cautividad de Jacob."
       },
       {
         "number": 2,
-        "text": "En lugares de delicados pastos me hará descansar; Junto a aguas de reposo me pastoreará."
+        "text": "Perdonaste la iniquidad de tu pueblo; Todos los pecados de ellos cubriste. Selah"
       },
       {
         "number": 3,
-        "text": "Confortará mi alma; Me guiará por sendas de justicia por amor de su nombre."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/1-3",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A1-3&version=RVR1960"
-  },
-  "scripture-salmos-23-3-3": {
-    "id": "scripture-salmos-23-3-3",
-    "kind": "scripture",
-    "title": "Salmo 23:3",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 3,
-        "text": "Confortará mi alma; Me guiará por sendas de justicia por amor de su nombre."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/3",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A3&version=RVR1960"
-  },
-  "scripture-salmos-23-all-": {
-    "id": "scripture-salmos-23-all-",
-    "kind": "scripture",
-    "title": "Salmo 23",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 1,
-        "text": "Jehová es mi pastor; nada me faltará."
-      },
-      {
-        "number": 2,
-        "text": "En lugares de delicados pastos me hará descansar; Junto a aguas de reposo me pastoreará."
-      },
-      {
-        "number": 3,
-        "text": "Confortará mi alma; Me guiará por sendas de justicia por amor de su nombre."
+        "text": "Reprimiste todo tu enojo; Te apartaste del ardor de tu ira."
       },
       {
         "number": 4,
-        "text": "Aunque ande en valle de sombra de muerte, No temeré mal alguno, porque tú estarás conmigo; Tu vara y tu cayado me infundirán aliento."
+        "text": "Restáuranos, oh Dios de nuestra salvación, Y haz cesar tu ira de sobre nosotros."
       },
       {
         "number": 5,
-        "text": "Aderezas mesa delante de mí en presencia de mis angustiadores; Unges mi cabeza con aceite; mi copa está rebosando."
+        "text": "¿Estarás enojado contra nosotros para siempre? ¿Extenderás tu ira de generación en generación?"
       },
       {
         "number": 6,
-        "text": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, Y en la casa de Jehová moraré por largos días."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023&version=RVR1960"
-  },
-  "scripture-salmos-25-1-10": {
-    "id": "scripture-salmos-25-1-10",
-    "kind": "scripture",
-    "title": "Salmo 25:1-10",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 1,
-        "text": "A ti, oh Jehová, levantaré mi alma."
-      },
-      {
-        "number": 2,
-        "text": "Dios mío, en ti confío; No sea yo avergonzado, No se alegren de mí mis enemigos."
-      },
-      {
-        "number": 3,
-        "text": "Ciertamente ninguno de cuantos esperan en ti será confundido; Serán avergonzados los que se rebelan sin causa."
-      },
-      {
-        "number": 4,
-        "text": "Muéstrame, oh Jehová, tus caminos; Enséñame tus sendas."
-      },
-      {
-        "number": 5,
-        "text": "Encamíname en tu verdad, y enséñame, Porque tú eres el Dios de mi salvación; En ti he esperado todo el día."
-      },
-      {
-        "number": 6,
-        "text": "Acuérdate, oh Jehová, de tus piedades y de tus misericordias, Que son perpetuas."
+        "text": "¿No volverás a darnos vida, Para que tu pueblo se regocije en ti?"
       },
       {
         "number": 7,
-        "text": "De los pecados de mi juventud, y de mis rebeliones, no te acuerdes; Conforme a tu misericordia acuérdate de mí, Por tu bondad, oh Jehová."
+        "text": "Muéstranos, oh Jehová, tu misericordia, Y danos tu salvación."
       },
       {
         "number": 8,
-        "text": "Bueno y recto es Jehová; Por tanto, él enseñará a los pecadores el camino."
+        "text": "Escucharé lo que hablará Jehová Dios; Porque hablará paz a su pueblo y a sus santos, Para que no se vuelvan a la locura."
       },
       {
         "number": 9,
-        "text": "Encaminará a los humildes por el juicio, Y enseñará a los mansos su carrera."
+        "text": "Ciertamente cercana está su salvación a los que le temen, Para que habite la gloria en nuestra tierra."
       },
       {
         "number": 10,
-        "text": "Todas las sendas de Jehová son misericordia y verdad, Para los que guardan su pacto y sus testimonios."
+        "text": "La misericordia y la verdad se encontraron; La justicia y la paz se besaron."
+      },
+      {
+        "number": 11,
+        "text": "La verdad brotará de la tierra, Y la justicia mirará desde los cielos."
+      },
+      {
+        "number": 12,
+        "text": "Jehová dará también el bien, Y nuestra tierra dará su fruto."
+      },
+      {
+        "number": 13,
+        "text": "La justicia irá delante de él, Y sus pasos nos pondrá por camino."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/25/1-10",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/85",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2025%3A1-10&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2085&version=RVR1960"
   }
 }
