@@ -3,7 +3,7 @@ title: Culto vespertino de adoración
 date: 2026-09-20T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: Luz en la obscuridad
+sermonTitle: Luz en la oscuridad
 sermonPassage: Génesis 1:1-5
 published: true
 elements:
@@ -28,7 +28,7 @@ elements:
     title: Lectura bíblica
     detail: Génesis 1:1-5
   - label: Palabra
-    title: Mensaje “Luz en la obscuridad”
+    title: Mensaje “Luz en la oscuridad”
   - label: Ofrendas
     title: Himno No. 446 “Dale tu ofrenda al Señor”
   - label: Comunidad
