@@ -1,25 +1,24 @@
 ---
 title: Culto vespertino de adoración
-date: 2026-09-13T18:00:00-06:00
+date: 2026-09-20T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: Un verdadero adorador
-sermonPassage: Juan 4:23-24
-preacher: Min. Music. Karla Patricia Santiago Flores
+sermonTitle: Luz en la obscuridad
+sermonPassage: Génesis 1:1-5
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 95
+    detail: Salmo 104
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 76 “A Dios adorad”
+    title: Himno No. 589 “Jesús es la luz del mundo”
   - label: Palabra
     title: Lectura devocional
-    detail: Gálatas 4:1-16
+    detail: 2 Corintios 4:5-6
   - label: Oración
     title: Momentos de oración
   - label: Adoración
@@ -27,17 +26,16 @@ elements:
     detail: Tres himnos a escoger
   - label: Palabra
     title: Lectura bíblica
-    detail: Juan 4:23-24
+    detail: Génesis 1:1-5
   - label: Palabra
-    title: Mensaje “Un verdadero adorador”
-    detail: Min. Music. Karla Patricia Santiago Flores
+    title: Mensaje “Luz en la obscuridad”
   - label: Ofrendas
-    title: Himno No. 438 “Los panes y los peces”
+    title: Himno No. 446 “Dale tu ofrenda al Señor”
   - label: Comunidad
     title: Avisos
   - label: Envío
     title: Bendición
-    detail: Mateo 6:9-13
+    detail: 2 Tesalonicenses 3:16
   - label: Envío
     title: Doxología No. 450 “Dios te bendiga”
   - label: Dirección

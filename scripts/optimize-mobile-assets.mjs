@@ -14,11 +14,11 @@ const variants = [
     quality: 82,
   },
   {
-    input: 'public/images/sermons/nuestra-libertad-hebreos-12.jpg',
+    input: 'public/images/sermons/judas-amigo-de-cristo-mateo-26.jpg',
     outputs: [
-      ['public/images/optimized/nuestra-libertad-hebreos-12-640.webp', 640],
-      ['public/images/optimized/nuestra-libertad-hebreos-12-960.webp', 960],
-      ['public/images/optimized/nuestra-libertad-hebreos-12-1280.webp', 1280],
+      ['public/images/optimized/judas-amigo-de-cristo-mateo-26-640.webp', 640],
+      ['public/images/optimized/judas-amigo-de-cristo-mateo-26-960.webp', 960],
+      ['public/images/optimized/judas-amigo-de-cristo-mateo-26-1280.webp', 1280],
     ],
     quality: 86,
   },
