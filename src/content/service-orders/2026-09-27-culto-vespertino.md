@@ -1,24 +1,25 @@
 ---
 title: Culto vespertino de adoración
-date: 2026-09-20T18:00:00-06:00
+date: 2026-09-27T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: Luz en la oscuridad
-sermonPassage: Génesis 1:1-5
+sermonTitle: Pastor, Mesías y Rey eterno
+sermonPassage: Salmo 23:6
+preacher: A.G. Hazael Cordova Ruiz
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 104
+    detail: Salmo 96
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 589 “Jesús es la luz del mundo”
+    title: Himno No. 210 “Las huestes del Rey”
   - label: Palabra
     title: Lectura devocional
-    detail: 2 Corintios 4:5-6
+    detail: Filipenses 2:1-11
   - label: Oración
     title: Momentos de oración
   - label: Adoración
@@ -26,18 +27,19 @@ elements:
     detail: Tres himnos a escoger
   - label: Palabra
     title: Lectura bíblica
-    detail: Génesis 1:1-5
+    detail: Salmo 23:6
   - label: Palabra
-    title: Mensaje “Luz en la oscuridad”
+    title: Mensaje “Pastor, Mesías y Rey eterno”
+    detail: A.G. Hazael Cordova Ruiz
   - label: Ofrendas
-    title: Himno No. 446 “Dale tu ofrenda al Señor”
+    title: Himno No. 441 “El dador alegre”
   - label: Comunidad
     title: Avisos
   - label: Envío
     title: Bendición
-    detail: 2 Tesalonicenses 3:16
+    detail: 1 Timoteo 6:15-16
   - label: Envío
-    title: Doxología No. 450 “Dios te bendiga”
+    title: Doxología No. 453 “Después, Señor, de haber tenido aquí”
   - label: Dirección
     title: Diáconos
 ---

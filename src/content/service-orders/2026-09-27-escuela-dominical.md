@@ -1,37 +1,37 @@
 ---
 title: Escuela Dominical Superior “Antioquía”
-date: 2026-09-20T10:30:00-06:00
+date: 2026-09-27T10:30:00-06:00
 time: "10:30"
 location: Templo Gethsemaní
 theme: Guerra de palabras
-sermonTitle: Clase 1 “Guerra de palabras” (Introducción)
-sermonPassage: Santiago 3:1-12
+sermonTitle: Clase 2 “Dios habló”
+sermonPassage: Génesis 1:1-2:4
 preacher: Hna. Gladis Hernández Solís
 published: true
 elements:
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 19
+    detail: Salmo 29
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 79 “Con cánticos, Señor”
+    title: Himno No. 23 “Te loamos, oh Dios”
   - label: Palabra
     title: Lectura devocional
-    detail: Proverbios 10:19-21, 31-32
+    detail: Isaías 40:28
   - label: Adoración
-    title: Himno No. 341 “Vivir por Cristo”
+    title: Himno No. 67 “El mundo es de mi Dios”
   - label: Estudio
     title: Texto de estudio
-    detail: Santiago 3:1-12
+    detail: Génesis 1:1-2:4
   - label: Estudio
     title: Guerra de palabras
-    detail: Clase 1 “Guerra de palabras” (Introducción) · Libro de Paul David Tripp · Hna. Gladis Hernández Solís
+    detail: Clase 2 “Dios habló” · Hna. Gladis Hernández Solís
   - label: Comunidad
     title: Avisos
   - label: Envío
     title: Bendición de la Escuela Dominical
     detail: 2 Pedro 3:18
   - label: Dirección
-    title: Damaris Ramírez Arcia
+    title: Rubén Gregorio Marcelo
 ---
