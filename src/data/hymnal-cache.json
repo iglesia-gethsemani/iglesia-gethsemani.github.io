@@ -1,438 +1,569 @@
 {
-  "hymn-314": {
-    "id": "hymn-314",
+  "hymn-210": {
+    "id": "hymn-210",
     "kind": "hymn",
-    "number": 314,
-    "title": "Himno 314",
-    "subtitle": "Cerca de ti, Señor",
-    "intro": "¿Quién morará en tu monte santo? Sal. 15.1",
+    "number": 210,
+    "title": "Himno 210",
+    "subtitle": "Las huestes del Rey",
+    "intro": "Al Rey de los siglos sea honor y gloria por los siglos de los siglos. 1 Ti. 1.17",
     "authors": [
-      "LETRA: Sara F. Adams, trad. Thomas M. Westrup",
-      "MÚSICA: Lowell Mason"
+      "LETRA: Guillermina Morales F.",
+      "MÚSICA: Adan Geibel"
     ],
     "stanzas": [
       {
         "name": "1",
         "lines": [
-          "Cerca de ti, Señor,",
-          "quiero morar;",
-          "lo tierno de tu amor",
-          "quiero gozar.",
-          "Llena mi pobre ser,",
-          "limpia mi corazón,",
-          "hazme tu rostro ver",
-          "en tu mansión."
-        ]
-      },
-      {
-        "name": "2",
-        "lines": [
-          "Pasos inciertos doy,",
-          "el sol se va;",
-          "mas si contigo estoy",
-          "no temo ya.",
-          "Himnos de gratitud",
-          "ferviente cantaré",
-          "y fiel a ti, Jesús,",
-          "siempre seré."
-        ]
-      },
-      {
-        "name": "3",
-        "lines": [
-          "Día feliz veré",
-          "creyendo en ti,",
-          "en que habitaré",
-          "cerca de ti.",
-          "Mi voz alabará",
-          "tu dulce nombre allí,",
-          "y mi alma gozará",
-          "cerca de ti."
-        ]
-      }
-    ],
-    "source": "Himnario Evangélico Presbiteriano",
-    "externalUrl": "https://himnariop.web.app/#"
-  },
-  "hymn-341": {
-    "id": "hymn-341",
-    "kind": "hymn",
-    "number": 341,
-    "title": "Himno 341",
-    "subtitle": "Vivir por Cristo",
-    "intro": "Para mí el vivir es Cristo. Flp. 1.21",
-    "authors": [
-      "LETRA: Thomas O. Chisholm, trad. Eleazar Z. Pérez",
-      "MÚSICA: C. Harold Lowden, 1915"
-    ],
-    "stanzas": [
-      {
-        "name": "1",
-        "lines": [
-          "Vivir por Cristo",
-          "en pureza y verdad,",
-          "siempre agradarle",
-          "con todo mi afán,",
-          "dándole gloria",
-          "y continuo loor",
-          "es ofrendarle",
-          "mi ferviente amor."
+          "Las huestes del Rey,",
+          "las huestes del Rey,",
+          "gozosas protestan lealtad",
+          "a aquel que sufrió",
+          "y por ellos murió,",
+          "mas vive por siempre",
+          "en la eternidad",
+          "y un día por ellos vendrá."
         ]
       },
       {
         "name": "Coro",
         "lines": [
-          "Jesús, Señor y amigo,",
-          "¿qué pides tú de mí?",
-          "Por mí en la cruz moriste,",
-          "me entrego todo a ti;",
-          "sé tú mi eterno dueño",
-          "en horas de ansiedad,",
-          "hasta llegar gozoso",
-          "a la patria celestial."
+          "¡Honor y lealtad!",
+          "¡Honor y lealtad!",
+          "Nosotros, la grey",
+          "del gran capitán,",
+          "darémosle siempre jamás."
         ]
       },
       {
         "name": "2",
         "lines": [
-          "Vivir por Cristo,",
-          "que obró redención",
-          "al expirar por",
-          "mi culpa y pasión;",
-          "tan grande amor",
-          "me constriñe a la lid,",
-          "por sus pisadas",
-          "la lucha seguir."
+          "La senda del mal y el vicio fatal",
+          "jamás nos podrán derrotar,",
+          "pues él con su diestra",
+          "nos protegerá,",
+          "confiando en Jesús,",
+          "nuestro augusto Rey,",
+          "al malo podremos vencer."
         ]
       },
       {
         "name": "3",
         "lines": [
-          "Vivir por Cristo,",
-          "doquiera yo esté,",
-          "para su gloria,",
-          "cumpliendo el deber;",
-          "en mis tristezas",
-          "y cruel ansiedad,",
-          "sumiso siempre",
-          "a su voluntad."
+          "Pureza y virtud, amor fraternal,",
+          "piedad al caído mortal;",
+          "al huérfano y triste",
+          "socorro prestar,",
+          "de Cristo Jesús",
+          "por doquier hablar;",
+          "servir nuestro lema será."
         ]
       },
       {
         "name": "4",
         "lines": [
-          "Vivir por Cristo",
-          "la vida al cruzar;",
-          "él mi tesoro,",
-          "mi gloria y solaz;",
-          "al extraviado",
-          "llevar al redil,",
-          "para que encuentre",
-          "con él dichas mil."
+          "Al fin nuestro Rey",
+          "del cielo vendrá,",
+          "sus huestes arrebatará,",
+          "y yendo en las nubes",
+          "con Cristo el Señor,",
+          "del Padre veremos",
+          "la dulce faz",
+          "y allá reinaremos con él."
         ]
       }
     ],
     "source": "Himnario Evangélico Presbiteriano",
     "externalUrl": "https://himnariop.web.app/#"
   },
-  "hymn-446": {
-    "id": "hymn-446",
+  "hymn-220": {
+    "id": "hymn-220",
     "kind": "hymn",
-    "number": 446,
-    "title": "Himno 446",
-    "subtitle": "Dale tu ofrenda al Señor",
-    "intro": "Di a los hijos de Israel que tomen para mí ofrenda de su voluntad, de corazón.",
+    "number": 220,
+    "title": "Himno 220",
+    "subtitle": "Cantaré a Jesús, de mi alma el Rey",
+    "intro": "En gran manera me gozaré en Jehová, mi alma se alegrará en mi Dios. Is. 61.10",
     "authors": [
-      "LETRA Y MÚSICA: Autor desconocido, arr. Jean Legters"
+      "LETRA: S. D. Athans",
+      "MÚSICA: De Loss Smith"
     ],
     "stanzas": [
       {
         "name": "1",
         "lines": [
-          "Dale tu ofrenda al Señor,",
-          "dásela de corazón;",
-          "que cuando el cielo reclame",
-          "le respondas con amor."
-        ]
-      },
-      {
-        "name": "2",
-        "lines": [
-          "Que no te quede el dolor",
-          "cuando hayas ofrendado;",
-          "/Dios bendice al dador alegre,",
-          "multiplica lo que has dado./"
-        ]
-      }
-    ],
-    "source": "Himnario Evangélico Presbiteriano",
-    "externalUrl": "https://himnariop.web.app/#"
-  },
-  "hymn-450": {
-    "id": "hymn-450",
-    "kind": "hymn",
-    "number": 450,
-    "title": "Himno 450",
-    "subtitle": "Dios te bendiga",
-    "intro": "Jehová te bendiga y te guarde.",
-    "authors": [
-      "LETRA: Epigmenio Velasco",
-      "MÚSICA: Frederick Atkinson"
-    ],
-    "stanzas": [
-      {
-        "name": "1",
-        "lines": [
-          "Dios te bendiga, protección te dé,",
-          "sea su gracia siempre tu sostén;",
-          "su ángel velando a tu redor esté,",
-          "dándote abrigo por doquier.",
-          "Amén. Amén."
-        ]
-      }
-    ],
-    "source": "Himnario Evangélico Presbiteriano",
-    "externalUrl": "https://himnariop.web.app/#"
-  },
-  "hymn-51": {
-    "id": "hymn-51",
-    "kind": "hymn",
-    "number": 51,
-    "title": "Himno 51",
-    "subtitle": "Porque tú eres bueno",
-    "intro": "Jehová es bueno, porque para siempre es su misericordia.",
-    "authors": [
-      "LETRA Y MÚSICA: Gustavo E. Ordoñez, Pablo Bravo y Daniel Hernandez, arr, Obed Valencia L."
-    ],
-    "stanzas": [
-      {
-        "name": "1",
-        "lines": [
-          "Porque tú eres bueno,",
-          "Porque para siempre",
-          "Tu misericordia es;",
-          "Cada mañana al despertar,",
-          "Sé que en ti puedo confiar;",
-          "Me sostienes por tu gran fidelidad."
-        ]
-      },
-      {
-        "name": "2",
-        "lines": [
-          "Porque tú eres bueno,",
-          "Porque tu justicia,",
-          "Justicia eterna es,",
-          "Y en ella yo me deleitaré,",
-          "En tu verdad caminaré;",
-          "Por tu senda de justicia",
-          "Guíame."
-        ]
-      }
-    ],
-    "source": "Himnario Evangélico Presbiteriano",
-    "externalUrl": "https://himnariop.web.app/#"
-  },
-  "hymn-52": {
-    "id": "hymn-52",
-    "kind": "hymn",
-    "number": 52,
-    "title": "Himno 52",
-    "subtitle": "Tu fidelidad",
-    "intro": "Tu fidelidad alcanza hasta las nubes.",
-    "authors": [
-      "LETRA Y MÚSICA: Miguel Cassina, arr. Obed Valencia L."
-    ],
-    "stanzas": [
-      {
-        "name": "1",
-        "lines": [
-          "Tu fidelidad es grande,",
-          "Tu fidelidad incomparable es;",
-          "Nadie como tú, bendito Dios,",
-          "Grande es tu fidelidad.",
-          "(se canta tres veces)"
-        ]
-      }
-    ],
-    "source": "Himnario Evangélico Presbiteriano",
-    "externalUrl": "https://himnariop.web.app/#"
-  },
-  "hymn-520": {
-    "id": "hymn-520",
-    "kind": "hymn",
-    "number": 520,
-    "title": "Himno 520",
-    "subtitle": "¡Oh, que amigo nos es cristo!",
-    "intro": "Por nada estéis afanosos, sino sean conocidas vuestras peticiones. Flp. 4.6",
-    "authors": [
-      "LETRA: Joseph Scriven, 1855, trad. Leandro Garza Mora",
-      "MÚSICA: Charles C. Converse"
-    ],
-    "stanzas": [
-      {
-        "name": "1",
-        "lines": [
-          "¡Oh, qué amigo nos es Cristo!",
-          "Él llevó nuestro dolor,",
-          "él nos manda que llevemos",
-          "todo a Dios en oración.",
-          "¿Está el hombre desprovisto",
-          "de paz, gozo y santo amor?",
-          "Esto es porque no llevamos",
-          "todo a Dios en oración."
-        ]
-      },
-      {
-        "name": "2",
-        "lines": [
-          "¿Estás débil y cargado",
-          "de cuidados y temor?",
-          "A Jesús, refugio eterno,",
-          "dile todo en oración.",
-          "¿Te desprecian tus amigos?",
-          "Cuéntaselo en oración;",
-          "en sus brazos de amor tierno,",
-          "paz tendrá tu corazón."
-        ]
-      },
-      {
-        "name": "3",
-        "lines": [
-          "Jesucristo es nuestro amigo:",
-          "de esto prueba nos mostró,",
-          "pues para llevar consigo",
-          "al culpable, se humanó.",
-          "El castigo de su pueblo",
-          "en su muerte él sufrió;",
-          "Cristo es un amigo eterno,",
-          "sólo en él confío yo."
-        ]
-      }
-    ],
-    "source": "Himnario Evangélico Presbiteriano",
-    "externalUrl": "https://himnariop.web.app/#"
-  },
-  "hymn-589": {
-    "id": "hymn-589",
-    "kind": "hymn",
-    "number": 589,
-    "title": "Himno 589",
-    "subtitle": "Jesús es la luz del mundo",
-    "intro": "Yo, la luz, he venido al mundo, para que todo aquel que cree en mí no permanezca en tinieblas. Jn. 12.46",
-    "authors": [
-      "LETRA Y MÚSICA: Philip P. Bliss, trad. Henry C. Thompson"
-    ],
-    "stanzas": [
-      {
-        "name": "1",
-        "lines": [
-          "El mundo perdido",
-          "en pecado se vio:",
-          "Jesús es la luz del mundo;",
-          "mas en las tinieblas",
-          "la gloria brilló:",
-          "Jesús es la luz del mundo."
+          "Cantaré",
+          "a Jesús, de mi alma el Rey,",
+          "al Rey de gloria ensalzaré;",
+          "trajo al mundo paz,",
+          "y al mortal, buena voluntad;",
+          "alegres nuevas",
+          "doquiera proclamad."
         ]
       },
       {
         "name": "Coro",
         "lines": [
-          "¡Ven a la luz; no quieras perder",
-          "gozo perfecto al amanecer!",
-          "Yo ciego fui, mas ya puedo ver.",
-          "¡Jesús es la luz del mundo!"
-        ]
-      },
-      {
-        "name": "2",
-        "lines": [
-          "Vivir en él vuelve",
-          "la noche en día:",
-          "Jesús es la luz del mundo;",
-          "andemos en luz",
-          "y sigamos al guía:",
-          "Jesús es la luz del mundo."
+          "Yo soy feliz en mi Cristo,",
+          "porque él mi alma salvó;",
+          "ángeles cantan alegres,",
+          "por cuantos él redimió;",
+          "¡oh, cuán hermosa es la vida,",
+          "dulce, serena, de fe!"
         ]
       },
       {
         "name": "3",
         "lines": [
-          "¡Oh ciegos y presos",
-          "del lóbrego error!",
-          "Jesús es la luz del mundo;",
-          "él manda lavaros",
-          "y ver su fulgor:",
-          "Jesús es la luz del mundo."
+          "Soy peregrino en la tierra,",
+          "mas ando con Cristo,",
+          "de mi alma el Rey."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "En la cruz",
+          "del Calvario por mí sufrió,",
+          "así la amarga copa bebió;",
+          "y al expirar,",
+          "el sol de lutos se cubrió;",
+          "mas, vencedor,",
+          "el Señor resucitó."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Ascendió",
+          "a la gloria mi Rey y Señor,",
+          "por mí intercede",
+          "con tierno amor;",
+          "pronto volverá",
+          "con sus santos para reinar,",
+          "¡dicha indecible",
+          "será con él morar!"
         ]
       },
       {
         "name": "4",
         "lines": [
-          "Ni soles ni lunas",
-          "el cielo tendrá:",
-          "Jesús es la luz del mundo;",
-          "la luz de su rostro",
-          "lo iluminará:",
-          "Jesús es la luz del mundo."
+          "¿Qué será",
+          "en aquella mansión de luz,",
+          "al ver el rostro de mi Jesús;",
+          "y con él gozar",
+          "las grandezas que allí habrá,",
+          "y los placeres",
+          "que el fiel disfrutará?"
         ]
       }
     ],
     "source": "Himnario Evangélico Presbiteriano",
     "externalUrl": "https://himnariop.web.app/#"
   },
-  "hymn-79": {
-    "id": "hymn-79",
+  "hymn-23": {
+    "id": "hymn-23",
     "kind": "hymn",
-    "number": 79,
-    "title": "Himno 79",
-    "subtitle": "Con  cánticos, Señor",
-    "intro": "Cantando con gracia en vuestros corazones al Señor con cánticos. Col. 3:16",
+    "number": 23,
+    "title": "Himno 23",
+    "subtitle": "Te loamos, oh Dios",
+    "intro": "Dad a Jehová la gloria debida a su nombre. Sal. 29.2",
     "authors": [
-      "LETRA: James J. Cummings, 1893, trad. Merrel N. Hutchinson, 1877",
-      "MÚSICA: John Darwall, 1770"
+      "LETRA: William P. Mackay, trad. Howard W. Cragin",
+      "MÚSICA: John J. Husband, 1815"
     ],
     "stanzas": [
       {
         "name": "1",
         "lines": [
-          "Con  cánticos, Señor,",
-          "Mi corazón y voz",
-          "Te adoran con fervor,",
-          "Oh trino, santo Dios."
+          "Te loamos, oh Dios,",
+          "nuestro Padre de amor,",
+          "pues en Cristo, tu Hijo,",
+          "nos diste perdón."
         ]
       },
       {
         "name": "Coro",
         "lines": [
-          "En tu mansión yo te veré",
-          "Y paz eterna gozaré."
+          "Aleluya, te alabamos,",
+          "oh, cuan grande es tu amor.",
+          "Aleluya, te adoramos,",
+          "bendito Señor."
         ]
       },
       {
         "name": "2",
         "lines": [
-          "Tu mano paternal",
-          "Marcó mi senda aquí;",
-          "Mis pasos, cada cual,",
-          "Velados son por ti."
+          "Te loamos, Jesús,",
+          "pues tu trono de luz",
+          "tú dejaste por darnos",
+          "salud en la cruz."
         ]
       },
       {
         "name": "3",
         "lines": [
-          "Innumerables son",
-          "Tus bienes y sin par,",
-          "y por tu compasión",
-          "los gozo sin cesar."
+          "Te damos loor,",
+          "Santo Consolador,",
+          "que nos llenas de gozo",
+          "y santo valor."
         ]
       },
       {
         "name": "4",
         "lines": [
-          "Tú eres. Oh Señor,",
-          "Mi sumo, todo bien;",
-          "Mil lenguas tu amor",
-          "Cantando siempre estén."
+          "Unidos load",
+          "a la gran Trinidad,",
+          "que es la fuente de gracia,",
+          "poder y verdad."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-24": {
+    "id": "hymn-24",
+    "kind": "hymn",
+    "number": 24,
+    "title": "Himno 24",
+    "subtitle": "Al Rey de los reyes",
+    "intro": "Y Jehová será rey sobre toda la tierra. Zac. 14:9",
+    "authors": [
+      "LETRA Y MÚSICA: En Rayos de Esperanza; est. 3 Rubén Hernández D., arr. Nahum Aquino C."
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Al Rey de los reyes,",
+          "Jehová, el glorioso,",
+          "cantemos con gozo",
+          "en santa comunión;",
+          "con gran reverencia",
+          "a él nos lleguemos,",
+          "su nombre ensalcemos",
+          "de todo corazón."
+        ]
+      },
+      {
+        "name": "Coro",
+        "lines": [
+          "Gozo y paz hay en mi corazón,",
+          "su gracia me salvó y aseguró mi salvación.",
+          "Es mi anhelo a mi Señor servir,",
+          "su voluntad cumplir y para él siempre vivir."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Oh, tan dulce esperanza nos alienta para seguir",
+          "la senda que el Maestro nos marcó con su ejemplo aquí.",
+          "Allá en lontananza, al fin de la labor,",
+          "daremos alabanza a nuestro Salvador."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "Al Rey de los reyes,",
+          "Jesús, el amante,",
+          "sublime y triunfante",
+          "al mundo volverá;",
+          "con todos sus santos,",
+          "con alegres cantos,",
+          "su iglesia anhelante a él se unirá."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Espíritu eterno",
+          "de Dios, guía santa,",
+          "a nuestra plegaria",
+          "atiende, oh Señor;",
+          "tu pueblo te adora,",
+          "también hoy te canta,",
+          "enjuga su llanto,",
+          "oh gran Consolador."
+        ]
+      },
+      {
+        "name": "4",
+        "lines": [
+          "Al Dios solo sabio",
+          "y omnipotente,",
+          "den todos reverentes,",
+          "honor y majestad;",
+          "por tus beneficios,",
+          "recibe propicio",
+          "mi humilde servicio,",
+          "divina Trinidad."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-303": {
+    "id": "hymn-303",
+    "kind": "hymn",
+    "number": 303,
+    "title": "Himno 303",
+    "subtitle": "Jesús es mi Rey soberano",
+    "intro": "El bienaventurado y solo Soberano, Rey de reyes. 1 Ti. 6.15",
+    "authors": [
+      "LETRA Y MÚSICA: Vicente Mendoza"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Jesús es mi Rey soberano,",
+          "mi gozo es cantar su loor;",
+          "es Rey y me ve cual hermano,",
+          "es Rey y me imparte su amor.",
+          "Dejando su trono de gloria",
+          "me vino a sacar de la escoria,",
+          "y yo soy feliz,",
+          "y yo soy feliz por él."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "Jesús es mi amigo anhelado",
+          "y en sombras o en luz siempre va,",
+          "paciente y humilde a mi lado,",
+          "y ayuda y consuelo me da;",
+          "por eso constante lo sigo,",
+          "porque él es mi Rey y mi amigo,",
+          "y yo soy feliz,",
+          "y yo soy feliz por él."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Señor, ¿qué pudiera yo darte",
+          "por tanta bondad para mí?",
+          "¿Me basta servirte y amarte?",
+          "¿Es todo entregarme yo a ti?",
+          "Entonces, acepta mi vida",
+          "que a ti solo queda rendida;",
+          "pues yo soy feliz,",
+          "pues yo soy feliz por ti."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-441": {
+    "id": "hymn-441",
+    "kind": "hymn",
+    "number": 441,
+    "title": "Himno 441",
+    "subtitle": "El dador alegre",
+    "intro": "No con tristeza, ni por necesidad, porque Dios ama al dador alegre.",
+    "authors": [
+      "LETRA: Basada en 2 Co. 9.7",
+      "MÚSICA: Leslie Gómez"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Dios ama al dador alegre;",
+          "Dios ama al que da con amor;",
+          "Dios ama al dador alegre;",
+          "no des por tristeza o necesidad."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-453": {
+    "id": "hymn-453",
+    "kind": "hymn",
+    "number": 453,
+    "title": "Himno 453",
+    "subtitle": "Después, Señor, de haber tenido aquí",
+    "intro": "La exposición de tus palabras alumbra. Sal. 119.130",
+    "authors": [
+      "LETRA: John Ellerton, trad. Vicente Mendoza",
+      "MÚSICA: Edward J. Hopkins"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Después, Señor,",
+          "de haber tenido aquí",
+          "de tu palabra la bendita luz,",
+          "a nuestro hogar",
+          "condúcenos y allí",
+          "de todos cuida,",
+          "¡buen Pastor Jesús!"
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "En nuestras almas",
+          "graba con poder",
+          "tu fiel palabra,",
+          "cada exhortación;",
+          "y que tu ley",
+          "pudiendo comprender,",
+          "contigo estemos en mayor unión."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Al terminar, Señor,",
+          "mi vida aquí,",
+          "mis ojos pueda",
+          "sin temor cerrar,",
+          "y en mi glorioso",
+          "despertar, que en ti",
+          "de paz eterna",
+          "pueda disfrutar. Amén."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-67": {
+    "id": "hymn-67",
+    "kind": "hymn",
+    "number": 67,
+    "title": "Himno 67",
+    "subtitle": "El mundo es de mi Dios",
+    "intro": "Mío es el mundo y su plenitud. Sal. 50:12",
+    "authors": [
+      "LETRA: M. D. Babcock, trad. J. Pablo Simón",
+      "MÚSICA: Melodía tradicional inglesa, arr. Franklin L. Sheppard"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "El mundo es de mi Dios,",
+          "Su eterna posesión;",
+          "Eleva a Dios su dulce voz",
+          "La eterna creación.",
+          "El mundo es de mi Dios,",
+          "Trae paz así pensar,",
+          "Él hizo el sol y el arrebol,",
+          "La tierra, cielo y mar."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "El mundo es de mi Dios,",
+          "Escucho alegre son",
+          "Del ruiseñor que su señor",
+          "Eleva su canción.",
+          "El mundo es de mi Dios",
+          "Y en todo mi redor",
+          "Las flores mil, con voz sutil,",
+          "Declaran fiel su amor."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "El mundo es de mi Dios,",
+          "Jamás olvidaré;",
+          "Aunque infernal parezca el mal,",
+          "Mi Padre Dios es Rey.",
+          "El mundo es de mi Dios",
+          "Y el Salvador Jesús",
+          "Haráme siempre vencedor",
+          "Por la obra de su cruz."
+        ]
+      }
+    ],
+    "source": "Himnario Evangélico Presbiteriano",
+    "externalUrl": "https://himnariop.web.app/#"
+  },
+  "hymn-705": {
+    "id": "hymn-705",
+    "kind": "hymn",
+    "number": 705,
+    "title": "Himno 705",
+    "subtitle": "Salmo 148 Tributad honor a Cristo",
+    "intro": "Para que todos honren al Hijo como honran al Padre. Jn. 5.23",
+    "authors": [
+      "LETRA: Juan N. de los Santos, 1925",
+      "MÚSICA: William J. Kirkpatrick, 1899"
+    ],
+    "stanzas": [
+      {
+        "name": "1",
+        "lines": [
+          "Tributad honor a Cristo,",
+          "la celeste multitud,",
+          "sol y luna, las estrellas",
+          "con la gloria de su luz;",
+          "ángeles y serafines",
+          "den su amor con plenitud;",
+          "proclamad hoy alabanzas,",
+          "sin cesar, al buen Jesús."
+        ]
+      },
+      {
+        "name": "Coro",
+        "lines": [
+          "Al Señor alaben todos",
+          "por su nombre, su virtud,",
+          "que su gloria es suprema,",
+          "que su gloria es suprema,",
+          "que su gloria es suprema,",
+          "más allá del cielo azul."
+        ]
+      },
+      {
+        "name": "2",
+        "lines": [
+          "Que los cielos y las nubes",
+          "en la gran inmensidad,",
+          "al Señor en las alturas",
+          "den la gloria y majestad;",
+          "su palabra prepotente",
+          "de la nada los formó,",
+          "y su ley inescrutable",
+          "por los siglos les fijó."
+        ]
+      },
+      {
+        "name": "3",
+        "lines": [
+          "Reyes, príncipes, señores",
+          "con terrena autoridad,",
+          "jueces todos de la tierra",
+          "al Señor magnificad;",
+          "alabadle, pueblos todos,",
+          "con sus ángeles de luz;",
+          "canten padres, canten hijos",
+          "alabanzas a Jesús."
+        ]
+      },
+      {
+        "name": "4",
+        "lines": [
+          "Alabad su santo nombre",
+          "que merece todo honor,",
+          "pues su gracia inefable",
+          "nos bendice con amor;",
+          "en el cielo y en la tierra",
+          "su poder se extenderá,",
+          "y su reino, por los siglos,",
+          "para siempre durará."
         ]
       }
     ],

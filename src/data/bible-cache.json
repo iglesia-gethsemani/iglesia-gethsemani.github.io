@@ -1,22 +1,22 @@
 {
-  "scripture-2-corintios-4-5-6": {
-    "id": "scripture-2-corintios-4-5-6",
+  "scripture-1-timoteo-6-15-16": {
+    "id": "scripture-1-timoteo-6-15-16",
     "kind": "scripture",
-    "title": "2 Corintios 4:5-6",
+    "title": "1 Timoteo 6:15-16",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
-        "number": 5,
-        "text": "Porque no nos predicamos a nosotros mismos, sino a Jesucristo como Señor, y a nosotros como vuestros siervos por amor de Jesús."
+        "number": 15,
+        "text": "la cual a su tiempo mostrará el bienaventurado y solo Soberano, Rey de reyes, y Señor de señores,"
       },
       {
-        "number": 6,
-        "text": "Porque Dios, que mandó que de las tinieblas resplandeciese la luz, es el que resplandeció en nuestros corazones, para iluminación del conocimiento de la gloria de Dios en la faz de Jesucristo."
+        "number": 16,
+        "text": "el único que tiene inmortalidad, que habita en luz inaccesible; a quien ninguno de los hombres ha visto ni puede ver, al cual sea la honra y el imperio sempiterno. Amén."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-corintios/4/5-6",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-timoteo/6/15-16",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Corintios%204%3A5-6&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Timoteo%206%3A15-16&version=RVR1960"
   },
   "scripture-2-corintios-9-7-7": {
     "id": "scripture-2-corintios-9-7-7",
@@ -48,495 +48,348 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Pedro%203%3A18&version=RVR1960"
   },
-  "scripture-2-tesalonicenses-2-16-17": {
-    "id": "scripture-2-tesalonicenses-2-16-17",
+  "scripture-filipenses-2-1-11": {
+    "id": "scripture-filipenses-2-1-11",
     "kind": "scripture",
-    "title": "2 Tesalonicenses 2:16-17",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 16,
-        "text": "Y el mismo Jesucristo Señor nuestro, y Dios nuestro Padre, el cual nos amó y nos dio consolación eterna y buena esperanza por gracia,"
-      },
-      {
-        "number": 17,
-        "text": "conforte vuestros corazones, y os confirme en toda buena palabra y obra."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-tesalonicenses/2/16-17",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Tesalonicenses%202%3A16-17&version=RVR1960"
-  },
-  "scripture-2-tesalonicenses-3-16-16": {
-    "id": "scripture-2-tesalonicenses-3-16-16",
-    "kind": "scripture",
-    "title": "2 Tesalonicenses 3:16",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 16,
-        "text": "Y el mismo Señor de paz os dé siempre paz en toda manera. El Señor sea con todos vosotros."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/2-tesalonicenses/3/16",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Tesalonicenses%203%3A16&version=RVR1960"
-  },
-  "scripture-genesis-1-1-5": {
-    "id": "scripture-genesis-1-1-5",
-    "kind": "scripture",
-    "title": "Génesis 1:1-5",
+    "title": "Filipenses 2:1-11",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "En el principio creó Dios los cielos y la tierra."
+        "text": "Por tanto, si hay alguna consolación en Cristo, si algún consuelo de amor, si alguna comunión del Espíritu, si algún afecto entrañable, si alguna misericordia,"
       },
       {
         "number": 2,
-        "text": "Y la tierra estaba desordenada y vacía, y las tinieblas estaban sobre la faz del abismo, y el Espíritu de Dios se movía sobre la faz de las aguas."
+        "text": "completad mi gozo, sintiendo lo mismo, teniendo el mismo amor, unánimes, sintiendo una misma cosa."
       },
       {
         "number": 3,
-        "text": "Y dijo Dios: Sea la luz; y fue la luz."
+        "text": "Nada hagáis por contienda o por vanagloria; antes bien con humildad, estimando cada uno a los demás como superiores a él mismo;"
       },
       {
         "number": 4,
-        "text": "Y vio Dios que la luz era buena; y separó Dios la luz de las tinieblas."
+        "text": "no mirando cada uno por lo suyo propio, sino cada cual también por lo de los otros."
       },
       {
         "number": 5,
-        "text": "Y llamó Dios a la luz Día, y a las tinieblas llamó Noche. Y fue la tarde y la mañana un día."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/genesis/1/1-5",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=G%C3%A9nesis%201%3A1-5&version=RVR1960"
-  },
-  "scripture-mateo-26-47-50": {
-    "id": "scripture-mateo-26-47-50",
-    "kind": "scripture",
-    "title": "Mateo 26:47-50",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 47,
-        "text": "Mientras todavía hablaba, vino Judas, uno de los doce, y con él mucha gente con espadas y palos, de parte de los principales sacerdotes y de los ancianos del pueblo."
-      },
-      {
-        "number": 48,
-        "text": "Y el que le entregaba les había dado señal, diciendo: Al que yo besare, ése es; prendedle."
-      },
-      {
-        "number": 49,
-        "text": "Y en seguida se acercó a Jesús y dijo: ¡Salve, Maestro! Y le besó."
-      },
-      {
-        "number": 50,
-        "text": "Y Jesús le dijo: Amigo, ¿a qué vienes? Entonces se acercaron y echaron mano a Jesús, y le prendieron."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/mateo/26/47-50",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Mateo%2026%3A47-50&version=RVR1960"
-  },
-  "scripture-salmos-104-all-": {
-    "id": "scripture-salmos-104-all-",
-    "kind": "scripture",
-    "title": "Salmo 104",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 1,
-        "text": "Bendice, alma mía, a Jehová. Jehová Dios mío, mucho te has engrandecido; Te has vestido de gloria y de magnificencia."
-      },
-      {
-        "number": 2,
-        "text": "El que se cubre de luz como de vestidura, Que extiende los cielos como una cortina,"
-      },
-      {
-        "number": 3,
-        "text": "Que establece sus aposentos entre las aguas, El que pone las nubes por su carroza, El que anda sobre las alas del viento;"
-      },
-      {
-        "number": 4,
-        "text": "El que hace a los vientos sus mensajeros, Y a las flamas de fuego sus ministros."
-      },
-      {
-        "number": 5,
-        "text": "El fundó la tierra sobre sus cimientos; No será jamás removida."
+        "text": "Haya, pues, en vosotros este sentir que hubo también en Cristo Jesús,"
       },
       {
         "number": 6,
-        "text": "Con el abismo, como con vestido, la cubriste; Sobre los montes estaban las aguas."
+        "text": "el cual, siendo en forma de Dios, no estimó el ser igual a Dios como cosa a que aferrarse,"
       },
       {
         "number": 7,
-        "text": "A tu reprensión huyeron; Al sonido de tu trueno se apresuraron;"
+        "text": "sino que se despojó a sí mismo, tomando forma de siervo, hecho semejante a los hombres;"
       },
       {
         "number": 8,
-        "text": "Subieron los montes, descendieron los valles, Al lugar que tú les fundaste."
+        "text": "y estando en la condición de hombre, se humilló a sí mismo, haciéndose obediente hasta la muerte, y muerte de cruz."
       },
       {
         "number": 9,
-        "text": "Les pusiste término, el cual no traspasarán, Ni volverán a cubrir la tierra."
+        "text": "Por lo cual Dios también le exaltó hasta lo sumo, y le dio un nombre que es sobre todo nombre,"
       },
       {
         "number": 10,
-        "text": "Tú eres el que envía las fuentes por los arroyos; Van entre los montes;"
+        "text": "para que en el nombre de Jesús se doble toda rodilla de los que están en los cielos, y en la tierra, y debajo de la tierra;"
       },
       {
         "number": 11,
-        "text": "Dan de beber a todas las bestias del campo; Mitigan su sed los asnos monteses."
-      },
-      {
-        "number": 12,
-        "text": "A sus orillas habitan las aves de los cielos; Cantan entre las ramas."
-      },
-      {
-        "number": 13,
-        "text": "El riega los montes desde sus aposentos; Del fruto de sus obras se sacia la tierra."
-      },
-      {
-        "number": 14,
-        "text": "El hace producir el heno para las bestias, Y la hierba para el servicio del hombre, Sacando el pan de la tierra,"
-      },
-      {
-        "number": 15,
-        "text": "Y el vino que alegra el corazón del hombre, El aceite que hace brillar el rostro, Y el pan que sustenta la vida del hombre."
-      },
-      {
-        "number": 16,
-        "text": "Se llenan de savia los árboles de Jehová, Los cedros del Líbano que él plantó."
-      },
-      {
-        "number": 17,
-        "text": "Allí anidan las aves; En las hayas hace su casa la cigüeña."
-      },
-      {
-        "number": 18,
-        "text": "Los montes altos para las cabras monteses; Las peñas, madrigueras para los conejos."
-      },
-      {
-        "number": 19,
-        "text": "Hizo la luna para los tiempos; El sol conoce su ocaso."
-      },
-      {
-        "number": 20,
-        "text": "Pones las tinieblas, y es la noche; En ella corretean todas las bestias de la selva."
-      },
-      {
-        "number": 21,
-        "text": "Los leoncillos rugen tras la presa, Y para buscar de Dios su comida."
-      },
-      {
-        "number": 22,
-        "text": "Sale el sol, se recogen, Y se echan en sus cuevas."
-      },
-      {
-        "number": 23,
-        "text": "Sale el hombre a su labor, Y a su labranza hasta la tarde."
-      },
-      {
-        "number": 24,
-        "text": "¡Cuán innumerables son tus obras, oh Jehová! Hiciste todas ellas con sabiduría; La tierra está llena de tus beneficios."
-      },
-      {
-        "number": 25,
-        "text": "He allí el grande y anchuroso mar, En donde se mueven seres innumerables, Seres pequeños y grandes."
-      },
-      {
-        "number": 26,
-        "text": "Allí andan las naves; Allí este leviatán que hiciste para que jugase en él."
-      },
-      {
-        "number": 27,
-        "text": "Todos ellos esperan en ti, Para que les des su comida a su tiempo."
-      },
+        "text": "y toda lengua confiese que Jesucristo es el Señor, para gloria de Dios Padre."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/filipenses/2/1-11",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Filipenses%202%3A1-11&version=RVR1960"
+  },
+  "scripture-isaias-40-28-28": {
+    "id": "scripture-isaias-40-28-28",
+    "kind": "scripture",
+    "title": "Isaías 40:28",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
       {
         "number": 28,
-        "text": "Les das, recogen; Abres tu mano, se sacian de bien."
+        "text": "¿No has sabido, no has oído que el Dios eterno es Jehová, el cual creó los confines de la tierra? No desfallece, ni se fatiga con cansancio, y su entendimiento no hay quien lo alcance."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/isaias/40/28",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Isa%C3%ADas%2040%3A28&version=RVR1960"
+  },
+  "scripture-romanos-8-28-39": {
+    "id": "scripture-romanos-8-28-39",
+    "kind": "scripture",
+    "title": "Romanos 8:28-39",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 28,
+        "text": "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados."
       },
       {
         "number": 29,
-        "text": "Escondes tu rostro, se turban; Les quitas el hálito, dejan de ser, Y vuelven al polvo."
+        "text": "Porque a los que antes conoció, también los predestinó para que fuesen hechos conformes a la imagen de su Hijo, para que él sea el primogénito entre muchos hermanos."
       },
       {
         "number": 30,
-        "text": "Envías tu Espíritu, son creados, Y renuevas la faz de la tierra."
+        "text": "Y a los que predestinó, a éstos también llamó; y a los que llamó, a éstos también justificó; y a los que justificó, a éstos también glorificó."
       },
       {
         "number": 31,
-        "text": "Sea la gloria de Jehová para siempre; Alégrese Jehová en sus obras."
+        "text": "¿Qué, pues, diremos a esto? Si Dios es por nosotros, ¿quién contra nosotros?"
       },
       {
         "number": 32,
-        "text": "El mira a la tierra, y ella tiembla; Toca los montes, y humean."
+        "text": "El que no escatimó ni a su propio Hijo, sino que lo entregó por todos nosotros, ¿cómo no nos dará también con él todas las cosas?"
       },
       {
         "number": 33,
-        "text": "A Jehová cantaré en mi vida; A mi Dios cantaré salmos mientras viva."
+        "text": "¿Quién acusará a los escogidos de Dios? Dios es el que justifica."
       },
       {
         "number": 34,
-        "text": "Dulce será mi meditación en él; Yo me regocijaré en Jehová."
+        "text": "¿Quién es el que condenará? Cristo es el que murió; más aun, el que también resucitó, el que además está a la diestra de Dios, el que también intercede por nosotros."
       },
       {
         "number": 35,
-        "text": "Sean consumidos de la tierra los pecadores, Y los impíos dejen de ser. Bendice, alma mía, a Jehová. Aleluya."
+        "text": "¿Quién nos separará del amor de Cristo? ¿Tribulación, o angustia, o persecución, o hambre, o desnudez, o peligro, o espada?"
+      },
+      {
+        "number": 36,
+        "text": "Como está escrito: Por causa de ti somos muertos todo el tiempo; Somos contados como ovejas de matadero."
+      },
+      {
+        "number": 37,
+        "text": "Antes, en todas estas cosas somos más que vencedores por medio de aquel que nos amó."
+      },
+      {
+        "number": 38,
+        "text": "Por lo cual estoy seguro de que ni la muerte, ni la vida, ni ángeles, ni principados, ni potestades, ni lo presente, ni lo por venir,"
+      },
+      {
+        "number": 39,
+        "text": "ni lo alto, ni lo profundo, ni ninguna otra cosa creada nos podrá separar del amor de Dios, que es en Cristo Jesús Señor nuestro."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/104",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/romanos/8/28-39",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20104&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Romanos%208%3A28-39&version=RVR1960"
   },
-  "scripture-salmos-19-all-": {
-    "id": "scripture-salmos-19-all-",
+  "scripture-salmos-148-all-": {
+    "id": "scripture-salmos-148-all-",
     "kind": "scripture",
-    "title": "Salmo 19",
+    "title": "Salmo 148",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Los cielos cuentan la gloria de Dios, Y el firmamento anuncia la obra de sus manos."
+        "text": "Alabad a Jehová desde los cielos; Alabadle en las alturas."
       },
       {
         "number": 2,
-        "text": "Un día emite palabra a otro día, Y una noche a otra noche declara sabiduría."
+        "text": "Alabadle, vosotros todos sus ángeles; Alabadle, vosotros todos sus ejércitos."
       },
       {
         "number": 3,
-        "text": "No hay lenguaje, ni palabras, Ni es oída su voz."
+        "text": "Alabadle, sol y luna; Alabadle, vosotras todas, lucientes estrellas."
       },
       {
         "number": 4,
-        "text": "Por toda la tierra salió su voz, Y hasta el extremo del mundo sus palabras. En ellos puso tabernáculo para el sol;"
+        "text": "Alabadle, cielos de los cielos, Y las aguas que están sobre los cielos."
       },
       {
         "number": 5,
-        "text": "Y éste, como esposo que sale de su tálamo, Se alegra cual gigante para correr el camino."
+        "text": "Alaben el nombre de Jehová; Porque él mandó, y fueron creados."
       },
       {
         "number": 6,
-        "text": "De un extremo de los cielos es su salida, Y su curso hasta el término de ellos; Y nada hay que se esconda de su calor."
+        "text": "Los hizo ser eternamente y para siempre; Les puso ley que no será quebrantada."
       },
       {
         "number": 7,
-        "text": "La ley de Jehová es perfecta, que convierte el alma; El testimonio de Jehová es fiel, que hace sabio al sencillo."
+        "text": "Alabad a Jehová desde la tierra, Los monstruos marinos y todos los abismos;"
       },
       {
         "number": 8,
-        "text": "Los mandamientos de Jehová son rectos, que alegran el corazón; El precepto de Jehová es puro, que alumbra los ojos."
+        "text": "El fuego y el granizo, la nieve y el vapor, El viento de tempestad que ejecuta su palabra;"
       },
       {
         "number": 9,
-        "text": "El temor de Jehová es limpio, que permanece para siempre; Los juicios de Jehová son verdad, todos justos."
+        "text": "Los montes y todos los collados, El árbol de fruto y todos los cedros;"
       },
       {
         "number": 10,
-        "text": "Deseables son más que el oro, y más que mucho oro afinado; Y dulces más que miel, y que la que destila del panal."
+        "text": "La bestia y todo animal, Reptiles y volátiles;"
       },
       {
         "number": 11,
-        "text": "Tu siervo es además amonestado con ellos; En guardarlos hay grande galardón."
+        "text": "Los reyes de la tierra y todos los pueblos, Los príncipes y todos los jueces de la tierra;"
       },
       {
         "number": 12,
-        "text": "¿Quién podrá entender sus propios errores? Líbrame de los que me son ocultos."
+        "text": "Los jóvenes y también las doncellas, Los ancianos y los niños."
       },
       {
         "number": 13,
-        "text": "Preserva también a tu siervo de las soberbias; Que no se enseñoreen de mí; Entonces seré íntegro, y estaré limpio de gran rebelión."
+        "text": "Alaben el nombre de Jehová, Porque sólo su nombre es enaltecido. Su gloria es sobre tierra y cielos."
       },
       {
         "number": 14,
-        "text": "Sean gratos los dichos de mi boca y la meditación de mi corazón delante de ti, Oh Jehová, roca mía, y redentor mío."
+        "text": "El ha exaltado el poderío de su pueblo; Alábenle todos sus santos, los hijos de Israel, El pueblo a él cercano. Aleluya."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/19",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/148",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2019&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20148&version=RVR1960"
   },
-  "scripture-salmos-55-all-": {
-    "id": "scripture-salmos-55-all-",
+  "scripture-salmos-23-5-5": {
+    "id": "scripture-salmos-23-5-5",
     "kind": "scripture",
-    "title": "Salmo 55",
+    "title": "Salmo 23:5",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 5,
+        "text": "Aderezas mesa delante de mí en presencia de mis angustiadores; Unges mi cabeza con aceite; mi copa está rebosando."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/5",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A5&version=RVR1960"
+  },
+  "scripture-salmos-23-6-6": {
+    "id": "scripture-salmos-23-6-6",
+    "kind": "scripture",
+    "title": "Salmo 23:6",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 6,
+        "text": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, Y en la casa de Jehová moraré por largos días."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/6",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A6&version=RVR1960"
+  },
+  "scripture-salmos-29-all-": {
+    "id": "scripture-salmos-29-all-",
+    "kind": "scripture",
+    "title": "Salmo 29",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Escucha, oh Dios, mi oración, Y no te escondas de mi súplica."
+        "text": "Tributad a Jehová, oh hijos de los poderosos, Dad a Jehová la gloria y el poder."
       },
       {
         "number": 2,
-        "text": "Está atento, y respóndeme; Clamo en mi oración, y me conmuevo,"
+        "text": "Dad a Jehová la gloria debida a su nombre; Adorad a Jehová en la hermosura de la santidad."
       },
       {
         "number": 3,
-        "text": "A causa de la voz del enemigo, Por la opresión del impío; Porque sobre mí echaron iniquidad, Y con furor me persiguen."
+        "text": "Voz de Jehová sobre las aguas; Truena el Dios de gloria, Jehová sobre las muchas aguas."
       },
       {
         "number": 4,
-        "text": "Mi corazón está dolorido dentro de mí, Y terrores de muerte sobre mí han caído."
+        "text": "Voz de Jehová con potencia; Voz de Jehová con gloria."
       },
       {
         "number": 5,
-        "text": "Temor y temblor vinieron sobre mí, Y terror me ha cubierto."
+        "text": "Voz de Jehová que quebranta los cedros; Quebrantó Jehová los cedros del Líbano."
       },
       {
         "number": 6,
-        "text": "Y dije: ¡Quién me diese alas como de paloma! Volaría yo, y descansaría."
+        "text": "Los hizo saltar como becerros; Al Líbano y al Sirión como hijos de búfalos."
       },
       {
         "number": 7,
-        "text": "Ciertamente huiría lejos; Moraría en el desierto. Selah"
+        "text": "Voz de Jehová que derrama llamas de fuego;"
       },
       {
         "number": 8,
-        "text": "Me apresuraría a escapar Del viento borrascoso, de la tempestad."
+        "text": "Voz de Jehová que hace temblar el desierto; Hace temblar Jehová el desierto de Cades."
       },
       {
         "number": 9,
-        "text": "Destrúyelos, oh Señor; confunde la lengua de ellos; Porque he visto violencia y rencilla en la ciudad."
+        "text": "Voz de Jehová que desgaja las encinas, Y desnuda los bosques; En su templo todo proclama su gloria."
       },
       {
         "number": 10,
-        "text": "Día y noche la rodean sobre sus muros, E iniquidad y trabajo hay en medio de ella."
+        "text": "Jehová preside en el diluvio, Y se sienta Jehová como rey para siempre."
       },
       {
         "number": 11,
-        "text": "Maldad hay en medio de ella, Y el fraude y el engaño no se apartan de sus plazas."
-      },
-      {
-        "number": 12,
-        "text": "Porque no me afrentó un enemigo, Lo cual habría soportado; Ni se alzó contra mí el que me aborrecía, Porque me hubiera ocultado de él;"
-      },
-      {
-        "number": 13,
-        "text": "Sino tú, hombre, al parecer íntimo mío, Mi guía, y mi familiar;"
-      },
-      {
-        "number": 14,
-        "text": "Que juntos comunicábamos dulcemente los secretos, Y andábamos en amistad en la casa de Dios."
-      },
-      {
-        "number": 15,
-        "text": "Que la muerte les sorprenda; Desciendan vivos al Seol, Porque hay maldades en sus moradas, en medio de ellos."
-      },
-      {
-        "number": 16,
-        "text": "En cuanto a mí, a Dios clamaré; Y Jehová me salvará."
-      },
-      {
-        "number": 17,
-        "text": "Tarde y mañana y a mediodía oraré y clamaré, Y él oirá mi voz."
-      },
-      {
-        "number": 18,
-        "text": "El redimirá en paz mi alma de la guerra contra mí, Aunque contra mí haya muchos."
-      },
-      {
-        "number": 19,
-        "text": "Dios oirá, y los quebrantará luego, El que permanece desde la antigüedad; Por cuanto no cambian, Ni temen a Dios. Selah"
-      },
-      {
-        "number": 20,
-        "text": "Extendió el inicuo sus manos contra los que estaban en paz con él; Violó su pacto."
-      },
-      {
-        "number": 21,
-        "text": "Los dichos de su boca son más blandos que mantequilla, Pero guerra hay en su corazón; Suaviza sus palabras más que el aceite, Mas ellas son espadas desnudas."
-      },
-      {
-        "number": 22,
-        "text": "Echa sobre Jehová tu carga, y él te sustentará; No dejará para siempre caído al justo."
-      },
-      {
-        "number": 23,
-        "text": "Mas tú, oh Dios, harás descender aquéllos al pozo de perdición. Los hombres sanguinarios y engañadores no llegarán a la mitad de sus días; Pero yo en ti confiaré."
+        "text": "Jehová dará poder a su pueblo; Jehová bendecirá a su pueblo con paz."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/55",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/29",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2055&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2029&version=RVR1960"
   },
-  "scripture-santiago-3-1-12": {
-    "id": "scripture-santiago-3-1-12",
+  "scripture-salmos-96-all-": {
+    "id": "scripture-salmos-96-all-",
     "kind": "scripture",
-    "title": "Santiago 3:1-12",
+    "title": "Salmo 96",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Hermanos míos, no os hagáis maestros muchos de vosotros, sabiendo que recibiremos mayor condenación."
+        "text": "Cantad a Jehová cántico nuevo; Cantad a Jehová, toda la tierra."
       },
       {
         "number": 2,
-        "text": "Porque todos ofendemos muchas veces. Si alguno no ofende en palabra, éste es varón perfecto, capaz también de refrenar todo el cuerpo."
+        "text": "Cantad a Jehová, bendecid su nombre; Anunciad de día en día su salvación."
       },
       {
         "number": 3,
-        "text": "He aquí nosotros ponemos freno en la boca de los caballos para que nos obedezcan, y dirigimos así todo su cuerpo."
+        "text": "Proclamad entre las naciones su gloria, En todos los pueblos sus maravillas."
       },
       {
         "number": 4,
-        "text": "Mirad también las naves; aunque tan grandes, y llevadas de impetuosos vientos, son gobernadas con un muy pequeño timón por donde el que las gobierna quiere."
+        "text": "Porque grande es Jehová, y digno de suprema alabanza; Temible sobre todos los dioses."
       },
       {
         "number": 5,
-        "text": "Así también la lengua es un miembro pequeño, pero se jacta de grandes cosas. He aquí, ¡cuán grande bosque enciende un pequeño fuego!"
+        "text": "Porque todos los dioses de los pueblos son ídolos; Pero Jehová hizo los cielos."
       },
       {
         "number": 6,
-        "text": "Y la lengua es un fuego, un mundo de maldad. La lengua está puesta entre nuestros miembros, y contamina todo el cuerpo, e inflama la rueda de la creación, y ella misma es inflamada por el infierno."
+        "text": "Alabanza y magnificencia delante de él; Poder y gloria en su santuario."
       },
       {
         "number": 7,
-        "text": "Porque toda naturaleza de bestias, y de aves, y de serpientes, y de seres del mar, se doma y ha sido domada por la naturaleza humana;"
+        "text": "Tributad a Jehová, oh familias de los pueblos, Dad a Jehová la gloria y el poder."
       },
       {
         "number": 8,
-        "text": "pero ningún hombre puede domar la lengua, que es un mal que no puede ser refrenado, llena de veneno mortal."
+        "text": "Dad a Jehová la honra debida a su nombre; Traed ofrendas, y venid a sus atrios."
       },
       {
         "number": 9,
-        "text": "Con ella bendecimos al Dios y Padre, y con ella maldecimos a los hombres, que están hechos a la semejanza de Dios."
+        "text": "Adorad a Jehová en la hermosura de la santidad; Temed delante de él, toda la tierra."
       },
       {
         "number": 10,
-        "text": "De una misma boca proceden bendición y maldición. Hermanos míos, esto no debe ser así."
+        "text": "Decid entre las naciones: Jehová reina. También afirmó el mundo, no será conmovido; Juzgará a los pueblos en justicia."
       },
       {
         "number": 11,
-        "text": "¿Acaso alguna fuente echa por una misma abertura agua dulce y amarga?"
+        "text": "Alégrense los cielos, y gócese la tierra; Brame el mar y su plenitud."
       },
       {
         "number": 12,
-        "text": "Hermanos míos, ¿puede acaso la higuera producir aceitunas, o la vid higos? Así también ninguna fuente puede dar agua salada y dulce."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/santiago/3/1-12",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Santiago%203%3A1-12&version=RVR1960"
-  },
-  "scripture-zacarias-11-12-13": {
-    "id": "scripture-zacarias-11-12-13",
-    "kind": "scripture",
-    "title": "Zacarías 11:12-13",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 12,
-        "text": "Y les dije: Si os parece bien, dadme mi salario; y si no, dejadlo. Y pesaron por mi salario treinta piezas de plata."
+        "text": "Regocíjese el campo, y todo lo que en él está; Entonces todos los árboles del bosque rebosarán de contento,"
       },
       {
         "number": 13,
-        "text": "Y me dijo Jehová: Echalo al tesoro; ¡hermoso precio con que me han apreciado! Y tomé las treinta piezas de plata, y las eché en la casa de Jehová al tesoro."
+        "text": "Delante de Jehová que vino; Porque vino a juzgar la tierra. Juzgará al mundo con justicia, Y a los pueblos con su verdad."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/zacarias/11/12-13",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/96",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Zacar%C3%ADas%2011%3A12-13&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2096&version=RVR1960"
   }
 }

@@ -14,11 +14,11 @@ const variants = [
     quality: 82,
   },
   {
-    input: 'public/images/sermons/anfitrion-real-salmo-23.jpg',
+    input: 'public/images/sermons/llamamiento-a-una-vida-santa-1-pedro-1.jpg',
     outputs: [
-      ['public/images/optimized/anfitrion-real-salmo-23-640.webp', 640],
-      ['public/images/optimized/anfitrion-real-salmo-23-960.webp', 960],
-      ['public/images/optimized/anfitrion-real-salmo-23-1280.webp', 1280],
+      ['public/images/optimized/llamamiento-a-una-vida-santa-1-pedro-1-640.webp', 640],
+      ['public/images/optimized/llamamiento-a-una-vida-santa-1-pedro-1-960.webp', 960],
+      ['public/images/optimized/llamamiento-a-una-vida-santa-1-pedro-1-1280.webp', 1280],
     ],
     quality: 86,
   },
