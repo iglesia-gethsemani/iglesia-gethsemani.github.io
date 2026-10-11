@@ -1,22 +1,77 @@
 {
-  "scripture-1-timoteo-6-15-16": {
-    "id": "scripture-1-timoteo-6-15-16",
+  "scripture-1-juan-3-7-10": {
+    "id": "scripture-1-juan-3-7-10",
     "kind": "scripture",
-    "title": "1 Timoteo 6:15-16",
+    "title": "1 Juan 3:7-10",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
+        "number": 7,
+        "text": "Hijitos, no os engañe ninguno: el que hace justicia, es justo, como él también es justo."
+      },
+      {
+        "number": 8,
+        "text": "El que hace pecado, es del diablo; porque el diablo peca desde el principio. Para esto apareció el Hijo de Dios, para deshacer las obras del diablo."
+      },
+      {
+        "number": 9,
+        "text": "Cualquiera que es nacido de Dios, no hace pecado, porque su simiente está en él; y no puede pecar, porque es nacido de Dios."
+      },
+      {
+        "number": 10,
+        "text": "En esto son manifiestos los hijos de Dios, y los hijos del diablo: cualquiera que no hace justicia, y que no ama á su hermano, no es de Dios."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-juan/3/7-10",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Juan%203%3A7-10&version=RVR1960"
+  },
+  "scripture-1-pedro-1-13-21": {
+    "id": "scripture-1-pedro-1-13-21",
+    "kind": "scripture",
+    "title": "1 Pedro 1:13-21",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 13,
+        "text": "Por lo cual, teniendo los lomos de vuestro entendimiento ceñidos, con templanza, esperad perfectamente en la gracia que os es presentada cuando Jesucristo os es manifestado:"
+      },
+      {
+        "number": 14,
+        "text": "Como hijos obedientes, no conformándoos con los deseos que antes teníais estando en vuestra ignorancia;"
+      },
+      {
         "number": 15,
-        "text": "la cual a su tiempo mostrará el bienaventurado y solo Soberano, Rey de reyes, y Señor de señores,"
+        "text": "Sino como aquel que os ha llamado es santo, sed también vosotros santos en toda conversación:"
       },
       {
         "number": 16,
-        "text": "el único que tiene inmortalidad, que habita en luz inaccesible; a quien ninguno de los hombres ha visto ni puede ver, al cual sea la honra y el imperio sempiterno. Amén."
+        "text": "Porque escrito está: Sed santos, porque yo soy santo."
+      },
+      {
+        "number": 17,
+        "text": "Y si invocáis por Padre á aquel que sin acepción de personas juzga según la obra de cada uno, conversad en temor todo el tiempo de vuestra peregrinación:"
+      },
+      {
+        "number": 18,
+        "text": "Sabiendo que habéis sido rescatados de vuestra vana conversación, la cual recibisteis de vuestros padres, no con cosas corruptibles, [como] oro ó plata;"
+      },
+      {
+        "number": 19,
+        "text": "Sino con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación:"
+      },
+      {
+        "number": 20,
+        "text": "Ya ordenado de antes de la fundación del mundo, pero manifestado en los postrimeros tiempos por amor de vosotros,"
+      },
+      {
+        "number": 21,
+        "text": "Que por él creéis á Dios, el cual le resucitó de los muertos, y le ha dado gloria, para que vuestra fe y esperanza sea en Dios."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-timoteo/6/15-16",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/1-pedro/1/13-21",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Timoteo%206%3A15-16&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=1%20Pedro%201%3A13-21&version=RVR1960"
   },
   "scripture-2-corintios-9-7-7": {
     "id": "scripture-2-corintios-9-7-7",
@@ -48,75 +103,206 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=2%20Pedro%203%3A18&version=RVR1960"
   },
-  "scripture-filipenses-2-1-11": {
-    "id": "scripture-filipenses-2-1-11",
+  "scripture-genesis-3-1-24": {
+    "id": "scripture-genesis-3-1-24",
     "kind": "scripture",
-    "title": "Filipenses 2:1-11",
+    "title": "Génesis 3:1-24",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Por tanto, si hay alguna consolación en Cristo, si algún consuelo de amor, si alguna comunión del Espíritu, si algún afecto entrañable, si alguna misericordia,"
+        "text": "EMPERO la serpiente era astuta, más que todos los animales del campo que Jehová Dios había hecho; la cual dijo á la mujer: ¿Conque Dios os ha dicho: No comáis de todo árbol del huerto?"
       },
       {
         "number": 2,
-        "text": "completad mi gozo, sintiendo lo mismo, teniendo el mismo amor, unánimes, sintiendo una misma cosa."
+        "text": "Y la mujer respondió á la serpiente: Del fruto de los árboles del huerto comemos;"
       },
       {
         "number": 3,
-        "text": "Nada hagáis por contienda o por vanagloria; antes bien con humildad, estimando cada uno a los demás como superiores a él mismo;"
+        "text": "Mas del fruto del árbol que está en medio del huerto dijo Dios: No comeréis de él, ni le tocaréis, porque no muráis."
       },
       {
         "number": 4,
-        "text": "no mirando cada uno por lo suyo propio, sino cada cual también por lo de los otros."
+        "text": "Entonces la serpiente dijo á la mujer: No moriréis;"
       },
       {
         "number": 5,
-        "text": "Haya, pues, en vosotros este sentir que hubo también en Cristo Jesús,"
+        "text": "Mas sabe Dios que el día que comiereis de él, serán abiertos vuestros ojos, y seréis como dioses sabiendo el bien y el mal."
       },
       {
         "number": 6,
-        "text": "el cual, siendo en forma de Dios, no estimó el ser igual a Dios como cosa a que aferrarse,"
+        "text": "Y vió la mujer que el árbol era bueno para comer, y que era agradable á los ojos, y árbol codiciable para alcanzar la sabiduría; y tomó de su fruto, y comió; y dió también á su marido, el cual comió así como ella."
       },
       {
         "number": 7,
-        "text": "sino que se despojó a sí mismo, tomando forma de siervo, hecho semejante a los hombres;"
+        "text": "Y fueron abiertos los ojos de entrambos, y conocieron que estaban desnudos: entonces cosieron hojas de higuera, y se hicieron delantales."
       },
       {
         "number": 8,
-        "text": "y estando en la condición de hombre, se humilló a sí mismo, haciéndose obediente hasta la muerte, y muerte de cruz."
+        "text": "Y oyeron la voz de Jehová Dios que se paseaba en el huerto al aire del día: y escondióse el hombre y su mujer de la presencia de Jehová Dios entre los árboles del huerto."
       },
       {
         "number": 9,
-        "text": "Por lo cual Dios también le exaltó hasta lo sumo, y le dio un nombre que es sobre todo nombre,"
+        "text": "Y llamó Jehová Dios al hombre, y le dijo: ¿Dónde estás tú?"
       },
       {
         "number": 10,
-        "text": "para que en el nombre de Jesús se doble toda rodilla de los que están en los cielos, y en la tierra, y debajo de la tierra;"
+        "text": "Y él respondió: Oí tu voz en el huerto, y tuve miedo, porque estaba desnudo; y escondíme."
       },
       {
         "number": 11,
-        "text": "y toda lengua confiese que Jesucristo es el Señor, para gloria de Dios Padre."
+        "text": "Y díjole: ¿Quién te enseñó que estabas desnudo? ¿Has comido del árbol de que yo te mandé no comieses?"
+      },
+      {
+        "number": 12,
+        "text": "Y el hombre respondió: La mujer que me diste por compañera me dió del árbol, y yo comí."
+      },
+      {
+        "number": 13,
+        "text": "Entonces Jehová Dios dijo á la mujer: ¿Qué es lo que has hecho? Y dijo la mujer: La serpiente me engañó, y comí."
+      },
+      {
+        "number": 14,
+        "text": "Y Jehová Dios dijo á la serpiente: Por cuanto esto hiciste, maldita serás entre todas las bestias y entre todos los animales del campo; sobre tu pecho andarás, y polvo comerás todos los días de tu vida:"
+      },
+      {
+        "number": 15,
+        "text": "Y enemistad pondré entre ti y la mujer, y entre tu simiente y la simiente suya; ésta te herirá [en] la cabeza, y tú le herirás [en] el calcañar."
+      },
+      {
+        "number": 16,
+        "text": "A la mujer dijo: Multiplicaré en gran manera tus dolores y tus preñeces; con dolor parirás los hijos; y á tu marido será tu deseo, y él se enseñoreará de ti."
+      },
+      {
+        "number": 17,
+        "text": "Y al hombre dijo: Por cuanto obedeciste á la voz de tu mujer, y comiste del árbol de que te mandé diciendo, No comerás de él; maldita será la tierra por amor de ti; con dolor comerás de ella todos los días de tu vida;"
+      },
+      {
+        "number": 18,
+        "text": "Espinos y cardos te producirá, y comerás hierba del campo;"
+      },
+      {
+        "number": 19,
+        "text": "En el sudor de tu rostro comerás el pan hasta que vuelvas á la tierra; porque de ella fuiste tomado: pues polvo eres, y al polvo serás tornado."
+      },
+      {
+        "number": 20,
+        "text": "Y llamó el hombre el nombre de su mujer, Eva; por cuanto ella era madre de todos los vivientes."
+      },
+      {
+        "number": 21,
+        "text": "Y Jehová Dios hizo al hombre y á su mujer túnicas de pieles, y vistiólos."
+      },
+      {
+        "number": 22,
+        "text": "Y dijo Jehová Dios: He aquí el hombre es como uno de Nos sabiendo el bien y el mal: ahora, pues, porque no alargue su mano, y tome también del árbol de la vida, y coma, y viva para siempre:"
+      },
+      {
+        "number": 23,
+        "text": "Y sacólo Jehová del huerto de Edén, para que labrase la tierra de que fué tomado."
+      },
+      {
+        "number": 24,
+        "text": "Echó, pues, fuera al hombre, y puso al oriente del huerto de Edén querubines, y una espada encendida que se revolvía á todos lados, para guardar el camino del árbol de la vida."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/filipenses/2/1-11",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/genesis/3/1-24",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Filipenses%202%3A1-11&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=G%C3%A9nesis%203%3A1-24&version=RVR1960"
   },
-  "scripture-isaias-40-28-28": {
-    "id": "scripture-isaias-40-28-28",
+  "scripture-genesis-31-1-16": {
+    "id": "scripture-genesis-31-1-16",
     "kind": "scripture",
-    "title": "Isaías 40:28",
+    "title": "Génesis 31:1-16",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
-        "number": 28,
-        "text": "¿No has sabido, no has oído que el Dios eterno es Jehová, el cual creó los confines de la tierra? No desfallece, ni se fatiga con cansancio, y su entendimiento no hay quien lo alcance."
+        "number": 1,
+        "text": "Y OÍA él las palabras de los hijos de Labán, que decían: Jacob ha tomado todo lo que era de nuestro padre; y de lo que era de nuestro padre ha adquirido toda esta grandeza."
+      },
+      {
+        "number": 2,
+        "text": "Miraba también Jacob el semblante de Labán, y veía que no era para con él como ayer y antes de ayer."
+      },
+      {
+        "number": 3,
+        "text": "También Jehová dijo á Jacob: Vuélvete á la tierra de tus padres, y á tu parentela; que yo seré contigo."
+      },
+      {
+        "number": 4,
+        "text": "Y envió Jacob, y llamó á Rachêl y á Lea al campo á sus ovejas,"
+      },
+      {
+        "number": 5,
+        "text": "Y díjoles: Veo que el semblante de vuestro padre no es para conmigo como ayer y antes de ayer: mas el Dios de mi padre ha sido conmigo."
+      },
+      {
+        "number": 6,
+        "text": "Y vosotras sabéis que con todas mis fuerzas he servido á vuestro padre:"
+      },
+      {
+        "number": 7,
+        "text": "Y vuestro padre me ha engañado, y me ha mudado el salario diez veces: pero Dios no le ha permitido que me hiciese mal."
+      },
+      {
+        "number": 8,
+        "text": "Si él decía así: Los pintados serán tu salario; entonces todas las ovejas parían pintados: y si decía así: Los listados serán tu salario; entonces todas las ovejas parían listados."
+      },
+      {
+        "number": 9,
+        "text": "Así quitó Dios el ganado de vuestro padre, y diómelo á mí."
+      },
+      {
+        "number": 10,
+        "text": "Y sucedió que al tiempo que las ovejas se recalentaban, alcé yo mis ojos y vi en sueños, y he aquí los machos que cubrían á las hembras [eran] listados, pintados y abigarrados."
+      },
+      {
+        "number": 11,
+        "text": "Y díjome el ángel de Dios en sueños: Jacob. Y yo dije: Heme aquí."
+      },
+      {
+        "number": 12,
+        "text": "Y él dijo: Alza ahora tus ojos, y verás todos los machos que cubren á las ovejas listados, pintados y abigarrados; porque yo he visto todo lo que Labán te ha hecho."
+      },
+      {
+        "number": 13,
+        "text": "Yo soy el Dios de Beth-el, donde tú ungiste el título, y donde me hiciste un voto. Levántate ahora, y sal de esta tierra, y vuélvete á la tierra de tu naturaleza."
+      },
+      {
+        "number": 14,
+        "text": "Y respondió Rachêl y Lea, y dijéronle: ¿Tenemos ya parte ni heredad en la casa de nuestro padre?"
+      },
+      {
+        "number": 15,
+        "text": "¿No nos tiene ya como por extrañas, pues que nos vendió, y aun se ha comido del todo nuestro precio?"
+      },
+      {
+        "number": 16,
+        "text": "Porque toda la riqueza que Dios ha quitado á nuestro padre, nuestra es y de nuestros hijos: ahora pues, haz todo lo que Dios te ha dicho."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/isaias/40/28",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/genesis/31/1-16",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Isa%C3%ADas%2040%3A28&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=G%C3%A9nesis%2031%3A1-16&version=RVR1960"
+  },
+  "scripture-levitico-19-1-2": {
+    "id": "scripture-levitico-19-1-2",
+    "kind": "scripture",
+    "title": "Levítico 19:1-2",
+    "subtitle": "Reina-Valera 1960",
+    "verses": [
+      {
+        "number": 1,
+        "text": "Y HABLÓ Jehová á Moisés, diciendo:"
+      },
+      {
+        "number": 2,
+        "text": "Habla á toda la congregación de los hijos de Israel, y diles: Santos seréis, porque santo soy yo Jehová vuestro Dios."
+      }
+    ],
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/levitico/19/1-2",
+    "source": "RV1960",
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Lev%C3%ADtico%2019%3A1-2&version=RVR1960"
   },
   "scripture-romanos-8-28-39": {
     "id": "scripture-romanos-8-28-39",
@@ -177,219 +363,129 @@
     "source": "RV1960",
     "externalUrl": "https://www.biblegateway.com/passage/?search=Romanos%208%3A28-39&version=RVR1960"
   },
-  "scripture-salmos-148-all-": {
-    "id": "scripture-salmos-148-all-",
+  "scripture-salmos-121-all-": {
+    "id": "scripture-salmos-121-all-",
     "kind": "scripture",
-    "title": "Salmo 148",
+    "title": "Salmo 121",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Alabad a Jehová desde los cielos; Alabadle en las alturas."
+        "text": "Cántico gradual. ALZARÉ mis ojos á los montes, de donde vendrá mi socorro."
       },
       {
         "number": 2,
-        "text": "Alabadle, vosotros todos sus ángeles; Alabadle, vosotros todos sus ejércitos."
+        "text": "Mi socorro [viene] de Jehová, que hizo los cielos y la tierra."
       },
       {
         "number": 3,
-        "text": "Alabadle, sol y luna; Alabadle, vosotras todas, lucientes estrellas."
+        "text": "No dará tu pie al resbaladero; ni se dormirá el que te guarda."
       },
       {
         "number": 4,
-        "text": "Alabadle, cielos de los cielos, Y las aguas que están sobre los cielos."
+        "text": "He aquí, no se adormecerá ni dormirá el que guarda á Israel."
       },
       {
         "number": 5,
-        "text": "Alaben el nombre de Jehová; Porque él mandó, y fueron creados."
+        "text": "Jehová es tu guardador: Jehová es tu sombra á tu mano derecha."
       },
       {
         "number": 6,
-        "text": "Los hizo ser eternamente y para siempre; Les puso ley que no será quebrantada."
+        "text": "El sol no te fatigará de día, ni la luna de noche."
       },
       {
         "number": 7,
-        "text": "Alabad a Jehová desde la tierra, Los monstruos marinos y todos los abismos;"
+        "text": "Jehová te guardará de todo mal: él guardará tu alma."
       },
       {
         "number": 8,
-        "text": "El fuego y el granizo, la nieve y el vapor, El viento de tempestad que ejecuta su palabra;"
-      },
-      {
-        "number": 9,
-        "text": "Los montes y todos los collados, El árbol de fruto y todos los cedros;"
-      },
-      {
-        "number": 10,
-        "text": "La bestia y todo animal, Reptiles y volátiles;"
-      },
-      {
-        "number": 11,
-        "text": "Los reyes de la tierra y todos los pueblos, Los príncipes y todos los jueces de la tierra;"
-      },
-      {
-        "number": 12,
-        "text": "Los jóvenes y también las doncellas, Los ancianos y los niños."
-      },
-      {
-        "number": 13,
-        "text": "Alaben el nombre de Jehová, Porque sólo su nombre es enaltecido. Su gloria es sobre tierra y cielos."
-      },
-      {
-        "number": 14,
-        "text": "El ha exaltado el poderío de su pueblo; Alábenle todos sus santos, los hijos de Israel, El pueblo a él cercano. Aleluya."
+        "text": "Jehová guardará tu salida y tu entrada, desde ahora y para siempre."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/148",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/121",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20148&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%20121&version=RVR1960"
   },
-  "scripture-salmos-23-5-5": {
-    "id": "scripture-salmos-23-5-5",
+  "scripture-salmos-15-all-": {
+    "id": "scripture-salmos-15-all-",
     "kind": "scripture",
-    "title": "Salmo 23:5",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 5,
-        "text": "Aderezas mesa delante de mí en presencia de mis angustiadores; Unges mi cabeza con aceite; mi copa está rebosando."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/5",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A5&version=RVR1960"
-  },
-  "scripture-salmos-23-6-6": {
-    "id": "scripture-salmos-23-6-6",
-    "kind": "scripture",
-    "title": "Salmo 23:6",
-    "subtitle": "Reina-Valera 1960",
-    "verses": [
-      {
-        "number": 6,
-        "text": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, Y en la casa de Jehová moraré por largos días."
-      }
-    ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/23/6",
-    "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2023%3A6&version=RVR1960"
-  },
-  "scripture-salmos-29-all-": {
-    "id": "scripture-salmos-29-all-",
-    "kind": "scripture",
-    "title": "Salmo 29",
+    "title": "Salmo 15",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Tributad a Jehová, oh hijos de los poderosos, Dad a Jehová la gloria y el poder."
+        "text": "Salmo de David. JEHOVÁ, ¿quién habitará en tu tabernáculo? ¿quién residirá en el monte de tu santidad?"
       },
       {
         "number": 2,
-        "text": "Dad a Jehová la gloria debida a su nombre; Adorad a Jehová en la hermosura de la santidad."
+        "text": "El que anda en integridad, y obra justicia, y habla verdad en su corazón."
       },
       {
         "number": 3,
-        "text": "Voz de Jehová sobre las aguas; Truena el Dios de gloria, Jehová sobre las muchas aguas."
+        "text": "El que no detrae con su lengua, ni hace mal á su prójimo, ni contra su prójimo acoge oprobio alguno."
       },
       {
         "number": 4,
-        "text": "Voz de Jehová con potencia; Voz de Jehová con gloria."
+        "text": "Aquel á cuyos ojos es menospreciado el vil; mas honra á los que temen á Jehová: [y] habiendo jurado en daño suyo, no por eso muda."
       },
       {
         "number": 5,
-        "text": "Voz de Jehová que quebranta los cedros; Quebrantó Jehová los cedros del Líbano."
-      },
-      {
-        "number": 6,
-        "text": "Los hizo saltar como becerros; Al Líbano y al Sirión como hijos de búfalos."
-      },
-      {
-        "number": 7,
-        "text": "Voz de Jehová que derrama llamas de fuego;"
-      },
-      {
-        "number": 8,
-        "text": "Voz de Jehová que hace temblar el desierto; Hace temblar Jehová el desierto de Cades."
-      },
-      {
-        "number": 9,
-        "text": "Voz de Jehová que desgaja las encinas, Y desnuda los bosques; En su templo todo proclama su gloria."
-      },
-      {
-        "number": 10,
-        "text": "Jehová preside en el diluvio, Y se sienta Jehová como rey para siempre."
-      },
-      {
-        "number": 11,
-        "text": "Jehová dará poder a su pueblo; Jehová bendecirá a su pueblo con paz."
+        "text": "Quien su dinero no dió á usura, ni contra el inocente tomó cohecho. El que hace estas cosas, no resbalará para siempre."
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/29",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/15",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2029&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2015&version=RVR1960"
   },
-  "scripture-salmos-96-all-": {
-    "id": "scripture-salmos-96-all-",
+  "scripture-salmos-24-all-": {
+    "id": "scripture-salmos-24-all-",
     "kind": "scripture",
-    "title": "Salmo 96",
+    "title": "Salmo 24",
     "subtitle": "Reina-Valera 1960",
     "verses": [
       {
         "number": 1,
-        "text": "Cantad a Jehová cántico nuevo; Cantad a Jehová, toda la tierra."
+        "text": "Salmo de David. DE Jehová es la tierra y su plenitud; el mundo, y los que en él habitan."
       },
       {
         "number": 2,
-        "text": "Cantad a Jehová, bendecid su nombre; Anunciad de día en día su salvación."
+        "text": "Porque él la fundó sobre los mares, y afirmóla sobre los ríos."
       },
       {
         "number": 3,
-        "text": "Proclamad entre las naciones su gloria, En todos los pueblos sus maravillas."
+        "text": "¿Quién subirá al monte de Jehová? ¿y quién estará en el lugar de su santidad?"
       },
       {
         "number": 4,
-        "text": "Porque grande es Jehová, y digno de suprema alabanza; Temible sobre todos los dioses."
+        "text": "El limpio de manos, y puro de corazón: el que no ha elevado su alma á la vanidad, ni jurado con engaño."
       },
       {
         "number": 5,
-        "text": "Porque todos los dioses de los pueblos son ídolos; Pero Jehová hizo los cielos."
+        "text": "El recibirá bendición de Jehová, y justicia del Dios de salud."
       },
       {
         "number": 6,
-        "text": "Alabanza y magnificencia delante de él; Poder y gloria en su santuario."
+        "text": "Tal es la generación de los que le buscan, de los que buscan tu rostro, oh [Dios de] Jacob. (Selah.)"
       },
       {
         "number": 7,
-        "text": "Tributad a Jehová, oh familias de los pueblos, Dad a Jehová la gloria y el poder."
+        "text": "Alzad, oh puertas, vuestras cabezas, y alzaos vosotras, puertas eternas, y entrará el Rey de gloria."
       },
       {
         "number": 8,
-        "text": "Dad a Jehová la honra debida a su nombre; Traed ofrendas, y venid a sus atrios."
+        "text": "¿Quién es este Rey de gloria? Jehová el fuerte y valiente, Jehová el poderoso en batalla."
       },
       {
         "number": 9,
-        "text": "Adorad a Jehová en la hermosura de la santidad; Temed delante de él, toda la tierra."
+        "text": "Alzad, oh puertas, vuestras cabezas, y alzaos vosotras, puertas eternas, y entrará el Rey de gloria."
       },
       {
         "number": 10,
-        "text": "Decid entre las naciones: Jehová reina. También afirmó el mundo, no será conmovido; Juzgará a los pueblos en justicia."
-      },
-      {
-        "number": 11,
-        "text": "Alégrense los cielos, y gócese la tierra; Brame el mar y su plenitud."
-      },
-      {
-        "number": 12,
-        "text": "Regocíjese el campo, y todo lo que en él está; Entonces todos los árboles del bosque rebosarán de contento,"
-      },
-      {
-        "number": 13,
-        "text": "Delante de Jehová que vino; Porque vino a juzgar la tierra. Juzgará al mundo con justicia, Y a los pueblos con su verdad."
+        "text": "¿Quién es este Rey de gloria? Jehová de los ejércitos, él es el Rey de la gloria. (Selah.)"
       }
     ],
-    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/96",
+    "apiUrl": "https://api.midvash.com/v1/rvr1960/salmos/24",
     "source": "RV1960",
-    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2096&version=RVR1960"
+    "externalUrl": "https://www.biblegateway.com/passage/?search=Salmo%2024&version=RVR1960"
   }
 }
