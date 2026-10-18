@@ -1,0 +1,98 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+import { weeklyActivities } from '@/data/weekly-activities';
+
+const latest = (await getCollection('announcements'))
+  .filter((entry) => entry.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const items = latest?.data.items ?? [];
+const flowers = latest?.data.flowers;
+const updatedLabel = latest
+  ? new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'America/Mexico_City',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(latest.data.date)
+  : null;
+---
+
+<PageLayout
+  title="Avisos"
+  description="Avisos, actividades y celebraciones de la Iglesia Presbiteriana Reformada Gethsemaní en Coyoacán."
+  canonicalPath="/avisos/"
+>
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Vida congregacional</p>
+      <h1>Avisos<br /><em>de la semana.</em></h1>
+    </div>
+    <p>
+      Actividades, celebraciones y anuncios de la congregación.
+      {updatedLabel && <>Boletín del {updatedLabel}.</>}
+    </p>
+  </header>
+
+  <section class="section listing-section announcements-page">
+    <div class="list-header">
+      <p>Avisos especiales</p>
+      <span>{String(items.length).padStart(2, '0')}</span>
+    </div>
+    {
+      items.length > 0 ? (
+        <ul class="announcement-list">
+          {items.map((item) => (
+            <li>
+              <span class="announcement-when">{item.when ?? 'Esta semana'}</span>
+              <div>
+                <strong>{item.title}</strong>
+                {item.detail && <p>{item.detail}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="empty-panel">
+          <h2>Sin avisos especiales</h2>
+          <p>Esta semana no hay avisos adicionales. Consulta abajo las actividades de cada semana.</p>
+        </div>
+      )
+    }
+
+    <div class="announcements-extra">
+      {
+        flowers && (
+          <article class="announcements-card flowers-card">
+            <p class="overline blue">Ofrenda floral</p>
+            <h2>Las flores que adornan el templo</h2>
+            <p class="flowers-family">Fueron ofrendadas por la {flowers.family}</p>
+            {flowers.note && <p class="flowers-note">{flowers.note}</p>}
+            {flowers.verse && (
+              <blockquote>
+                “{flowers.verse}”
+                {flowers.reference && <cite>{flowers.reference}</cite>}
+              </blockquote>
+            )}
+          </article>
+        )
+      }
+      <article class="announcements-card">
+        <p class="overline blue">Cada semana</p>
+        <h2>Actividades regulares</h2>
+        <ul class="weekly-activities">
+          {
+            weeklyActivities.map((activity) => (
+              <li>
+                <span>
+                  {activity.day} · {activity.time}
+                </span>
+                {activity.title}
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
+  </section>
+</PageLayout>

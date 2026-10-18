@@ -41,6 +41,10 @@ const featuredServiceWebpSrc = sermonImageWebpSrcset(
 const featuredServiceWebp = featuredServiceWebpSrc
   ? { srcset: featuredServiceWebpSrc }
   : null;
+const latestAnnouncements = (await getCollection('announcements'))
+  .filter((entry) => entry.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const announcementItems = latestAnnouncements?.data.items.slice(0, 4) ?? [];
 ---
 
 <PageLayout
@@ -133,6 +137,31 @@ const featuredServiceWebp = featuredServiceWebpSrc
             Consultar el orden del culto <Icon name="arrow" />
           </a>
         </div>
+      </section>
+    )
+  }
+
+  {
+    announcementItems.length > 0 && (
+      <section class="announcements-preview" aria-labelledby="announcements-preview-title">
+        <div class="announcements-preview-heading">
+          <p class="overline blue">Avisos</p>
+          <h2 id="announcements-preview-title">Vida de la congregación</h2>
+          <a class="arrow-link" href={pathFor('/avisos/')}>
+            Ver todos los avisos <Icon name="arrow" />
+          </a>
+        </div>
+        <ul class="announcement-list">
+          {announcementItems.map((item) => (
+            <li>
+              <span class="announcement-when">{item.when ?? 'Esta semana'}</span>
+              <div>
+                <strong>{item.title}</strong>
+                {item.detail && <p>{item.detail}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
     )
   }

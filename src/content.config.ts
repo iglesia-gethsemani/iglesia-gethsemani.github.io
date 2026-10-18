@@ -68,4 +68,29 @@ const serviceOrders = defineCollection({
   }),
 });
 
-export const collections = { reflections, sermons, doctrine, serviceOrders };
+const announcements = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/announcements' }),
+  schema: z.object({
+    date: z.coerce.date(),
+    published: z.boolean().default(true),
+    items: z
+      .array(
+        z.object({
+          title: z.string(),
+          when: z.string().optional(),
+          detail: z.string().optional(),
+        }),
+      )
+      .default([]),
+    flowers: z
+      .object({
+        family: z.string(),
+        note: z.string().optional(),
+        verse: z.string().optional(),
+        reference: z.string().optional(),
+      })
+      .optional(),
+  }),
+});
+
+export const collections = { reflections, sermons, doctrine, serviceOrders, announcements };
