@@ -1,25 +1,25 @@
 ---
 title: Culto vespertino de adoración
-date: 2026-10-11T18:00:00-06:00
+date: 2026-10-18T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: Cuéntales cuán grandes cosas el Señor ha hecho contigo
-sermonPassage: Marcos 5:1-20
-preacher: Sem. Beatriz Samantha Hernández Jiménez
+sermonTitle: La gratitud de la fe
+sermonPassage: Lucas 17:11-19
+preacher: Presb. Antonio Rodríguez Álvarez
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 92
+    detail: Salmo 100
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 35 “Grande es Jehová”
+    title: Himno No. 331 “Si hay valor y fe”
   - label: Palabra
     title: Lectura devocional
-    detail: 2 Corintios 5:17-19
+    detail: Hebreos 11
   - label: Oración
     title: Momentos de oración
   - label: Adoración
@@ -27,17 +27,16 @@ elements:
     detail: Tres himnos a escoger
   - label: Palabra
     title: Lectura bíblica
-    detail: Marcos 5:1-20
+    detail: Lucas 17:11-19
   - label: Palabra
-    title: Mensaje “Cuéntales cuán grandes cosas el Señor ha hecho contigo”
-    detail: Sem. Beatriz Samantha Hernández Jiménez
+    title: Mensaje “La gratitud de la fe”
+    detail: Presb. Antonio Rodríguez Álvarez
   - label: Ofrendas
     title: Himno No. 445 “Quiero darte mi ofrenda”
   - label: Comunidad
     title: Avisos
   - label: Envío
-    title: Bendición
-    detail: Padre Nuestro
+    title: Bendición pastoral
   - label: Envío
     title: Doxología No. 450 “Dios te bendiga”
   - label: Dirección
