@@ -1,0 +1,24 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import BulletinViewer from '@/components/BulletinViewer.astro';
+import bulletin from '@/data/bulletin.json';
+---
+
+<PageLayout
+  title="Boletín semanal"
+  description="Boletín semanal «Vida Abundante» de la Iglesia Presbiteriana Reformada Gethsemaní: órdenes de culto, reflexión y avisos."
+  image={bulletin.panels.outsideRight}
+  canonicalPath="/boletin/"
+>
+  <header class="subpage-hero annual-hero">
+    <div>
+      <p class="overline">Vida Abundante</p>
+      <h1>Boletín<br /><span>semanal.</span></h1>
+    </div>
+    <p>El mismo boletín que recibes en el templo: los órdenes de culto, la reflexión de la semana y los avisos de la congregación.</p>
+  </header>
+
+  <section class="bulletin-section">
+    <BulletinViewer />
+  </section>
+</PageLayout>

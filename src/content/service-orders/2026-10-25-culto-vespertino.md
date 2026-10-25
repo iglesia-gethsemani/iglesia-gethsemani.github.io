@@ -1,25 +1,25 @@
 ---
-title: Culto vespertino de adoración
-date: 2026-10-18T18:00:00-06:00
+title: Culto vespertino de adoración y estudio bíblico
+date: 2026-10-25T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: La gratitud de la fe
-sermonPassage: Lucas 17:11-19
-preacher: Presb. Antonio Rodríguez Álvarez
+sermonTitle: Lo que hablo es lo que creo respecto a la resurrección
+sermonPassage: 1 Corintios 15
+preacher: Sem. Hna. Beatriz Samantha Hernández Jiménez
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 100
+    detail: Salmo 16
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 331 “Si hay valor y fe”
+    title: Himno No. 181 “El Señor resucitó”
   - label: Palabra
     title: Lectura devocional
-    detail: Hebreos 11
+    detail: Juan 11:17-27
   - label: Oración
     title: Momentos de oración
   - label: Adoración
@@ -27,10 +27,10 @@ elements:
     detail: Tres himnos a escoger
   - label: Palabra
     title: Lectura bíblica
-    detail: Lucas 17:11-19
+    detail: 1 Corintios 15
   - label: Palabra
-    title: Mensaje “La gratitud de la fe”
-    detail: Presb. Antonio Rodríguez Álvarez
+    title: Mensaje “Lo que hablo es lo que creo respecto a la resurrección”
+    detail: Sem. Hna. Beatriz Samantha Hernández Jiménez
   - label: Ofrendas
     title: Himno No. 445 “Quiero darte mi ofrenda”
   - label: Comunidad

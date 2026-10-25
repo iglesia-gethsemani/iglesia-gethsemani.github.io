@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-25",
+  "label": "2026 · Año 82 · N.º 44",
+  "pdf": "/docs/boletin/boletin-2026-10-25.pdf",
+  "panelWidth": 807,
+  "panelHeight": 1870,
+  "panels": {
+    "outsideLeft": "/images/bulletin/2026-10-25-outside-left.webp",
+    "outsideCenter": "/images/bulletin/2026-10-25-outside-center.webp",
+    "outsideRight": "/images/bulletin/2026-10-25-outside-right.webp",
+    "insideLeft": "/images/bulletin/2026-10-25-inside-left.webp",
+    "insideCenter": "/images/bulletin/2026-10-25-inside-center.webp",
+    "insideRight": "/images/bulletin/2026-10-25-inside-right.webp"
+  }
+}

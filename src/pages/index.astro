@@ -147,9 +147,14 @@ const announcementItems = latestAnnouncements?.data.items.slice(0, 4) ?? [];
         <div class="announcements-preview-heading">
           <p class="overline blue">Avisos</p>
           <h2 id="announcements-preview-title">Vida de la congregación</h2>
-          <a class="arrow-link" href={pathFor('/avisos/')}>
-            Ver todos los avisos <Icon name="arrow" />
-          </a>
+          <div class="announcements-links">
+            <a class="arrow-link" href={pathFor('/avisos/')}>
+              Ver todos los avisos <Icon name="arrow" />
+            </a>
+            <a class="arrow-link" href={pathFor('/boletin/')}>
+              Boletín de la semana <Icon name="arrow" />
+            </a>
+          </div>
         </div>
         <ul class="announcement-list">
           {announcementItems.map((item) => (

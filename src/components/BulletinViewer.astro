@@ -1,0 +1,109 @@
+---
+import bulletin from '@/data/bulletin.json';
+
+const base = import.meta.env.BASE_URL;
+const asset = (path: string) => `${base}${path.replace(/^\//, '')}`;
+const { panels, panelWidth, panelHeight } = bulletin;
+const dateLabel = new Intl.DateTimeFormat('es-MX', {
+  timeZone: 'UTC',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date(`${bulletin.date}T00:00:00Z`));
+const pdfHref = asset(bulletin.pdf);
+const panelSrc = {
+  outsideLeft: asset(panels.outsideLeft),
+  outsideCenter: asset(panels.outsideCenter),
+  outsideRight: asset(panels.outsideRight),
+  insideLeft: asset(panels.insideLeft),
+  insideCenter: asset(panels.insideCenter),
+  insideRight: asset(panels.insideRight),
+};
+const steps = ['Portada', 'Al abrir', 'Interior', 'Cara exterior'];
+---
+
+<div
+  class="bulletin-viewer"
+  data-bulletin-viewer
+  data-step="0"
+  data-ratio={panelHeight / panelWidth}
+  data-panels={JSON.stringify(panelSrc)}
+  style={`--panel-ratio: ${panelHeight / panelWidth};`}
+>
+  <div class="bulletin-viewer-bar">
+    <strong>Boletín del {dateLabel}</strong>
+    {bulletin.label && <span>{bulletin.label}</span>}
+  </div>
+
+  <div
+    class="bulletin-stage"
+    data-stage
+    tabindex="0"
+    role="group"
+    aria-roledescription="boletín plegable"
+    aria-label={`Boletín del ${dateLabel}. Usa las flechas para abrirlo.`}
+  >
+    <div class="bulletin-zoom" data-zoom>
+      <div class="bulletin-shadow" aria-hidden="true"></div>
+      <div class="bulletin-sheet">
+        <div class="bulletin-leaf bulletin-leaf--left">
+          <div class="bulletin-face bulletin-face--front" data-crease="right">
+            <img src={panelSrc.insideLeft} alt="Interior, panel izquierdo del boletín" width={panelWidth} height={panelHeight} loading="lazy" decoding="async" />
+          </div>
+          <div class="bulletin-face bulletin-face--back" data-crease="left">
+            <img src={panelSrc.outsideRight} alt="Portada del boletín" width={panelWidth} height={panelHeight} decoding="async" fetchpriority="high" />
+          </div>
+        </div>
+        <div class="bulletin-leaf bulletin-leaf--center">
+          <div class="bulletin-face bulletin-face--front" data-crease="both">
+            <img src={panelSrc.insideCenter} alt="Interior, panel central del boletín" width={panelWidth} height={panelHeight} loading="lazy" decoding="async" />
+          </div>
+          <div class="bulletin-face bulletin-face--back" data-crease="both">
+            <img src={panelSrc.outsideCenter} alt="Contraportada del boletín" width={panelWidth} height={panelHeight} loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="bulletin-leaf bulletin-leaf--right">
+          <div class="bulletin-face bulletin-face--front" data-crease="left">
+            <img src={panelSrc.insideRight} alt="Interior, panel derecho del boletín" width={panelWidth} height={panelHeight} loading="lazy" decoding="async" />
+          </div>
+          <div class="bulletin-face bulletin-face--back" data-crease="right">
+            <img src={panelSrc.outsideLeft} alt="Solapa exterior del boletín" width={panelWidth} height={panelHeight} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bulletin-controls" aria-label="Controles del boletín">
+    <button type="button" data-action="prev" aria-label="Paso anterior">←</button>
+    <ol class="bulletin-steps">
+      {
+        steps.map((label, index) => (
+          <li>
+            <button type="button" data-goto={index} aria-current={index === 0 ? 'step' : undefined}>
+              {label}
+            </button>
+          </li>
+        ))
+      }
+    </ol>
+    <button type="button" data-action="next" aria-label="Paso siguiente">→</button>
+  </div>
+
+  <p class="bulletin-status" data-status aria-live="polite">Toca el boletín para abrirlo.</p>
+
+  <div class="bulletin-actions">
+    <a class="button button-blue" href={pdfHref} download>Descargar PDF ↓</a>
+    <a class="button button-outline" href={pdfHref} target="_blank" rel="noopener">Abrir en otra pestaña</a>
+    <button class="button button-outline" type="button" data-action="zoom">Leer de cerca</button>
+  </div>
+
+  <dialog class="bulletin-dialog" data-dialog aria-label="Paneles del boletín">
+    <form method="dialog">
+      <button class="bulletin-dialog-close" aria-label="Cerrar">×</button>
+    </form>
+    <div class="bulletin-dialog-panels" data-dialog-panels></div>
+  </dialog>
+</div>
+
+<script is:inline src={`${base}scripts/bulletin-viewer.js`} defer></script>

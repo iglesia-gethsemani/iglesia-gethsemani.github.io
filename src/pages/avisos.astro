@@ -2,6 +2,8 @@
 import PageLayout from '@/layouts/PageLayout.astro';
 import { getCollection } from 'astro:content';
 import { weeklyActivities } from '@/data/weekly-activities';
+import { pathFor } from '@/utils/paths';
+import Icon from '@/components/Icon.astro';
 
 const latest = (await getCollection('announcements'))
   .filter((entry) => entry.data.published)
@@ -31,6 +33,7 @@ const updatedLabel = latest
     <p>
       Actividades, celebraciones y anuncios de la congregación.
       {updatedLabel && <>Boletín del {updatedLabel}.</>}
+      <a class="arrow-link" href={pathFor('/boletin/')}>Ver o descargar el boletín <Icon name="arrow" /></a>
     </p>
   </header>
 

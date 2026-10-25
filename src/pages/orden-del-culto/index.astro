@@ -4,6 +4,7 @@ import ServiceOrder from '@/components/ServiceOrder.astro';
 import Icon from '@/components/Icon.astro';
 import { getCollection } from 'astro:content';
 import { pathFor } from '@/utils/paths';
+import bulletin from '@/data/bulletin.json';
 
 const orders = (await getCollection('serviceOrders'))
   .filter((order) => order.data.published)
@@ -74,7 +75,10 @@ const ogDescription = currentDateLabel
       <p class="eyebrow">Adoremos juntos</p>
       <h1>Orden del<br /><em>culto dominical.</em></h1>
     </div>
-    <p>Lecturas, himnos, oraciones y demás elementos que guían nuestra adoración congregacional cada domingo.</p>
+    <p>
+      Lecturas, himnos, oraciones y demás elementos que guían nuestra adoración congregacional cada domingo.
+      <a class="arrow-link" href={pathFor('/boletin/')}>Ver el boletín de la semana <Icon name="arrow" /></a>
+    </p>
   </header>
 
   <section class="service-order-page">
@@ -143,7 +147,25 @@ const ogDescription = currentDateLabel
     </div>
 
     <aside class="service-order-qr" aria-labelledby="qr-title">
-      
+      <div class="service-order-bulletin">
+        <a href={pathFor('/boletin/')} tabindex="-1" aria-hidden="true">
+          <img
+            src={`${base}${bulletin.panels.outsideRight.replace(/^\//, '')}`}
+            alt=""
+            width={bulletin.panelWidth}
+            height={bulletin.panelHeight}
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <div>
+          <small>Boletín de la semana</small>
+          <a class="service-order-bulletin-title" href={pathFor('/boletin/')}>Ver el boletín</a>
+          <a class="service-order-bulletin-download" href={`${base}${bulletin.pdf.replace(/^\//, '')}`} download>
+            Descargar PDF ↓
+          </a>
+        </div>
+      </div>
       <h2 id="qr-title">Escanea para consultar el orden</h2>
       <img
         src={`${base}images/qr-orden-del-culto.png`}
