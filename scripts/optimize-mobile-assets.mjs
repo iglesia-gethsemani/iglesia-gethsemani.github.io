@@ -14,6 +14,15 @@ const variants = [
     quality: 82,
   },
   {
+    input: 'public/images/sermons/las-riquezas-de-la-gracia-efesios-1.jpg',
+    outputs: [
+      ['public/images/optimized/las-riquezas-de-la-gracia-efesios-1-640.webp', 640],
+      ['public/images/optimized/las-riquezas-de-la-gracia-efesios-1-960.webp', 960],
+      ['public/images/optimized/las-riquezas-de-la-gracia-efesios-1-1280.webp', 1280],
+    ],
+    quality: 86,
+  },
+  {
     input: 'public/images/sociedad-redencion-gratuita.png',
     outputs: [
       ['public/images/optimized/sociedad-redencion-gratuita-480.webp', 480],
