@@ -10,6 +10,8 @@ const latest = (await getCollection('announcements'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 const items = latest?.data.items ?? [];
 const flowers = latest?.data.flowers;
+const birthdays = latest?.data.birthdays;
+const prayerRequests = latest?.data.prayerRequests ?? [];
 const updatedLabel = latest
   ? new Intl.DateTimeFormat('es-MX', {
       timeZone: 'America/Mexico_City',
@@ -69,7 +71,7 @@ const updatedLabel = latest
           <article class="announcements-card flowers-card">
             <p class="overline blue">Ofrenda floral</p>
             <h2>Las flores que adornan el templo</h2>
-            <p class="flowers-family">Fueron ofrendadas por la {flowers.family}</p>
+            <p class="flowers-family">Fueron ofrendadas por {flowers.family}</p>
             {flowers.note && <p class="flowers-note">{flowers.note}</p>}
             {flowers.verse && (
               <blockquote>
@@ -77,6 +79,41 @@ const updatedLabel = latest
                 {flowers.reference && <cite>{flowers.reference}</cite>}
               </blockquote>
             )}
+          </article>
+        )
+      }
+      {
+        birthdays && (
+          <article class="announcements-card birthdays-card">
+            <p class="overline blue">Cumpleaños y aniversarios</p>
+            <h2>Celebramos en {birthdays.month}</h2>
+            <ul class="birthday-list">
+              {birthdays.people.map((person) => (
+                <li>
+                  <span>{String(person.day).padStart(2, '0')}</span>
+                  {person.name}
+                </li>
+              ))}
+            </ul>
+            {birthdays.verse && (
+              <blockquote>
+                “{birthdays.verse}”
+                {birthdays.reference && <cite>{birthdays.reference}</cite>}
+              </blockquote>
+            )}
+          </article>
+        )
+      }
+      {
+        prayerRequests.length > 0 && (
+          <article class="announcements-card">
+            <p class="overline blue">Oremos juntos</p>
+            <h2>Peticiones de oración</h2>
+            <ul class="prayer-list">
+              {prayerRequests.map((request) => (
+                <li>{request}</li>
+              ))}
+            </ul>
           </article>
         )
       }

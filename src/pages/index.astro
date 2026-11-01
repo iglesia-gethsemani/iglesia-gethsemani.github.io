@@ -14,12 +14,7 @@ const latestReflection = (await getCollection('reflections'))
   .filter((reflection) => reflection.data.published)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 const featuredService = (await getCollection('serviceOrders'))
-  .filter(
-    (order) =>
-      order.data.published &&
-      order.data.time === '12:00' &&
-      Boolean(order.data.sermonImage),
-  )
+  .filter((order) => order.data.published && order.data.time === '12:00')
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 const featuredServiceDate = featuredService
   ? new Intl.DateTimeFormat('es-MX', {
@@ -96,36 +91,41 @@ const announcementItems = latestAnnouncements?.data.items.slice(0, 4) ?? [];
   </section>
 
   {
-    featuredService && featuredServiceImage && (
+    featuredService && (
       <section class="sermon-invitation" aria-labelledby="sermon-invitation-title">
-        <figure class="sermon-invitation-media">
-          <picture>
-            {featuredServiceWebp && (
-              <source
-                type="image/webp"
-                srcset={featuredServiceWebp.srcset}
-                sizes="(max-width: 900px) 100vw, min(1232px, 100vw)"
+        {featuredServiceImage && (
+          <figure class="sermon-invitation-media">
+            <picture>
+              {featuredServiceWebp && (
+                <source
+                  type="image/webp"
+                  srcset={featuredServiceWebp.srcset}
+                  sizes="(max-width: 900px) 100vw, min(1232px, 100vw)"
+                />
+              )}
+              <img
+                src={featuredServiceImage}
+                alt={featuredService.data.sermonImageAlt ?? `Miniatura de la predicación ${featuredService.data.sermonTitle ?? ''}`.trim()}
+                width="1280"
+                height="720"
+                loading="lazy"
+                decoding="async"
               />
-            )}
-            <img
-              src={featuredServiceImage}
-              alt={featuredService.data.sermonImageAlt ?? `Miniatura de la predicación ${featuredService.data.sermonTitle ?? ''}`.trim()}
-              width="1280"
-              height="720"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        </figure>
+            </picture>
+          </figure>
+        )}
         <div class="sermon-invitation-copy">
           <div class="sermon-invitation-meta">
             <p class="overline blue">Este domingo</p>
             <time datetime={featuredService.data.date.toISOString()}>
               {featuredServiceDate} · {featuredService.data.time} h
             </time>
-            <h2 id="sermon-invitation-title" class="sr-only">
+            <h2 id="sermon-invitation-title" class={featuredServiceImage ? 'sr-only' : 'sermon-invitation-title'}>
               {featuredService.data.sermonTitle || featuredService.data.title}
             </h2>
+            {!featuredServiceImage && featuredService.data.sermonPassage && (
+              <p class="sermon-invitation-passage">{featuredService.data.sermonPassage}</p>
+            )}
             {featuredService.data.preacher && (
               <p class="sermon-invitation-preacher">
                 <small>Predica</small>

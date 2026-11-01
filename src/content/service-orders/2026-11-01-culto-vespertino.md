@@ -1,38 +1,35 @@
 ---
 title: Culto vespertino de adoración y estudio bíblico
-date: 2026-10-25T18:00:00-06:00
+date: 2026-11-01T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
-sermonTitle: Lo que hablo es lo que creo respecto a la resurrección
-sermonPassage: 1 Corintios 15
-preacher: Sem. Hna. Beatriz Samantha Hernández Jiménez
+sermonTitle: Dando lo mejor al Señor
+sermonPassage: Malaquías 1:6
+preacher: Presb. Antonio Rodríguez Álvarez
 published: true
 elements:
   - label: Preparación
     title: Preludio
   - label: Adoración
     title: Llamamiento a la adoración
-    detail: Salmo 16
+    detail: Salmo 98
   - label: Oración
     title: Oración de ofrecimiento
   - label: Adoración
-    title: Himno No. 181 “El Señor resucitó”
+    title: Himno No. 37 “Al estar aquí”
   - label: Palabra
     title: Lectura devocional
-    detail: Juan 11:17-27
-  - label: Oración
-    title: Momentos de oración
+    detail: Romanos 12:1-2
   - label: Adoración
-    title: Tiempo de alabanza
-    detail: Tres himnos a escoger
+    title: Tiempo de alabanzas
   - label: Palabra
     title: Lectura bíblica
-    detail: 1 Corintios 15
+    detail: Malaquías 1:6
   - label: Palabra
-    title: Mensaje “Lo que hablo es lo que creo respecto a la resurrección”
-    detail: Sem. Hna. Beatriz Samantha Hernández Jiménez
+    title: Mensaje “Dando lo mejor al Señor”
+    detail: Presb. Antonio Rodríguez Álvarez
   - label: Ofrendas
-    title: Himno No. 445 “Quiero darte mi ofrenda”
+    title: Himno No. 441 “El dador alegre”
   - label: Comunidad
     title: Avisos
   - label: Envío

@@ -90,6 +90,15 @@ const announcements = defineCollection({
         reference: z.string().optional(),
       })
       .optional(),
+    birthdays: z
+      .object({
+        month: z.string(),
+        people: z.array(z.object({ day: z.number(), name: z.string() })),
+        verse: z.string().optional(),
+        reference: z.string().optional(),
+      })
+      .optional(),
+    prayerRequests: z.array(z.string()).default([]),
   }),
 });
 

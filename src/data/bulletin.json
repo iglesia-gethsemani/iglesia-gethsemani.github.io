@@ -1,15 +1,15 @@
 {
-  "date": "2026-10-25",
-  "label": "2026 · Año 82 · N.º 44",
-  "pdf": "/docs/boletin/boletin-2026-10-25.pdf",
+  "date": "2026-11-01",
+  "label": "2026 · Año 82 · N.º 45",
+  "pdf": "/docs/boletin/boletin-2026-11-01.pdf",
   "panelWidth": 807,
   "panelHeight": 1870,
   "panels": {
-    "outsideLeft": "/images/bulletin/2026-10-25-outside-left.webp",
-    "outsideCenter": "/images/bulletin/2026-10-25-outside-center.webp",
-    "outsideRight": "/images/bulletin/2026-10-25-outside-right.webp",
-    "insideLeft": "/images/bulletin/2026-10-25-inside-left.webp",
-    "insideCenter": "/images/bulletin/2026-10-25-inside-center.webp",
-    "insideRight": "/images/bulletin/2026-10-25-inside-right.webp"
+    "outsideLeft": "/images/bulletin/2026-11-01-outside-left.webp",
+    "outsideCenter": "/images/bulletin/2026-11-01-outside-center.webp",
+    "outsideRight": "/images/bulletin/2026-11-01-outside-right.webp",
+    "insideLeft": "/images/bulletin/2026-11-01-inside-left.webp",
+    "insideCenter": "/images/bulletin/2026-11-01-inside-center.webp",
+    "insideRight": "/images/bulletin/2026-11-01-inside-right.webp"
   }
 }
