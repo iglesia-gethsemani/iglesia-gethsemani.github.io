@@ -1,6 +1,6 @@
 ---
 title: Culto vespertino de adoración y estudio bíblico
-date: 2026-11-01T18:00:00-06:00
+date: 2026-11-08T18:00:00-06:00
 time: "18:00"
 location: Templo Gethsemaní
 sermonTitle: Dando lo mejor al Señor
@@ -20,6 +20,8 @@ elements:
   - label: Palabra
     title: Lectura devocional
     detail: Romanos 12:1-2
+  - label: Oración
+    title: Momentos de oración
   - label: Adoración
     title: Tiempo de alabanzas
   - label: Palabra
@@ -37,5 +39,5 @@ elements:
   - label: Envío
     title: Doxología No. 450 “Dios te bendiga”
   - label: Dirección
-    title: Diáconos
+    title: A.G. Efrén Haro Hernández
 ---

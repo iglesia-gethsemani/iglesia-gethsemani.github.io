@@ -14,11 +14,11 @@ const variants = [
     quality: 82,
   },
   {
-    input: 'public/images/sermons/las-riquezas-de-la-gracia-efesios-1.jpg',
+    input: 'public/images/sermons/amados-por-un-dios-soberano-malaquias-1.jpg',
     outputs: [
-      ['public/images/optimized/las-riquezas-de-la-gracia-efesios-1-640.webp', 640],
-      ['public/images/optimized/las-riquezas-de-la-gracia-efesios-1-960.webp', 960],
-      ['public/images/optimized/las-riquezas-de-la-gracia-efesios-1-1280.webp', 1280],
+      ['public/images/optimized/amados-por-un-dios-soberano-malaquias-1-640.webp', 640],
+      ['public/images/optimized/amados-por-un-dios-soberano-malaquias-1-960.webp', 960],
+      ['public/images/optimized/amados-por-un-dios-soberano-malaquias-1-1280.webp', 1280],
     ],
     quality: 86,
   },
